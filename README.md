@@ -157,17 +157,6 @@ niharikajain.portfolio/
 
 ---
 
-## 🚀 How to publish (GitHub Pages)
-
-1. Add `index.html` and `README.md` to this repo.
-2. Go to **Settings → Pages**.
-3. Under **Source**, choose **Deploy from a branch** → `main` → `/ (root)` → **Save**.
-4. Wait ~1 minute. Your live URL appears at the top of the Pages settings.
-5. Paste that URL into the **Live site** line at the top of this README.
-
-### To update content later
-Open `index.html`, find the section, edit the text or swap a placeholder. To add a real image, replace a placeholder `<div class="card-img">...</div>` with `<img src="your-image.jpg" alt="..." style="width:100%;height:100%;object-fit:cover">`.
-
 ---
 
-*Built by Niharika Jain · SCAD · 2025*
+*Built by Niharika Jain · 2026*
