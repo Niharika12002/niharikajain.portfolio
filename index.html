@@ -73,9 +73,10 @@
     .btn-ghost{border:none;background:none;color:var(--ink-soft);font-weight:600;cursor:pointer;font-size:.92rem;transition:color .2s;box-shadow:none}
     .btn-ghost:hover{color:var(--maroon)}
 
-    .hero{min-height:100vh;display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;padding:7rem 0 3rem}
-    @media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr;padding:6rem 0 2rem}}
-    .hero h1{font-family:var(--serif);font-size:clamp(2.7rem,6.5vw,5rem);font-weight:500;line-height:1.02;letter-spacing:-.02em;margin-bottom:1.4rem}
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:2.5rem;padding-top:7rem;padding-bottom:2.5rem}
+    .hero-main{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+    @media(min-width:880px){.hero{padding-top:6rem}.hero-main{grid-template-columns:1.12fr .88fr}}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.7rem,6.5vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-.02em;margin-left:-.03em;margin-bottom:1.5rem}
     .hero h1 .swash{font-style:italic;font-weight:400}
     .hero-sub{font-size:1.06rem;font-weight:300;color:var(--ink-soft);line-height:1.7;max-width:30rem;margin-bottom:2rem}
     .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
@@ -83,15 +84,16 @@
     .hero-note .arrow{position:absolute;left:-46px;top:-6px;width:40px;color:var(--marigold)}
     .collage{position:relative;height:420px;display:flex;align-items:center;justify-content:center}
     @media(max-width:879px){.collage{height:360px}}
+    @media(max-width:560px){.hero-note .arrow{display:none}.hero-note{margin-top:2rem}.sec,.contact{padding-top:3.5rem;padding-bottom:3.5rem}.about,.process{padding-top:3.5rem;padding-bottom:3.5rem}.hero h1{margin-left:0}}
     .photo-card{position:relative;width:15rem;background:#fff;padding:.7rem .7rem 2.6rem;border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transform:rotate(-3deg);z-index:2}
     .photo-card .pic{aspect-ratio:4/5;background:var(--maroon);display:flex;align-items:center;justify-content:center;text-align:center}
     .photo-card .pic span{font-family:var(--hand);color:rgba(244,236,220,.7);font-size:1rem;padding:0 1rem}
     .photo-card .cap{position:absolute;bottom:.5rem;left:0;right:0;text-align:center;font-family:var(--hand);font-size:1rem;color:var(--ink)}
     .sticker{position:absolute;border:1.5px solid var(--ink);border-radius:100px;padding:.35rem .8rem;font-size:.72rem;font-weight:600;background:var(--paper);box-shadow:2px 2px 0 var(--ink);z-index:3}
-    .st-1{top:6%;right:4%;background:var(--matcha);color:#fff;transform:rotate(6deg)}
+    .st-1{top:6%;right:2%;background:var(--matcha);color:#fff;transform:rotate(6deg)}
     .st-2{bottom:14%;left:0;background:var(--marigold);transform:rotate(-7deg)}
-    .st-3{top:40%;right:-2%;background:var(--blue);color:#fff;transform:rotate(9deg)}
-    .scroll-hint{display:flex;align-items:center;gap:.7rem;margin-top:2.4rem;grid-column:1/-1}
+    .st-3{top:40%;right:0;background:var(--blue);color:#fff;transform:rotate(9deg)}
+    .scroll-hint{display:flex;align-items:center;gap:.7rem}
     .scroll-line{width:3rem;height:2px;background:var(--ink-mute);position:relative;overflow:hidden}
     .scroll-line::after{content:'';position:absolute;inset:0;left:-100%;background:var(--maroon);animation:slide 2s ease-in-out infinite}
     .scroll-hint p{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
@@ -104,7 +106,7 @@
     @keyframes marquee{to{transform:translateX(-50%)}}
 
     section{scroll-margin-top:5rem}
-    .sec{padding:5rem 0}
+    .sec{padding-top:5rem;padding-bottom:5rem}
     .sec-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-.02em}
 
     .about{background:var(--maroon);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:5rem 0;position:relative}
@@ -160,7 +162,7 @@
     .step p{font-size:.88rem;color:var(--ink-soft);line-height:1.5}
     .step strong{color:var(--ink);font-weight:600}
 
-    .contact{padding:5.5rem 0;text-align:center;position:relative}
+    .contact{padding-top:5rem;padding-bottom:5rem;text-align:center;position:relative}
     .contact h2{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4rem);font-weight:500;line-height:1.05;margin:.5rem 0 1rem}
     .contact .label{justify-content:center}
     .contact-body{font-size:1.05rem;font-weight:300;color:var(--ink-soft);max-width:32rem;margin:0 auto 2rem}
@@ -203,6 +205,7 @@
   </nav>
 
   <header class="hero wrap" id="top">
+    <div class="hero-main">
     <div>
       <span class="label">SCAD &middot; UX &amp; Graphic Design</span>
       <h1>Part designer,<br>part <span class="swash">storyteller,</span><br>part systems thinker.</h1>
@@ -224,6 +227,7 @@
       <span class="sticker st-1">SCAD '25</span>
       <span class="sticker st-2">matcha enthusiast</span>
       <span class="sticker st-3">systems + stories</span>
+    </div>
     </div>
     <div class="scroll-hint"><div class="scroll-line"></div><p>scroll to explore</p></div>
   </header>
