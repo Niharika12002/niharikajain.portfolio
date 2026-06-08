@@ -4,804 +4,710 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Niharika Jain — UX & Graphic Designer</title>
-<meta name="description" content="Portfolio of Niharika Jain — UX and Graphic Designer. Part designer, part storyteller, part systems thinker."/>
+<meta name="description" content="Niharika Jain — UX and Graphic Designer. Part designer, part storyteller, part systems thinker."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Hanken+Grotesk:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
-
 <style>
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   RESET + BASE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Hanken Grotesk',sans-serif;color:#1C1008;overflow-x:hidden;line-height:1.6;background:#F4EDE0}
+body{font-family:'Hanken Grotesk',sans-serif;color:#1C1008;overflow-x:hidden;line-height:1.6}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   DESIGN TOKENS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root{
-  /* Backgrounds */
-  --cream:     #F4EDE0;
-  --paper:     #FBF7EF;
-  --paper2:    #F8F2E6;
+  --cream:     #F5EEE0;
+  --paper:     #FBF8F0;
+  --paper2:    #F8F3E8;
+  --ink:       #1C1008;
+  --ink2:      #3C2010;
+  --muted:     #7A5835;
+  --faint:     #B89868;
+
   --maroon:    #6B1F1F;
   --maroon-d:  #4A1414;
+  --maroon-l:  #8B3030;
   --marigold:  #D9920A;
-  --marigold-l:#F2B830;
-  --espresso:  #1C1008;
+  --marigold-l:#F0B830;
 
-  /* Ink */
-  --ink:    #1C1008;
-  --ink2:   #3D2010;
-  --muted:  #7A5838;
-  --faint:  #B89068;
+  /* Project accent colors — FRAME only, not fill */
+  --red:    #C83020;  --red-d:    #8C1C10;
+  --cobalt: #2040A8;  --cobalt-d: #102068;
+  --forest: #236040;  --forest-d: #123820;
+  --orange: #C05C18;  --orange-d: #883A08;
+  --coral:  #C03420;  --coral-d:  #881C10;
+  --sky:    #2060C0;  --sky-d:    #103880;
 
-  /* Project colors */
-  --c-red:    #C83828;
-  --c-red-d:  #8E2010;
-  --c-blue:   #2448A8;
-  --c-blue-d: #142878;
-  --c-green:  #256040;
-  --c-green-d:#143820;
-  --c-orange: #C06018;
-  --c-ora-d:  #884010;
-  --c-coral:  #C03828;
-  --c-coral-d:#882010;
-  --c-sky:    #2468C0;
-  --c-sky-d:  #143880;
+  --sh:   5px 6px 0 rgba(28,16,8,.20);
+  --sh-l: 7px 9px 0 rgba(28,16,8,.24);
+  --sh-s: 3px 4px 0 rgba(28,16,8,.16);
 
-  /* Shadows */
-  --sh:   5px 6px 0 rgba(28,16,8,.22);
-  --sh-l: 7px 9px 0 rgba(28,16,8,.26);
-  --sh-s: 3px 4px 0 rgba(28,16,8,.18);
-
-  /* Type */
   --serif: 'Fraunces',serif;
   --sans:  'Hanken Grotesk',sans-serif;
   --hand:  'Caveat',cursive;
 
-  /* Layout */
-  --gut:  clamp(1.25rem,5.5vw,4.5rem);
-  --secV: clamp(4.5rem,9vw,7.5rem);
-  --r:    8px;
-  --r-sm: 4px;
-  --r-lg: 14px;
+  --gut: clamp(1.25rem,5.5vw,4.5rem);
+  --sv:  clamp(4rem,9vw,7rem);
+  --r:   8px;
+  --rs:  4px;
+  --rl:  14px;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SECTION COLOR BLOCKS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.sec-cream   {background:var(--cream)}
-.sec-paper   {background:var(--paper)}
-.sec-maroon  {background:var(--maroon)}
-.sec-marigold{background:var(--marigold)}
-.sec-espresso{background:var(--espresso)}
+/* ══════════════════════════════════════════════
+   SECTION BACKGROUNDS + GRID OVERLAYS
+══════════════════════════════════════════════ */
+.bg-cream{background:var(--cream)}
+.bg-paper{background:var(--paper)}
+.bg-maroon{background:var(--maroon)}
+.bg-marigold{background:var(--marigold)}
+.bg-cream-paper{background:var(--paper2)}
 
-/* Grid overlay per section */
-.grid-cream::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(28,16,8,.045) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(28,16,8,.045) 1px,transparent 1px);
-  background-size:26px 26px;
-}
-.grid-dark::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(244,237,224,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,237,224,.04) 1px,transparent 1px);
-  background-size:26px 26px;
-}
-.grid-maroon::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(244,237,224,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,237,224,.06) 1px,transparent 1px);
-  background-size:26px 26px;
-}
-.grid-yellow::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(28,16,8,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(28,16,8,.07) 1px,transparent 1px);
-  background-size:26px 26px;
-}
 section,nav{position:relative}
+.gd::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none}
+.gd-cream::before{
+  background-image:linear-gradient(rgba(28,16,8,.042) 1px,transparent 1px),linear-gradient(90deg,rgba(28,16,8,.042) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.gd-maroon::before{
+  background-image:linear-gradient(rgba(244,238,224,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(244,238,224,.055) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.gd-yellow::before{
+  background-image:linear-gradient(rgba(28,16,8,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(28,16,8,.06) 1px,transparent 1px);
+  background-size:26px 26px;
+}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* ══════════════════════════════════════════════
    LAYOUT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+══════════════════════════════════════════════ */
 .wrap{max-width:1180px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
-.section{padding:var(--secV) 0}
+.section{padding:var(--sv) 0}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   TYPE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ══════════════════════════════════════════════
+   TYPE UTILITIES
+══════════════════════════════════════════════ */
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  margin-bottom:.9rem;
+  font-size:.63rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem;
 }
-.eyebrow-cream{color:rgba(244,237,224,.6)}
-.eyebrow-ink  {color:var(--muted)}
-.eyebrow-ink::before,.eyebrow-cream::before{
-  content:'';width:18px;height:2px;display:block;
-}
-.eyebrow-ink::before  {background:var(--c-red)}
-.eyebrow-cream::before{background:rgba(244,237,224,.5)}
+.ey-ink  {color:var(--muted)}
+.ey-cream{color:rgba(244,238,224,.55)}
+.ey-ink::before  {content:'';width:16px;height:2px;background:var(--red);display:block}
+.ey-cream::before{content:'';width:16px;height:2px;background:rgba(244,238,224,.4);display:block}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   TAPE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.tape{
-  position:absolute;width:46px;height:14px;border-radius:1px;z-index:20;
-  background:rgba(217,146,10,.5);
-}
-.tape.tb{background:rgba(36,72,168,.28)}
-.tape.tr{background:rgba(200,56,40,.26)}
-.tape.tc{background:rgba(244,237,224,.55)}
+/* ══════════════════════════════════════════════
+   TAPE STRIPS
+══════════════════════════════════════════════ */
+.tape{position:absolute;width:44px;height:13px;border-radius:1px;z-index:20}
+.tape-mg{background:rgba(217,146,10,.52)}
+.tape-b {background:rgba(32,64,168,.28)}
+.tape-r {background:rgba(200,48,32,.25)}
+.tape-c {background:rgba(244,238,224,.55)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* ══════════════════════════════════════════════
    BUTTONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+══════════════════════════════════════════════ */
 .btn{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--sans);font-size:.72rem;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;
-  text-decoration:none;padding:.78rem 1.6rem;border-radius:var(--r-sm);
-  transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;
-  white-space:nowrap;
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;padding:.78rem 1.6rem;border-radius:var(--rs);
+  transition:transform .14s,box-shadow .14s;border:none;cursor:pointer;white-space:nowrap;
 }
-/* Marigold fill */
-.btn-mg{
-  background:var(--marigold);color:var(--ink);
-  box-shadow:4px 4px 0 var(--maroon-d);
-}
-.btn-mg:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--maroon-d)}
-/* Cream outline on dark */
-.btn-cream-ol{
-  background:transparent;color:var(--cream);
-  border:2px solid rgba(244,237,224,.35);
-  box-shadow:4px 4px 0 rgba(244,237,224,.15);
-}
-.btn-cream-ol:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(244,237,224,.15);border-color:rgba(244,237,224,.6)}
-/* Red fill */
-.btn-red{
-  background:var(--c-red);color:#fff;
-  box-shadow:4px 4px 0 var(--c-red-d);
-}
-.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--c-red-d)}
-/* Cream fill on maroon */
-.btn-cream{
-  background:var(--cream);color:var(--maroon);
-  box-shadow:4px 4px 0 rgba(28,16,8,.3);
-  border:2px solid transparent;
-}
-.btn-cream:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.3)}
-/* Dark outline on cream */
-.btn-dark-ol{
-  background:transparent;color:var(--ink);
-  border:2px solid rgba(28,16,8,.25);
-  box-shadow:4px 4px 0 rgba(28,16,8,.15);
-}
-.btn-dark-ol:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.2)}
+.btn-red  {background:var(--red);color:#fff;box-shadow:4px 4px 0 var(--red-d)}
+.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--red-d)}
+.btn-mg   {background:var(--marigold);color:var(--ink);box-shadow:4px 4px 0 rgba(28,16,8,.3)}
+.btn-mg:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.3)}
+.btn-ink  {background:var(--ink);color:var(--cream);box-shadow:4px 4px 0 rgba(0,0,0,.4)}
+.btn-ink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.4)}
+.btn-ol-dk{background:transparent;color:var(--ink);border:2px solid rgba(28,16,8,.22);box-shadow:var(--sh-s)}
+.btn-ol-dk:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 rgba(28,16,8,.18)}
+.btn-ol-cr{background:transparent;color:var(--cream);border:2px solid rgba(244,238,224,.32);box-shadow:3px 3px 0 rgba(244,238,224,.12)}
+.btn-ol-cr:hover{transform:translate(-2px,-2px);border-color:rgba(244,238,224,.6)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* ══════════════════════════════════════════════
    NAV
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+══════════════════════════════════════════════ */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:.85rem var(--gut);
-  background:rgba(244,237,224,.92);backdrop-filter:blur(16px);
-  border-bottom:2px solid rgba(28,16,8,.1);
+  background:rgba(245,238,224,.93);backdrop-filter:blur(16px);
+  border-bottom:2px solid rgba(28,16,8,.09);
 }
-.nav-logo{font-family:var(--serif);font-style:italic;font-size:1.05rem;font-weight:400;color:var(--ink);text-decoration:none}
+.logo{font-family:var(--serif);font-style:italic;font-size:1.06rem;font-weight:400;color:var(--ink);text-decoration:none}
 .nav-links{display:flex;gap:1.8rem;list-style:none}
-.nav-links a{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a{font-size:.69rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .14s}
 .nav-links a:hover{color:var(--maroon)}
-.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink)}
+.nav-tog{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-tog span{display:block;width:22px;height:1.5px;background:var(--ink)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* ══════════════════════════════════════════════
    HERO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-#hero{padding-top:80px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-.hero-layout{
-  display:grid;grid-template-columns:1fr 400px;
-  gap:3rem;align-items:center;width:100%;padding:3rem 0;
-}
-.hero-tag{
+══════════════════════════════════════════════ */
+#hero{padding-top:82px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 440px;gap:2.5rem;align-items:center;width:100%;padding:3rem 0}
+
+.hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
   margin-bottom:1.1rem;
 }
-.hero-tag::before{content:'';width:18px;height:2px;background:var(--c-red);display:block}
+.hero-eyebrow::before{content:'';width:16px;height:2px;background:var(--red);display:block}
 .hero-h{
   font-family:var(--serif);font-weight:700;
-  font-size:clamp(2.6rem,5.5vw,4.6rem);
-  line-height:1.04;letter-spacing:-.025em;color:var(--ink);
-  margin-bottom:1.3rem;
+  font-size:clamp(2.6rem,5.5vw,4.5rem);
+  line-height:1.04;letter-spacing:-.025em;color:var(--ink);margin-bottom:1.2rem;
 }
-.hero-h .ital{font-style:italic;color:var(--c-red)}
-.hero-sub{
-  font-size:clamp(.9rem,1.3vw,1rem);color:var(--muted);
-  max-width:40ch;line-height:1.78;font-weight:300;margin-bottom:.9rem;
-}
-.hero-note{
-  font-family:var(--hand);font-size:.95rem;color:var(--muted);
-  margin-bottom:1.8rem;opacity:.85;
-}
+.hero-h .it{font-style:italic;color:var(--red)}
+.hero-sub{font-size:clamp(.9rem,1.3vw,1rem);color:var(--muted);max-width:40ch;line-height:1.78;font-weight:300;margin-bottom:.8rem}
+.hero-note{font-family:var(--hand);font-size:1rem;color:var(--muted);opacity:.82;margin-bottom:1.8rem}
 .hero-ctas{display:flex;gap:.7rem;flex-wrap:wrap}
 
 /* Hero collage */
-.hero-collage{position:relative;height:520px}
+.hero-collage{position:relative;height:540px}
 .hco{position:absolute}
 
-.polaroid{
-  background:#fff;padding:9px 9px 38px;
-  box-shadow:var(--sh);border-radius:2px;
-  border:1.5px solid rgba(28,16,8,.12);position:relative;
+/* Large color blob behind everything */
+.hero-blob{
+  position:absolute;top:30px;right:-20px;
+  width:360px;height:400px;border-radius:50%;
+  background:rgba(32,64,168,.08);
+  filter:blur(0px);
+  z-index:0;
 }
-.polaroid-img{
-  border-radius:1px;overflow:hidden;
-  background:linear-gradient(145deg,#EAE0D0,#D6C8B4);
-  display:flex;align-items:center;justify-content:center;
+.hero-blob::after{
+  content:'';position:absolute;
+  inset:-20px;border-radius:50%;
+  background:rgba(200,48,32,.05);
 }
-.polaroid-cap{
-  position:absolute;bottom:8px;left:0;right:0;text-align:center;
-  font-family:var(--hand);font-size:.82rem;color:#555;
-}
-.hco-photo{top:0;right:15px;transform:rotate(-2deg);width:168px}
-.hco-photo .polaroid-img{width:150px;height:150px}
 
-/* Blue folder */
-.hco-folder{top:110px;left:0;transform:rotate(-1.5deg);z-index:3}
+/* Profile photo — BIGGER */
+.hco-photo{top:0;right:30px;transform:rotate(-2deg);width:185px;z-index:3}
+.polaroid{background:#fff;padding:9px 9px 40px;box-shadow:var(--sh-l);border-radius:2px;border:1.5px solid rgba(28,16,8,.1);position:relative}
+.pol-img{border-radius:1px;overflow:hidden;background:linear-gradient(145deg,#EAE0D2,#D6C8B6);display:flex;align-items:center;justify-content:center}
+.pol-cap{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-family:var(--hand);font-size:.82rem;color:#555}
+
+/* Blue folder — anchor, larger */
+.hco-folder{top:130px;left:-10px;transform:rotate(-1.5deg);z-index:4}
 .hero-folder{
-  background:var(--c-blue);border:2px solid var(--c-blue-d);
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh);width:152px;position:relative;
+  background:var(--cobalt);border:2.5px solid var(--cobalt-d);
+  border-radius:0 var(--rl) var(--rl) var(--rl);
+  box-shadow:var(--sh-l);width:162px;position:relative;
 }
 .hero-folder::before{
-  content:'selected_work/';position:absolute;top:-26px;left:-1.5px;
-  background:var(--c-blue);border:2px solid var(--c-blue-d);border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 10px;font-size:.55rem;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;
+  content:'selected_work/';position:absolute;top:-27px;left:-2px;
+  background:var(--cobalt);border:2.5px solid var(--cobalt-d);border-bottom:none;
+  border-radius:var(--rs) var(--rs) 0 0;
+  padding:4px 11px;font-size:.54rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);white-space:nowrap;
 }
-.hf-inner{padding:.85rem .9rem}
-.hf-file{font-size:.63rem;color:rgba(255,255,255,.72);line-height:1.9}
-.hf-count{font-size:.54rem;color:rgba(255,255,255,.4);margin-top:.35rem;letter-spacing:.05em}
+.hf-in{padding:.9rem}
+.hf-f{font-size:.62rem;color:rgba(255,255,255,.72);line-height:1.95}
+.hf-ct{font-size:.52rem;color:rgba(255,255,255,.38);margin-top:.35rem;letter-spacing:.05em}
 
-/* Ginger */
-.hco-ginger{top:190px;right:5px;transform:rotate(2deg);z-index:4;width:130px}
-.ginger-card{
-  background:var(--paper);border:2px solid rgba(28,16,8,.18);
-  border-radius:var(--r);box-shadow:var(--sh);padding:.7rem;
-}
-.ginger-bg{
-  background:linear-gradient(135deg,#F4BE58,#D89010);
-  border-radius:5px;padding:.85rem;
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-}
-.g-lbl{font-size:.57rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;text-align:center}
-.g-sub{font-size:.5rem;color:var(--faint);text-align:center;margin-top:1px}
+/* Ginger card */
+.hco-gin{top:200px;right:10px;transform:rotate(2.5deg);z-index:5;width:128px}
+.gin-card{background:var(--paper);border:2px solid rgba(28,16,8,.15);border-radius:var(--r);box-shadow:var(--sh);padding:.7rem}
+.gin-bg{background:linear-gradient(135deg,#F4BE58,#D88C0C);border-radius:5px;padding:.85rem;display:flex;flex-direction:column;align-items:center;gap:3px}
+.gin-lbl{font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;text-align:center}
+.gin-sub{font-size:.5rem;color:var(--faint);text-align:center;margin-top:1px}
 
 /* Sky strip */
-.hco-sky{top:330px;right:20px;transform:rotate(.8deg);z-index:2;width:208px}
-.sky-card{
-  background:var(--paper);border:2px solid rgba(28,16,8,.14);
-  border-radius:var(--r);padding:.7rem;box-shadow:var(--sh);
-}
+.hco-sky{top:340px;right:15px;transform:rotate(.7deg);z-index:2;width:216px}
+.sky-card{background:var(--paper);border:2px solid rgba(28,16,8,.13);border-radius:var(--r);padding:.7rem;box-shadow:var(--sh)}
 .film-row{display:flex;gap:3px;margin-bottom:.4rem}
-.ff{flex:0 0 40px;height:50px;background:#1C1008;border-radius:2px;padding:4px 3px;position:relative}
+.ff{flex:0 0 40px;height:52px;background:#1C1008;border-radius:2px;padding:4px 3px;position:relative}
 .ff::before,.ff::after{content:'';position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#1C1008 0,#1C1008 3px,#000 3px,#000 7px)}
 .ff::before{top:0}.ff::after{bottom:0}
 .ff-img{width:100%;height:100%;border-radius:1px}
-.sky-cap{font-family:var(--hand);font-size:.8rem;color:var(--muted);line-height:1.3}
-.sky-fn{font-size:.52rem;color:var(--faint);margin-top:3px}
+.sky-cap{font-family:var(--hand);font-size:.82rem;color:var(--muted);line-height:1.3}
 
 /* Sticky */
-.hco-sticky{top:380px;left:95px;z-index:5}
-.sticky-y{
-  background:#FEF082;border-radius:2px;padding:.6rem .8rem;max-width:155px;
-  box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.04);
-  font-family:var(--hand);font-size:.9rem;color:#1A1200;line-height:1.45;
+.hco-sticky{top:420px;left:85px;z-index:5}
+.stic{background:#FEF082;border-radius:2px;padding:.62rem .8rem;max-width:152px;box-shadow:2px 3px 8px rgba(28,16,8,.16),0 0 0 1px rgba(28,16,8,.04);font-family:var(--hand);font-size:.9rem;color:#1A1200;line-height:1.45}
+
+/* Mobile chips */
+.hero-mob{display:none;flex-wrap:wrap;gap:.45rem;margin-top:1.3rem}
+.hm{font-size:.64rem;font-weight:500;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(28,16,8,.18);color:var(--muted)}
+.hm.r{border-color:rgba(200,48,32,.35);color:var(--red)}
+.hm.g{border-color:rgba(35,96,64,.35);color:var(--forest)}
+
+/* ══════════════════════════════════════════════
+   MARQUEE
+══════════════════════════════════════════════ */
+.mq{background:var(--maroon);border-top:2px solid var(--maroon-d);border-bottom:2px solid var(--maroon-d);padding:.82rem 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1}
+.mq-track{display:inline-flex;animation:mq 30s linear infinite;will-change:transform}
+.mq-item{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,238,224,.82);padding:0 1.2rem;flex-shrink:0}
+.mq-star{color:var(--marigold-l);font-size:.72rem;padding:0 .2rem}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+
+/* ══════════════════════════════════════════════
+   *** THE BIG FIX: PROJECT CARDS ***
+   Color = FRAME + TAB + SHADOW
+   Interior = cream/paper with image area
+══════════════════════════════════════════════ */
+#work{border-top:2px solid rgba(28,16,8,.09)}
+.bento{display:flex;flex-direction:column;gap:2.2rem}
+
+/* Universal folder anatomy */
+.pf{
+  position:relative;margin-top:30px;cursor:pointer;
+  border-radius:0 var(--rl) var(--rl) var(--rl);
+  overflow:visible;transition:transform .2s,filter .2s;
+}
+.pf:hover{transform:translateY(-3px)}
+.pf:hover .pf-body{box-shadow:var(--sh-l)}
+
+.pf-tab{
+  position:absolute;top:-28px;left:-2px;
+  height:30px;padding:0 14px;
+  display:inline-flex;align-items:center;gap:7px;
+  border-radius:var(--rs) var(--rs) 0 0;
+  font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  white-space:nowrap;border-width:2px;border-style:solid;border-bottom:none;
 }
 
-/* Hero mobile */
-.hero-mobile{display:none;flex-wrap:wrap;gap:.45rem;margin-top:1.3rem}
-.hm-chip{
-  font-size:.65rem;font-weight:500;padding:4px 10px;border-radius:20px;
-  border:1.5px solid rgba(28,16,8,.18);color:var(--muted);
-}
-.hm-chip.r{border-color:rgba(200,56,40,.35);color:var(--c-red)}
-.hm-chip.g{border-color:rgba(37,96,64,.35);color:var(--c-green)}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   MARQUEE STRIP
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.marquee-strip{
-  background:var(--maroon);
-  border-top:2px solid var(--maroon-d);
-  border-bottom:2px solid var(--maroon-d);
-  padding:.85rem 0;overflow:hidden;white-space:nowrap;
-  position:relative;z-index:1;
-}
-.marquee-track{
-  display:inline-flex;gap:0;
-  animation:marquee 28s linear infinite;
-  will-change:transform;
-}
-.marquee-item{
-  font-family:var(--sans);font-size:.7rem;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;color:rgba(244,237,224,.85);
-  padding:0 1.4rem;flex-shrink:0;
-}
-.marquee-star{color:var(--marigold-l);font-size:.75rem;padding:0 .3rem}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   WORK / DESKTOP ARCHIVE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-#work{border-top:2px solid rgba(28,16,8,.1);border-bottom:2px solid rgba(28,16,8,.1)}
-.bento{display:flex;flex-direction:column;gap:2rem}
-
-/* ── Shared folder ── */
-.proj-card{
-  position:relative;margin-top:28px;cursor:pointer;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  border-width:2px;border-style:solid;box-shadow:var(--sh-l);
-  overflow:hidden;transition:box-shadow .22s;
-}
-.proj-card:hover{box-shadow:9px 12px 0 rgba(28,16,8,.28)}
-.proj-card .ptab{
-  position:absolute;top:-26px;left:-1.5px;
-  height:28px;padding:0 13px;
-  display:inline-flex;align-items:center;
-  border-width:2px;border-style:solid;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);white-space:nowrap;
+/* THE BODY: cream interior with colored border */
+.pf-body{
+  background:var(--paper);border-width:2.5px;border-style:solid;
+  border-radius:0 var(--rl) var(--rl) var(--rl);
+  box-shadow:var(--sh);overflow:hidden;
+  transition:box-shadow .2s;
 }
 
-/* Pili */
-.pc-pili{background:var(--c-red);border-color:var(--c-red-d)}
-.pc-pili .ptab{background:var(--c-red);border-color:var(--c-red-d)}
-/* BioSpherix */
-.pc-bio{background:var(--c-blue);border-color:var(--c-blue-d)}
-.pc-bio .ptab{background:var(--c-blue);border-color:var(--c-blue-d)}
-/* FIFA */
-.pc-fifa{background:var(--c-green);border-color:var(--c-green-d)}
-.pc-fifa .ptab{background:var(--c-green);border-color:var(--c-green-d)}
-/* Wisdom */
-.pc-wisdom{background:var(--c-orange);border-color:var(--c-ora-d)}
-.pc-wisdom .ptab{background:var(--c-orange);border-color:var(--c-ora-d)}
-/* Naagin */
-.pc-naagin{background:var(--c-coral);border-color:var(--c-coral-d)}
-.pc-naagin .ptab{background:var(--c-coral);border-color:var(--c-coral-d)}
-/* KUAI */
-.pc-kuai{background:var(--c-sky);border-color:var(--c-sky-d)}
-.pc-kuai .ptab{background:var(--c-sky);border-color:var(--c-sky-d)}
+/* Color classes: border + tab bg + shadow color */
+.pf-red .pf-tab{background:var(--red);border-color:var(--red-d);color:rgba(255,255,255,.85)}
+.pf-red .pf-body{border-color:var(--red)}
+.pf-red{filter:drop-shadow(5px 7px 0 rgba(140,28,16,.35))}
+.pf-red:hover{filter:drop-shadow(7px 10px 0 rgba(140,28,16,.42))}
 
-/* Image area */
+.pf-cobalt .pf-tab{background:var(--cobalt);border-color:var(--cobalt-d);color:rgba(255,255,255,.85)}
+.pf-cobalt .pf-body{border-color:var(--cobalt)}
+.pf-cobalt{filter:drop-shadow(5px 7px 0 rgba(16,32,104,.35))}
+.pf-cobalt:hover{filter:drop-shadow(7px 10px 0 rgba(16,32,104,.42))}
+
+.pf-forest .pf-tab{background:var(--forest);border-color:var(--forest-d);color:rgba(255,255,255,.85)}
+.pf-forest .pf-body{border-color:var(--forest)}
+.pf-forest{filter:drop-shadow(5px 7px 0 rgba(18,56,32,.35))}
+.pf-forest:hover{filter:drop-shadow(7px 10px 0 rgba(18,56,32,.42))}
+
+.pf-orange .pf-tab{background:var(--orange);border-color:var(--orange-d);color:rgba(255,255,255,.85)}
+.pf-orange .pf-body{border-color:var(--orange)}
+.pf-orange{filter:drop-shadow(5px 7px 0 rgba(136,58,8,.35))}
+.pf-orange:hover{filter:drop-shadow(7px 10px 0 rgba(136,58,8,.42))}
+
+.pf-coral .pf-tab{background:var(--coral);border-color:var(--coral-d);color:rgba(255,255,255,.85)}
+.pf-coral .pf-body{border-color:var(--coral)}
+.pf-coral{filter:drop-shadow(5px 7px 0 rgba(136,28,16,.35))}
+.pf-coral:hover{filter:drop-shadow(7px 10px 0 rgba(136,28,16,.42))}
+
+.pf-sky .pf-tab{background:var(--sky);border-color:var(--sky-d);color:rgba(255,255,255,.85)}
+.pf-sky .pf-body{border-color:var(--sky)}
+.pf-sky{filter:drop-shadow(5px 7px 0 rgba(16,56,128,.35))}
+.pf-sky:hover{filter:drop-shadow(7px 10px 0 rgba(16,56,128,.42))}
+
+/* ── IMAGE / PREVIEW AREA ── cream-toned, light, project-specific ── */
 .pimg{
   width:100%;position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid rgba(0,0,0,.15);
-  background:rgba(0,0,0,.09);
+  border-bottom:2px solid rgba(28,16,8,.1);
 }
-.pimg-label{
-  position:absolute;bottom:8px;left:10px;
+/* warm cream base for ALL placeholders */
+.pimg-cream{background:linear-gradient(145deg,#F8F2E8,#F0E8D6)}
+.pimg-blue {background:linear-gradient(145deg,#EDF2F8,#DDE8F4)}
+.pimg-green{background:linear-gradient(145deg,#EDF4EE,#DCF0DF)}
+.pimg-warm {background:linear-gradient(145deg,#FDF4E8,#F5E8D0)}
+.pimg-red  {background:linear-gradient(145deg,#FDF0EE,#F5E0DA)}
+.pimg-sky  {background:linear-gradient(145deg,#EEF4FD,#DCE8F8)}
+
+/* file label always bottom-left */
+.pl-label{
+  position:absolute;bottom:9px;left:10px;
   font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  background:rgba(0,0,0,.3);color:rgba(255,255,255,.8);padding:2px 7px;border-radius:2px;
+  background:rgba(28,16,8,.08);color:var(--muted);padding:2px 7px;border-radius:2px;
 }
-.pimg-note{
-  position:absolute;top:8px;right:8px;
-  font-size:.48rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);
+.pl-note{position:absolute;top:9px;right:9px;font-size:.48rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+
+/* ── PILI specific placeholder ── warm, care-journal ── */
+.ph-pili-wrap{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 16px;
+}
+.ph-pili-main{
+  flex:1;max-width:220px;display:flex;flex-direction:column;gap:8px;
+}
+.ph-pili-card{
+  background:rgba(255,255,255,.75);border:1.5px solid rgba(200,48,32,.15);
+  border-radius:5px;padding:11px 14px;
+}
+.ppc-line{height:5px;border-radius:2px;background:rgba(200,48,32,.4);margin-bottom:6px}
+.ppc-line.s{width:72%;background:rgba(200,48,32,.2)}
+.ppc-line.xs{width:50%;background:rgba(200,48,32,.12)}
+.ppc-dots{display:flex;gap:5px;margin-top:5px}
+.ppc-dot{width:7px;height:7px;border-radius:50%;background:rgba(200,48,32,.28)}
+.ppc-dot:nth-child(2){background:rgba(217,146,10,.38)}
+.ppc-dot:nth-child(3){background:rgba(35,96,64,.28)}
+/* small taped note */
+.pili-note{
+  position:absolute;top:12px;right:12px;transform:rotate(2deg);
+  background:#FEF082;padding:.45rem .6rem;border-radius:2px;
+  box-shadow:1px 2px 4px rgba(28,16,8,.12);
+  font-family:var(--hand);font-size:.72rem;color:#1A1200;line-height:1.35;max-width:90px;
 }
 
-/* Info */
-.pinfo{padding:1.1rem 1.3rem 1.3rem}
-.pbadge{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
-  padding:3px 9px;border-radius:2px;border:1px solid rgba(255,255,255,.22);
-  margin-bottom:.65rem;
+/* ── BioSpherix placeholder ── blueprint, cream/pale blue ── */
+.ph-bio-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph-bio-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(32,64,168,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(32,64,168,.12) 1px,transparent 1px);
+  background-size:20px 20px;
 }
-.psub{
-  font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.55);margin-bottom:.35rem;
+.ph-bio-canvas{position:relative;z-index:1;width:70%;display:flex;flex-direction:column;gap:9px}
+.ph-bio-row{display:flex;align-items:center;gap:7px}
+.ph-bio-box{
+  border:1.5px solid rgba(32,64,168,.45);border-radius:3px;
+  background:rgba(32,64,168,.06);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.4rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(32,64,168,.8);
 }
-.ptitle{
-  font-family:var(--serif);font-weight:700;color:#fff;
-  line-height:1.08;letter-spacing:-.02em;margin-bottom:.4rem;
+.ph-bio-line{flex:1;height:1.5px;background:rgba(32,64,168,.3);border-radius:1px}
+.ph-bio-dot{width:7px;height:7px;border-radius:50%;background:rgba(32,64,168,.5);flex-shrink:0}
+
+/* ── FIFA placeholder ── green, route lines, badges ── */
+.ph-fifa-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph-mline{position:absolute;border:1.5px dashed rgba(35,96,64,.45)}
+.ph-pin{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--forest);box-shadow:0 0 0 3px rgba(35,96,64,.18)}
+.ph-arrow-lbl{position:absolute;font-size:.8rem;color:rgba(35,96,64,.55);font-weight:700}
+/* credential badge shape */
+.ph-badge{
+  position:absolute;bottom:12px;right:12px;
+  background:var(--forest);color:rgba(255,255,255,.9);
+  padding:.35rem .7rem;border-radius:3px;border-radius:2px;
+  font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:2px 2px 0 rgba(18,56,32,.5);
 }
-.pdesc{
-  color:rgba(255,255,255,.75);font-weight:300;line-height:1.6;margin-bottom:.9rem;
+
+/* ── Wisdom placeholder ── orange, warm, binder/swatches ── */
+.ph-wisdom-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:0 16px}
+.ph-binder{
+  width:62px;height:82px;background:rgba(255,255,255,.75);
+  border:2px solid rgba(192,92,24,.35);border-radius:3px 8px 8px 3px;
+  display:flex;align-items:center;justify-content:center;position:relative;
+  box-shadow:3px 3px 0 rgba(136,58,8,.2);
 }
+.ph-binder::before{content:'';position:absolute;left:9px;top:9px;bottom:9px;width:2.5px;background:rgba(192,92,24,.18);border-radius:2px}
+.ph-binder-t{font-size:.36rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(192,92,24,.7);writing-mode:vertical-rl;transform:rotate(180deg);padding-left:7px}
+.ph-swatches{display:flex;flex-direction:column;gap:5px}
+.ph-sw{width:24px;height:18px;border-radius:2px;border:1px solid rgba(28,16,8,.12)}
+.ph-product-rect{width:32px;height:52px;background:rgba(255,255,255,.6);border:1.5px solid rgba(192,92,24,.25);border-radius:2px;box-shadow:2px 2px 0 rgba(136,58,8,.15)}
+
+/* ── Naagin placeholder ── coral/cream, poster, rip ── */
+.ph-naagin-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-naagin-wrap::before{content:'';position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:rgba(192,52,32,.12);border-radius:50%}
+.naagin-wm{
+  font-family:var(--serif);font-size:1.5rem;font-weight:900;font-style:italic;
+  color:rgba(192,52,32,.4);letter-spacing:.04em;text-align:center;line-height:1.1;
+  position:relative;z-index:1;
+}
+.naagin-sticker{
+  position:absolute;top:10px;right:10px;
+  background:var(--coral);color:#fff;
+  font-size:.46rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .6rem;border-radius:2px;
+  transform:rotate(2deg);
+  box-shadow:2px 2px 0 rgba(136,28,16,.4);
+}
+.naagin-rip{
+  position:absolute;bottom:0;left:0;right:0;height:14px;
+  background:var(--paper2);
+  clip-path:polygon(0 86%,4% 16%,8% 72%,12% 10%,16% 68%,21% 22%,26% 80%,31% 12%,36% 70%,41% 20%,46% 78%,51% 24%,56% 76%,61% 10%,66% 68%,71% 20%,76% 80%,81% 14%,86% 72%,91% 24%,96% 76%,100% 86%,100% 100%,0 100%);
+}
+
+/* ── KUAI placeholder ── sky blue, app screens floating ── */
+.ph-kuai-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px}
+.kuai-sc{border-radius:9px;border:2px solid rgba(32,96,192,.35);background:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;padding-top:12px;gap:5px;box-shadow:3px 4px 0 rgba(16,56,128,.18)}
+.kuai-sc.lg{width:60px;height:86px}
+.kuai-sc.sm{width:44px;height:62px;opacity:.75}
+.ksb{height:4px;border-radius:2px;background:rgba(32,96,192,.2)}
+.ksb.a{background:rgba(217,146,10,.4)}
+.kuai-ai-tag{
+  position:absolute;bottom:10px;right:10px;
+  background:rgba(32,96,192,.12);border:1.5px solid rgba(32,96,192,.3);
+  color:rgba(32,96,192,.8);border-radius:20px;
+  font-size:.46rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;
+}
+
+/* ── Info section (cream interior bottom) ── */
+.pinfo{padding:1.1rem 1.3rem 1.3rem;background:var(--paper)}
+.pbadge{display:inline-flex;align-items:center;gap:4px;font-size:.54rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(28,16,8,.07);color:var(--muted);padding:3px 9px;border-radius:2px;border:1px solid rgba(28,16,8,.1);margin-bottom:.6rem}
+.psub{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.ptitle{font-family:var(--serif);font-weight:700;color:var(--ink);line-height:1.08;letter-spacing:-.02em;margin-bottom:.4rem}
+.pdesc{color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:.9rem}
 .ptags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.9rem}
-.ptag{
-  font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  padding:2px 7px;border-radius:2px;
-  border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);
-}
+.ptag{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1.5px solid rgba(28,16,8,.15);color:var(--muted)}
 .plink{
   display:inline-flex;align-items:center;gap:4px;
   font-size:.65rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:#fff;text-decoration:none;
-  border-bottom:2px solid rgba(255,255,255,.45);padding-bottom:1px;
-  transition:border-color .15s;width:fit-content;
+  color:var(--ink);text-decoration:none;
+  border-bottom:2px solid rgba(28,16,8,.35);padding-bottom:1px;
+  transition:border-color .14s;width:fit-content;
 }
 .plink::after{content:'↗'}
-.plink:hover{border-color:#fff}
-.plink.sm{font-size:.58rem}
+.plink:hover{border-color:var(--red);color:var(--red)}
 
-/* ROW 1: Pili — full-width two-col */
-.pili-inner{
-  display:grid;grid-template-columns:1fr 1.1fr;
-}
-.pili-copy{
-  padding:2.2rem 2.5rem;
-  display:flex;flex-direction:column;justify-content:center;
-  border-right:2px solid rgba(255,255,255,.1);
-}
-.pili-copy .ptitle{font-size:clamp(2rem,3.5vw,2.8rem)}
-.pili-copy .pdesc{font-size:.9rem;max-width:38ch}
-.pili-visual{
-  aspect-ratio:4/3;position:relative;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.07);
-}
-/* Pili placeholder */
-.ph-pili{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ph-pili-stack{display:flex;flex-direction:column;gap:10px;width:58%}
-.ph-pili-c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:5px;padding:12px 15px}
-.pp-line{height:5px;border-radius:2px;background:rgba(255,255,255,.45);margin-bottom:6px}
-.pp-line.s{width:72%;background:rgba(255,255,255,.22)}
-.pp-line.xs{width:50%;background:rgba(255,255,255,.12)}
-.pp-dots{display:flex;gap:5px;margin-top:5px}
-.pp-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3)}
-.pp-dot:nth-child(2){background:rgba(255,220,80,.4)}
-.pp-dot:nth-child(3){background:rgba(180,255,180,.3)}
+/* Two-column layouts */
+.pf-hero-inner{display:grid;grid-template-columns:1fr 1.05fr}
+.pf-wide-inner {display:grid;grid-template-columns:1.05fr 1fr}
+.pf-copy{padding:2rem 2.4rem;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.pf-copy .ptitle{font-size:clamp(1.9rem,3.5vw,2.7rem)}
+.pf-copy .pdesc{font-size:.9rem;max-width:36ch}
+.pf-copy-r{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.pf-copy-r .ptitle{font-size:clamp(1.3rem,2.2vw,1.8rem)}
+.pf-copy-r .pdesc{font-size:.84rem;max-width:32ch}
 
-/* ROW 2: Bio — two-col reversed */
-.bio-inner{
-  display:grid;grid-template-columns:1.1fr 1fr;
-}
-.bio-visual{
-  position:relative;min-height:270px;
-  display:flex;align-items:center;justify-content:center;
-  border-right:2px solid rgba(255,255,255,.08);
-  background:rgba(0,0,0,.08);
-}
-.ph-bio-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
-  background-size:22px 22px;
-}
-.ph-bio-d{position:relative;z-index:1;width:68%;display:flex;flex-direction:column;gap:10px}
-.ph-bio-r{display:flex;align-items:center;gap:7px}
-.ph-bio-b{
-  border:1.5px solid rgba(255,255,255,.38);border-radius:3px;
-  background:rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.4rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.7);
-}
-.ph-bio-l{flex:1;height:1.5px;background:rgba(255,255,255,.28);border-radius:1px}
-.ph-bio-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);flex-shrink:0}
-.bio-copy{
-  padding:1.8rem 2.1rem;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.bio-copy .ptitle{font-size:clamp(1.4rem,2.3vw,1.9rem)}
-.bio-copy .pdesc{font-size:.84rem;max-width:34ch}
+/* divider between copy and image inside hero/wide cards */
+.pf-hero-inner>.pf-copy{border-right:2px solid rgba(28,16,8,.09)}
+.pf-wide-inner>.pf-copy-r{border-left:2px solid rgba(28,16,8,.09)}
 
-/* ROW 3: Pair */
-.row-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.sec-visual{width:100%;aspect-ratio:3/2;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.09);border-bottom:2px solid rgba(0,0,0,.14)}
-.sec-info{padding:1rem 1.2rem 1.25rem}
-.sec-info .ptitle{font-size:1.1rem}
-.sec-info .pdesc{font-size:.76rem;margin-bottom:.75rem}
-.sec-info .ptags{margin-bottom:.7rem}
+/* pair rows */
+.row-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.row-small{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 
-/* FIFA placeholder */
-.ph-fifa{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ph-mline{position:absolute;border:1.5px dashed rgba(255,255,255,.38)}
-.ph-pin{position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 0 0 3px rgba(255,255,255,.18)}
-.ph-arrow{position:absolute;font-size:.9rem;color:rgba(255,255,255,.45);font-weight:700}
-
-/* Wisdom placeholder */
-.ph-wisdom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px}
-.ph-binder{
-  width:56px;height:74px;background:rgba(255,255,255,.12);
-  border:2px solid rgba(255,255,255,.28);border-radius:3px 7px 7px 3px;
-  display:flex;align-items:center;justify-content:center;position:relative;
-}
-.ph-binder::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2.5px;background:rgba(255,255,255,.18);border-radius:2px}
-.ph-binder-t{font-size:.37rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);writing-mode:vertical-rl;transform:rotate(180deg);padding-left:7px}
-.ph-swatch-col{display:flex;flex-direction:column;gap:4px}
-.ph-sw{width:22px;height:17px;border-radius:2px;border:1px solid rgba(255,255,255,.2)}
-
-/* ROW 4: Small pair */
-.row-small{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.sm-visual{width:100%;aspect-ratio:5/3;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.09);border-bottom:2px solid rgba(0,0,0,.12)}
-.sm-info{padding:.85rem 1.1rem 1.05rem}
-.sm-info .ptitle{font-size:.98rem}
-.sm-info .pdesc{font-size:.72rem;margin-bottom:.65rem}
-.sm-info .ptags{margin-bottom:.65rem}
-.slbl{font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.28rem;display:block}
-
-/* Naagin placeholder */
-.ph-naagin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.ph-naagin::before{content:'';position:absolute;top:-25px;right:-25px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%}
-.ph-naagin-wm{font-family:var(--serif);font-size:1.35rem;font-weight:900;font-style:italic;color:rgba(255,255,255,.38);letter-spacing:.04em;text-align:center;line-height:1.1;position:relative;z-index:1}
-.ph-naagin-rip{position:absolute;bottom:0;left:0;right:0;height:12px;background:var(--paper);clip-path:polygon(0 88%,4% 18%,8% 74%,12% 12%,16% 70%,21% 22%,26% 82%,31% 14%,36% 72%,41% 20%,46% 80%,51% 26%,56% 78%,61% 12%,66% 70%,71% 22%,76% 82%,81% 16%,86% 74%,91% 26%,96% 78%,100% 88%,100% 100%,0 100%)}
-
-/* KUAI placeholder */
-.ph-kuai{display:flex;align-items:flex-end;gap:7px}
-.kuai-sc{width:56px;height:82px;background:rgba(0,0,0,.45);border-radius:8px;border:1.5px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;padding-top:11px;gap:5px;box-shadow:3px 4px 10px rgba(0,0,0,.3)}
-.kuai-sc.sm{width:40px;height:58px;opacity:.6}
-.ksb{width:36px;height:4px;background:rgba(255,255,255,.13);border-radius:2px}
-.ksb:nth-child(3){width:26px}
-.ksb:nth-child(4){width:30px;background:rgba(255,216,80,.38)}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   ABOUT — MAROON BLOCK
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ══════════════════════════════════════════════
+   ABOUT — MAROON, LARGER ARTIFACTS
+══════════════════════════════════════════════ */
 #about{border-top:2px solid var(--maroon-d);border-bottom:2px solid var(--maroon-d)}
-.about-inner{
-  display:grid;grid-template-columns:1fr 340px;
-  gap:5rem;align-items:start;
-}
-.about-h{
-  font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.7rem);
-  font-weight:400;line-height:1.08;color:#fff;margin-bottom:.4rem;
-}
-.about-h .ital{font-style:italic;color:var(--marigold-l)}
-.about-sub-copy{color:rgba(244,237,224,.6);font-size:.82rem;font-weight:300;margin-bottom:1.5rem}
-.about-quote{
-  border-left:3px solid var(--marigold);padding:.6rem 0 .6rem 1.2rem;margin-bottom:1.5rem;
-}
-.about-quote p{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:rgba(244,237,224,.9);line-height:1.5;font-weight:300}
-.about-para{font-size:.84rem;color:rgba(244,237,224,.7);font-weight:300;line-height:1.8;max-width:44ch;margin-bottom:1.5rem}
-.about-para strong{font-weight:500;color:rgba(244,237,224,.9)}
+.about-grid{display:grid;grid-template-columns:1fr 360px;gap:4.5rem;align-items:start}
+.about-h{font-family:var(--serif);font-size:clamp(2rem,3.8vw,2.9rem);font-weight:400;line-height:1.06;color:#fff;margin-bottom:.4rem}
+.about-h .it{font-style:italic;color:var(--marigold-l)}
+.about-meta{color:rgba(244,238,224,.55);font-size:.82rem;font-weight:300;margin-bottom:1.4rem}
+.about-q{border-left:3px solid var(--marigold);padding:.6rem 0 .6rem 1.2rem;margin-bottom:1.4rem}
+.about-q p{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:rgba(244,238,224,.92);line-height:1.55;font-weight:300}
+.about-para{font-size:.84rem;color:rgba(244,238,224,.68);font-weight:300;line-height:1.82;max-width:44ch;margin-bottom:1.4rem}
+.about-para strong{font-weight:500;color:rgba(244,238,224,.92)}
 .about-chips{display:flex;flex-wrap:wrap;gap:.4rem}
-.a-chip{
-  font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:4px 10px;border-radius:20px;
-  border:1.5px solid rgba(244,237,224,.2);color:rgba(244,237,224,.6);
-  transition:border-color .15s,color .15s;
-}
-.a-chip:hover{border-color:var(--marigold);color:var(--marigold-l)}
+.ach{font-size:.61rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(244,238,224,.18);color:rgba(244,238,224,.58);transition:border-color .14s,color .14s}
+.ach:hover{border-color:var(--marigold);color:var(--marigold-l)}
 
-/* About collage (right) */
-.about-collage{position:relative;height:450px}
+/* About collage — LARGER artifacts */
+.about-collage{position:relative;height:480px}
 .ac{position:absolute}
 
-/* Cream artifact cards on maroon */
-.art-card{
-  background:var(--paper);border:2px solid rgba(28,16,8,.14);
-  border-radius:var(--r);box-shadow:5px 6px 0 rgba(28,16,8,.35);
-}
-.searches-c{width:184px;padding:.85rem .95rem}
-.s-lbl{font-size:.57rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.s-line{font-size:.71rem;color:var(--ink2);padding:3px 0;border-bottom:1px solid rgba(28,16,8,.07);display:flex;align-items:flex-start;gap:5px;line-height:1.35;font-weight:300}
-.s-line:last-child{border-bottom:none}
-.s-line::before{content:'↗';color:var(--c-red);font-size:.58rem;margin-top:1px;flex-shrink:0}
-.collect-c{width:172px;padding:.85rem .95rem;position:relative}
-.c-fname{font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.c-item{font-size:.71rem;color:var(--ink2);padding:2px 0;font-weight:300;display:flex;gap:6px;align-items:center}
-.c-item::before{content:'·';color:var(--c-red);font-weight:900}
+/* cream artifact cards on maroon bg */
+.art{background:var(--paper);border:2px solid rgba(28,16,8,.12);border-radius:var(--r);box-shadow:5px 6px 0 rgba(28,16,8,.38)}
 
-/* About mobile chips */
+/* Larger searches */
+.art-searches{width:196px;padding:.9rem 1rem}
+.s-lbl{font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+.s-l{font-size:.7rem;color:var(--ink2);padding:3.5px 0;border-bottom:1px solid rgba(28,16,8,.07);display:flex;align-items:flex-start;gap:5px;line-height:1.38;font-weight:300}
+.s-l:last-child{border-bottom:none}
+.s-l::before{content:'↗';color:var(--red);font-size:.58rem;margin-top:2px;flex-shrink:0}
+
+/* Larger collect */
+.art-collect{width:182px;padding:.9rem 1rem}
+.cfname{font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.citem{font-size:.7rem;color:var(--ink2);padding:2.5px 0;font-weight:300;display:flex;gap:6px;align-items:center}
+.citem::before{content:'·';color:var(--red);font-weight:900}
+
+/* Larger sky in about */
+.art-sky{padding:.75rem;width:200px}
+
+/* Ginger in about — larger polaroid */
+.art-gin{width:138px}
+.art-gin .pol-img{width:120px;height:120px}
+.art-gin .pol-cap{font-size:.78rem}
+
+/* About mobile */
 .about-mob{display:none;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   PROCESS — MARIGOLD BLOCK
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ══════════════════════════════════════════════
+   PROCESS — MARIGOLD + PINBOARD FEEL
+══════════════════════════════════════════════ */
 #process{border-top:2px solid rgba(28,16,8,.12);border-bottom:2px solid rgba(28,16,8,.12)}
-.proc-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.proc-h{
-  font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.4rem);
-  font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:.6rem;
-}
-.proc-h .ital{font-style:italic;color:var(--maroon)}
-.proc-tagline{
-  font-family:var(--serif);font-style:italic;font-size:1.35rem;
-  color:var(--maroon);margin-bottom:1.3rem;line-height:1.3;font-weight:400;
-}
-.proc-body{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.8;max-width:40ch;margin-bottom:1.5rem}
-/* Process cards — cream on yellow */
-.proc-cards{display:flex;flex-direction:column;gap:.8rem}
-.proc-card{
-  background:var(--paper);border:2px solid rgba(28,16,8,.18);
-  border-radius:var(--r);box-shadow:var(--sh);padding:.95rem 1.1rem;
+.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.proc-h{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:.65rem}
+.proc-h .it{font-style:italic;color:var(--maroon)}
+.proc-tl{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--maroon);margin-bottom:1.3rem;line-height:1.3;font-weight:400}
+.proc-body{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.82;max-width:40ch;margin-bottom:1.4rem}
+
+/* Pinboard cards — slight rotations, cream on yellow */
+.proc-pin{display:flex;flex-direction:column;gap:.75rem}
+.pcard{
+  background:var(--paper);border:2px solid rgba(28,16,8,.16);
+  border-radius:var(--r);box-shadow:var(--sh);padding:.9rem 1.1rem;
   position:relative;overflow:hidden;
 }
-.proc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.pc-r::before{background:var(--c-red)}
-.pc-g::before{background:var(--c-green)}
-.pc-b::before{background:var(--c-blue)}
-.pc-o::before{background:var(--c-orange)}
-.pc-file{font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.28rem}
-.pc-title{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.22rem}
-.pc-desc{font-size:.74rem;color:var(--muted);font-weight:300;line-height:1.55}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   CONTACT — DARK ESPRESSO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-#contact{border-top:2px solid rgba(0,0,0,.4)}
-.contact-h{
-  font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,4.5rem);
-  font-weight:300;line-height:1.05;margin-bottom:1rem;
+.pcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3.5px}
+.pc-r::before{background:var(--red)}.pc-g::before{background:var(--forest)}
+.pc-b::before{background:var(--cobalt)}.pc-o::before{background:var(--orange)}
+.pc-r{transform:rotate(-.5deg)}.pc-g{transform:rotate(.4deg)}
+.pc-b{transform:rotate(-.3deg)}.pc-o{transform:rotate(.6deg)}
+/* Push-pin decoration */
+.pcard::after{
+  content:'●';position:absolute;top:8px;right:10px;
+  font-size:.55rem;color:rgba(28,16,8,.2);
 }
-.contact-h .line1{color:var(--cream)}
-.contact-h .line2{font-style:italic;color:var(--marigold-l)}
-.contact-sub{font-size:.9rem;color:rgba(244,237,224,.5);font-weight:300;line-height:1.75;max-width:40ch;margin-bottom:1.8rem}
-.contact-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.5rem}
-/* Sticky notes row */
+.pcfile{font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.pctitle{font-family:var(--serif);font-size:.96rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.pcdesc{font-size:.74rem;color:var(--muted);font-weight:300;line-height:1.55}
+
+/* ══════════════════════════════════════════════
+   CONTACT — CREAM + MAROON ELEMENTS
+══════════════════════════════════════════════ */
+#contact{border-top:2px solid rgba(28,16,8,.1)}
+.contact-grid{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.contact-h{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.06;margin-bottom:1rem;color:var(--ink)}
+.contact-h .it{font-style:italic;color:var(--red)}
+.contact-sub{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.78;max-width:40ch;margin-bottom:1.8rem}
+.contact-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.2rem}
+/* Sticky notes — same as approved */
 .sticky-row{display:flex;flex-wrap:wrap;gap:1rem}
-.sticky-y2{
-  background:#FEF082;border-radius:2px;padding:.8rem 1rem;
-  box-shadow:2px 3px 8px rgba(0,0,0,.3),0 0 0 1px rgba(0,0,0,.1);
-  font-family:var(--hand);font-size:.95rem;color:#1A1200;line-height:1.5;
-  max-width:220px;transform:rotate(-.5deg);
-}
-.sticky-b{
-  background:#D6EEFF;border-radius:2px;padding:.8rem 1rem;
-  box-shadow:2px 3px 8px rgba(0,0,0,.3),0 0 0 1px rgba(0,0,0,.1);
-  font-family:var(--hand);font-size:.95rem;color:#001A33;line-height:1.5;
-  max-width:240px;transform:rotate(.4deg);
-}
+.sn-y{background:#FEF082;border-radius:2px;padding:.8rem 1rem;box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.05);font-family:var(--hand);font-size:.95rem;color:#1A1200;line-height:1.5;max-width:220px;transform:rotate(-.5deg)}
+.sn-b{background:#D6EEFF;border-radius:2px;padding:.8rem 1rem;box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.05);font-family:var(--hand);font-size:.95rem;color:#001A33;line-height:1.5;max-width:240px;transform:rotate(.4deg)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* contact visual: Ginger polaroid */
+.ct-gin{transform:rotate(1.5deg)}
+.ct-pol{box-shadow:var(--sh-l)}
+.cg-bg{width:100px;height:100px;background:linear-gradient(135deg,#F4BE58,#D88C0C);display:flex;align-items:center;justify-content:center;border-radius:1px}
+
+/* ══════════════════════════════════════════════
    FOOTER
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+══════════════════════════════════════════════ */
 footer{
-  background:var(--espresso);border-top:1px solid rgba(244,237,224,.07);
-  padding:1.3rem var(--gut);
+  background:var(--ink);padding:1.3rem var(--gut);
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
   position:relative;z-index:1;
 }
-.f-l{font-size:.68rem;color:rgba(244,237,224,.28);letter-spacing:.04em}
-.f-r{font-family:var(--serif);font-style:italic;font-size:.78rem;color:rgba(244,237,224,.32)}
+.fl{font-size:.67rem;color:rgba(244,238,224,.28);letter-spacing:.04em}
+.fr{font-family:var(--serif);font-style:italic;font-size:.76rem;color:rgba(244,238,224,.3)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SCROLL REVEAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ══════════════════════════════════════════════
+   REVEAL
+══════════════════════════════════════════════ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.hero-anim>*{opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) forwards}
-.hero-anim>*:nth-child(1){animation-delay:.05s}
-.hero-anim>*:nth-child(2){animation-delay:.16s}
-.hero-anim>*:nth-child(3){animation-delay:.27s}
-.hero-anim>*:nth-child(4){animation-delay:.38s}
-.hero-anim>*:nth-child(5){animation-delay:.48s}
-
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.ha>*{opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) forwards}
+.ha>*:nth-child(1){animation-delay:.04s}.ha>*:nth-child(2){animation-delay:.15s}
+.ha>*:nth-child(3){animation-delay:.26s}.ha>*:nth-child(4){animation-delay:.37s}
+.ha>*:nth-child(5){animation-delay:.47s}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 .reveal.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.hero-anim>*,.reveal{animation:none;opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.ha>*,.reveal{animation:none;opacity:1;transform:none}}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* ══════════════════════════════════════════════
    RESPONSIVE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+══════════════════════════════════════════════ */
 @media(max-width:960px){
-  .hero-layout{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr}
   .hero-collage{display:none}
-  .hero-mobile{display:flex}
-  .pili-inner{grid-template-columns:1fr}
-  .pili-copy{border-right:none;border-bottom:2px solid rgba(255,255,255,.1);padding:1.6rem 1.5rem}
-  .pili-visual{min-height:220px}
-  .bio-inner{grid-template-columns:1fr}
-  .bio-visual{min-height:190px;border-right:none;border-bottom:2px solid rgba(255,255,255,.08)}
-  .bio-copy{padding:1.4rem 1.5rem}
-  .about-inner{grid-template-columns:1fr}
+  .hero-mob{display:flex}
+  .pf-hero-inner,.pf-wide-inner{grid-template-columns:1fr}
+  .pf-copy,.pf-copy-r{border-right:none!important;border-left:none!important;border-bottom:2px solid rgba(28,16,8,.09);padding:1.5rem 1.4rem}
+  .about-grid{grid-template-columns:1fr}
   .about-collage{display:none}
   .about-mob{display:flex}
-  .proc-inner{grid-template-columns:1fr;gap:2.5rem}
+  .proc-grid{grid-template-columns:1fr;gap:2.5rem}
+  .contact-grid{grid-template-columns:1fr}
+  .ct-gin{display:none}
 }
 @media(max-width:680px){
   .row-pair,.row-small{grid-template-columns:1fr}
   .nav-links{display:none}
-  .nav-toggle{display:flex}
+  .nav-tog{display:flex}
   .nav-links.open{
-    display:flex;flex-direction:column;
-    position:absolute;top:100%;left:0;right:0;
-    background:rgba(244,237,224,.97);
-    padding:1rem var(--gut);gap:.8rem;
+    display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+    background:rgba(245,238,224,.97);padding:1rem var(--gut);gap:.8rem;
     border-bottom:2px solid rgba(28,16,8,.1);
   }
 }
 @media(max-width:480px){
-  .pili-copy{padding:1.3rem 1.1rem}
-  .contact-h{font-size:clamp(1.8rem,8vw,2.5rem)}
+  .pf-copy,.pf-copy-r{padding:1.2rem 1.1rem}
+  .contact-h{font-size:clamp(1.8rem,7vw,2.4rem)}
 }
+
+/* cat svg helper */
+.cat-svg{display:block}
 </style>
 </head>
 <body>
 
-<!-- ━━━ NAV ━━━ -->
-<nav class="sec-cream">
-  <a href="#" class="nav-logo">Niharika Jain</a>
+<!-- ══ NAV ══ -->
+<nav class="bg-cream">
+  <a href="#" class="logo">Niharika Jain</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  <button class="nav-tog" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- ━━━ HERO ━━━ -->
-<section id="hero" class="sec-cream grid-cream">
+<!-- ══ HERO ══ -->
+<section id="hero" class="bg-cream gd gd-cream">
   <div class="wrap">
-    <div class="hero-layout">
+    <div class="hero-grid">
 
-      <div class="hero-anim">
-        <div class="hero-tag">UX + Graphic Design &nbsp;·&nbsp; SCAD &nbsp;·&nbsp; Atlanta, GA</div>
-        <h1 class="hero-h">
-          Part designer,<br>
-          part <span class="ital">storyteller,</span><br>
-          part systems<br>thinker.
-        </h1>
+      <div class="ha">
+        <div class="hero-eyebrow">UX + Graphic Design &nbsp;·&nbsp; SCAD &nbsp;·&nbsp; Atlanta, GA</div>
+        <h1 class="hero-h">Part designer,<br>part <span class="it">storyteller,</span><br>part systems<br>thinker.</h1>
         <p class="hero-sub">I'm Niharika Jain — a UX and graphic designer turning messy ideas into thoughtful experiences people can navigate, understand, and connect with.</p>
         <p class="hero-note">everything here is organized / on purpose ✦ promise</p>
         <div class="hero-ctas">
           <a href="#work" class="btn btn-red">Open my work ↓</a>
-          <a href="#about" class="btn btn-dark-ol">Open File: Niharika</a>
+          <a href="#about" class="btn btn-ol-dk">Open File: Niharika</a>
         </div>
-        <div class="hero-mobile">
-          <span class="hm-chip r">Ginger's person</span>
-          <span class="hm-chip g">Sky collector</span>
-          <span class="hm-chip">Indian art forms</span>
-          <span class="hm-chip r">Systems thinker</span>
+        <div class="hero-mob">
+          <span class="hm r">Ginger's person</span>
+          <span class="hm g">Sky collector</span>
+          <span class="hm">Indian art forms</span>
+          <span class="hm r">Systems thinker</span>
         </div>
       </div>
 
-      <!-- Collage (desktop) -->
+      <!-- COLLAGE -->
       <div class="hero-collage">
+        <!-- Color blob behind everything -->
+        <div class="hero-blob"></div>
 
+        <!-- Profile photo — bigger -->
         <div class="hco hco-photo">
-          <div class="tape" style="top:-8px;left:50px;transform:rotate(-1deg)"></div>
+          <div class="tape tape-mg" style="top:-8px;left:52px;transform:rotate(-1deg)"></div>
           <div class="polaroid">
-            <div class="polaroid-img" style="width:150px;height:150px">
-              <svg width="52" height="70" viewBox="0 0 52 70" fill="none" aria-hidden="true">
-                <circle cx="26" cy="19" r="13" fill="rgba(120,90,60,.8)"/>
-                <path d="M2 70Q2 44 26 44Q50 44 50 70" fill="rgba(120,90,60,.8)"/>
+            <div class="pol-img" style="width:167px;height:167px">
+              <svg width="54" height="72" viewBox="0 0 54 72" fill="none" aria-hidden="true">
+                <circle cx="27" cy="20" r="14" fill="rgba(120,88,58,.8)"/>
+                <path d="M2 72Q2 46 27 46Q52 46 52 72" fill="rgba(120,88,58,.8)"/>
               </svg>
             </div>
-            <div class="polaroid-cap">profile-photo.jpg</div>
+            <div class="pol-cap">profile-photo.jpg</div>
           </div>
         </div>
 
+        <!-- Blue folder — anchor -->
         <div class="hco hco-folder">
           <div class="hero-folder">
-            <div class="hf-inner">
-              <div class="hf-file">pili.fig</div>
-              <div class="hf-file">biospherix.fig</div>
-              <div class="hf-file">fifa_atl.fig</div>
-              <div class="hf-file">wisdom.fig</div>
-              <div class="hf-file">naagin.fig</div>
-              <div class="hf-file">kuai.fig</div>
-              <div class="hf-count">6 files · open to explore</div>
+            <div class="hf-in">
+              <div class="hf-f">pili.fig</div>
+              <div class="hf-f">biospherix.fig</div>
+              <div class="hf-f">fifa_atl.fig</div>
+              <div class="hf-f">wisdom.fig</div>
+              <div class="hf-f">naagin.fig</div>
+              <div class="hf-f">kuai.fig</div>
+              <div class="hf-ct">6 files · open to explore</div>
             </div>
           </div>
         </div>
 
-        <div class="hco hco-ginger">
-          <div class="tape tr" style="top:-8px;left:28px;transform:rotate(2deg)"></div>
-          <div class="ginger-card">
-            <div class="ginger-bg">
-              <svg width="46" height="46" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
+        <!-- Ginger -->
+        <div class="hco hco-gin">
+          <div class="tape tape-r" style="top:-8px;left:26px;transform:rotate(2deg)"></div>
+          <div class="gin-card">
+            <div class="gin-bg">
+              <svg class="cat-svg" width="46" height="46" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
                 <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
                 <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
                 <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
@@ -820,13 +726,14 @@ footer{
                 <line x1="40" y1="25.5" x2="50" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
               </svg>
             </div>
-            <div class="g-lbl">ginger.jpg</div>
-            <div class="g-sub">emotional support creative director</div>
+            <div class="gin-lbl">ginger.jpg</div>
+            <div class="gin-sub">emotional support creative director</div>
           </div>
         </div>
 
+        <!-- Sky strip -->
         <div class="hco hco-sky">
-          <div class="tape tb" style="top:-8px;left:62px;transform:rotate(1.5deg)"></div>
+          <div class="tape tape-b" style="top:-8px;left:64px;transform:rotate(1.5deg)"></div>
           <div class="sky-card">
             <div class="film-row">
               <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
@@ -835,294 +742,334 @@ footer{
               <div class="ff"><div class="ff-img" style="background:linear-gradient(#52A0D8,#8CC8E0,#F2F6FC)"></div></div>
             </div>
             <div class="sky-cap">"I collect skies like color palettes."</div>
-            <div class="sky-fn">sky_01.png · sky_02.png · sky_03.png</div>
           </div>
         </div>
 
+        <!-- Sticky -->
         <div class="hco hco-sticky">
-          <div class="sticky-y">organized chaos,<br><em>on purpose.</em></div>
+          <div class="stic">organized chaos,<br><em>on purpose.</em></div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ MARQUEE ━━━ -->
-<div class="marquee-strip">
-  <div class="marquee-track" aria-hidden="true">
-    <span class="marquee-item">UX Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Graphic Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Systems Thinking</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Storytelling</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Product Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Indian Visual Culture</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">AI-Assisted Building</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Emotional Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Service Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">SCAD · Atlanta</span><span class="marquee-star">✦</span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item">UX Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Graphic Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Systems Thinking</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Storytelling</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Product Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Indian Visual Culture</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">AI-Assisted Building</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Emotional Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">Service Design</span><span class="marquee-star">✦</span>
-    <span class="marquee-item">SCAD · Atlanta</span><span class="marquee-star">✦</span>
+<!-- ══ MARQUEE ══ -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span class="mq-item">UX Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">Graphic Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">Systems Thinking</span><span class="mq-star">✦</span>
+    <span class="mq-item">Storytelling</span><span class="mq-star">✦</span>
+    <span class="mq-item">Indian Visual Culture</span><span class="mq-star">✦</span>
+    <span class="mq-item">Tiny Details</span><span class="mq-star">✦</span>
+    <span class="mq-item">Organized Chaos</span><span class="mq-star">✦</span>
+    <span class="mq-item">AI-Assisted Building</span><span class="mq-star">✦</span>
+    <span class="mq-item">Emotional Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">SCAD · Atlanta</span><span class="mq-star">✦</span>
+    <span class="mq-item">UX Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">Graphic Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">Systems Thinking</span><span class="mq-star">✦</span>
+    <span class="mq-item">Storytelling</span><span class="mq-star">✦</span>
+    <span class="mq-item">Indian Visual Culture</span><span class="mq-star">✦</span>
+    <span class="mq-item">Tiny Details</span><span class="mq-star">✦</span>
+    <span class="mq-item">Organized Chaos</span><span class="mq-star">✦</span>
+    <span class="mq-item">AI-Assisted Building</span><span class="mq-star">✦</span>
+    <span class="mq-item">Emotional Design</span><span class="mq-star">✦</span>
+    <span class="mq-item">SCAD · Atlanta</span><span class="mq-star">✦</span>
   </div>
 </div>
 
-<!-- ━━━ WORK ━━━ -->
-<section id="work" class="section sec-cream grid-cream">
+<!-- ══ WORK / DESKTOP ARCHIVE ══ -->
+<section id="work" class="section bg-cream-paper gd gd-cream">
   <div class="wrap">
-    <div class="eyebrow eyebrow-ink">Desktop Archive</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:.4rem">Project Files</h2>
-    <p style="font-size:.875rem;color:var(--muted);font-weight:300;max-width:46ch;line-height:1.72;margin-bottom:2.4rem">Open a file to see how I think, not just what I made.</p>
+    <div class="eyebrow ey-ink">Desktop Archive</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:.4rem">Project Files</h2>
+    <p style="font-size:.875rem;color:var(--muted);font-weight:300;max-width:46ch;line-height:1.72;margin-bottom:2.5rem">Open a file to see how I think, not just what I made.</p>
 
     <div class="bento">
 
-      <!-- PILI — hero card -->
-      <div class="proj-card pc-pili reveal">
-        <div class="ptab">Senior Capstone &nbsp;·&nbsp; UX / Product / Service Design</div>
-        <div class="pili-inner">
-          <div class="pili-copy">
-            <span class="pbadge">★ Main Case Study</span>
-            <div class="psub">Emotional UX · Physical Product · System Design</div>
-            <div class="ptitle" style="font-size:clamp(2rem,3.5vw,2.8rem)">Pili</div>
-            <p class="pdesc" style="font-size:.9rem;max-width:38ch">A calm connection system for older adults, families, and caregivers — combining research, emotional design, physical product thinking, UI/UX, system design, and exhibition storytelling.</p>
-            <div class="ptags" style="margin-bottom:1.3rem">
-              <span class="ptag">Emotional UX</span>
-              <span class="ptag">Product Design</span>
-              <span class="ptag">Service Design</span>
-              <span class="ptag">Research</span>
-              <span class="ptag">Industrial Design</span>
+      <!-- ══ PILI: hero, full-width ══ -->
+      <div class="pf pf-red reveal">
+        <div class="pf-tab">Senior Capstone &nbsp;·&nbsp; UX / Product / Service / Industrial Design</div>
+        <div class="pf-body">
+          <div class="pf-hero-inner">
+            <!-- Copy left -->
+            <div class="pf-copy">
+              <span class="pbadge">★ Main Case Study</span>
+              <div class="psub">Emotional UX · Physical Product · System Design</div>
+              <div class="ptitle">Pili</div>
+              <p class="pdesc">A calm connection system for older adults, families, and caregivers — combining research, emotional design, physical product thinking, UI/UX, and exhibition storytelling.</p>
+              <div class="ptags" style="margin-bottom:1.2rem">
+                <span class="ptag">Emotional UX</span>
+                <span class="ptag">Product Design</span>
+                <span class="ptag">Service Design</span>
+                <span class="ptag">Research</span>
+                <span class="ptag">Industrial Design</span>
+              </div>
+              <a href="#" class="plink">Open case study</a>
             </div>
-            <a href="#" class="plink">Open case study</a>
-          </div>
-          <div class="pili-visual">
-            <div class="ph-pili">
-              <div class="ph-pili-stack">
-                <div class="ph-pili-c">
-                  <div class="pp-line"></div><div class="pp-line s"></div><div class="pp-line xs"></div>
-                  <div class="pp-dots"><div class="pp-dot"></div><div class="pp-dot"></div><div class="pp-dot"></div></div>
-                </div>
-                <div class="ph-pili-c" style="opacity:.55">
-                  <div class="pp-line s"></div><div class="pp-line xs"></div>
+            <!-- Image right -->
+            <div class="pimg pimg-cream" style="aspect-ratio:4/3;position:relative">
+              <div class="ph-pili-wrap">
+                <div class="ph-pili-main">
+                  <div class="ph-pili-card">
+                    <div class="ppc-line"></div>
+                    <div class="ppc-line s"></div>
+                    <div class="ppc-line xs"></div>
+                    <div class="ppc-dots">
+                      <div class="ppc-dot"></div>
+                      <div class="ppc-dot"></div>
+                      <div class="ppc-dot"></div>
+                    </div>
+                  </div>
+                  <div class="ph-pili-card" style="opacity:.6">
+                    <div class="ppc-line s"></div>
+                    <div class="ppc-line xs"></div>
+                  </div>
                 </div>
               </div>
+              <div class="pili-note">care,<br>connection,<br><em>clarity</em></div>
+              <span class="pl-label">pili-hero.jpg</span>
+              <span class="pl-note">replace with final</span>
             </div>
-            <span class="pimg-label">pili-hero.jpg</span>
-            <span class="pimg-note">replace with final</span>
           </div>
         </div>
       </div>
 
-      <!-- BIOSPHERIX -->
-      <div class="proj-card pc-bio reveal">
-        <div class="ptab">AI / UX Web App &nbsp;·&nbsp; Workflow Design</div>
-        <div class="bio-inner">
-          <div class="bio-visual">
-            <div class="ph-bio-grid"></div>
-            <div class="ph-bio-d">
-              <div class="ph-bio-r">
-                <div class="ph-bio-b" style="width:72px;height:30px">Input</div>
-                <div class="ph-bio-l"></div><div class="ph-bio-dot"></div><div class="ph-bio-l"></div>
-                <div class="ph-bio-b" style="width:80px;height:30px">AI Planner</div>
+      <!-- ══ BIOSPHERIX: wide, image left ══ -->
+      <div class="pf pf-cobalt reveal">
+        <div class="pf-tab">AI / UX Web App &nbsp;·&nbsp; Workflow Design &nbsp;·&nbsp; Real User</div>
+        <div class="pf-body">
+          <div class="pf-wide-inner">
+            <!-- Image left -->
+            <div class="pimg pimg-blue" style="aspect-ratio:16/10;position:relative;min-height:250px">
+              <div class="ph-bio-wrap">
+                <div class="ph-bio-grid-bg"></div>
+                <div class="ph-bio-canvas">
+                  <div class="ph-bio-row">
+                    <div class="ph-bio-box" style="width:70px;height:30px">Input</div>
+                    <div class="ph-bio-line"></div><div class="ph-bio-dot"></div><div class="ph-bio-line"></div>
+                    <div class="ph-bio-box" style="width:78px;height:30px">AI Planner</div>
+                  </div>
+                  <div class="ph-bio-row" style="margin-left:12px">
+                    <div class="ph-bio-line" style="flex:none;width:30px"></div>
+                    <div class="ph-bio-box" style="width:60px;height:24px;opacity:.75">Layout</div>
+                    <div class="ph-bio-line"></div>
+                    <div class="ph-bio-box" style="width:60px;height:24px;opacity:.75">Output</div>
+                  </div>
+                  <div class="ph-bio-row">
+                    <div class="ph-bio-box" style="width:50px;height:20px;opacity:.5">Spec</div>
+                    <div class="ph-bio-line"></div><div class="ph-bio-dot" style="opacity:.45"></div><div class="ph-bio-line"></div>
+                    <div class="ph-bio-box" style="width:50px;height:20px;opacity:.5">CAD</div>
+                  </div>
+                </div>
               </div>
-              <div class="ph-bio-r" style="margin-left:12px">
-                <div class="ph-bio-l" style="flex:none;width:32px"></div>
-                <div class="ph-bio-b" style="width:62px;height:24px;opacity:.7">Layout</div>
-                <div class="ph-bio-l"></div>
-                <div class="ph-bio-b" style="width:62px;height:24px;opacity:.7">Output</div>
-              </div>
-              <div class="ph-bio-r">
-                <div class="ph-bio-b" style="width:52px;height:20px;opacity:.5">Spec</div>
-                <div class="ph-bio-l"></div><div class="ph-bio-dot" style="opacity:.45"></div><div class="ph-bio-l"></div>
-                <div class="ph-bio-b" style="width:52px;height:20px;opacity:.5">CAD</div>
-              </div>
+              <span class="pl-label">biospherix-interface.jpg</span>
+              <span class="pl-note">replace with final</span>
             </div>
-            <span class="pimg-label">biospherix-interface.jpg</span>
-            <span class="pimg-note">replace with final</span>
-          </div>
-          <div class="bio-copy">
-            <span class="pbadge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)">Strong UX Case Study</span>
-            <div class="psub">AI Tool · Real User · Real Problem</div>
-            <div class="ptitle" style="font-size:clamp(1.4rem,2.3vw,1.9rem)">BioSpherix<br>Layout Planner</div>
-            <p class="pdesc" style="font-size:.84rem;max-width:34ch">An AI-assisted layout planning web app built for a real user — solving a real workflow problem before CAD development.</p>
-            <div class="ptags" style="margin-bottom:1.1rem">
-              <span class="ptag">AI Tool</span><span class="ptag">Information Architecture</span>
-              <span class="ptag">Web App</span><span class="ptag">Workflow Design</span>
+            <!-- Copy right -->
+            <div class="pf-copy-r">
+              <span class="pbadge">Strong UX Case Study</span>
+              <div class="psub">AI Tool · Workflow · Engineering System</div>
+              <div class="ptitle">BioSpherix<br>Layout Planner</div>
+              <p class="pdesc">An AI-assisted layout planning web app built for a real user — solving a complex workflow problem before CAD development.</p>
+              <div class="ptags" style="margin-bottom:1.1rem">
+                <span class="ptag">AI Tool</span>
+                <span class="ptag">Information Architecture</span>
+                <span class="ptag">Web App</span>
+                <span class="ptag">Workflow Design</span>
+              </div>
+              <a href="#" class="plink">Open case study</a>
             </div>
-            <a href="#" class="plink">Open case study</a>
           </div>
         </div>
       </div>
 
-      <!-- FIFA + WISDOM -->
+      <!-- ══ FIFA + WISDOM: pair ══ -->
       <div class="row-pair">
-        <div class="proj-card pc-fifa reveal">
-          <div class="ptab">SCADpro Collaboration · Experience Design</div>
-          <div class="sec-visual">
-            <div class="ph-fifa">
-              <div class="ph-mline" style="top:42%;left:10%;width:55%;transform:rotate(-4deg)"></div>
-              <div class="ph-mline" style="top:56%;left:28%;width:42%;transform:rotate(7deg)"></div>
-              <div class="ph-pin"   style="top:36%;left:12%"></div>
-              <div class="ph-pin"   style="top:43%;left:60%;opacity:.6;width:7px;height:7px"></div>
-              <div class="ph-pin"   style="top:57%;left:42%;opacity:.4;width:6px;height:6px"></div>
-              <div class="ph-arrow" style="top:28%;right:22%">→</div>
-            </div>
-            <span class="pimg-label">fifa-wayfinding.jpg</span>
-            <span class="pimg-note">replace with final</span>
-          </div>
-          <div class="sec-info">
-            <div class="psub">City-Scale Systems · Client Collaboration</div>
-            <div class="ptitle sec-info" style="padding:0;font-size:1.1rem">FIFA World Cup<br>Atlanta 2026</div>
-            <p class="pdesc sec-info" style="padding:0;font-size:.76rem;margin-bottom:.7rem">Stakeholder research, journey mapping, and visitor experience design for a city-scale event.</p>
-            <div class="ptags"><span class="ptag">Service Design</span><span class="ptag">Wayfinding</span><span class="ptag">Research</span></div>
-            <a href="#" class="plink sm">Open folder</a>
-          </div>
-        </div>
 
-        <div class="proj-card pc-wisdom reveal">
-          <div class="ptab">Product · Packaging · Retail Experience</div>
-          <div class="sec-visual">
-            <div class="ph-wisdom">
-              <div class="ph-binder"><div class="ph-binder-t">Wisdom ATL</div></div>
-              <div class="ph-swatch-col">
-                <div class="ph-sw" style="background:#1A1A1A"></div>
-                <div class="ph-sw" style="background:#D4A060"></div>
-                <div class="ph-sw" style="background:rgba(255,255,255,.35)"></div>
+        <div class="pf pf-forest reveal">
+          <div class="pf-tab">SCADpro Collaboration · Experience Design</div>
+          <div class="pf-body">
+            <div class="pimg pimg-green" style="aspect-ratio:3/2;position:relative">
+              <div class="ph-fifa-wrap">
+                <div class="ph-mline" style="top:42%;left:10%;width:55%;transform:rotate(-4deg)"></div>
+                <div class="ph-mline" style="top:56%;left:28%;width:42%;transform:rotate(7deg)"></div>
+                <div class="ph-pin" style="top:36%;left:12%"></div>
+                <div class="ph-pin" style="top:43%;left:60%;opacity:.65;width:7px;height:7px"></div>
+                <div class="ph-pin" style="top:57%;left:42%;opacity:.45;width:6px;height:6px"></div>
+                <div class="ph-arrow-lbl" style="top:28%;right:22%">→</div>
+                <div class="ph-badge">FIFA · Atlanta 2026</div>
               </div>
-              <div style="width:28px;height:44px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:2px"></div>
+              <span class="pl-label">fifa-wayfinding.jpg</span>
+              <span class="pl-note">replace with final</span>
             </div>
-            <span class="pimg-label">wisdom-packaging.jpg</span>
-            <span class="pimg-note">replace with final</span>
-          </div>
-          <div class="sec-info">
-            <div class="psub">Commercial Design · Fashion-Adjacent</div>
-            <div class="ptitle sec-info" style="padding:0;font-size:1.1rem">Wisdom ATL<br>Eyewear</div>
-            <p class="pdesc sec-info" style="padding:0;font-size:.76rem;margin-bottom:.7rem">Product direction, packaging, visual merchandising, retail display, and brand storytelling.</p>
-            <div class="ptags"><span class="ptag">Branding</span><span class="ptag">Packaging</span><span class="ptag">Retail Design</span></div>
-            <a href="#" class="plink sm">Open folder</a>
+            <div class="pinfo">
+              <div class="psub">City-Scale Systems · Client Work</div>
+              <div class="ptitle" style="font-size:1.1rem">FIFA World Cup<br>Atlanta 2026</div>
+              <p class="pdesc" style="font-size:.76rem;margin-bottom:.75rem">Stakeholder research, journey mapping, and visitor experience design for a city-scale event.</p>
+              <div class="ptags" style="margin-bottom:.75rem">
+                <span class="ptag">Service Design</span>
+                <span class="ptag">Wayfinding</span>
+                <span class="ptag">Research</span>
+              </div>
+              <a href="#" class="plink" style="font-size:.6rem">Open folder</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- NAAGIN + KUAI -->
+        <div class="pf pf-orange reveal">
+          <div class="pf-tab">Product · Packaging · Retail Experience</div>
+          <div class="pf-body">
+            <div class="pimg pimg-warm" style="aspect-ratio:3/2;position:relative">
+              <div class="ph-wisdom-wrap">
+                <div class="ph-binder"><div class="ph-binder-t">Wisdom ATL</div></div>
+                <div class="ph-swatches">
+                  <div class="ph-sw" style="background:#222"></div>
+                  <div class="ph-sw" style="background:#D4A060"></div>
+                  <div class="ph-sw" style="background:#F5EEE0"></div>
+                </div>
+                <div class="ph-product-rect"></div>
+              </div>
+              <span class="pl-label">wisdom-packaging.jpg</span>
+              <span class="pl-note">replace with final</span>
+            </div>
+            <div class="pinfo">
+              <div class="psub">Commercial Design · Fashion-Adjacent</div>
+              <div class="ptitle" style="font-size:1.1rem">Wisdom ATL<br>Eyewear</div>
+              <p class="pdesc" style="font-size:.76rem;margin-bottom:.75rem">Product direction, packaging, visual merchandising, retail display, and brand storytelling.</p>
+              <div class="ptags" style="margin-bottom:.75rem">
+                <span class="ptag">Branding</span>
+                <span class="ptag">Packaging</span>
+                <span class="ptag">Retail Design</span>
+              </div>
+              <a href="#" class="plink" style="font-size:.6rem">Open folder</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row-pair -->
+
+      <!-- ══ NAAGIN + KUAI: small ══ -->
       <div class="row-small">
-        <div class="proj-card pc-naagin reveal">
-          <div class="ptab">Graphic Design · Campaign</div>
-          <div class="sm-visual">
-            <div class="ph-naagin">
-              <div class="ph-naagin-wm">Naagin<br>Sauce</div>
+
+        <div class="pf pf-coral reveal">
+          <div class="pf-tab">Graphic Design · Campaign · Marketing</div>
+          <div class="pf-body">
+            <div class="pimg pimg-red" style="aspect-ratio:5/3;position:relative">
+              <div class="ph-naagin-wrap">
+                <div class="naagin-wm">Naagin<br>Sauce</div>
+                <div class="naagin-sticker">Spicy ✦</div>
+              </div>
+              <div class="naagin-rip"></div>
+              <span class="pl-label">naagin-campaign.jpg</span>
+              <span class="pl-note">replace with final</span>
             </div>
-            <div class="ph-naagin-rip"></div>
-            <span class="pimg-label">naagin-campaign.jpg</span>
-            <span class="pimg-note">replace with final</span>
-          </div>
-          <div class="sm-info">
-            <span class="slbl">Professional Design Experience</span>
-            <div class="ptitle" style="font-size:.98rem">Naagin Sauce</div>
-            <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">Campaign visuals, digital marketing, and graphic design for an Indian hot sauce brand.</p>
-            <div class="ptags"><span class="ptag">Campaign</span><span class="ptag">Branding</span><span class="ptag">Social Media</span></div>
-            <a href="#" class="plink sm">Explore ↗</a>
+            <div class="pinfo" style="padding:.85rem 1.1rem 1rem">
+              <span class="pbadge" style="font-size:.5rem;margin-bottom:.45rem">Professional Design Experience</span>
+              <div class="ptitle" style="font-size:.98rem">Naagin Sauce</div>
+              <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">Campaign visuals, digital marketing, and graphic design for an Indian hot sauce brand.</p>
+              <div class="ptags" style="margin-bottom:.6rem">
+                <span class="ptag">Campaign</span>
+                <span class="ptag">Branding</span>
+                <span class="ptag">Social Media</span>
+              </div>
+              <a href="#" class="plink" style="font-size:.58rem">Explore ↗</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card pc-kuai reveal">
-          <div class="ptab">AI Product · UX Experiment</div>
-          <div class="sm-visual">
-            <div class="ph-kuai" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px">
-              <div class="kuai-sc">
-                <div class="ksb"></div><div class="ksb"></div>
-                <div class="ksb"></div><div class="ksb"></div>
+        <div class="pf pf-sky reveal">
+          <div class="pf-tab">AI Product · UX Experiment</div>
+          <div class="pf-body">
+            <div class="pimg pimg-sky" style="aspect-ratio:5/3;position:relative">
+              <div class="ph-kuai-wrap">
+                <div class="kuai-sc lg">
+                  <div class="ksb" style="width:38px"></div>
+                  <div class="ksb" style="width:28px"></div>
+                  <div class="ksb" style="width:34px"></div>
+                  <div class="ksb a" style="width:30px"></div>
+                </div>
+                <div class="kuai-sc sm">
+                  <div class="ksb" style="width:28px"></div>
+                  <div class="ksb" style="width:20px"></div>
+                  <div class="ksb a" style="width:24px"></div>
+                </div>
               </div>
-              <div class="kuai-sc sm">
-                <div class="ksb" style="width:26px"></div>
-                <div class="ksb" style="width:20px"></div>
-                <div class="ksb" style="width:22px;background:rgba(255,216,80,.38)"></div>
-              </div>
+              <div class="kuai-ai-tag">AI-assisted ✦</div>
+              <span class="pl-label">kuai-app-screens.jpg</span>
+              <span class="pl-note">replace with final</span>
             </div>
-            <span class="pimg-label">kuai-app-screens.jpg</span>
-            <span class="pimg-note">replace with final</span>
-          </div>
-          <div class="sm-info">
-            <span class="slbl">AI Experimentation</span>
-            <div class="ptitle" style="font-size:.98rem">KUAI</div>
-            <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">AI shopping assistant — interface structure and early AI-assisted product thinking.</p>
-            <div class="ptags"><span class="ptag">AI UX</span><span class="ptag">App Design</span><span class="ptag">Fashion × Tech</span></div>
-            <a href="#" class="plink sm">Explore ↗</a>
+            <div class="pinfo" style="padding:.85rem 1.1rem 1rem">
+              <span class="pbadge" style="font-size:.5rem;margin-bottom:.45rem">AI Experimentation</span>
+              <div class="ptitle" style="font-size:.98rem">KUAI</div>
+              <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">AI shopping assistant — interface structure and early AI-assisted product thinking.</p>
+              <div class="ptags" style="margin-bottom:.6rem">
+                <span class="ptag">AI UX</span>
+                <span class="ptag">App Design</span>
+                <span class="ptag">Fashion × Tech</span>
+              </div>
+              <a href="#" class="plink" style="font-size:.58rem">Explore ↗</a>
+            </div>
           </div>
         </div>
-      </div>
+
+      </div><!-- /row-small -->
 
     </div><!-- /bento -->
   </div>
 </section>
 
-<!-- ━━━ ABOUT — MAROON ━━━ -->
-<section id="about" class="section sec-maroon grid-maroon">
+<!-- ══ ABOUT — MAROON ══ -->
+<section id="about" class="section bg-maroon gd gd-maroon">
   <div class="wrap">
-    <div class="eyebrow eyebrow-cream">Open File: Niharika</div>
-    <div class="about-inner">
+    <div class="eyebrow ey-cream">Open File: Niharika</div>
+    <div class="about-grid">
 
       <div>
-        <h2 class="about-h">Not a bio.<br>A few <span class="ital">clues.</span></h2>
-        <p class="about-sub-copy">What I notice, collect, love, and turn into design.</p>
+        <h2 class="about-h">Not a bio.<br>A few <span class="it">clues.</span></h2>
+        <p class="about-meta">What I notice, collect, love, and turn into design.</p>
 
-        <!-- Mobile chips -->
         <div class="about-mob">
-          <span class="a-chip">Ginger's person</span>
-          <span class="a-chip">Sky collector</span>
-          <span class="a-chip">Indian art forms</span>
-          <span class="a-chip">Systems thinker</span>
+          <span class="ach">Ginger's person</span><span class="ach">Sky collector</span>
+          <span class="ach">Indian art forms</span><span class="ach">Systems thinker</span>
         </div>
 
-        <div class="about-quote reveal">
+        <div class="about-q reveal">
           <p>"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
         </div>
-
-        <p class="about-para reveal">
-          I'm a UX and graphic designer based in Atlanta, graduating from SCAD in 2025. My work sits at the intersection of clarity and feeling — I want people to navigate experiences without ever feeling lost, and to feel something when they arrive.
-        </p>
-
-        <p class="about-para reveal">
-          Outside of design, I'm usually cooking, discovering music, watching murder mysteries or Bollywood, visiting museums, dressing up, finding <strong>Indian homegrown brands</strong>, getting my nails done, or taking another picture of the sky.
-        </p>
-
+        <p class="about-para reveal">I'm a UX and graphic designer based in Atlanta, graduating from SCAD in 2025. My work sits at the intersection of clarity and feeling — I want people to navigate experiences without ever feeling lost, and to feel something when they arrive.</p>
+        <p class="about-para reveal">Outside of design, I'm usually cooking, discovering music, watching murder mysteries or Bollywood, visiting museums, dressing up, finding <strong>Indian homegrown brands</strong>, getting my nails done, or taking another picture of the sky.</p>
         <div class="about-chips reveal">
-          <span class="a-chip">Clarity</span>
-          <span class="a-chip">Systems</span>
-          <span class="a-chip">Storytelling</span>
-          <span class="a-chip">Emotional connection</span>
-          <span class="a-chip">Tiny details</span>
-          <span class="a-chip">Culture</span>
-          <span class="a-chip">People not feeling lost</span>
+          <span class="ach">Clarity</span><span class="ach">Systems</span>
+          <span class="ach">Storytelling</span><span class="ach">Emotional connection</span>
+          <span class="ach">Tiny details</span><span class="ach">Culture</span>
+          <span class="ach">People not feeling lost</span>
         </div>
       </div>
 
-      <!-- Right: 4 cream artifacts on maroon -->
+      <!-- 4 LARGER artifacts -->
       <div class="about-collage">
 
+        <!-- Searches — bigger -->
         <div class="ac" style="top:0;left:0;transform:rotate(-1deg)">
-          <div class="tape tc" style="top:-8px;left:46px;transform:rotate(-1.5deg)"></div>
-          <div class="art-card searches-c reveal">
+          <div class="tape tape-c" style="top:-8px;left:44px;transform:rotate(-1.5deg)"></div>
+          <div class="art art-searches reveal">
             <div class="s-lbl">Recent searches</div>
-            <div class="s-line">how do people navigate airports?</div>
-            <div class="s-line">why does this interface feel stressful?</div>
-            <div class="s-line">Indian calendar art references</div>
-            <div class="s-line">is this spacing bothering anyone else?</div>
+            <div class="s-l">how do people navigate airports?</div>
+            <div class="s-l">why does this interface feel stressful?</div>
+            <div class="s-l">Indian calendar art references</div>
+            <div class="s-l">is this spacing bothering anyone else?</div>
           </div>
         </div>
 
+        <!-- Ginger — bigger polaroid -->
         <div class="ac" style="top:0;right:0;transform:rotate(2.5deg)">
-          <div class="tape" style="top:-8px;left:25px;transform:rotate(1.5deg)"></div>
-          <div class="ginger-card art-card reveal" style="width:130px;box-shadow:5px 6px 0 rgba(28,16,8,.35)">
-            <div class="ginger-bg">
-              <svg width="48" height="48" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
+          <div class="tape tape-mg" style="top:-8px;left:24px;transform:rotate(1.5deg)"></div>
+          <div class="art art-gin polaroid reveal">
+            <div class="pol-img" style="width:120px;height:120px">
+              <svg class="cat-svg" width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
                 <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
                 <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
                 <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
@@ -1137,14 +1084,14 @@ footer{
                 <path d="M46 43Q57 37 54 50Q51 58 44 53" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75"/>
               </svg>
             </div>
-            <div class="g-lbl">ginger.jpg</div>
-            <div class="g-sub">emotional support creative director</div>
+            <div class="pol-cap">ginger.jpg</div>
           </div>
         </div>
 
-        <div class="ac" style="top:188px;right:8px;transform:rotate(-1.5deg)">
-          <div class="tape tb" style="top:-8px;left:58px;transform:rotate(2deg)"></div>
-          <div class="art-card reveal" style="width:194px;padding:.7rem">
+        <!-- Sky — wider -->
+        <div class="ac" style="top:188px;right:4px;transform:rotate(-1.5deg)">
+          <div class="tape tape-b" style="top:-8px;left:55px;transform:rotate(2deg)"></div>
+          <div class="art art-sky reveal">
             <div class="film-row">
               <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
               <div class="ff"><div class="ff-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
@@ -1154,16 +1101,17 @@ footer{
           </div>
         </div>
 
+        <!-- Collect — bottom left -->
         <div class="ac" style="top:296px;left:0;transform:rotate(.5deg)">
-          <div class="tape" style="top:-8px;left:36px;transform:rotate(-2deg)"></div>
-          <div class="art-card collect-c reveal">
-            <div class="c-fname">things_i_collect.txt</div>
-            <div class="c-item">visual systems</div>
-            <div class="c-item">Indian art forms</div>
-            <div class="c-item">fashion references</div>
-            <div class="c-item">museum notes</div>
-            <div class="c-item">songs</div>
-            <div class="c-item">tiny details</div>
+          <div class="tape tape-mg" style="top:-8px;left:35px;transform:rotate(-2deg)"></div>
+          <div class="art art-collect reveal">
+            <div class="cfname">things_i_collect.txt</div>
+            <div class="citem">visual systems</div>
+            <div class="citem">Indian art forms</div>
+            <div class="citem">fashion references</div>
+            <div class="citem">museum notes</div>
+            <div class="citem">songs</div>
+            <div class="citem">tiny details</div>
           </div>
         </div>
 
@@ -1172,82 +1120,97 @@ footer{
   </div>
 </section>
 
-<!-- ━━━ PROCESS — MARIGOLD ━━━ -->
-<section id="process" class="section sec-marigold grid-yellow">
+<!-- ══ PROCESS — MARIGOLD ══ -->
+<section id="process" class="section bg-marigold gd gd-yellow">
   <div class="wrap">
-    <div class="eyebrow eyebrow-ink">Behind the Build</div>
-    <div class="proc-inner">
+    <div class="eyebrow ey-ink">Behind the Build</div>
+    <div class="proc-grid">
       <div>
-        <h2 class="proc-h">This portfolio is<br>also a <span class="ital">case study.</span></h2>
-        <div class="proc-tagline">"AI proposes. I decide."</div>
-        <p class="proc-body">I built this portfolio the way I design everything — directing, deciding, pushing back, and making it feel like me. AI was a tool I used with intention and judgment. Every prompt was art-directed. Every output was critiqued.</p>
-        <p class="proc-body" style="margin-top:-.5rem">The full record lives on GitHub: every version, every rejected direction, and every moment I said "no, that's not it."</p>
+        <h2 class="proc-h">This portfolio is<br>also a <span class="it">case study.</span></h2>
+        <div class="proc-tl">"AI proposes. I decide."</div>
+        <p class="proc-body">I built this portfolio the way I design everything — directing, deciding, pushing back, and making it feel like me. AI was a tool I used with intention. Every prompt was art-directed. Every output critiqued.</p>
+        <p class="proc-body" style="margin-top:-.5rem">The full record lives on GitHub: every version, every rejected direction, every moment I said "no, that's not it."</p>
         <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-mg">View on GitHub ↗</a>
       </div>
-      <div class="proc-cards">
-        <div class="proc-card pc-r reveal">
-          <div class="pc-file">prompts.md</div>
-          <div class="pc-title">Prompting as Art Direction</div>
-          <div class="pc-desc">Every AI prompt was a creative brief — written with intent, visual references, and a clear point of view about what I didn't want.</div>
+      <div class="proc-pin">
+        <div class="pcard pc-r reveal">
+          <div class="pcfile">prompts.md</div>
+          <div class="pctitle">Prompting as Art Direction</div>
+          <div class="pcdesc">Every AI prompt was a creative brief — written with intent, references, and a clear point of view about what I didn't want.</div>
         </div>
-        <div class="proc-card pc-g reveal">
-          <div class="pc-file">decisions.md</div>
-          <div class="pc-title">Direction, Not Generation</div>
-          <div class="pc-desc">I made every visual and structural decision. AI generated starting points. I shaped, rejected, and refined until it felt like mine.</div>
+        <div class="pcard pc-g reveal">
+          <div class="pcfile">decisions.md</div>
+          <div class="pctitle">Direction, Not Generation</div>
+          <div class="pcdesc">I made every visual and structural decision. AI generated starting points. I shaped, rejected, and refined until it felt like mine.</div>
         </div>
-        <div class="proc-card pc-b reveal">
-          <div class="pc-file">rejected-versions.txt</div>
-          <div class="pc-title">Record of Resistance</div>
-          <div class="pc-desc">I documented every version that felt too generic, too soft, or too template-like. Knowing what doesn't feel like you is half the brief.</div>
+        <div class="pcard pc-b reveal">
+          <div class="pcfile">rejected-versions.txt</div>
+          <div class="pctitle">Record of Resistance</div>
+          <div class="pcdesc">I documented every version that felt too generic or template-like. Knowing what doesn't feel like you is half the creative brief.</div>
         </div>
-        <div class="proc-card pc-o reveal">
-          <div class="pc-file">commits.log</div>
-          <div class="pc-title">Iteration in Public</div>
-          <div class="pc-desc">Every decision is committed. The build history is a design process — public, honest, and ongoing.</div>
+        <div class="pcard pc-o reveal">
+          <div class="pcfile">commits.log</div>
+          <div class="pctitle">Iteration in Public</div>
+          <div class="pcdesc">Every decision is committed. The build history is a design process — public, honest, and ongoing.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ CONTACT — DARK ESPRESSO ━━━ -->
-<section id="contact" class="section sec-espresso grid-dark">
+<!-- ══ CONTACT — CREAM ══ -->
+<section id="contact" class="section bg-cream gd gd-cream">
   <div class="wrap">
-    <div class="eyebrow eyebrow-cream">Get in touch</div>
-    <h2 class="contact-h">
-      <span class="line1">Let's make something</span><br>
-      <span class="line2">worth noticing.</span>
-    </h2>
-    <p class="contact-sub">I'm looking for full-time design roles where I can bring both my systems thinking and my personality to the work.</p>
-    <div class="contact-btns">
-      <a href="mailto:niharika@example.com" class="btn btn-mg">EMAIL ME →</a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-cream-ol">LINKEDIN ↗</a>
-      <a href="#" class="btn btn-cream-ol">RESUME ↗</a>
-      <a href="https://behance.net" target="_blank" rel="noopener" class="btn btn-cream-ol">BEHANCE ↗</a>
-    </div>
-    <div class="sticky-row">
-      <div class="sticky-y2">p.s. Ginger is available for virtual co-working sessions.</div>
-      <div class="sticky-b">p.p.s. I will absolutely ask where you got your reference images.</div>
+    <div class="eyebrow ey-ink">Get in touch</div>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-h">Let's make something<br><span class="it">worth noticing.</span></h2>
+        <p class="contact-sub">I'm looking for full-time design roles where I can bring both my systems thinking and my taste to the work.</p>
+        <div class="contact-btns">
+          <a href="mailto:niharika@example.com" class="btn btn-red">Email me →</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-ol-dk">LinkedIn ↗</a>
+          <a href="#" class="btn btn-ol-dk">Resume ↗</a>
+          <a href="https://behance.net" target="_blank" rel="noopener" class="btn btn-ol-dk">Behance ↗</a>
+        </div>
+        <div class="sticky-row">
+          <div class="sn-y">p.s. Ginger approves thoughtful emails.</div>
+          <div class="sn-b">p.p.s. I will absolutely ask where you got your reference images.</div>
+        </div>
+      </div>
+      <!-- Ginger polaroid -->
+      <div class="ct-gin">
+        <div class="polaroid ct-pol">
+          <div class="cg-bg">
+            <svg class="cat-svg" width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger">
+              <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
+              <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
+              <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
+              <polygon points="43,13 47,3 37,11" fill="#5C3010" opacity=".8"/>
+              <ellipse cx="24" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
+              <ellipse cx="36" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
+              <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
+            </svg>
+          </div>
+          <div class="pol-cap">ginger.jpg</div>
+        </div>
+        <div style="font-family:var(--hand);font-size:.86rem;color:var(--muted);text-align:center;margin-top:.2rem">very professional.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ FOOTER ━━━ -->
+<!-- ══ FOOTER ══ -->
 <footer>
-  <span class="f-l">© 2025 Niharika Jain · Built with intention (and AI assistance)</span>
-  <span class="f-r">Made in Atlanta ✦ Powered by Ginger</span>
+  <span class="fl">© 2025 Niharika Jain · Built with intention (and AI assistance)</span>
+  <span class="fr">Made in Atlanta ✦ Powered by Ginger</span>
 </footer>
 
 <script>
-/* Nav toggle */
 const tog=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
 tog.addEventListener('click',()=>nl.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
 
-/* Scroll reveal */
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
-},{threshold:.1,rootMargin:'0px 0px -28px 0px'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
