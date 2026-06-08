@@ -7,788 +7,728 @@
 <meta name="description" content="Portfolio of Niharika Jain — UX and Graphic Designer. Part designer, part storyteller, part systems thinker."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Hanken+Grotesk:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
 
-/* ══════════════════════════════════════════
-   RESET
-══════════════════════════════════════════ */
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESET + BASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#F5EFE3;color:#1A0F05;overflow-x:hidden;line-height:1.6}
+body{font-family:'Hanken Grotesk',sans-serif;color:#1C1008;overflow-x:hidden;line-height:1.6;background:#F4EDE0}
 
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    DESIGN TOKENS
-══════════════════════════════════════════ */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root{
-  /* Base */
-  --cream:  #F5EFE3;
-  --paper:  #FBF8F2;
-  --paper2: #F8F3EA;
-  --ink:    #1A0F05;
-  --ink2:   #3D2810;
-  --muted:  #7A5C38;
-  --faint:  #B89870;
+  /* Backgrounds */
+  --cream:     #F4EDE0;
+  --paper:     #FBF7EF;
+  --paper2:    #F8F2E6;
+  --maroon:    #6B1F1F;
+  --maroon-d:  #4A1414;
+  --marigold:  #D9920A;
+  --marigold-l:#F2B830;
+  --espresso:  #1C1008;
 
-  /* Brand accent */
-  --maroon:   #7B1F1F;
-  --maroon-d: #561515;
+  /* Ink */
+  --ink:    #1C1008;
+  --ink2:   #3D2010;
+  --muted:  #7A5838;
+  --faint:  #B89068;
 
-  /* Bold folder / section colors */
-  --red:      #D63C2A; /* Pili */
-  --cobalt:   #2848A8; /* BioSpherix */
-  --forest:   #2E6040; /* FIFA */
-  --orange:   #CC6B1A; /* Wisdom */
-  --coral:    #C94030; /* Naagin */
-  --sky:      #3378C4; /* KUAI */
-  --marigold: #D4900C;
-  --pink:     #D4417A;
-  --olive:    #5A6E28;
+  /* Project colors */
+  --c-red:    #C83828;
+  --c-red-d:  #8E2010;
+  --c-blue:   #2448A8;
+  --c-blue-d: #142878;
+  --c-green:  #256040;
+  --c-green-d:#143820;
+  --c-orange: #C06018;
+  --c-ora-d:  #884010;
+  --c-coral:  #C03828;
+  --c-coral-d:#882010;
+  --c-sky:    #2468C0;
+  --c-sky-d:  #143880;
 
   /* Shadows */
-  --sh:   5px 7px 0 rgba(26,15,5,.20);
-  --sh-l: 7px 9px 0 rgba(26,15,5,.24);
-  --sh-s: 3px 4px 0 rgba(26,15,5,.16);
+  --sh:   5px 6px 0 rgba(28,16,8,.22);
+  --sh-l: 7px 9px 0 rgba(28,16,8,.26);
+  --sh-s: 3px 4px 0 rgba(28,16,8,.18);
 
-  /* Typography */
+  /* Type */
   --serif: 'Fraunces',serif;
-  --sans:  'DM Sans',sans-serif;
+  --sans:  'Hanken Grotesk',sans-serif;
   --hand:  'Caveat',cursive;
 
   /* Layout */
-  --gutter: clamp(1.25rem,5vw,4rem);
-  --sectionV: clamp(4rem,9vw,7rem);
-  --r: 10px;
-  --r-sm: 5px;
-  --r-lg: 16px;
+  --gut:  clamp(1.25rem,5.5vw,4.5rem);
+  --secV: clamp(4.5rem,9vw,7.5rem);
+  --r:    8px;
+  --r-sm: 4px;
+  --r-lg: 14px;
 }
 
-/* ══════════════════════════════════════════
-   GRAPH PAPER
-══════════════════════════════════════════ */
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SECTION COLOR BLOCKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.sec-cream   {background:var(--cream)}
+.sec-paper   {background:var(--paper)}
+.sec-maroon  {background:var(--maroon)}
+.sec-marigold{background:var(--marigold)}
+.sec-espresso{background:var(--espresso)}
+
+/* Grid overlay per section */
+.grid-cream::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
-    linear-gradient(rgba(26,15,5,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(26,15,5,.04) 1px,transparent 1px);
+    linear-gradient(rgba(28,16,8,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(28,16,8,.045) 1px,transparent 1px);
   background-size:26px 26px;
 }
+.grid-dark::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(244,237,224,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,237,224,.04) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.grid-maroon::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(244,237,224,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,237,224,.06) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.grid-yellow::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(28,16,8,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(28,16,8,.07) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+section,nav{position:relative}
 
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    LAYOUT
-══════════════════════════════════════════ */
-.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter);position:relative;z-index:1}
-.section{padding:var(--sectionV) 0}
-hr.rule{border:none;border-top:1.5px solid rgba(26,15,5,.10);margin:0;position:relative;z-index:1}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.section{padding:var(--secV) 0}
 
-/* ══════════════════════════════════════════
-   EYEBROW / LABEL SYSTEM
-══════════════════════════════════════════ */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TYPE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
-  margin-bottom:.8rem;
+  font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:.9rem;
 }
-.eyebrow::before{content:'';width:20px;height:2px;background:var(--maroon);display:block}
+.eyebrow-cream{color:rgba(244,237,224,.6)}
+.eyebrow-ink  {color:var(--muted)}
+.eyebrow-ink::before,.eyebrow-cream::before{
+  content:'';width:18px;height:2px;display:block;
+}
+.eyebrow-ink::before  {background:var(--c-red)}
+.eyebrow-cream::before{background:rgba(244,237,224,.5)}
 
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    TAPE
-══════════════════════════════════════════ */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .tape{
-  position:absolute;width:48px;height:15px;border-radius:1px;z-index:20;
-  background:rgba(212,144,12,.55);
+  position:absolute;width:46px;height:14px;border-radius:1px;z-index:20;
+  background:rgba(217,146,10,.5);
 }
-.tape.b{background:rgba(40,72,168,.30)}
-.tape.r{background:rgba(214,60,42,.28)}
-.tape.g{background:rgba(46,96,64,.28)}
+.tape.tb{background:rgba(36,72,168,.28)}
+.tape.tr{background:rgba(200,56,40,.26)}
+.tape.tc{background:rgba(244,237,224,.55)}
 
-/* ══════════════════════════════════════════
-   NAVIGATION
-══════════════════════════════════════════ */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BUTTONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;padding:.78rem 1.6rem;border-radius:var(--r-sm);
+  transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;
+  white-space:nowrap;
+}
+/* Marigold fill */
+.btn-mg{
+  background:var(--marigold);color:var(--ink);
+  box-shadow:4px 4px 0 var(--maroon-d);
+}
+.btn-mg:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--maroon-d)}
+/* Cream outline on dark */
+.btn-cream-ol{
+  background:transparent;color:var(--cream);
+  border:2px solid rgba(244,237,224,.35);
+  box-shadow:4px 4px 0 rgba(244,237,224,.15);
+}
+.btn-cream-ol:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(244,237,224,.15);border-color:rgba(244,237,224,.6)}
+/* Red fill */
+.btn-red{
+  background:var(--c-red);color:#fff;
+  box-shadow:4px 4px 0 var(--c-red-d);
+}
+.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--c-red-d)}
+/* Cream fill on maroon */
+.btn-cream{
+  background:var(--cream);color:var(--maroon);
+  box-shadow:4px 4px 0 rgba(28,16,8,.3);
+  border:2px solid transparent;
+}
+.btn-cream:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.3)}
+/* Dark outline on cream */
+.btn-dark-ol{
+  background:transparent;color:var(--ink);
+  border:2px solid rgba(28,16,8,.25);
+  box-shadow:4px 4px 0 rgba(28,16,8,.15);
+}
+.btn-dark-ol:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.2)}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   NAV
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem var(--gutter);
-  background:rgba(245,239,227,.92);backdrop-filter:blur(14px);
-  border-bottom:1.5px solid rgba(26,15,5,.08);
+  padding:.85rem var(--gut);
+  background:rgba(244,237,224,.92);backdrop-filter:blur(16px);
+  border-bottom:2px solid rgba(28,16,8,.1);
 }
 .nav-logo{font-family:var(--serif);font-style:italic;font-size:1.05rem;font-weight:400;color:var(--ink);text-decoration:none}
 .nav-links{display:flex;gap:1.8rem;list-style:none}
-.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--maroon)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink)}
 
-/* ══════════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════════ */
-.btn{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  text-decoration:none;padding:.8rem 1.7rem;border-radius:var(--r-sm);
-  transition:transform .15s,box-shadow .15s;cursor:pointer;border:none;
-}
-.btn-red{background:var(--red);color:#fff;box-shadow:4px 4px 0 var(--maroon-d)}
-.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--maroon-d)}
-.btn-outline{background:transparent;color:var(--ink);border:2px solid rgba(26,15,5,.22);box-shadow:var(--sh-s)}
-.btn-outline:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 rgba(26,15,5,.18)}
-.btn-ink{background:var(--ink);color:var(--cream);box-shadow:4px 4px 0 rgba(0,0,0,.4)}
-.btn-ink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.4)}
-
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    HERO
-══════════════════════════════════════════ */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;overflow:hidden}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#hero{padding-top:80px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 .hero-layout{
-  display:grid;grid-template-columns:1fr 420px;
+  display:grid;grid-template-columns:1fr 400px;
   gap:3rem;align-items:center;width:100%;padding:3rem 0;
 }
 .hero-tag{
-  display:inline-block;
-  font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:1.1rem;
-  display:flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:1.1rem;
 }
-.hero-tag::before{content:'';width:20px;height:2px;background:var(--red);display:block}
+.hero-tag::before{content:'';width:18px;height:2px;background:var(--c-red);display:block}
 .hero-h{
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(2.8rem,5.8vw,5rem);
-  line-height:1.04;letter-spacing:-.02em;
-  color:var(--ink);margin-bottom:1.4rem;
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(2.6rem,5.5vw,4.6rem);
+  line-height:1.04;letter-spacing:-.025em;color:var(--ink);
+  margin-bottom:1.3rem;
 }
-.hero-h .italic{font-style:italic;color:var(--red)}
+.hero-h .ital{font-style:italic;color:var(--c-red)}
 .hero-sub{
-  font-size:clamp(.9rem,1.3vw,1.02rem);
-  color:var(--muted);max-width:38ch;line-height:1.75;
-  font-weight:300;margin-bottom:2rem;
+  font-size:clamp(.9rem,1.3vw,1rem);color:var(--muted);
+  max-width:40ch;line-height:1.78;font-weight:300;margin-bottom:.9rem;
 }
-.hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-note{
+  font-family:var(--hand);font-size:.95rem;color:var(--muted);
+  margin-bottom:1.8rem;opacity:.85;
+}
+.hero-ctas{display:flex;gap:.7rem;flex-wrap:wrap}
 
-/* ── Hero collage ── */
-.hero-collage{position:relative;height:540px}
+/* Hero collage */
+.hero-collage{position:relative;height:520px}
 .hco{position:absolute}
 
-/* Profile photo */
-.hco-photo{top:0;right:10px;transform:rotate(-2deg);width:168px}
 .polaroid{
-  background:#fff;border:1.5px solid rgba(26,15,5,.12);
-  padding:9px 9px 38px;box-shadow:var(--sh);border-radius:3px;
+  background:#fff;padding:9px 9px 38px;
+  box-shadow:var(--sh);border-radius:2px;
+  border:1.5px solid rgba(28,16,8,.12);position:relative;
 }
 .polaroid-img{
-  width:150px;height:150px;border-radius:2px;overflow:hidden;
-  background:linear-gradient(145deg,#E8DDD0,#D4C6B4);
+  border-radius:1px;overflow:hidden;
+  background:linear-gradient(145deg,#EAE0D0,#D6C8B4);
   display:flex;align-items:center;justify-content:center;
 }
 .polaroid-cap{
-  position:absolute;bottom:9px;left:0;right:0;text-align:center;
-  font-family:var(--hand);font-size:.82rem;color:#444;
+  position:absolute;bottom:8px;left:0;right:0;text-align:center;
+  font-family:var(--hand);font-size:.82rem;color:#555;
 }
+.hco-photo{top:0;right:15px;transform:rotate(-2deg);width:168px}
+.hco-photo .polaroid-img{width:150px;height:150px}
 
-/* Colored folder object */
-.hco-folder{top:120px;left:0;transform:rotate(-1.5deg);z-index:3}
-.mini-folder-card{
-  background:var(--cobalt);border:2px solid rgba(0,0,0,.25);
-  border-radius:0 var(--r) var(--r) var(--r);
-  box-shadow:var(--sh);width:155px;position:relative;
+/* Blue folder */
+.hco-folder{top:110px;left:0;transform:rotate(-1.5deg);z-index:3}
+.hero-folder{
+  background:var(--c-blue);border:2px solid var(--c-blue-d);
+  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
+  box-shadow:var(--sh);width:152px;position:relative;
 }
-.mini-folder-card::before{
+.hero-folder::before{
   content:'selected_work/';position:absolute;top:-26px;left:-1.5px;
-  background:var(--cobalt);
-  border:2px solid rgba(0,0,0,.25);border-bottom:none;
+  background:var(--c-blue);border:2px solid var(--c-blue-d);border-bottom:none;
   border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 10px;font-size:.56rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);
+  padding:3px 10px;font-size:.55rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;
 }
-.mini-folder-inner{padding:.85rem .9rem}
-.mf-file{font-size:.65rem;color:rgba(255,255,255,.75);line-height:1.9;letter-spacing:.02em}
-.mf-count{font-size:.55rem;color:rgba(255,255,255,.45);margin-top:.35rem;letter-spacing:.06em}
+.hf-inner{padding:.85rem .9rem}
+.hf-file{font-size:.63rem;color:rgba(255,255,255,.72);line-height:1.9}
+.hf-count{font-size:.54rem;color:rgba(255,255,255,.4);margin-top:.35rem;letter-spacing:.05em}
 
-/* Ginger card */
-.hco-ginger{top:190px;right:0;transform:rotate(2.5deg);z-index:4;width:132px}
+/* Ginger */
+.hco-ginger{top:190px;right:5px;transform:rotate(2deg);z-index:4;width:130px}
 .ginger-card{
-  background:var(--paper);border:2px solid rgba(26,15,5,.18);
-  border-radius:var(--r);box-shadow:var(--sh);padding:.75rem;
+  background:var(--paper);border:2px solid rgba(28,16,8,.18);
+  border-radius:var(--r);box-shadow:var(--sh);padding:.7rem;
 }
 .ginger-bg{
-  background:linear-gradient(135deg,#F4C060,#E09010);
-  border-radius:6px;padding:.9rem;
+  background:linear-gradient(135deg,#F4BE58,#D89010);
+  border-radius:5px;padding:.85rem;
   display:flex;flex-direction:column;align-items:center;gap:3px;
 }
-.ginger-lbl{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;text-align:center}
-.ginger-sub{font-size:.52rem;color:var(--faint);text-align:center;margin-top:1px}
+.g-lbl{font-size:.57rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;text-align:center}
+.g-sub{font-size:.5rem;color:var(--faint);text-align:center;margin-top:1px}
 
 /* Sky strip */
-.hco-sky{top:330px;right:20px;transform:rotate(1deg);z-index:2;width:210px}
-.sky-strip-card{
-  background:var(--paper);border:2px solid rgba(26,15,5,.15);
+.hco-sky{top:330px;right:20px;transform:rotate(.8deg);z-index:2;width:208px}
+.sky-card{
+  background:var(--paper);border:2px solid rgba(28,16,8,.14);
   border-radius:var(--r);padding:.7rem;box-shadow:var(--sh);
 }
-.film-row{display:flex;gap:4px;margin-bottom:.45rem}
-.film-f{flex:0 0 42px;height:52px;background:#1A0F05;border-radius:2px;padding:4px 3px;position:relative}
-.film-f::before,.film-f::after{
-  content:'';position:absolute;left:0;right:0;height:5px;
-  background:repeating-linear-gradient(90deg,#1A0F05 0,#1A0F05 3px,#000 3px,#000 8px);
-}
-.film-f::before{top:0}.film-f::after{bottom:0}
-.film-img{width:100%;height:100%;border-radius:1px}
-.sky-cap{font-family:var(--hand);font-size:.82rem;color:var(--muted);line-height:1.3}
-.sky-filenames{font-size:.55rem;color:var(--faint);margin-top:3px;letter-spacing:.05em}
+.film-row{display:flex;gap:3px;margin-bottom:.4rem}
+.ff{flex:0 0 40px;height:50px;background:#1C1008;border-radius:2px;padding:4px 3px;position:relative}
+.ff::before,.ff::after{content:'';position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#1C1008 0,#1C1008 3px,#000 3px,#000 7px)}
+.ff::before{top:0}.ff::after{bottom:0}
+.ff-img{width:100%;height:100%;border-radius:1px}
+.sky-cap{font-family:var(--hand);font-size:.8rem;color:var(--muted);line-height:1.3}
+.sky-fn{font-size:.52rem;color:var(--faint);margin-top:3px}
 
-/* Sticky note */
-.hco-sticky{top:380px;left:100px;transform:rotate(-.5deg);z-index:5}
-.sticky-n{
-  background:#FEEF80;border-radius:2px;
-  padding:.65rem .8rem;max-width:158px;
-  box-shadow:2px 3px 7px rgba(26,15,5,.14),0 0 0 1px rgba(26,15,5,.04);
-  font-family:var(--hand);font-size:.92rem;color:#1A1200;line-height:1.45;
+/* Sticky */
+.hco-sticky{top:380px;left:95px;z-index:5}
+.sticky-y{
+  background:#FEF082;border-radius:2px;padding:.6rem .8rem;max-width:155px;
+  box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.04);
+  font-family:var(--hand);font-size:.9rem;color:#1A1200;line-height:1.45;
 }
 
-/* Hero mobile chips */
-.hero-mobile{display:none;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
-.h-chip{
-  font-size:.68rem;font-weight:500;letter-spacing:.05em;
-  padding:4px 11px;border-radius:20px;border:1.5px solid rgba(26,15,5,.18);color:var(--muted);
+/* Hero mobile */
+.hero-mobile{display:none;flex-wrap:wrap;gap:.45rem;margin-top:1.3rem}
+.hm-chip{
+  font-size:.65rem;font-weight:500;padding:4px 10px;border-radius:20px;
+  border:1.5px solid rgba(28,16,8,.18);color:var(--muted);
 }
-.h-chip.r{border-color:rgba(214,60,42,.35);color:var(--red)}
-.h-chip.g{border-color:rgba(46,96,64,.35);color:var(--forest)}
+.hm-chip.r{border-color:rgba(200,56,40,.35);color:var(--c-red)}
+.hm-chip.g{border-color:rgba(37,96,64,.35);color:var(--c-green)}
 
-/* ══════════════════════════════════════════
-   DESKTOP ARCHIVE — PROJECT SECTION
-══════════════════════════════════════════ */
-#work{background:var(--paper2)}
-
-/* BENTO GRID */
-.bento{display:flex;flex-direction:column;gap:1.8rem}
-
-/* ── ROW 1: PILI (large hero) ── */
-.pili-card{
-  background:var(--red);
-  border:2px solid var(--maroon-d);
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh-l);
-  position:relative;margin-top:28px;
-  overflow:hidden;
-  display:grid;grid-template-columns:1fr 1.1fr;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.pili-card:hover{box-shadow:9px 12px 0 rgba(26,15,5,.26)}
-.pili-card::before{
-  content:'Senior Capstone · UX / Product / Service Design';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--red);border:2px solid var(--maroon-d);border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 14px;font-size:.6rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);
-  white-space:nowrap;
-}
-.pili-copy{
-  padding:2.2rem 2.4rem;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.proj-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  background:rgba(255,255,255,.18);color:rgba(255,255,255,.9);
-  padding:3px 10px;border-radius:2px;border:1px solid rgba(255,255,255,.25);
-  margin-bottom:.75rem;width:fit-content;
-}
-.proj-title-l{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(2rem,3.5vw,3rem);
-  color:#fff;line-height:1.05;margin-bottom:.5rem;
-  letter-spacing:-.02em;
-}
-.proj-subtitle{
-  font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.6);margin-bottom:.7rem;
-}
-.proj-desc-l{
-  font-size:.9rem;color:rgba(255,255,255,.8);
-  font-weight:300;line-height:1.65;max-width:38ch;margin-bottom:1.2rem;
-}
-.proj-tags-l{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.4rem}
-.proj-tag-l{
-  font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 8px;border-radius:2px;border:1px solid rgba(255,255,255,.25);
-  color:rgba(255,255,255,.75);
-}
-.open-link{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:#fff;text-decoration:none;
-  border-bottom:2px solid rgba(255,255,255,.5);padding-bottom:1px;
-  transition:border-color .15s;width:fit-content;
-}
-.open-link::after{content:'↗'}
-.open-link:hover{border-color:#fff}
-
-.pili-visual{
-  position:relative;overflow:hidden;
-  min-height:340px;display:flex;align-items:center;justify-content:center;
-  border-left:2px solid rgba(255,255,255,.12);
-}
-/* Pili placeholder — warm layered cards */
-.pili-ph{
-  position:absolute;inset:0;
-  background:linear-gradient(145deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.03) 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.pili-ph-stack{
-  display:flex;flex-direction:column;gap:10px;width:62%;
-}
-.pili-ph-card{
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  border-radius:6px;padding:12px 16px;
-}
-.pili-ph-line{height:5px;border-radius:2px;background:rgba(255,255,255,.5);margin-bottom:6px}
-.pili-ph-line.s{width:75%;background:rgba(255,255,255,.25)}
-.pili-ph-line.xs{width:50%;background:rgba(255,255,255,.15)}
-.pili-ph-dots{display:flex;gap:5px;margin-top:6px}
-.pili-ph-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}
-.pili-ph-dot:nth-child(2){background:rgba(255,220,100,.45)}
-.pili-ph-dot:nth-child(3){background:rgba(200,255,180,.35)}
-
-/* ── ROW 2: BIOSPHERIX (wide) ── */
-.bio-card{
-  background:var(--cobalt);
-  border:2px solid #1A306E;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh-l);position:relative;margin-top:28px;
-  overflow:hidden;display:grid;grid-template-columns:1.15fr 1fr;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.bio-card:hover{box-shadow:9px 12px 0 rgba(26,15,5,.26)}
-.bio-card::before{
-  content:'AI / UX Web App · Workflow Design';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--cobalt);border:2px solid #1A306E;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 14px;font-size:.6rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;
-}
-.bio-visual{
-  position:relative;overflow:hidden;
-  min-height:280px;display:flex;align-items:center;justify-content:center;
-  border-right:2px solid rgba(255,255,255,.1);
-}
-.bio-ph{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(160deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 100%);
-}
-.bio-grid-bg{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);
-  background-size:22px 22px;
-}
-.bio-diagram{position:relative;z-index:1;width:72%;display:flex;flex-direction:column;gap:10px}
-.bio-row{display:flex;align-items:center;gap:8px}
-.bio-box{
-  border:1.5px solid rgba(255,255,255,.4);border-radius:3px;
-  background:rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.42rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);
-}
-.bio-line{flex:1;height:1.5px;background:rgba(255,255,255,.3);border-radius:1px}
-.bio-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);flex-shrink:0}
-.bio-copy{
-  padding:2rem 2.2rem;display:flex;flex-direction:column;justify-content:center;
-}
-.proj-title-m{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(1.5rem,2.5vw,2rem);
-  color:#fff;line-height:1.1;margin-bottom:.4rem;
-  letter-spacing:-.02em;
-}
-
-/* ── ROW 3: FIFA + WISDOM ── */
-.row-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
-
-.fifa-card{
-  background:var(--forest);
-  border:2px solid #1A4028;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh);position:relative;margin-top:28px;
-  overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.fifa-card:hover{box-shadow:7px 10px 0 rgba(26,15,5,.24)}
-.fifa-card::before{
-  content:'SCADpro · Experience Design';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--forest);border:2px solid #1A4028;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 12px;font-size:.58rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;
-}
-.wisdom-card{
-  background:var(--orange);
-  border:2px solid #924A0A;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh);position:relative;margin-top:28px;
-  overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.wisdom-card:hover{box-shadow:7px 10px 0 rgba(26,15,5,.24)}
-.wisdom-card::before{
-  content:'Product · Packaging · Retail';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--orange);border:2px solid #924A0A;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 12px;font-size:.58rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;
-}
-
-/* Shared secondary visual area */
-.sec-visual{
-  width:100%;aspect-ratio:3/2;position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid rgba(0,0,0,.15);
-  background:rgba(0,0,0,.1);
-}
-
-/* FIFA placeholder */
-.ph-fifa-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ph-mapline{position:absolute;border:1.5px dashed rgba(255,255,255,.4)}
-.ph-pin{position:absolute;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:0 0 0 3px rgba(255,255,255,.2)}
-.ph-arrow-txt{position:absolute;font-size:1rem;color:rgba(255,255,255,.5);font-weight:700}
-
-/* Wisdom placeholder */
-.ph-wisdom-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px}
-.ph-binder{
-  width:58px;height:78px;
-  background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);
-  border-radius:3px 7px 7px 3px;position:relative;
-  display:flex;align-items:center;justify-content:center;
-}
-.ph-binder::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:3px;background:rgba(255,255,255,.2);border-radius:2px}
-.ph-binder-txt{font-size:.38rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);writing-mode:vertical-rl;transform:rotate(180deg);padding-left:7px}
-.ph-swatch-col{display:flex;flex-direction:column;gap:5px}
-.ph-swatch{width:24px;height:18px;border-radius:2px;border:1px solid rgba(255,255,255,.25)}
-
-/* Secondary card copy */
-.sec-info{padding:1.1rem 1.3rem 1.3rem;flex:1}
-.proj-title-s{
-  font-family:var(--serif);font-weight:700;
-  font-size:1.15rem;color:#fff;line-height:1.15;
-  margin-bottom:.3rem;letter-spacing:-.01em;
-}
-.proj-desc-s{
-  font-size:.76rem;color:rgba(255,255,255,.7);font-weight:300;
-  line-height:1.55;margin-bottom:.75rem;
-}
-.proj-tags-s{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.8rem}
-.proj-tag-s{
-  font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  padding:2px 7px;border-radius:2px;
-  border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.7);
-}
-.open-link-s{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.85);text-decoration:none;
-  border-bottom:1.5px solid rgba(255,255,255,.4);padding-bottom:1px;
-  transition:border-color .15s;width:fit-content;
-}
-.open-link-s::after{content:'↗'}
-.open-link-s:hover{border-color:#fff}
-
-/* ── ROW 4: NAAGIN + KUAI (small) ── */
-.row-small{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
-
-.naagin-card{
-  background:var(--coral);
-  border:2px solid #8E2A1E;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh);position:relative;margin-top:28px;
-  overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.naagin-card:hover{box-shadow:6px 9px 0 rgba(26,15,5,.22)}
-.naagin-card::before{
-  content:'Graphic Design · Campaign';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--coral);border:2px solid #8E2A1E;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 12px;font-size:.56rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);white-space:nowrap;
-}
-
-.kuai-card{
-  background:var(--sky);
-  border:2px solid #1A4E8A;
-  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
-  box-shadow:var(--sh);position:relative;margin-top:28px;
-  overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow .25s;cursor:pointer;
-}
-.kuai-card:hover{box-shadow:6px 9px 0 rgba(26,15,5,.22)}
-.kuai-card::before{
-  content:'AI Product · UX Experiment';
-  position:absolute;top:-26px;left:-1.5px;
-  background:var(--sky);border:2px solid #1A4E8A;border-bottom:none;
-  border-radius:var(--r-sm) var(--r-sm) 0 0;
-  padding:3px 12px;font-size:.56rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);white-space:nowrap;
-}
-
-/* Naagin placeholder */
-.naagin-visual{
-  aspect-ratio:5/3;position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid rgba(0,0,0,.15);background:rgba(0,0,0,.08);
-}
-.naagin-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.naagin-ph::before{
-  content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;
-  background:rgba(255,255,255,.1);border-radius:50%;
-}
-.naagin-wordmark{
-  font-family:var(--serif);font-size:1.4rem;font-weight:900;font-style:italic;
-  color:rgba(255,255,255,.45);letter-spacing:.04em;text-align:center;line-height:1.1;
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MARQUEE STRIP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.marquee-strip{
+  background:var(--maroon);
+  border-top:2px solid var(--maroon-d);
+  border-bottom:2px solid var(--maroon-d);
+  padding:.85rem 0;overflow:hidden;white-space:nowrap;
   position:relative;z-index:1;
 }
-.naagin-rip{
-  position:absolute;bottom:0;left:0;right:0;height:14px;
-  background:var(--paper2);
-  clip-path:polygon(0 85%,4% 20%,8% 72%,12% 10%,16% 68%,21% 25%,26% 80%,31% 15%,36% 70%,41% 22%,46% 80%,51% 28%,56% 76%,61% 14%,66% 68%,71% 24%,76% 82%,81% 18%,86% 72%,91% 28%,96% 78%,100% 85%,100% 100%,0 100%);
+.marquee-track{
+  display:inline-flex;gap:0;
+  animation:marquee 28s linear infinite;
+  will-change:transform;
+}
+.marquee-item{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(244,237,224,.85);
+  padding:0 1.4rem;flex-shrink:0;
+}
+.marquee-star{color:var(--marigold-l);font-size:.75rem;padding:0 .3rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   WORK / DESKTOP ARCHIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#work{border-top:2px solid rgba(28,16,8,.1);border-bottom:2px solid rgba(28,16,8,.1)}
+.bento{display:flex;flex-direction:column;gap:2rem}
+
+/* ── Shared folder ── */
+.proj-card{
+  position:relative;margin-top:28px;cursor:pointer;
+  border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);
+  border-width:2px;border-style:solid;box-shadow:var(--sh-l);
+  overflow:hidden;transition:box-shadow .22s;
+}
+.proj-card:hover{box-shadow:9px 12px 0 rgba(28,16,8,.28)}
+.proj-card .ptab{
+  position:absolute;top:-26px;left:-1.5px;
+  height:28px;padding:0 13px;
+  display:inline-flex;align-items:center;
+  border-width:2px;border-style:solid;border-bottom:none;
+  border-radius:var(--r-sm) var(--r-sm) 0 0;
+  font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);white-space:nowrap;
 }
 
-/* KUAI placeholder */
-.kuai-visual{
-  aspect-ratio:5/3;position:relative;overflow:hidden;
+/* Pili */
+.pc-pili{background:var(--c-red);border-color:var(--c-red-d)}
+.pc-pili .ptab{background:var(--c-red);border-color:var(--c-red-d)}
+/* BioSpherix */
+.pc-bio{background:var(--c-blue);border-color:var(--c-blue-d)}
+.pc-bio .ptab{background:var(--c-blue);border-color:var(--c-blue-d)}
+/* FIFA */
+.pc-fifa{background:var(--c-green);border-color:var(--c-green-d)}
+.pc-fifa .ptab{background:var(--c-green);border-color:var(--c-green-d)}
+/* Wisdom */
+.pc-wisdom{background:var(--c-orange);border-color:var(--c-ora-d)}
+.pc-wisdom .ptab{background:var(--c-orange);border-color:var(--c-ora-d)}
+/* Naagin */
+.pc-naagin{background:var(--c-coral);border-color:var(--c-coral-d)}
+.pc-naagin .ptab{background:var(--c-coral);border-color:var(--c-coral-d)}
+/* KUAI */
+.pc-kuai{background:var(--c-sky);border-color:var(--c-sky-d)}
+.pc-kuai .ptab{background:var(--c-sky);border-color:var(--c-sky-d)}
+
+/* Image area */
+.pimg{
+  width:100%;position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid rgba(0,0,0,.15);background:rgba(0,0,0,.08);
+  border-bottom:2px solid rgba(0,0,0,.15);
+  background:rgba(0,0,0,.09);
 }
-.kuai-ph{display:flex;align-items:flex-end;gap:8px}
-.kuai-screen{
-  width:58px;height:84px;background:rgba(0,0,0,.5);border-radius:8px;
-  border:1.5px solid rgba(255,255,255,.25);
-  display:flex;flex-direction:column;align-items:center;padding-top:12px;gap:5px;
-  box-shadow:3px 4px 10px rgba(0,0,0,.3);
-}
-.kuai-screen.sm{width:42px;height:60px;opacity:.65}
-.ks-bar{width:38px;height:4px;background:rgba(255,255,255,.15);border-radius:2px}
-.ks-bar:nth-child(3){width:28px}
-.ks-bar:nth-child(4){width:34px;background:rgba(255,220,100,.4)}
-
-.small-info{padding:.9rem 1.1rem 1.1rem;flex:1}
-.proj-title-xs{
-  font-family:var(--serif);font-weight:700;
-  font-size:1rem;color:#fff;line-height:1.15;
-  margin-bottom:.25rem;letter-spacing:-.01em;
-}
-.proj-support-lbl{
-  font-size:.54rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:.3rem;display:block;
-}
-.proj-desc-xs{font-size:.72rem;color:rgba(255,255,255,.65);font-weight:300;line-height:1.5;margin-bottom:.65rem}
-.proj-tags-xs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.65rem}
-.proj-tag-xs{
-  font-size:.52rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-  padding:2px 6px;border-radius:2px;
-  border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);
-}
-.open-link-xs{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.7);text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px;
-  width:fit-content;
-}
-.open-link-xs::after{content:'↗'}
-
-/* shared image labels */
-.img-label{
+.pimg-label{
   position:absolute;bottom:8px;left:10px;
   font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  background:rgba(0,0,0,.35);color:rgba(255,255,255,.8);
-  padding:2px 6px;border-radius:2px;
+  background:rgba(0,0,0,.3);color:rgba(255,255,255,.8);padding:2px 7px;border-radius:2px;
 }
-.img-note{
+.pimg-note{
   position:absolute;top:8px;right:8px;
   font-size:.48rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
   color:rgba(255,255,255,.35);
 }
 
-/* ══════════════════════════════════════════
-   OPEN FILE: NIHARIKA
-══════════════════════════════════════════ */
-#about{}
-.about-grid{
+/* Info */
+.pinfo{padding:1.1rem 1.3rem 1.3rem}
+.pbadge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+  padding:3px 9px;border-radius:2px;border:1px solid rgba(255,255,255,.22);
+  margin-bottom:.65rem;
+}
+.psub{
+  font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-bottom:.35rem;
+}
+.ptitle{
+  font-family:var(--serif);font-weight:700;color:#fff;
+  line-height:1.08;letter-spacing:-.02em;margin-bottom:.4rem;
+}
+.pdesc{
+  color:rgba(255,255,255,.75);font-weight:300;line-height:1.6;margin-bottom:.9rem;
+}
+.ptags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.9rem}
+.ptag{
+  font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;
+  border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);
+}
+.plink{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.65rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:#fff;text-decoration:none;
+  border-bottom:2px solid rgba(255,255,255,.45);padding-bottom:1px;
+  transition:border-color .15s;width:fit-content;
+}
+.plink::after{content:'↗'}
+.plink:hover{border-color:#fff}
+.plink.sm{font-size:.58rem}
+
+/* ROW 1: Pili — full-width two-col */
+.pili-inner{
+  display:grid;grid-template-columns:1fr 1.1fr;
+}
+.pili-copy{
+  padding:2.2rem 2.5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:2px solid rgba(255,255,255,.1);
+}
+.pili-copy .ptitle{font-size:clamp(2rem,3.5vw,2.8rem)}
+.pili-copy .pdesc{font-size:.9rem;max-width:38ch}
+.pili-visual{
+  aspect-ratio:4/3;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.07);
+}
+/* Pili placeholder */
+.ph-pili{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph-pili-stack{display:flex;flex-direction:column;gap:10px;width:58%}
+.ph-pili-c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:5px;padding:12px 15px}
+.pp-line{height:5px;border-radius:2px;background:rgba(255,255,255,.45);margin-bottom:6px}
+.pp-line.s{width:72%;background:rgba(255,255,255,.22)}
+.pp-line.xs{width:50%;background:rgba(255,255,255,.12)}
+.pp-dots{display:flex;gap:5px;margin-top:5px}
+.pp-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3)}
+.pp-dot:nth-child(2){background:rgba(255,220,80,.4)}
+.pp-dot:nth-child(3){background:rgba(180,255,180,.3)}
+
+/* ROW 2: Bio — two-col reversed */
+.bio-inner{
+  display:grid;grid-template-columns:1.1fr 1fr;
+}
+.bio-visual{
+  position:relative;min-height:270px;
+  display:flex;align-items:center;justify-content:center;
+  border-right:2px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.08);
+}
+.ph-bio-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.ph-bio-d{position:relative;z-index:1;width:68%;display:flex;flex-direction:column;gap:10px}
+.ph-bio-r{display:flex;align-items:center;gap:7px}
+.ph-bio-b{
+  border:1.5px solid rgba(255,255,255,.38);border-radius:3px;
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.4rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+.ph-bio-l{flex:1;height:1.5px;background:rgba(255,255,255,.28);border-radius:1px}
+.ph-bio-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);flex-shrink:0}
+.bio-copy{
+  padding:1.8rem 2.1rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.bio-copy .ptitle{font-size:clamp(1.4rem,2.3vw,1.9rem)}
+.bio-copy .pdesc{font-size:.84rem;max-width:34ch}
+
+/* ROW 3: Pair */
+.row-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.sec-visual{width:100%;aspect-ratio:3/2;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.09);border-bottom:2px solid rgba(0,0,0,.14)}
+.sec-info{padding:1rem 1.2rem 1.25rem}
+.sec-info .ptitle{font-size:1.1rem}
+.sec-info .pdesc{font-size:.76rem;margin-bottom:.75rem}
+.sec-info .ptags{margin-bottom:.7rem}
+
+/* FIFA placeholder */
+.ph-fifa{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph-mline{position:absolute;border:1.5px dashed rgba(255,255,255,.38)}
+.ph-pin{position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 0 0 3px rgba(255,255,255,.18)}
+.ph-arrow{position:absolute;font-size:.9rem;color:rgba(255,255,255,.45);font-weight:700}
+
+/* Wisdom placeholder */
+.ph-wisdom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px}
+.ph-binder{
+  width:56px;height:74px;background:rgba(255,255,255,.12);
+  border:2px solid rgba(255,255,255,.28);border-radius:3px 7px 7px 3px;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.ph-binder::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2.5px;background:rgba(255,255,255,.18);border-radius:2px}
+.ph-binder-t{font-size:.37rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);writing-mode:vertical-rl;transform:rotate(180deg);padding-left:7px}
+.ph-swatch-col{display:flex;flex-direction:column;gap:4px}
+.ph-sw{width:22px;height:17px;border-radius:2px;border:1px solid rgba(255,255,255,.2)}
+
+/* ROW 4: Small pair */
+.row-small{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.sm-visual{width:100%;aspect-ratio:5/3;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.09);border-bottom:2px solid rgba(0,0,0,.12)}
+.sm-info{padding:.85rem 1.1rem 1.05rem}
+.sm-info .ptitle{font-size:.98rem}
+.sm-info .pdesc{font-size:.72rem;margin-bottom:.65rem}
+.sm-info .ptags{margin-bottom:.65rem}
+.slbl{font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.28rem;display:block}
+
+/* Naagin placeholder */
+.ph-naagin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-naagin::before{content:'';position:absolute;top:-25px;right:-25px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%}
+.ph-naagin-wm{font-family:var(--serif);font-size:1.35rem;font-weight:900;font-style:italic;color:rgba(255,255,255,.38);letter-spacing:.04em;text-align:center;line-height:1.1;position:relative;z-index:1}
+.ph-naagin-rip{position:absolute;bottom:0;left:0;right:0;height:12px;background:var(--paper);clip-path:polygon(0 88%,4% 18%,8% 74%,12% 12%,16% 70%,21% 22%,26% 82%,31% 14%,36% 72%,41% 20%,46% 80%,51% 26%,56% 78%,61% 12%,66% 70%,71% 22%,76% 82%,81% 16%,86% 74%,91% 26%,96% 78%,100% 88%,100% 100%,0 100%)}
+
+/* KUAI placeholder */
+.ph-kuai{display:flex;align-items:flex-end;gap:7px}
+.kuai-sc{width:56px;height:82px;background:rgba(0,0,0,.45);border-radius:8px;border:1.5px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;padding-top:11px;gap:5px;box-shadow:3px 4px 10px rgba(0,0,0,.3)}
+.kuai-sc.sm{width:40px;height:58px;opacity:.6}
+.ksb{width:36px;height:4px;background:rgba(255,255,255,.13);border-radius:2px}
+.ksb:nth-child(3){width:26px}
+.ksb:nth-child(4){width:30px;background:rgba(255,216,80,.38)}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ABOUT — MAROON BLOCK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#about{border-top:2px solid var(--maroon-d);border-bottom:2px solid var(--maroon-d)}
+.about-inner{
   display:grid;grid-template-columns:1fr 340px;
   gap:5rem;align-items:start;
 }
-.about-title{
+.about-h{
   font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.7rem);
-  font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:.4rem;
+  font-weight:400;line-height:1.08;color:#fff;margin-bottom:.4rem;
 }
-.about-title .ital{font-style:italic;color:var(--red)}
-.about-intro{font-size:clamp(.95rem,1.4vw,1.05rem);color:var(--ink2);font-weight:300;line-height:1.8;max-width:44ch;margin-bottom:1.6rem}
+.about-h .ital{font-style:italic;color:var(--marigold-l)}
+.about-sub-copy{color:rgba(244,237,224,.6);font-size:.82rem;font-weight:300;margin-bottom:1.5rem}
 .about-quote{
-  border-left:3px solid var(--red);padding:.6rem 0 .6rem 1.2rem;margin-bottom:1.7rem;
+  border-left:3px solid var(--marigold);padding:.6rem 0 .6rem 1.2rem;margin-bottom:1.5rem;
 }
-.about-quote p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ink);line-height:1.5;font-weight:300}
-.about-interests{font-size:.84rem;color:var(--muted);font-weight:300;line-height:1.8;max-width:46ch;margin-bottom:1.6rem}
-.about-interests strong{font-weight:500;color:var(--ink2)}
+.about-quote p{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:rgba(244,237,224,.9);line-height:1.5;font-weight:300}
+.about-para{font-size:.84rem;color:rgba(244,237,224,.7);font-weight:300;line-height:1.8;max-width:44ch;margin-bottom:1.5rem}
+.about-para strong{font-weight:500;color:rgba(244,237,224,.9)}
 .about-chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .a-chip{
-  font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:4px 10px;border-radius:20px;border:1.5px solid rgba(26,15,5,.15);color:var(--muted);
-  transition:border-color .15s,color .15s;cursor:default;
+  font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;
+  border:1.5px solid rgba(244,237,224,.2);color:rgba(244,237,224,.6);
+  transition:border-color .15s,color .15s;
 }
-.a-chip:hover{border-color:var(--red);color:var(--red)}
+.a-chip:hover{border-color:var(--marigold);color:var(--marigold-l)}
 
-/* About collage — RIGHT */
-.about-collage{position:relative;height:440px}
+/* About collage (right) */
+.about-collage{position:relative;height:450px}
 .ac{position:absolute}
 
-/* Searches card */
-.searches-card{
-  background:var(--paper);border:2px solid rgba(26,15,5,.16);
-  border-radius:var(--r);padding:.9rem 1rem;box-shadow:var(--sh);width:186px;
+/* Cream artifact cards on maroon */
+.art-card{
+  background:var(--paper);border:2px solid rgba(28,16,8,.14);
+  border-radius:var(--r);box-shadow:5px 6px 0 rgba(28,16,8,.35);
 }
-.s-lbl{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
-.s-line{
-  font-size:.72rem;color:var(--ink2);padding:3px 0;
-  border-bottom:1px solid rgba(26,15,5,.07);
-  display:flex;align-items:flex-start;gap:5px;line-height:1.35;font-weight:300;
-}
+.searches-c{width:184px;padding:.85rem .95rem}
+.s-lbl{font-size:.57rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.s-line{font-size:.71rem;color:var(--ink2);padding:3px 0;border-bottom:1px solid rgba(28,16,8,.07);display:flex;align-items:flex-start;gap:5px;line-height:1.35;font-weight:300}
 .s-line:last-child{border-bottom:none}
-.s-line::before{content:'↗';color:var(--red);font-size:.6rem;margin-top:1px;flex-shrink:0}
+.s-line::before{content:'↗';color:var(--c-red);font-size:.58rem;margin-top:1px;flex-shrink:0}
+.collect-c{width:172px;padding:.85rem .95rem;position:relative}
+.c-fname{font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.c-item{font-size:.71rem;color:var(--ink2);padding:2px 0;font-weight:300;display:flex;gap:6px;align-items:center}
+.c-item::before{content:'·';color:var(--c-red);font-weight:900}
 
-/* Collect card */
-.collect-card{
-  background:var(--paper);border:2px solid rgba(26,15,5,.16);
-  border-radius:var(--r);padding:.9rem 1rem;box-shadow:var(--sh);width:175px;
-  position:relative;
-}
-.c-fname{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.c-item{
-  font-size:.72rem;color:var(--ink2);padding:2px 0;font-weight:300;
-  display:flex;gap:6px;align-items:center;
-}
-.c-item::before{content:'·';color:var(--red);font-weight:900}
+/* About mobile chips */
+.about-mob{display:none;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
 
-/* ══════════════════════════════════════════
-   BEHIND THE BUILD
-══════════════════════════════════════════ */
-#process{background:var(--paper2)}
-.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.proc-headline{
-  font-family:var(--serif);
-  font-size:clamp(1.6rem,3vw,2.3rem);
-  font-weight:400;line-height:1.1;margin-bottom:.8rem;
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PROCESS — MARIGOLD BLOCK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#process{border-top:2px solid rgba(28,16,8,.12);border-bottom:2px solid rgba(28,16,8,.12)}
+.proc-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.proc-h{
+  font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.4rem);
+  font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:.6rem;
 }
-.proc-headline .ital{font-style:italic;color:var(--red)}
+.proc-h .ital{font-style:italic;color:var(--maroon)}
 .proc-tagline{
-  font-family:var(--serif);font-style:italic;font-size:1.3rem;
-  color:var(--red);margin-bottom:1.4rem;line-height:1.3;
+  font-family:var(--serif);font-style:italic;font-size:1.35rem;
+  color:var(--maroon);margin-bottom:1.3rem;line-height:1.3;font-weight:400;
 }
-.proc-body{font-size:.875rem;color:var(--muted);font-weight:300;line-height:1.8;max-width:42ch;margin-bottom:1.5rem}
-
-.proc-cards{display:flex;flex-direction:column;gap:.85rem}
+.proc-body{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.8;max-width:40ch;margin-bottom:1.5rem}
+/* Process cards — cream on yellow */
+.proc-cards{display:flex;flex-direction:column;gap:.8rem}
 .proc-card{
-  background:var(--paper);border:2px solid rgba(26,15,5,.14);
-  border-radius:var(--r);box-shadow:var(--sh-s);padding:1rem 1.1rem;
+  background:var(--paper);border:2px solid rgba(28,16,8,.18);
+  border-radius:var(--r);box-shadow:var(--sh);padding:.95rem 1.1rem;
   position:relative;overflow:hidden;
 }
 .proc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.pc-red::before{background:var(--red)}
-.pc-green::before{background:var(--forest)}
-.pc-blue::before{background:var(--cobalt)}
-.pc-orange::before{background:var(--orange)}
-
-.pc-file{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
-.pc-title{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.pc-r::before{background:var(--c-red)}
+.pc-g::before{background:var(--c-green)}
+.pc-b::before{background:var(--c-blue)}
+.pc-o::before{background:var(--c-orange)}
+.pc-file{font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.28rem}
+.pc-title{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.22rem}
 .pc-desc{font-size:.74rem;color:var(--muted);font-weight:300;line-height:1.55}
 
-/* ══════════════════════════════════════════
-   CONTACT
-══════════════════════════════════════════ */
-#contact{}
-.contact-layout{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTACT — DARK ESPRESSO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#contact{border-top:2px solid rgba(0,0,0,.4)}
 .contact-h{
-  font-family:var(--serif);
-  font-size:clamp(2rem,5vw,3.8rem);
-  font-weight:300;line-height:1.08;margin-bottom:1rem;
+  font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,4.5rem);
+  font-weight:300;line-height:1.05;margin-bottom:1rem;
 }
-.contact-h .ital{font-style:italic;color:var(--red)}
-.contact-sub{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.75;max-width:38ch;margin-bottom:1.8rem}
-.contact-links{display:flex;flex-wrap:wrap;gap:.75rem}
-.contact-note{font-family:var(--hand);font-size:.92rem;color:var(--muted);margin-top:1.4rem}
-.contact-ginger{transform:rotate(2deg)}
-.contact-polaroid{box-shadow:var(--sh)}
-.cg-img{width:110px;height:110px;background:linear-gradient(135deg,#F5C060,#E09010);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.contact-h .line1{color:var(--cream)}
+.contact-h .line2{font-style:italic;color:var(--marigold-l)}
+.contact-sub{font-size:.9rem;color:rgba(244,237,224,.5);font-weight:300;line-height:1.75;max-width:40ch;margin-bottom:1.8rem}
+.contact-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.5rem}
+/* Sticky notes row */
+.sticky-row{display:flex;flex-wrap:wrap;gap:1rem}
+.sticky-y2{
+  background:#FEF082;border-radius:2px;padding:.8rem 1rem;
+  box-shadow:2px 3px 8px rgba(0,0,0,.3),0 0 0 1px rgba(0,0,0,.1);
+  font-family:var(--hand);font-size:.95rem;color:#1A1200;line-height:1.5;
+  max-width:220px;transform:rotate(-.5deg);
+}
+.sticky-b{
+  background:#D6EEFF;border-radius:2px;padding:.8rem 1rem;
+  box-shadow:2px 3px 8px rgba(0,0,0,.3),0 0 0 1px rgba(0,0,0,.1);
+  font-family:var(--hand);font-size:.95rem;color:#001A33;line-height:1.5;
+  max-width:240px;transform:rotate(.4deg);
+}
 
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    FOOTER
-══════════════════════════════════════════ */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 footer{
-  background:var(--ink);padding:1.4rem var(--gutter);
+  background:var(--espresso);border-top:1px solid rgba(244,237,224,.07);
+  padding:1.3rem var(--gut);
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
   position:relative;z-index:1;
 }
-.f-copy{font-size:.68rem;color:rgba(245,239,227,.3);letter-spacing:.04em}
-.f-right{font-family:var(--serif);font-style:italic;font-size:.75rem;color:rgba(245,239,227,.3)}
+.f-l{font-size:.68rem;color:rgba(244,237,224,.28);letter-spacing:.04em}
+.f-r{font-family:var(--serif);font-style:italic;font-size:.78rem;color:rgba(244,237,224,.32)}
 
-/* ══════════════════════════════════════════
-   REVEAL ANIMATIONS
-══════════════════════════════════════════ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SCROLL REVEAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-anim>*{opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) forwards}
 .hero-anim>*:nth-child(1){animation-delay:.05s}
-.hero-anim>*:nth-child(2){animation-delay:.18s}
-.hero-anim>*:nth-child(3){animation-delay:.3s}
-.hero-anim>*:nth-child(4){animation-delay:.42s}
+.hero-anim>*:nth-child(2){animation-delay:.16s}
+.hero-anim>*:nth-child(3){animation-delay:.27s}
+.hero-anim>*:nth-child(4){animation-delay:.38s}
+.hero-anim>*:nth-child(5){animation-delay:.48s}
 
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 .reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero-anim>*,.reveal{animation:none;opacity:1;transform:none}}
 
-@media(prefers-reduced-motion:reduce){
-  .hero-anim>*,.reveal{animation:none;opacity:1;transform:none}
-}
-
-/* ══════════════════════════════════════════
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    RESPONSIVE
-══════════════════════════════════════════ */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media(max-width:960px){
   .hero-layout{grid-template-columns:1fr}
   .hero-collage{display:none}
   .hero-mobile{display:flex}
-  .about-grid{grid-template-columns:1fr}
+  .pili-inner{grid-template-columns:1fr}
+  .pili-copy{border-right:none;border-bottom:2px solid rgba(255,255,255,.1);padding:1.6rem 1.5rem}
+  .pili-visual{min-height:220px}
+  .bio-inner{grid-template-columns:1fr}
+  .bio-visual{min-height:190px;border-right:none;border-bottom:2px solid rgba(255,255,255,.08)}
+  .bio-copy{padding:1.4rem 1.5rem}
+  .about-inner{grid-template-columns:1fr}
   .about-collage{display:none}
-  .about-mobile-chips{display:flex}
-  .proc-grid{grid-template-columns:1fr;gap:2.5rem}
-  .contact-layout{grid-template-columns:1fr}
-  .contact-visual{display:none}
-  .pili-card{grid-template-columns:1fr}
-  .bio-card{grid-template-columns:1fr}
-  .bio-visual{min-height:200px;border-right:none;border-bottom:2px solid rgba(255,255,255,.1)}
+  .about-mob{display:flex}
+  .proc-inner{grid-template-columns:1fr;gap:2.5rem}
 }
-@media(max-width:700px){
+@media(max-width:680px){
   .row-pair,.row-small{grid-template-columns:1fr}
   .nav-links{display:none}
   .nav-toggle{display:flex}
   .nav-links.open{
-    display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
-    background:rgba(245,239,227,.97);padding:1rem var(--gutter);gap:.8rem;
-    border-bottom:1px solid rgba(26,15,5,.1);
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:rgba(244,237,224,.97);
+    padding:1rem var(--gut);gap:.8rem;
+    border-bottom:2px solid rgba(28,16,8,.1);
   }
 }
 @media(max-width:480px){
-  .pili-copy{padding:1.4rem 1.3rem}
-  .bio-copy{padding:1.3rem 1.2rem}
+  .pili-copy{padding:1.3rem 1.1rem}
+  .contact-h{font-size:clamp(1.8rem,8vw,2.5rem)}
 }
-
-.about-mobile-chips{display:none;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
 </style>
 </head>
 <body>
 
-<!-- ════ NAV ════ -->
-<nav>
+<!-- ━━━ NAV ━━━ -->
+<nav class="sec-cream">
   <a href="#" class="nav-logo">Niharika Jain</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#work">Work</a></li>
@@ -796,75 +736,72 @@ footer{
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- ════ HERO ════ -->
-<section id="hero">
+<!-- ━━━ HERO ━━━ -->
+<section id="hero" class="sec-cream grid-cream">
   <div class="wrap">
     <div class="hero-layout">
 
-      <!-- LEFT -->
       <div class="hero-anim">
-        <div class="hero-tag">UX + Graphic Design &nbsp;·&nbsp; SCAD &nbsp;·&nbsp; Atlanta</div>
+        <div class="hero-tag">UX + Graphic Design &nbsp;·&nbsp; SCAD &nbsp;·&nbsp; Atlanta, GA</div>
         <h1 class="hero-h">
           Part designer,<br>
-          part <span class="italic">storyteller,</span><br>
+          part <span class="ital">storyteller,</span><br>
           part systems<br>thinker.
         </h1>
-        <p class="hero-sub">I turn messy ideas into thoughtful experiences people can navigate, understand, and connect with.</p>
+        <p class="hero-sub">I'm Niharika Jain — a UX and graphic designer turning messy ideas into thoughtful experiences people can navigate, understand, and connect with.</p>
+        <p class="hero-note">everything here is organized / on purpose ✦ promise</p>
         <div class="hero-ctas">
           <a href="#work" class="btn btn-red">Open my work ↓</a>
-          <a href="#about" class="btn btn-outline">Open File: Niharika</a>
+          <a href="#about" class="btn btn-dark-ol">Open File: Niharika</a>
         </div>
         <div class="hero-mobile">
-          <span class="h-chip r">Ginger's person</span>
-          <span class="h-chip g">Sky collector</span>
-          <span class="h-chip">Indian art forms</span>
-          <span class="h-chip r">Systems thinker</span>
+          <span class="hm-chip r">Ginger's person</span>
+          <span class="hm-chip g">Sky collector</span>
+          <span class="hm-chip">Indian art forms</span>
+          <span class="hm-chip r">Systems thinker</span>
         </div>
       </div>
 
-      <!-- RIGHT: Collage -->
+      <!-- Collage (desktop) -->
       <div class="hero-collage">
 
-        <!-- Profile photo polaroid -->
         <div class="hco hco-photo">
-          <div class="tape" style="top:-8px;left:52px;transform:rotate(-1deg)"></div>
+          <div class="tape" style="top:-8px;left:50px;transform:rotate(-1deg)"></div>
           <div class="polaroid">
-            <div class="polaroid-img">
-              <svg width="54" height="72" viewBox="0 0 54 72" fill="none" aria-hidden="true">
-                <circle cx="27" cy="20" r="14" fill="rgba(120,90,60,0.8)"/>
-                <path d="M4 72Q4 46 27 46Q50 46 50 72" fill="rgba(120,90,60,0.8)"/>
+            <div class="polaroid-img" style="width:150px;height:150px">
+              <svg width="52" height="70" viewBox="0 0 52 70" fill="none" aria-hidden="true">
+                <circle cx="26" cy="19" r="13" fill="rgba(120,90,60,.8)"/>
+                <path d="M2 70Q2 44 26 44Q50 44 50 70" fill="rgba(120,90,60,.8)"/>
               </svg>
             </div>
             <div class="polaroid-cap">profile-photo.jpg</div>
           </div>
         </div>
 
-        <!-- Blue folder -->
         <div class="hco hco-folder">
-          <div class="mini-folder-card">
-            <div class="mini-folder-inner">
-              <div class="mf-file">pili.fig</div>
-              <div class="mf-file">biospherix.fig</div>
-              <div class="mf-file">fifa_atl.fig</div>
-              <div class="mf-file">wisdom.fig</div>
-              <div class="mf-file">naagin.fig</div>
-              <div class="mf-file">kuai.fig</div>
-              <div class="mf-count">6 files · open to explore</div>
+          <div class="hero-folder">
+            <div class="hf-inner">
+              <div class="hf-file">pili.fig</div>
+              <div class="hf-file">biospherix.fig</div>
+              <div class="hf-file">fifa_atl.fig</div>
+              <div class="hf-file">wisdom.fig</div>
+              <div class="hf-file">naagin.fig</div>
+              <div class="hf-file">kuai.fig</div>
+              <div class="hf-count">6 files · open to explore</div>
             </div>
           </div>
         </div>
 
-        <!-- Ginger -->
         <div class="hco hco-ginger">
-          <div class="tape r" style="top:-8px;left:28px;transform:rotate(2deg)"></div>
+          <div class="tape tr" style="top:-8px;left:28px;transform:rotate(2deg)"></div>
           <div class="ginger-card">
             <div class="ginger-bg">
-              <svg width="48" height="48" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
+              <svg width="46" height="46" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
                 <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
                 <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
                 <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
@@ -877,274 +814,269 @@ footer{
                 <ellipse cx="36.8" cy="19.5" rx="1.2" ry="1.8" fill="#fff" opacity=".85"/>
                 <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
                 <path d="M46 43Q57 37 54 50Q51 58 44 53" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75"/>
-                <line x1="10" y1="23" x2="20" y2="24.5" stroke="#fff" stroke-width=".8" opacity=".55"/>
-                <line x1="10" y1="25.5" x2="20" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".55"/>
-                <line x1="40" y1="24.5" x2="50" y2="23" stroke="#fff" stroke-width=".8" opacity=".55"/>
-                <line x1="40" y1="25.5" x2="50" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".55"/>
+                <line x1="10" y1="23" x2="20" y2="24.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
+                <line x1="10" y1="25.5" x2="20" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
+                <line x1="40" y1="24.5" x2="50" y2="23" stroke="#fff" stroke-width=".8" opacity=".5"/>
+                <line x1="40" y1="25.5" x2="50" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
               </svg>
             </div>
-            <div class="ginger-lbl">ginger.jpg</div>
-            <div class="ginger-sub">emotional support creative director</div>
+            <div class="g-lbl">ginger.jpg</div>
+            <div class="g-sub">emotional support creative director</div>
           </div>
         </div>
 
-        <!-- Sky strip -->
         <div class="hco hco-sky">
-          <div class="tape b" style="top:-8px;left:65px;transform:rotate(1.5deg)"></div>
-          <div class="sky-strip-card">
+          <div class="tape tb" style="top:-8px;left:62px;transform:rotate(1.5deg)"></div>
+          <div class="sky-card">
             <div class="film-row">
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#52A0D8,#8CC8E0,#F2F6FC)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#52A0D8,#8CC8E0,#F2F6FC)"></div></div>
             </div>
             <div class="sky-cap">"I collect skies like color palettes."</div>
-            <div class="sky-filenames">sky_01.png · sky_02.png · sky_03.png</div>
+            <div class="sky-fn">sky_01.png · sky_02.png · sky_03.png</div>
           </div>
         </div>
 
-        <!-- Sticky note -->
         <div class="hco hco-sticky">
-          <div class="sticky-n">organized chaos,<br><em>on purpose.</em></div>
+          <div class="sticky-y">organized chaos,<br><em>on purpose.</em></div>
         </div>
 
-      </div><!-- /collage -->
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="rule"/>
+<!-- ━━━ MARQUEE ━━━ -->
+<div class="marquee-strip">
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item">UX Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Graphic Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Systems Thinking</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Storytelling</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Product Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Indian Visual Culture</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">AI-Assisted Building</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Emotional Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Service Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SCAD · Atlanta</span><span class="marquee-star">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">UX Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Graphic Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Systems Thinking</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Storytelling</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Product Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Indian Visual Culture</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">AI-Assisted Building</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Emotional Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Service Design</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SCAD · Atlanta</span><span class="marquee-star">✦</span>
+  </div>
+</div>
 
-<!-- ════ DESKTOP ARCHIVE ════ -->
-<section id="work" class="section">
+<!-- ━━━ WORK ━━━ -->
+<section id="work" class="section sec-cream grid-cream">
   <div class="wrap">
-
-    <div class="eyebrow">Desktop Archive</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:400;line-height:1.1;margin-bottom:.4rem">Project Files</h2>
-    <p style="font-size:.875rem;color:var(--muted);font-weight:300;max-width:48ch;line-height:1.7;margin-bottom:2.5rem">Open a file to see how I think, not just what I made.</p>
+    <div class="eyebrow eyebrow-ink">Desktop Archive</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:.4rem">Project Files</h2>
+    <p style="font-size:.875rem;color:var(--muted);font-weight:300;max-width:46ch;line-height:1.72;margin-bottom:2.4rem">Open a file to see how I think, not just what I made.</p>
 
     <div class="bento">
 
-      <!-- ── PILI: hero card ── -->
-      <div class="pili-card reveal">
-        <div class="pili-copy">
-          <span class="proj-badge">★ Main Case Study</span>
-          <div class="proj-subtitle">Emotional UX · Product · Service Design</div>
-          <div class="proj-title-l">Pili</div>
-          <p class="proj-desc-l">A calm connection system for older adults, families, and caregivers — combining research, emotional design, physical product thinking, UI/UX, system design, and exhibition storytelling.</p>
-          <div class="proj-tags-l">
-            <span class="proj-tag-l">Emotional UX</span>
-            <span class="proj-tag-l">Product Design</span>
-            <span class="proj-tag-l">Service Design</span>
-            <span class="proj-tag-l">Research</span>
-            <span class="proj-tag-l">Industrial Design</span>
+      <!-- PILI — hero card -->
+      <div class="proj-card pc-pili reveal">
+        <div class="ptab">Senior Capstone &nbsp;·&nbsp; UX / Product / Service Design</div>
+        <div class="pili-inner">
+          <div class="pili-copy">
+            <span class="pbadge">★ Main Case Study</span>
+            <div class="psub">Emotional UX · Physical Product · System Design</div>
+            <div class="ptitle" style="font-size:clamp(2rem,3.5vw,2.8rem)">Pili</div>
+            <p class="pdesc" style="font-size:.9rem;max-width:38ch">A calm connection system for older adults, families, and caregivers — combining research, emotional design, physical product thinking, UI/UX, system design, and exhibition storytelling.</p>
+            <div class="ptags" style="margin-bottom:1.3rem">
+              <span class="ptag">Emotional UX</span>
+              <span class="ptag">Product Design</span>
+              <span class="ptag">Service Design</span>
+              <span class="ptag">Research</span>
+              <span class="ptag">Industrial Design</span>
+            </div>
+            <a href="#" class="plink">Open case study</a>
           </div>
-          <a href="#" class="open-link">Open case study</a>
-        </div>
-        <div class="pili-visual">
-          <div class="pili-ph">
-            <div class="pili-ph-stack">
-              <div class="pili-ph-card">
-                <div class="pili-ph-line"></div>
-                <div class="pili-ph-line s"></div>
-                <div class="pili-ph-line xs"></div>
-                <div class="pili-ph-dots">
-                  <div class="pili-ph-dot"></div>
-                  <div class="pili-ph-dot"></div>
-                  <div class="pili-ph-dot"></div>
+          <div class="pili-visual">
+            <div class="ph-pili">
+              <div class="ph-pili-stack">
+                <div class="ph-pili-c">
+                  <div class="pp-line"></div><div class="pp-line s"></div><div class="pp-line xs"></div>
+                  <div class="pp-dots"><div class="pp-dot"></div><div class="pp-dot"></div><div class="pp-dot"></div></div>
+                </div>
+                <div class="ph-pili-c" style="opacity:.55">
+                  <div class="pp-line s"></div><div class="pp-line xs"></div>
                 </div>
               </div>
-              <div class="pili-ph-card" style="opacity:.55">
-                <div class="pili-ph-line s"></div>
-                <div class="pili-ph-line xs"></div>
-              </div>
             </div>
+            <span class="pimg-label">pili-hero.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
-          <span class="img-label">pili-hero.jpg</span>
-          <span class="img-note">replace with final</span>
         </div>
       </div>
 
-      <!-- ── BIOSPHERIX: wide featured ── -->
-      <div class="bio-card reveal">
-        <div class="bio-visual">
-          <div class="bio-ph">
-            <div class="bio-grid-bg"></div>
-            <div class="bio-diagram">
-              <div class="bio-row">
-                <div class="bio-box" style="width:76px;height:32px">Input</div>
-                <div class="bio-line"></div>
-                <div class="bio-dot"></div>
-                <div class="bio-line"></div>
-                <div class="bio-box" style="width:86px;height:32px">AI Planner</div>
+      <!-- BIOSPHERIX -->
+      <div class="proj-card pc-bio reveal">
+        <div class="ptab">AI / UX Web App &nbsp;·&nbsp; Workflow Design</div>
+        <div class="bio-inner">
+          <div class="bio-visual">
+            <div class="ph-bio-grid"></div>
+            <div class="ph-bio-d">
+              <div class="ph-bio-r">
+                <div class="ph-bio-b" style="width:72px;height:30px">Input</div>
+                <div class="ph-bio-l"></div><div class="ph-bio-dot"></div><div class="ph-bio-l"></div>
+                <div class="ph-bio-b" style="width:80px;height:30px">AI Planner</div>
               </div>
-              <div class="bio-row" style="margin-left:14px">
-                <div class="bio-line" style="flex:none;width:36px"></div>
-                <div class="bio-box" style="width:68px;height:26px;opacity:.7">Layout</div>
-                <div class="bio-line"></div>
-                <div class="bio-box" style="width:68px;height:26px;opacity:.7">Output</div>
+              <div class="ph-bio-r" style="margin-left:12px">
+                <div class="ph-bio-l" style="flex:none;width:32px"></div>
+                <div class="ph-bio-b" style="width:62px;height:24px;opacity:.7">Layout</div>
+                <div class="ph-bio-l"></div>
+                <div class="ph-bio-b" style="width:62px;height:24px;opacity:.7">Output</div>
               </div>
-              <div class="bio-row">
-                <div class="bio-box" style="width:56px;height:22px;opacity:.5">Spec</div>
-                <div class="bio-line"></div>
-                <div class="bio-dot" style="opacity:.5"></div>
-                <div class="bio-line"></div>
-                <div class="bio-box" style="width:56px;height:22px;opacity:.5">CAD</div>
+              <div class="ph-bio-r">
+                <div class="ph-bio-b" style="width:52px;height:20px;opacity:.5">Spec</div>
+                <div class="ph-bio-l"></div><div class="ph-bio-dot" style="opacity:.45"></div><div class="ph-bio-l"></div>
+                <div class="ph-bio-b" style="width:52px;height:20px;opacity:.5">CAD</div>
               </div>
             </div>
+            <span class="pimg-label">biospherix-interface.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
-          <span class="img-label">biospherix-interface.jpg</span>
-          <span class="img-note">replace with final</span>
-        </div>
-        <div class="bio-copy">
-          <span class="proj-badge" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)">Strong UX Case Study</span>
-          <div class="proj-subtitle" style="color:rgba(255,255,255,.6)">AI Tool · Workflow · Real User</div>
-          <div class="proj-title-m">BioSpherix<br>Layout Planner</div>
-          <p class="proj-desc-l" style="font-size:.85rem">An AI-assisted layout planning web app built for a real user — solving a real workflow problem before CAD development.</p>
-          <div class="proj-tags-l" style="margin-bottom:1.2rem">
-            <span class="proj-tag-l">AI Tool</span>
-            <span class="proj-tag-l">Information Architecture</span>
-            <span class="proj-tag-l">Web App</span>
-            <span class="proj-tag-l">Workflow Design</span>
+          <div class="bio-copy">
+            <span class="pbadge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)">Strong UX Case Study</span>
+            <div class="psub">AI Tool · Real User · Real Problem</div>
+            <div class="ptitle" style="font-size:clamp(1.4rem,2.3vw,1.9rem)">BioSpherix<br>Layout Planner</div>
+            <p class="pdesc" style="font-size:.84rem;max-width:34ch">An AI-assisted layout planning web app built for a real user — solving a real workflow problem before CAD development.</p>
+            <div class="ptags" style="margin-bottom:1.1rem">
+              <span class="ptag">AI Tool</span><span class="ptag">Information Architecture</span>
+              <span class="ptag">Web App</span><span class="ptag">Workflow Design</span>
+            </div>
+            <a href="#" class="plink">Open case study</a>
           </div>
-          <a href="#" class="open-link">Open case study</a>
         </div>
       </div>
 
-      <!-- ── FIFA + WISDOM ── -->
+      <!-- FIFA + WISDOM -->
       <div class="row-pair">
-
-        <div class="fifa-card reveal">
+        <div class="proj-card pc-fifa reveal">
+          <div class="ptab">SCADpro Collaboration · Experience Design</div>
           <div class="sec-visual">
-            <div class="ph-fifa-bg">
-              <div class="ph-mapline" style="top:42%;left:10%;width:55%;transform:rotate(-4deg)"></div>
-              <div class="ph-mapline" style="top:56%;left:28%;width:42%;transform:rotate(7deg)"></div>
-              <div class="ph-pin" style="top:36%;left:12%"></div>
-              <div class="ph-pin" style="top:43%;left:60%;opacity:.6;width:7px;height:7px"></div>
-              <div class="ph-pin" style="top:57%;left:42%;opacity:.45;width:6px;height:6px"></div>
-              <div class="ph-arrow-txt" style="top:28%;right:20%">→</div>
+            <div class="ph-fifa">
+              <div class="ph-mline" style="top:42%;left:10%;width:55%;transform:rotate(-4deg)"></div>
+              <div class="ph-mline" style="top:56%;left:28%;width:42%;transform:rotate(7deg)"></div>
+              <div class="ph-pin"   style="top:36%;left:12%"></div>
+              <div class="ph-pin"   style="top:43%;left:60%;opacity:.6;width:7px;height:7px"></div>
+              <div class="ph-pin"   style="top:57%;left:42%;opacity:.4;width:6px;height:6px"></div>
+              <div class="ph-arrow" style="top:28%;right:22%">→</div>
             </div>
-            <span class="img-label">fifa-wayfinding.jpg</span>
-            <span class="img-note">replace with final</span>
+            <span class="pimg-label">fifa-wayfinding.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
           <div class="sec-info">
-            <div class="proj-subtitle" style="color:rgba(255,255,255,.55);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem">City-Scale Systems · Collaboration</div>
-            <div class="proj-title-s">FIFA World Cup<br>Atlanta 2026</div>
-            <p class="proj-desc-s">Real-world SCADpro collaboration — stakeholder research, journey mapping, and visitor experience design for a city-scale event.</p>
-            <div class="proj-tags-s">
-              <span class="proj-tag-s">Service Design</span>
-              <span class="proj-tag-s">Wayfinding</span>
-              <span class="proj-tag-s">Research</span>
-            </div>
-            <a href="#" class="open-link-s">Open folder</a>
+            <div class="psub">City-Scale Systems · Client Collaboration</div>
+            <div class="ptitle sec-info" style="padding:0;font-size:1.1rem">FIFA World Cup<br>Atlanta 2026</div>
+            <p class="pdesc sec-info" style="padding:0;font-size:.76rem;margin-bottom:.7rem">Stakeholder research, journey mapping, and visitor experience design for a city-scale event.</p>
+            <div class="ptags"><span class="ptag">Service Design</span><span class="ptag">Wayfinding</span><span class="ptag">Research</span></div>
+            <a href="#" class="plink sm">Open folder</a>
           </div>
         </div>
 
-        <div class="wisdom-card reveal">
+        <div class="proj-card pc-wisdom reveal">
+          <div class="ptab">Product · Packaging · Retail Experience</div>
           <div class="sec-visual">
-            <div class="ph-wisdom-bg">
-              <div class="ph-binder"><div class="ph-binder-txt">Wisdom ATL</div></div>
+            <div class="ph-wisdom">
+              <div class="ph-binder"><div class="ph-binder-t">Wisdom ATL</div></div>
               <div class="ph-swatch-col">
-                <div class="ph-swatch" style="background:#1A1A1A"></div>
-                <div class="ph-swatch" style="background:#D4A060"></div>
-                <div class="ph-swatch" style="background:rgba(255,255,255,.4)"></div>
+                <div class="ph-sw" style="background:#1A1A1A"></div>
+                <div class="ph-sw" style="background:#D4A060"></div>
+                <div class="ph-sw" style="background:rgba(255,255,255,.35)"></div>
               </div>
-              <div style="width:30px;height:48px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:2px"></div>
+              <div style="width:28px;height:44px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:2px"></div>
             </div>
-            <span class="img-label">wisdom-packaging.jpg</span>
-            <span class="img-note">replace with final</span>
+            <span class="pimg-label">wisdom-packaging.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
           <div class="sec-info">
-            <div class="proj-subtitle" style="color:rgba(255,255,255,.55);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem">Commercial Design · Fashion-Adjacent</div>
-            <div class="proj-title-s">Wisdom ATL<br>Eyewear</div>
-            <p class="proj-desc-s">Product direction, packaging, visual merchandising, retail display, and brand storytelling for an Atlanta eyewear label.</p>
-            <div class="proj-tags-s">
-              <span class="proj-tag-s">Branding</span>
-              <span class="proj-tag-s">Packaging</span>
-              <span class="proj-tag-s">Retail Design</span>
-            </div>
-            <a href="#" class="open-link-s">Open folder</a>
+            <div class="psub">Commercial Design · Fashion-Adjacent</div>
+            <div class="ptitle sec-info" style="padding:0;font-size:1.1rem">Wisdom ATL<br>Eyewear</div>
+            <p class="pdesc sec-info" style="padding:0;font-size:.76rem;margin-bottom:.7rem">Product direction, packaging, visual merchandising, retail display, and brand storytelling.</p>
+            <div class="ptags"><span class="ptag">Branding</span><span class="ptag">Packaging</span><span class="ptag">Retail Design</span></div>
+            <a href="#" class="plink sm">Open folder</a>
           </div>
         </div>
+      </div>
 
-      </div><!-- /row-pair -->
-
-      <!-- ── NAAGIN + KUAI ── -->
+      <!-- NAAGIN + KUAI -->
       <div class="row-small">
-
-        <div class="naagin-card reveal">
-          <div class="naagin-visual">
-            <div class="naagin-ph">
-              <div class="naagin-wordmark">Naagin<br>Sauce</div>
+        <div class="proj-card pc-naagin reveal">
+          <div class="ptab">Graphic Design · Campaign</div>
+          <div class="sm-visual">
+            <div class="ph-naagin">
+              <div class="ph-naagin-wm">Naagin<br>Sauce</div>
             </div>
-            <div class="naagin-rip"></div>
-            <span class="img-label">naagin-campaign.jpg</span>
-            <span class="img-note">replace with final</span>
+            <div class="ph-naagin-rip"></div>
+            <span class="pimg-label">naagin-campaign.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
-          <div class="small-info">
-            <span class="proj-support-lbl">Professional Design Experience</span>
-            <div class="proj-title-xs">Naagin Sauce</div>
-            <p class="proj-desc-xs">Campaign visuals, digital marketing, and graphic design within an existing Indian hot sauce brand's voice.</p>
-            <div class="proj-tags-xs">
-              <span class="proj-tag-xs">Campaign</span>
-              <span class="proj-tag-xs">Branding</span>
-              <span class="proj-tag-xs">Social Media</span>
-            </div>
-            <a href="#" class="open-link-xs">Explore ↗</a>
+          <div class="sm-info">
+            <span class="slbl">Professional Design Experience</span>
+            <div class="ptitle" style="font-size:.98rem">Naagin Sauce</div>
+            <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">Campaign visuals, digital marketing, and graphic design for an Indian hot sauce brand.</p>
+            <div class="ptags"><span class="ptag">Campaign</span><span class="ptag">Branding</span><span class="ptag">Social Media</span></div>
+            <a href="#" class="plink sm">Explore ↗</a>
           </div>
         </div>
 
-        <div class="kuai-card reveal">
-          <div class="kuai-visual">
-            <div class="kuai-ph">
-              <div class="kuai-screen">
-                <div class="ks-bar"></div><div class="ks-bar"></div>
-                <div class="ks-bar"></div><div class="ks-bar"></div>
+        <div class="proj-card pc-kuai reveal">
+          <div class="ptab">AI Product · UX Experiment</div>
+          <div class="sm-visual">
+            <div class="ph-kuai" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px">
+              <div class="kuai-sc">
+                <div class="ksb"></div><div class="ksb"></div>
+                <div class="ksb"></div><div class="ksb"></div>
               </div>
-              <div class="kuai-screen sm">
-                <div class="ks-bar" style="width:28px"></div>
-                <div class="ks-bar" style="width:20px"></div>
-                <div class="ks-bar" style="width:24px;background:rgba(255,220,100,.35)"></div>
+              <div class="kuai-sc sm">
+                <div class="ksb" style="width:26px"></div>
+                <div class="ksb" style="width:20px"></div>
+                <div class="ksb" style="width:22px;background:rgba(255,216,80,.38)"></div>
               </div>
             </div>
-            <span class="img-label">kuai-app-screens.jpg</span>
-            <span class="img-note">replace with final</span>
+            <span class="pimg-label">kuai-app-screens.jpg</span>
+            <span class="pimg-note">replace with final</span>
           </div>
-          <div class="small-info">
-            <span class="proj-support-lbl">AI Experimentation</span>
-            <div class="proj-title-xs">KUAI</div>
-            <p class="proj-desc-xs">AI shopping assistant concept — interface structure, early AI-assisted product thinking, fashion × tech.</p>
-            <div class="proj-tags-xs">
-              <span class="proj-tag-xs">AI UX</span>
-              <span class="proj-tag-xs">App Design</span>
-              <span class="proj-tag-xs">Fashion × Tech</span>
-            </div>
-            <a href="#" class="open-link-xs">Explore ↗</a>
+          <div class="sm-info">
+            <span class="slbl">AI Experimentation</span>
+            <div class="ptitle" style="font-size:.98rem">KUAI</div>
+            <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">AI shopping assistant — interface structure and early AI-assisted product thinking.</p>
+            <div class="ptags"><span class="ptag">AI UX</span><span class="ptag">App Design</span><span class="ptag">Fashion × Tech</span></div>
+            <a href="#" class="plink sm">Explore ↗</a>
           </div>
         </div>
-
-      </div><!-- /row-small -->
+      </div>
 
     </div><!-- /bento -->
   </div>
 </section>
 
-<hr class="rule"/>
-
-<!-- ════ OPEN FILE: NIHARIKA ════ -->
-<section id="about" class="section">
+<!-- ━━━ ABOUT — MAROON ━━━ -->
+<section id="about" class="section sec-maroon grid-maroon">
   <div class="wrap">
+    <div class="eyebrow eyebrow-cream">Open File: Niharika</div>
+    <div class="about-inner">
 
-    <div class="about-grid">
-
-      <!-- LEFT: copy -->
       <div>
-        <div class="eyebrow">Open File: Niharika</div>
-        <h2 class="about-title">Not a bio.<br>A few <span class="ital">clues.</span></h2>
+        <h2 class="about-h">Not a bio.<br>A few <span class="ital">clues.</span></h2>
+        <p class="about-sub-copy">What I notice, collect, love, and turn into design.</p>
 
-        <div class="about-mobile-chips">
-          <span class="a-chip" style="border-color:rgba(214,60,42,.3);color:var(--red)">Ginger's person</span>
-          <span class="a-chip" style="border-color:rgba(46,96,64,.3);color:var(--forest)">Sky collector</span>
+        <!-- Mobile chips -->
+        <div class="about-mob">
+          <span class="a-chip">Ginger's person</span>
+          <span class="a-chip">Sky collector</span>
           <span class="a-chip">Indian art forms</span>
           <span class="a-chip">Systems thinker</span>
         </div>
@@ -1153,11 +1085,11 @@ footer{
           <p>"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
         </div>
 
-        <p class="about-intro reveal">
+        <p class="about-para reveal">
           I'm a UX and graphic designer based in Atlanta, graduating from SCAD in 2025. My work sits at the intersection of clarity and feeling — I want people to navigate experiences without ever feeling lost, and to feel something when they arrive.
         </p>
 
-        <p class="about-interests reveal">
+        <p class="about-para reveal">
           Outside of design, I'm usually cooking, discovering music, watching murder mysteries or Bollywood, visiting museums, dressing up, finding <strong>Indian homegrown brands</strong>, getting my nails done, or taking another picture of the sky.
         </p>
 
@@ -1172,13 +1104,12 @@ footer{
         </div>
       </div>
 
-      <!-- RIGHT: 4 artifacts -->
+      <!-- Right: 4 cream artifacts on maroon -->
       <div class="about-collage">
 
-        <!-- Searches -->
         <div class="ac" style="top:0;left:0;transform:rotate(-1deg)">
-          <div class="tape" style="top:-8px;left:48px;transform:rotate(-1deg)"></div>
-          <div class="searches-card reveal">
+          <div class="tape tc" style="top:-8px;left:46px;transform:rotate(-1.5deg)"></div>
+          <div class="art-card searches-c reveal">
             <div class="s-lbl">Recent searches</div>
             <div class="s-line">how do people navigate airports?</div>
             <div class="s-line">why does this interface feel stressful?</div>
@@ -1187,12 +1118,11 @@ footer{
           </div>
         </div>
 
-        <!-- Ginger -->
         <div class="ac" style="top:0;right:0;transform:rotate(2.5deg)">
-          <div class="tape r" style="top:-8px;left:26px;transform:rotate(1.5deg)"></div>
-          <div class="ginger-card reveal" style="width:132px">
+          <div class="tape" style="top:-8px;left:25px;transform:rotate(1.5deg)"></div>
+          <div class="ginger-card art-card reveal" style="width:130px;box-shadow:5px 6px 0 rgba(28,16,8,.35)">
             <div class="ginger-bg">
-              <svg width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
+              <svg width="48" height="48" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
                 <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
                 <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
                 <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
@@ -1207,28 +1137,26 @@ footer{
                 <path d="M46 43Q57 37 54 50Q51 58 44 53" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75"/>
               </svg>
             </div>
-            <div class="ginger-lbl">ginger.jpg</div>
-            <div class="ginger-sub">emotional support creative director</div>
+            <div class="g-lbl">ginger.jpg</div>
+            <div class="g-sub">emotional support creative director</div>
           </div>
         </div>
 
-        <!-- Sky -->
-        <div class="ac" style="top:185px;right:8px;transform:rotate(-1.5deg)">
-          <div class="tape b" style="top:-8px;left:60px;transform:rotate(2deg)"></div>
-          <div class="sky-strip-card reveal" style="width:196px">
+        <div class="ac" style="top:188px;right:8px;transform:rotate(-1.5deg)">
+          <div class="tape tb" style="top:-8px;left:58px;transform:rotate(2deg)"></div>
+          <div class="art-card reveal" style="width:194px;padding:.7rem">
             <div class="film-row">
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
-              <div class="film-f"><div class="film-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
+              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
             </div>
             <div class="sky-cap">"I collect skies like color palettes."</div>
           </div>
         </div>
 
-        <!-- Collect -->
-        <div class="ac" style="top:295px;left:0;transform:rotate(.5deg)">
-          <div class="tape" style="top:-8px;left:38px;transform:rotate(-2deg)"></div>
-          <div class="collect-card reveal">
+        <div class="ac" style="top:296px;left:0;transform:rotate(.5deg)">
+          <div class="tape" style="top:-8px;left:36px;transform:rotate(-2deg)"></div>
+          <div class="art-card collect-c reveal">
             <div class="c-fname">things_i_collect.txt</div>
             <div class="c-item">visual systems</div>
             <div class="c-item">Indian art forms</div>
@@ -1239,99 +1167,79 @@ footer{
           </div>
         </div>
 
-      </div><!-- /about-collage -->
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="rule"/>
-
-<!-- ════ BEHIND THE BUILD ════ -->
-<section id="process" class="section">
+<!-- ━━━ PROCESS — MARIGOLD ━━━ -->
+<section id="process" class="section sec-marigold grid-yellow">
   <div class="wrap">
-
-    <div class="proc-grid">
+    <div class="eyebrow eyebrow-ink">Behind the Build</div>
+    <div class="proc-inner">
       <div>
-        <div class="eyebrow">Behind the Build</div>
-        <h2 class="proc-headline">This portfolio is<br>also a <span class="ital">case study.</span></h2>
+        <h2 class="proc-h">This portfolio is<br>also a <span class="ital">case study.</span></h2>
         <div class="proc-tagline">"AI proposes. I decide."</div>
         <p class="proc-body">I built this portfolio the way I design everything — directing, deciding, pushing back, and making it feel like me. AI was a tool I used with intention and judgment. Every prompt was art-directed. Every output was critiqued.</p>
-        <p class="proc-body" style="margin-top:-.6rem">The full record lives on GitHub: every version, every rejected direction, every moment I said "no, that's not it."</p>
-        <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-ink">View on GitHub ↗</a>
+        <p class="proc-body" style="margin-top:-.5rem">The full record lives on GitHub: every version, every rejected direction, and every moment I said "no, that's not it."</p>
+        <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-mg">View on GitHub ↗</a>
       </div>
       <div class="proc-cards">
-        <div class="proc-card pc-red reveal">
+        <div class="proc-card pc-r reveal">
           <div class="pc-file">prompts.md</div>
           <div class="pc-title">Prompting as Art Direction</div>
           <div class="pc-desc">Every AI prompt was a creative brief — written with intent, visual references, and a clear point of view about what I didn't want.</div>
         </div>
-        <div class="proc-card pc-green reveal">
+        <div class="proc-card pc-g reveal">
           <div class="pc-file">decisions.md</div>
           <div class="pc-title">Direction, Not Generation</div>
           <div class="pc-desc">I made every visual and structural decision. AI generated starting points. I shaped, rejected, and refined until it felt like mine.</div>
         </div>
-        <div class="proc-card pc-blue reveal">
+        <div class="proc-card pc-b reveal">
           <div class="pc-file">rejected-versions.txt</div>
           <div class="pc-title">Record of Resistance</div>
           <div class="pc-desc">I documented every version that felt too generic, too soft, or too template-like. Knowing what doesn't feel like you is half the brief.</div>
         </div>
-        <div class="proc-card pc-orange reveal">
+        <div class="proc-card pc-o reveal">
           <div class="pc-file">commits.log</div>
           <div class="pc-title">Iteration in Public</div>
           <div class="pc-desc">Every decision is committed. The build history is a design process — public, honest, and ongoing.</div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<hr class="rule"/>
-
-<!-- ════ CONTACT ════ -->
-<section id="contact" class="section">
+<!-- ━━━ CONTACT — DARK ESPRESSO ━━━ -->
+<section id="contact" class="section sec-espresso grid-dark">
   <div class="wrap">
-    <div class="contact-layout">
-      <div>
-        <div class="eyebrow">Get in touch</div>
-        <h2 class="contact-h">Let's make something<br><span class="ital">worth noticing.</span></h2>
-        <p class="contact-sub">I'm looking for full-time design roles where I can bring both my systems thinking and my taste to the work.</p>
-        <div class="contact-links">
-          <a href="mailto:niharika@example.com" class="btn btn-red">Email me ↗</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
-          <a href="#" class="btn btn-outline">Resume ↗</a>
-        </div>
-        <div class="contact-note">P.S. Ginger approves thoughtful emails.</div>
-      </div>
-      <div class="contact-visual contact-ginger">
-        <div class="polaroid contact-polaroid">
-          <div class="cg-img">
-            <svg width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger">
-              <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
-              <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
-              <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
-              <polygon points="43,13 47,3 37,11" fill="#5C3010" opacity=".8"/>
-              <ellipse cx="24" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
-              <ellipse cx="36" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
-              <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
-            </svg>
-          </div>
-          <div class="polaroid-cap" style="font-size:.75rem">ginger.jpg</div>
-        </div>
-        <div style="font-family:var(--hand);font-size:.85rem;color:var(--muted);text-align:center;margin-top:-.2rem">very professional.</div>
-      </div>
+    <div class="eyebrow eyebrow-cream">Get in touch</div>
+    <h2 class="contact-h">
+      <span class="line1">Let's make something</span><br>
+      <span class="line2">worth noticing.</span>
+    </h2>
+    <p class="contact-sub">I'm looking for full-time design roles where I can bring both my systems thinking and my personality to the work.</p>
+    <div class="contact-btns">
+      <a href="mailto:niharika@example.com" class="btn btn-mg">EMAIL ME →</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-cream-ol">LINKEDIN ↗</a>
+      <a href="#" class="btn btn-cream-ol">RESUME ↗</a>
+      <a href="https://behance.net" target="_blank" rel="noopener" class="btn btn-cream-ol">BEHANCE ↗</a>
+    </div>
+    <div class="sticky-row">
+      <div class="sticky-y2">p.s. Ginger is available for virtual co-working sessions.</div>
+      <div class="sticky-b">p.p.s. I will absolutely ask where you got your reference images.</div>
     </div>
   </div>
 </section>
 
-<!-- ════ FOOTER ════ -->
+<!-- ━━━ FOOTER ━━━ -->
 <footer>
-  <span class="f-copy">© 2025 Niharika Jain · Atlanta, GA</span>
-  <span class="f-right">Designed with care, critique, and a lot of iteration.</span>
+  <span class="f-l">© 2025 Niharika Jain · Built with intention (and AI assistance)</span>
+  <span class="f-r">Made in Atlanta ✦ Powered by Ginger</span>
 </footer>
 
 <script>
-/* Nav */
+/* Nav toggle */
 const tog=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
 tog.addEventListener('click',()=>nl.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
@@ -1339,7 +1247,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 /* Scroll reveal */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
-},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+},{threshold:.1,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
