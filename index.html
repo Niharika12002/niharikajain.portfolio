@@ -1,363 +1,1486 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Niharika Jain — UX & Graphic Designer</title>
-  <meta name="description" content="Niharika Jain — UX and graphic designer. Part designer, part storyteller, part systems thinker." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600&family=Shantell+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --paper:#F4ECDC; --paper-2:#EFE5D1;
-      --ink:#2A1C12; --ink-soft:#5A4636; --ink-mute:#8C7A66;
-      --maroon:#9B2D2D; --maroon-deep:#6E1E1E;
-      --marigold:#E0982C; --marigold-deep:#B5721A;
-      --matcha:#7C8B4A; --matcha-deep:#5C6A33;
-      --blue:#5E97C9; --blue-deep:#3D6E99;
-      --pink:#D2698C; --coral:#D85534;
-      --grid:rgba(42,28,18,.05);
-      --serif:'Fraunces',Georgia,serif;
-      --sans:'Hanken Grotesk',system-ui,sans-serif;
-      --hand:'Shantell Sans',cursive;
-    }
-    html{scroll-behavior:smooth}
-    body{
-      font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;
-      -webkit-font-smoothing:antialiased;overflow-x:hidden;
-      background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-      background-size:30px 30px;
-    }
-    ::selection{background:var(--maroon);color:var(--paper)}
-    ::-webkit-scrollbar{width:7px}
-    ::-webkit-scrollbar-track{background:var(--paper-2)}
-    ::-webkit-scrollbar-thumb{background:var(--marigold);border-radius:4px}
-    ::-webkit-scrollbar-thumb:hover{background:var(--maroon)}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:100%;max-width:1200px;margin:0 auto;padding-inline:clamp(1.25rem,4.2vw,3.5rem)}
-    em{font-style:italic;color:var(--maroon)}
-    .hand{font-family:var(--hand)}
-    .note{font-family:var(--hand);font-size:.95rem;color:var(--maroon);line-height:1.3}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Niharika Jain — Designer, Storyteller, Systems Thinker</title>
+<meta name="description" content="Portfolio of Niharika Jain — UX & Graphic Designer. Part designer, part storyteller, part systems thinker." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+/* ── RESET & BASE ─────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#F5F0E8;
+  color:#1a1108;
+  overflow-x:hidden;
+  line-height:1.6;
+}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .3s;padding:.9rem 0}
-    nav.scrolled{background:rgba(244,236,220,.94);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-family:var(--serif);font-size:1.2rem;font-weight:600;position:relative}
-    .logo svg{position:absolute;left:0;bottom:-6px;width:100%}
-    .nav-links{display:none;gap:2rem;align-items:center}
-    @media(min-width:768px){.nav-links{display:flex}}
-    .nav-links a{font-size:.9rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
-    .nav-links a:hover{color:var(--maroon)}
-    .nav-resume{border:1.5px solid var(--ink);padding:.4rem 1rem;border-radius:100px;color:var(--ink)!important;transition:all .2s}
-    .nav-resume:hover{background:var(--marigold);box-shadow:2px 2px 0 var(--ink)}
-    .menu-btn{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
-    @media(min-width:768px){.menu-btn{display:none}}
-    .menu-btn span{display:block;width:24px;height:2.5px;background:var(--ink);transition:.3s}
-    .mobile-menu{display:none;flex-direction:column;gap:1rem;padding:1.5rem;background:var(--paper);border-top:1.5px solid var(--ink)}
-    .mobile-menu.open{display:flex}
-    .mobile-menu a{font-family:var(--serif);font-size:1.3rem;font-weight:500}
+/* ── DESIGN TOKENS ────────────────────────────────────── */
+:root{
+  --cream:#F5F0E8;
+  --cream-dark:#EDE6D6;
+  --paper:#FBF8F2;
+  --maroon:#6B1F1F;
+  --maroon-light:#8B2E2E;
+  --marigold:#E8A020;
+  --marigold-light:#F2C060;
+  --matcha:#4A6741;
+  --matcha-light:#6A8F61;
+  --coral:#D45A30;
+  --coral-light:#E07A54;
+  --ink:#1a1108;
+  --ink-soft:#3d2e1a;
+  --ink-muted:#7a6048;
+  --tape:#E8C878;
+  --tape-blue:#B8C8D8;
+  --grid-color:rgba(74,103,65,0.08);
+  --shadow-card:4px 6px 0 rgba(26,17,8,0.18);
+  --shadow-lift:6px 8px 0 rgba(26,17,8,0.22);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --font-display:'Fraunces',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-hand:'Caveat',cursive;
+  --gutter:clamp(1.25rem,5vw,4rem);
+  --section-gap:clamp(4rem,10vw,8rem);
+}
 
-    .label{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:1rem}
-    .label::before{content:'';width:1.6rem;height:2px;background:var(--marigold)}
+/* ── GRAPH PAPER BACKGROUND ───────────────────────────── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;z-index:0;
+}
 
-    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-size:.92rem;font-weight:600;padding:.7rem 1.4rem;border-radius:100px;cursor:pointer;transition:all .18s;border:1.5px solid var(--ink)}
-    .btn-primary{background:var(--maroon);color:var(--paper);box-shadow:3px 3px 0 var(--ink)}
-    .btn-primary:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
-    .btn-primary:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-    .btn-sun{background:var(--marigold);color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
-    .btn-sun:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
-    .btn-ghost{border:none;background:none;color:var(--ink-soft);font-weight:600;cursor:pointer;font-size:.92rem;transition:color .2s;box-shadow:none}
-    .btn-ghost:hover{color:var(--maroon)}
+/* ── LAYOUT UTILS ─────────────────────────────────────── */
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 var(--gutter);
+  position:relative;z-index:1;
+}
+.section{padding:var(--section-gap) 0}
 
-    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:clamp(2rem,5vw,3rem);padding-top:clamp(6rem,14vw,7rem);padding-bottom:clamp(2.5rem,6vw,3.5rem)}
-    .hero-main{display:grid;grid-template-columns:1fr;gap:clamp(1.5rem,4vw,2.5rem);align-items:center}
-    @media(min-width:880px){.hero-main{grid-template-columns:1.12fr .88fr}}
-    .hero h1{font-family:var(--serif);font-size:clamp(2.6rem,7vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-.02em;margin-left:-.03em;margin-bottom:1.5rem}
-    .hero h1 .swash{font-style:italic;font-weight:400}
-    .hero-sub{font-size:1.06rem;font-weight:300;color:var(--ink-soft);line-height:1.7;max-width:30rem;margin-bottom:2rem}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
-    .hero-note{position:relative;display:inline-block;margin-top:2.6rem}
-    .hero-note .arrow{position:absolute;left:-46px;top:-6px;width:40px;color:var(--marigold)}
-    .collage{position:relative;display:flex;align-items:center;justify-content:center;padding:1.25rem 0}
-    @media(max-width:560px){.hero-note .arrow{display:none}.hero-note{margin-top:2rem}.hero h1{margin-left:0}}
-    .photo-card{position:relative;width:clamp(11rem,52vw,15rem);background:#fff;padding:.7rem .7rem 2.6rem;border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transform:rotate(-3deg);z-index:2}
-    .photo-card .pic{aspect-ratio:4/5;background:var(--maroon);display:flex;align-items:center;justify-content:center;text-align:center}
-    .photo-card .pic span{font-family:var(--hand);color:rgba(244,236,220,.7);font-size:1rem;padding:0 1rem}
-    .photo-card .cap{position:absolute;bottom:.5rem;left:0;right:0;text-align:center;font-family:var(--hand);font-size:1rem;color:var(--ink)}
-    .sticker{position:absolute;border:1.5px solid var(--ink);border-radius:100px;padding:.35rem .8rem;font-size:.72rem;font-weight:600;background:var(--paper);box-shadow:2px 2px 0 var(--ink);z-index:3}
-    .st-1{top:6%;right:2%;background:var(--matcha);color:#fff;transform:rotate(6deg)}
-    .st-2{bottom:14%;left:0;background:var(--marigold);transform:rotate(-7deg)}
-    .st-3{top:40%;right:0;background:var(--blue);color:#fff;transform:rotate(9deg)}
-    .scroll-hint{display:flex;align-items:center;gap:.7rem}
-    .scroll-line{width:3rem;height:2px;background:var(--ink-mute);position:relative;overflow:hidden}
-    .scroll-line::after{content:'';position:absolute;inset:0;left:-100%;background:var(--maroon);animation:slide 2s ease-in-out infinite}
-    .scroll-hint p{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
-    @keyframes slide{to{left:100%}}
+/* ── TYPOGRAPHY ───────────────────────────────────────── */
+.display{font-family:var(--font-display);font-weight:400;line-height:1.08;letter-spacing:-0.02em}
+.serif{font-family:var(--font-display)}
+.hand{font-family:var(--font-hand)}
+.label-tag{
+  display:inline-block;
+  font-family:var(--font-body);
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  padding:3px 8px;
+  border:1px solid currentColor;
+  border-radius:2px;
+}
 
-    .marquee{background:var(--maroon);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;padding:.7rem 0}
-    .marquee-track{display:inline-flex;gap:1.5rem;white-space:nowrap;animation:marquee 30s linear infinite}
-    .marquee-track span{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--paper);display:inline-flex;align-items:center;gap:1.5rem}
-    .star{color:var(--marigold);font-style:normal}
-    @keyframes marquee{to{transform:translateX(-50%)}}
+/* ── DECORATIVE ELEMENTS ──────────────────────────────── */
+.tape{
+  position:absolute;
+  width:56px;height:18px;
+  background:rgba(232,200,120,0.72);
+  border-radius:2px;
+  z-index:10;
+  transform:rotate(-2deg);
+}
+.tape.blue{background:rgba(184,200,216,0.72)}
+.tape.coral{background:rgba(212,90,48,0.28)}
+.paperclip{
+  position:absolute;
+  width:10px;height:32px;
+  border:2.5px solid #888;
+  border-bottom:none;
+  border-radius:8px 8px 0 0;
+  z-index:10;
+}
+.dot-stamp{
+  display:inline-block;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--maroon);
+  vertical-align:middle;
+  margin-right:6px;
+}
 
-    section{scroll-margin-top:4.5rem}
-    .sec{padding-block:clamp(3.5rem,8vw,5.5rem)}
-    .sec-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-.02em}
+/* ── CARDS / FILE CARDS ───────────────────────────────── */
+.card{
+  background:var(--paper);
+  border:1.5px solid rgba(26,17,8,0.14);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-card);
+  padding:1.25rem 1.4rem;
+  position:relative;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover{transform:translateY(-3px) rotate(0deg);box-shadow:var(--shadow-lift)}
+.card-title{
+  font-family:var(--font-hand);
+  font-size:1rem;
+  font-weight:600;
+  color:var(--ink-soft);
+  margin-bottom:0.3rem;
+}
+.file-name{
+  font-family:var(--font-body);
+  font-size:0.72rem;
+  color:var(--ink-muted);
+  font-weight:400;
+  letter-spacing:0.02em;
+}
 
-    .about{background:var(--maroon);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding-block:clamp(3.5rem,8vw,5.5rem);position:relative}
-    .about .label{color:var(--marigold)}
-    .about .label::before{background:var(--paper)}
-    .about-grid{display:grid;grid-template-columns:1fr;gap:clamp(2.2rem,5vw,4rem);align-items:start}
-    @media(min-width:1024px){.about-grid{grid-template-columns:.85fr 1.15fr}}
-    .about h2{font-family:var(--serif);font-size:clamp(2.1rem,4vw,3rem);font-weight:500;line-height:1.08;margin:.3rem 0 1.4rem}
-    .about h2 em{color:var(--marigold)}
-    .about-body{font-size:1rem;font-weight:300;color:rgba(244,236,220,.82);line-height:1.8;max-width:24rem}
-    .cards{display:grid;grid-template-columns:1fr;gap:1.25rem}
-    @media(min-width:600px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .note-card{background:var(--paper);color:var(--ink);padding:1.3rem 1.2rem 1.5rem;border:1.5px solid var(--ink);position:relative;min-height:11rem}
-    .note-card:nth-child(1){transform:rotate(-1.5deg)}
-    .note-card:nth-child(2){transform:rotate(1deg);margin-top:1rem}
-    .note-card:nth-child(3){transform:rotate(-.6deg)}
-    .note-card .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink)}
-    .nc-1 .pin{background:var(--marigold)} .nc-2 .pin{background:var(--matcha)} .nc-3 .pin{background:var(--blue)}
-    .note-card h3{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
-    .note-card p{font-size:.86rem;font-weight:300;color:var(--ink-soft);line-height:1.55}
-    .note-card .n{font-family:var(--hand);font-size:1.1rem;color:var(--maroon);margin-bottom:.2rem}
+/* ── FOLDER CARDS (project work) ──────────────────────── */
+.folder{
+  background:var(--paper);
+  border:1.5px solid rgba(26,17,8,0.15);
+  border-radius:0 var(--radius-md) var(--radius-md) var(--radius-md);
+  box-shadow:var(--shadow-card);
+  position:relative;
+  overflow:visible;
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  cursor:pointer;
+}
+.folder::before{
+  content:attr(data-tab);
+  position:absolute;
+  top:-30px;left:-1.5px;
+  background:var(--paper);
+  border:1.5px solid rgba(26,17,8,0.15);
+  border-bottom:none;
+  border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+  padding:4px 14px;
+  font-family:var(--font-body);
+  font-size:0.68rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  white-space:nowrap;
+}
+.folder:hover{transform:translateY(-5px) rotate(-0.5deg);box-shadow:8px 10px 0 rgba(26,17,8,0.22)}
+.folder-inner{padding:1.4rem 1.5rem 1.6rem}
+.folder-emoji{font-size:1.6rem;margin-bottom:0.6rem;display:block}
+.folder-title{
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:0.3rem;
+  line-height:1.25;
+}
+.folder-subtitle{
+  font-size:0.78rem;
+  color:var(--ink-muted);
+  margin-bottom:0.9rem;
+  font-weight:400;
+}
+.folder-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:0.63rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:3px;
+  border:1px solid rgba(26,17,8,0.18);
+  color:var(--ink-muted);
+}
+.tag.maroon{background:rgba(107,31,31,0.08);border-color:rgba(107,31,31,0.25);color:var(--maroon)}
+.tag.matcha{background:rgba(74,103,65,0.08);border-color:rgba(74,103,65,0.25);color:var(--matcha)}
+.tag.marigold{background:rgba(232,160,32,0.12);border-color:rgba(232,160,32,0.35);color:#7a5c00}
+.tag.coral{background:rgba(212,90,48,0.08);border-color:rgba(212,90,48,0.25);color:var(--coral)}
+.folder-connect{
+  margin-top:1rem;
+  padding-top:0.9rem;
+  border-top:1px dashed rgba(26,17,8,0.12);
+  font-size:0.73rem;
+  color:var(--ink-muted);
+  font-style:italic;
+  font-family:var(--font-hand);
+  font-size:0.88rem;
+  line-height:1.4;
+}
 
-    .work-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:.6rem}
-    .work-sub{font-family:var(--hand);color:var(--ink-soft);font-size:1.05rem;margin-bottom:2.6rem}
-    .folders{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2.6rem 1.6rem}
-    .folder{position:relative;cursor:pointer;margin-top:1.1rem;transition:transform .25s}
-    .folder:hover{transform:translateY(-5px)}
-    .folder-tab{position:absolute;top:-18px;left:10px;height:22px;padding:0 .9rem;display:flex;align-items:center;border:1.5px solid var(--ink);border-bottom:none;border-radius:8px 8px 0 0;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
-    .folder-body{border:1.5px solid var(--ink);border-radius:2px 12px 12px 12px;padding:.8rem;box-shadow:4px 4px 0 var(--ink);transition:box-shadow .25s}
-    .folder:hover .folder-body{box-shadow:6px 6px 0 var(--ink)}
-    .file{background:#fff;border:1.5px solid var(--ink);overflow:hidden}
-    .file-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--ink);position:relative}
-    .file-img span{font-family:var(--hand);font-size:.9rem;color:rgba(42,28,18,.45);text-align:center;padding:1rem}
-    .file-info{padding:.8rem .9rem 1rem;background:var(--paper)}
-    .file-title{font-family:var(--serif);font-size:1.18rem;font-weight:600;line-height:1.15}
-    .file-sub{font-size:.8rem;color:var(--ink-soft);margin-top:.15rem}
-    .file-desc{font-size:.82rem;font-weight:300;color:var(--ink-soft);line-height:1.5;margin-top:.55rem}
-    .open-tag{display:inline-flex;align-items:center;gap:.3rem;margin-top:.7rem;font-size:.78rem;font-weight:600;color:var(--maroon)}
-    .folder:hover .open-tag .ar{transform:translateX(3px)}
-    .open-tag .ar{transition:transform .2s}
+/* ── NAV ──────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  padding:0.9rem var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(245,240,232,0.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(26,17,8,0.08);
+}
+.nav-logo{
+  font-family:var(--font-hand);
+  font-size:1.1rem;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+  letter-spacing:0.01em;
+}
+.nav-links{
+  display:flex;gap:clamp(1rem,3vw,2.2rem);
+  list-style:none;
+}
+.nav-links a{
+  font-size:0.8rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--maroon)}
 
-    .process{background:var(--marigold);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding-block:clamp(3.5rem,8vw,5.5rem)}
-    .process .label{color:var(--maroon)}.process .label::before{background:var(--ink)}
-    .process-grid{display:grid;grid-template-columns:1fr;gap:clamp(2.2rem,5vw,4rem)}
-    @media(min-width:880px){.process-grid{grid-template-columns:1fr 1fr;gap:4rem}}
-    .process h2{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:500;line-height:1.12;margin:.3rem 0 1rem}
-    .process h2 em{color:var(--maroon)}
-    .process-body{font-size:1rem;font-weight:300;color:var(--ink);line-height:1.75;margin-bottom:1rem;max-width:28rem;opacity:.85}
-    .step{display:flex;gap:.9rem;background:var(--paper);border:1.5px solid var(--ink);padding:.9rem 1rem;margin-bottom:.9rem;box-shadow:3px 3px 0 var(--ink)}
-    .step .num{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--maroon);flex-shrink:0}
-    .step p{font-size:.88rem;color:var(--ink-soft);line-height:1.5}
-    .step strong{color:var(--ink);font-weight:600}
+/* ── STICKY NOTE ──────────────────────────────────────── */
+.sticky{
+  background:#FFF4B0;
+  border-radius:2px;
+  padding:0.9rem 1rem;
+  box-shadow:2px 3px 8px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+  font-family:var(--font-hand);
+  font-size:0.95rem;
+  line-height:1.5;
+  color:#2a2000;
+  position:relative;
+}
+.sticky.pink{background:#FFD6E0}
+.sticky.blue{background:#D6EEFF;color:#001a33}
+.sticky.green{background:#D6F0D6;color:#0a2a0a}
+.sticky.coral{background:#FFE4D6;color:#3a1200}
 
-    .contact{padding-block:clamp(3.5rem,8vw,5.5rem);text-align:center;position:relative}
-    .contact h2{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4rem);font-weight:500;line-height:1.05;margin:.5rem 0 1rem}
-    .contact .label{justify-content:center}
-    .contact-body{font-size:1.05rem;font-weight:300;color:var(--ink-soft);max-width:32rem;margin:0 auto 2rem}
-    .contact-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
-    .contact .note{margin-top:2rem}
+/* ── POLAROID / PHOTO CARD ────────────────────────────── */
+.polaroid{
+  background:#fff;
+  padding:10px 10px 36px;
+  box-shadow:3px 5px 12px rgba(0,0,0,0.14);
+  border-radius:3px;
+  display:inline-block;
+  position:relative;
+}
+.polaroid-img{
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--cream-dark);
+  border-radius:2px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.polaroid-caption{
+  font-family:var(--font-hand);
+  font-size:0.85rem;
+  color:#333;
+  text-align:center;
+  padding-top:8px;
+  line-height:1.3;
+}
 
-    footer{border-top:2px solid var(--ink);padding:2.8rem 0;background:var(--paper-2)}
-    .foot-grid{display:flex;flex-direction:column;gap:1.6rem;justify-content:space-between}
-    @media(min-width:768px){.foot-grid{flex-direction:row;align-items:center}}
-    .foot-grid .lead{font-family:var(--serif);font-size:1.3rem;font-weight:500}
-    .foot-links{display:flex;flex-wrap:wrap;gap:1.3rem}
-    .foot-links a{font-size:.88rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
-    .foot-links a:hover{color:var(--maroon)}
-    .foot-bottom{margin-top:1.8rem;padding-top:1.4rem;border-top:1.5px dashed var(--ink-mute);display:flex;flex-direction:column;gap:.4rem;justify-content:space-between}
-    @media(min-width:640px){.foot-bottom{flex-direction:row;align-items:center}}
-    .foot-bottom p{font-size:.76rem;color:var(--ink-mute)}
-    .foot-bottom .it{font-family:var(--hand);font-size:.95rem;color:var(--maroon)}
+/* ── RECEIPT ──────────────────────────────────────────── */
+.receipt{
+  background:#fffef9;
+  border:1px dashed rgba(26,17,8,0.2);
+  padding:1rem 1.1rem;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  line-height:1.8;
+  color:var(--ink-soft);
+  border-radius:4px;
+  position:relative;
+}
+.receipt-header{
+  text-align:center;
+  border-bottom:1px dashed rgba(26,17,8,0.15);
+  padding-bottom:0.6rem;margin-bottom:0.6rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.7rem;
+}
+.receipt-item{display:flex;justify-content:space-between}
+.receipt-item::before{content:'·'}
+.receipt-footer{
+  text-align:center;
+  border-top:1px dashed rgba(26,17,8,0.15);
+  padding-top:0.6rem;margin-top:0.6rem;
+  font-family:var(--font-hand);
+  font-size:0.85rem;
+}
 
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-    .reveal.in{opacity:1;transform:none}
-  </style>
+/* ── CAMERA ROLL ──────────────────────────────────────── */
+.camera-roll{
+  display:flex;gap:8px;
+  overflow-x:auto;
+  padding-bottom:4px;
+  scrollbar-width:none;
+}
+.camera-roll::-webkit-scrollbar{display:none}
+.film-frame{
+  flex:0 0 auto;
+  width:80px;height:90px;
+  background:#1a1108;
+  border-radius:3px;
+  position:relative;
+  padding:6px 5px;
+}
+.film-frame::before,.film-frame::after{
+  content:'';position:absolute;
+  left:0;right:0;height:6px;
+  display:flex;
+  background:repeating-linear-gradient(90deg,#1a1108 0,#1a1108 4px,#000 4px,#000 10px);
+}
+.film-frame::before{top:0}
+.film-frame::after{bottom:0}
+.film-photo{
+  width:100%;height:100%;
+  border-radius:1px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;
+  font-weight:500;
+  letter-spacing:0.05em;
+  color:rgba(255,255,255,0.5);
+  text-align:center;
+  font-family:var(--font-body);
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding-top:80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-desktop{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:3rem;
+  align-items:start;
+  width:100%;
+  padding:3rem 0;
+}
+.hero-headline{
+  font-size:clamp(2.4rem,5.5vw,4.2rem);
+  font-weight:400;
+  line-height:1.06;
+  color:var(--ink);
+  margin-bottom:1.4rem;
+}
+.hero-headline em{
+  font-style:italic;
+  color:var(--maroon);
+}
+.hero-sub{
+  font-size:clamp(0.9rem,1.4vw,1.05rem);
+  color:var(--ink-muted);
+  max-width:38ch;
+  line-height:1.7;
+  margin-bottom:2rem;
+  font-weight:300;
+}
+.hero-cta{
+  display:inline-block;
+  background:var(--maroon);
+  color:#fff;
+  font-size:0.78rem;
+  font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:0.75rem 1.6rem;
+  border-radius:3px;
+  box-shadow:3px 3px 0 rgba(107,31,31,0.4);
+  transition:transform 0.15s, box-shadow 0.15s;
+}
+.hero-cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 rgba(107,31,31,0.4)}
+
+/* ── HERO DESKTOP COLLAGE ─────────────────────────────── */
+.hero-collage{
+  position:relative;
+  height:580px;
+}
+.hero-collage .card,.hero-collage .sticky,.hero-collage .polaroid{
+  position:absolute;
+}
+
+/* floating objects */
+.obj-photo{
+  width:160px;
+  top:0;left:10px;
+  transform:rotate(-3deg);
+}
+.obj-ginger{
+  width:140px;
+  top:50px;right:20px;
+  transform:rotate(2.5deg);
+}
+.obj-sky{
+  width:200px;
+  top:220px;left:0;
+  transform:rotate(1deg);
+}
+.obj-sticky-build{
+  width:150px;
+  top:160px;left:120px;
+  transform:rotate(-1.5deg);
+  z-index:5;
+}
+.obj-folder-hero{
+  width:160px;
+  top:340px;right:10px;
+  transform:rotate(1.5deg);
+  z-index:4;
+}
+.obj-recent{
+  width:175px;
+  bottom:10px;left:30px;
+  transform:rotate(-1deg);
+}
+.obj-scrap{
+  width:130px;
+  bottom:60px;right:60px;
+  transform:rotate(3deg);
+}
+
+/* tape overlays */
+.hero-tape-1{top:-8px;left:60px;transform:rotate(-1deg)}
+.hero-tape-2{top:-8px;left:80px;transform:rotate(2deg)}
+.hero-tape-3{top:-8px;left:30px;transform:rotate(-3deg)}
+
+/* sketch arrow */
+.sketch-arrow{
+  position:absolute;
+  font-family:var(--font-hand);
+  font-size:1.8rem;
+  color:var(--ink-muted);
+  opacity:0.6;
+  pointer-events:none;
+}
+
+/* ── SECTION HEADERS ──────────────────────────────────── */
+.section-label{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:0.6rem;
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:400;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:0.4rem;
+}
+.section-sub{
+  font-size:0.88rem;
+  color:var(--ink-muted);
+  max-width:52ch;
+  font-weight:300;
+  margin-bottom:2.2rem;
+  font-style:italic;
+}
+
+/* ── WORK GRID ────────────────────────────────────────── */
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));
+  gap:2.2rem;
+  margin-top:2.5rem;
+}
+
+/* ── ABOUT / FILE SECTION ─────────────────────────────── */
+.file-section{
+  background:rgba(251,248,242,0.7);
+  border:1.5px solid rgba(26,17,8,0.09);
+  border-radius:var(--radius-lg);
+  padding:2.5rem;
+  position:relative;
+}
+.file-section::before{
+  content:'Open File: Niharika.zip';
+  position:absolute;
+  top:-14px;left:24px;
+  background:var(--marigold);
+  color:#fff;
+  font-size:0.7rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:3px;
+}
+
+/* brain grid */
+.brain-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));
+  gap:1.4rem;
+  margin-top:1.8rem;
+}
+
+/* ── MUSIC WIDGET ─────────────────────────────────────── */
+.music-widget{
+  background:#1a1108;
+  color:#f5f0e8;
+  border-radius:var(--radius-md);
+  padding:1rem 1.2rem;
+  position:relative;
+  overflow:hidden;
+}
+.music-widget::before{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,
+    transparent 0,transparent 8px,
+    rgba(255,255,255,0.02) 8px,rgba(255,255,255,0.02) 9px
+  );
+}
+.music-bar{
+  display:inline-flex;align-items:flex-end;gap:2px;
+  height:16px;margin-left:6px;
+  vertical-align:middle;
+}
+.music-bar span{
+  width:3px;
+  background:var(--marigold);
+  border-radius:2px;
+  animation:bounce 0.8s ease-in-out infinite alternate;
+}
+.music-bar span:nth-child(2){animation-delay:0.15s;height:8px}
+.music-bar span:nth-child(3){animation-delay:0.3s;height:14px}
+.music-bar span:nth-child(4){animation-delay:0.45s;height:6px}
+.music-bar span:nth-child(1){height:12px}
+@keyframes bounce{from{transform:scaleY(0.4)}to{transform:scaleY(1)}}
+
+/* ── CHECKLIST ────────────────────────────────────────── */
+.checklist{
+  list-style:none;
+  display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem;
+}
+.checklist li{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.82rem;
+  color:var(--ink-soft);
+}
+.check{
+  width:14px;height:14px;
+  border:1.5px solid var(--matcha);
+  border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.check::after{
+  content:'✓';
+  font-size:9px;
+  color:var(--matcha);
+  font-weight:700;
+}
+
+/* ── SEARCHES WIDGET ──────────────────────────────────── */
+.search-widget{
+  background:var(--paper);
+  border:1.5px solid rgba(26,17,8,0.12);
+  border-radius:var(--radius-md);
+  padding:1.1rem 1.2rem;
+  box-shadow:var(--shadow-card);
+}
+.search-bar{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(26,17,8,0.04);
+  border-radius:var(--radius-sm);
+  padding:6px 10px;
+  margin-bottom:0.9rem;
+  border:1px solid rgba(26,17,8,0.1);
+}
+.search-icon{font-size:0.85rem;color:var(--ink-muted)}
+.search-bar span{font-size:0.75rem;color:var(--ink-muted);font-style:italic}
+.search-items{list-style:none}
+.search-items li{
+  font-size:0.75rem;
+  color:var(--ink-soft);
+  padding:4px 0;
+  border-bottom:1px solid rgba(26,17,8,0.06);
+  display:flex;align-items:center;gap:6px;
+}
+.search-items li:last-child{border-bottom:none}
+.search-items li::before{content:'↗';color:var(--ink-muted);font-size:0.65rem}
+
+/* ── HOW I DESIGN CARD ────────────────────────────────── */
+.how-card{
+  background:var(--maroon);
+  color:#fff;
+  border-radius:var(--radius-md);
+  padding:1.4rem 1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.how-card::before{
+  content:'"';
+  position:absolute;
+  top:-10px;right:16px;
+  font-family:var(--font-display);
+  font-size:6rem;
+  color:rgba(255,255,255,0.1);
+  line-height:1;
+}
+.how-card p{
+  font-size:0.88rem;
+  line-height:1.7;
+  position:relative;z-index:1;
+  font-weight:300;
+}
+.how-card .attr{
+  font-family:var(--font-hand);
+  font-size:0.9rem;
+  margin-top:0.6rem;
+  color:rgba(255,255,255,0.7);
+}
+
+/* ── STYLE FILE ───────────────────────────────────────── */
+.style-swatches{
+  display:flex;gap:6px;margin:0.8rem 0;
+}
+.swatch{
+  width:28px;height:28px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.5);
+  box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+  flex-shrink:0;
+}
+.nail-strip{
+  display:flex;gap:5px;margin-top:6px;
+}
+.nail{
+  width:16px;height:26px;
+  border-radius:8px 8px 4px 4px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+/* ── CONTACT ──────────────────────────────────────────── */
+#contact{
+  background:var(--ink);
+  color:var(--cream);
+  padding:var(--section-gap) 0;
+  position:relative;
+  overflow:hidden;
+}
+#contact::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(245,240,232,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,240,232,0.04) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+.contact-inner{position:relative;z-index:1}
+.contact-big{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,6vw,4.5rem);
+  font-weight:300;
+  line-height:1.1;
+  margin-bottom:1.5rem;
+}
+.contact-big em{font-style:italic;color:var(--marigold)}
+.contact-links{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  margin-top:2rem;
+}
+.contact-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.78rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--cream);
+  text-decoration:none;
+  padding:0.65rem 1.4rem;
+  border:1px solid rgba(245,240,232,0.25);
+  border-radius:3px;
+  transition:background 0.2s, border-color 0.2s;
+}
+.contact-link:hover{background:rgba(245,240,232,0.1);border-color:var(--cream)}
+.contact-link.primary{
+  background:var(--marigold);
+  color:#1a1108;
+  border-color:var(--marigold);
+  font-weight:600;
+}
+.contact-link.primary:hover{background:#d49010}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer{
+  background:var(--ink);
+  border-top:1px solid rgba(245,240,232,0.08);
+  padding:1.2rem var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:0.5rem;
+}
+footer span{
+  font-size:0.72rem;
+  color:rgba(245,240,232,0.3);
+}
+.footer-hand{
+  font-family:var(--font-hand);
+  font-size:0.9rem;
+  color:rgba(245,240,232,0.5);
+}
+
+/* ── DIVIDER ──────────────────────────────────────────── */
+.dashed-divider{
+  border:none;
+  border-top:1.5px dashed rgba(26,17,8,0.15);
+  margin:2.5rem 0;
+}
+
+/* ── ANIMATIONS ───────────────────────────────────────── */
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
+  50%{transform:translateY(-6px) rotate(var(--r,0deg))}
+}
+.float{animation:float 5s ease-in-out infinite;--r:0deg}
+.float-slow{animation:float 7s ease-in-out infinite;--r:0deg}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.fade-up{
+  opacity:0;
+  animation:fadeUp 0.7s ease forwards;
+}
+.fade-up:nth-child(1){animation-delay:0.1s}
+.fade-up:nth-child(2){animation-delay:0.22s}
+.fade-up:nth-child(3){animation-delay:0.34s}
+.fade-up:nth-child(4){animation-delay:0.46s}
+
+/* Scroll reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── MOBILE NAV TOGGLE ────────────────────────────────── */
+.nav-toggle{
+  display:none;
+  flex-direction:column;gap:5px;cursor:pointer;
+  background:none;border:none;padding:4px;
+}
+.nav-toggle span{
+  display:block;width:22px;height:2px;
+  background:var(--ink);border-radius:2px;
+  transition:transform 0.2s;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width:860px){
+  .hero-desktop{grid-template-columns:1fr}
+  .hero-collage{display:none}
+  .hero-mobile-chips{display:flex}
+}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:rgba(245,240,232,0.97);
+    padding:1rem var(--gutter);
+    border-bottom:1px solid rgba(26,17,8,0.1);
+    gap:0.8rem;
+  }
+  .work-grid{grid-template-columns:1fr}
+  .brain-grid{grid-template-columns:1fr}
+  .file-section{padding:2rem 1.4rem}
+}
+
+/* hero mobile chips (personality snippets) */
+.hero-mobile-chips{
+  display:none;
+  flex-wrap:wrap;gap:0.5rem;
+  margin-top:1.5rem;
+}
+.chip{
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.04em;
+  padding:5px 12px;
+  border-radius:20px;
+  border:1.5px solid;
+}
+.chip.m{border-color:var(--maroon);color:var(--maroon);background:rgba(107,31,31,0.05)}
+.chip.g{border-color:var(--matcha);color:var(--matcha);background:rgba(74,103,65,0.05)}
+.chip.o{border-color:var(--coral);color:var(--coral);background:rgba(212,90,48,0.05)}
+.chip.y{border-color:#7a5c00;color:#7a5c00;background:rgba(232,160,32,0.08)}
+
+/* ── SKY PHOTO PLACEHOLDERS ───────────────────────────── */
+.sky-gradient-1{background:linear-gradient(to bottom,#FF6B35 0%,#F7931E 30%,#FFD700 60%,#87CEEB 100%)}
+.sky-gradient-2{background:linear-gradient(to bottom,#2C3E8A 0%,#5B6DB5 40%,#8A9FD6 70%,#C0CCEE 100%)}
+.sky-gradient-3{background:linear-gradient(to bottom,#FF8C94 0%,#FEBA8C 40%,#FFF1B0 100%)}
+.sky-gradient-4{background:linear-gradient(to bottom,#4A90D9 0%,#7EC8E3 50%,#F0F0F0 100%)}
+
+/* ── CAT SILHOUETTE ───────────────────────────────────── */
+.ginger-card-inner{
+  background:linear-gradient(135deg,#F5C97A 0%,#E8A020 60%,#C47C0A 100%);
+  border-radius:var(--radius-sm);
+  padding:1.2rem;
+  display:flex;flex-direction:column;align-items:center;gap:0.4rem;
+  position:relative;overflow:hidden;
+}
+.cat-svg{width:60px;height:60px;opacity:0.85}
+
+/* ── PROCESS SECTION ──────────────────────────────────── */
+.process-note{
+  font-family:var(--font-hand);
+  font-size:1.1rem;
+  color:var(--ink-soft);
+  line-height:1.6;
+  border-left:3px solid var(--marigold);
+  padding-left:1rem;
+  margin:1rem 0;
+}
+
+/* about me intro area */
+.about-intro-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.4rem;
+  margin-bottom:1.4rem;
+}
+@media(max-width:600px){.about-intro-grid{grid-template-columns:1fr}}
+
+/* field notes card */
+.field-notes{
+  background:#f8f4e8;
+  border:1px solid rgba(26,17,8,0.12);
+  border-radius:var(--radius-sm);
+  padding:1rem;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  position:relative;
+}
+.field-notes::before{
+  content:'FIELD NOTES';
+  display:block;
+  font-size:0.55rem;
+  font-weight:700;
+  letter-spacing:0.2em;
+  color:var(--ink-muted);
+  margin-bottom:0.5rem;
+}
+.field-notes-line{
+  border-bottom:1px solid rgba(26,17,8,0.1);
+  padding:3px 0;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+
+/* research artifact */
+.research-card{
+  background:#EEF4E8;
+  border:1.5px solid rgba(74,103,65,0.2);
+  border-radius:var(--radius-md);
+  padding:1.1rem 1.2rem;
+}
+.research-card .rc-label{
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--matcha);
+  margin-bottom:0.5rem;
+}
+.research-card p{
+  font-size:0.82rem;
+  color:var(--ink-soft);
+  line-height:1.6;
+  font-style:italic;
+}
+
+/* watchlist note */
+.watchlist{
+  background:#FFD6E0;
+  border-radius:3px;
+  padding:0.9rem 1rem;
+  box-shadow:2px 3px 8px rgba(0,0,0,0.1);
+  font-family:var(--font-hand);
+  color:#2a0010;
+  transform:rotate(0.5deg);
+}
+.watchlist h4{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;margin-bottom:0.4rem}
+.watchlist p{font-size:1rem;line-height:1.5}
+
+</style>
 </head>
 <body>
 
-  <nav id="nav">
-    <div class="wrap nav-inner">
-      <a href="#top" class="logo">Niharika Jain
-        <svg viewBox="0 0 120 8" fill="none"><path d="M2 5C20 2 60 2 118 4" stroke="#9B2D2D" stroke-width="2.5" stroke-linecap="round"/></svg>
-      </a>
-      <div class="nav-links">
-        <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
-        <a href="#" class="nav-resume" target="_blank">Resume ↗</a>
-      </div>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
-      <a href="#" style="color:var(--maroon)">Resume ↗</a>
-    </div>
-  </nav>
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Niharika Jain ✦</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <header class="hero wrap" id="top">
-    <div class="hero-main">
-    <div>
-      <span class="label">SCAD &middot; UX &amp; Graphic Design</span>
-      <h1>Part designer,<br>part <span class="swash">storyteller,</span><br>part systems thinker.</h1>
-      <p class="hero-sub">I'm Niharika Jain — I turn messy ideas into thoughtful experiences people can navigate, understand, and connect with. UX design, graphic design, and the warm chaos in between.</p>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">Open my work →</a>
-        <a href="#about" class="btn-ghost">who am I? →</a>
-      </div>
-      <div class="hero-note">
-        <svg class="arrow" viewBox="0 0 40 40" fill="none"><path d="M38 4C20 6 8 16 4 34M4 34l9-6M4 34l3 10" stroke="#E0982C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="note">everything here is organized<br>on purpose ✦ promise</span>
-      </div>
-    </div>
-    <div class="collage">
-      <div class="photo-card">
-        <div class="pic"><span>your photo<br>goes here :)</span></div>
-        <div class="cap">hi, it's me ✿</div>
-      </div>
-      <span class="sticker st-1">SCAD '25</span>
-      <span class="sticker st-2">matcha enthusiast</span>
-      <span class="sticker st-3">systems + stories</span>
-    </div>
-    </div>
-    <div class="scroll-hint"><div class="scroll-line"></div><p>scroll to explore</p></div>
-  </header>
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-desktop">
 
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>UX Design<i class="star">✦</i>Branding<i class="star">✦</i>Packaging<i class="star">✦</i>Wayfinding<i class="star">✦</i>Environmental Graphics<i class="star">✦</i>Visual Storytelling<i class="star">✦</i>Information Architecture<i class="star">✦</i></span>
-      <span>UX Design<i class="star">✦</i>Branding<i class="star">✦</i>Packaging<i class="star">✦</i>Wayfinding<i class="star">✦</i>Environmental Graphics<i class="star">✦</i>Visual Storytelling<i class="star">✦</i>Information Architecture<i class="star">✦</i></span>
+      <!-- LEFT: headline + cta -->
+      <div>
+        <div class="label-tag fade-up" style="margin-bottom:1rem">UX + Graphic Design · SCAD ·&thinsp;Atlanta</div>
+        <h1 class="display hero-headline fade-up">
+          Part designer,<br>
+          part <em>storyteller,</em><br>
+          part systems<br>thinker.
+        </h1>
+        <p class="hero-sub fade-up">
+          I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand.
+        </p>
+        <a href="#work" class="hero-cta fade-up">Open selected work ↓</a>
+
+        <!-- mobile personality chips -->
+        <div class="hero-mobile-chips">
+          <span class="chip m">🐱 Ginger's mom</span>
+          <span class="chip g">Indian art forms</span>
+          <span class="chip o">Sky collector</span>
+          <span class="chip y">Trader Joe's devotee</span>
+          <span class="chip m">Murder mysteries</span>
+          <span class="chip g">Homegrown brands</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: collage desktop -->
+      <div class="hero-collage">
+
+        <!-- Ginger card -->
+        <div class="card obj-ginger float" style="--r:2.5deg">
+          <div class="tape" style="top:-9px;left:50px;transform:rotate(-1deg)"></div>
+          <div class="ginger-card-inner">
+            <svg class="cat-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ginger the cat">
+              <ellipse cx="30" cy="38" rx="18" ry="16" fill="#5C3010" opacity="0.7"/>
+              <circle cx="30" cy="22" r="13" fill="#5C3010" opacity="0.75"/>
+              <!-- ears -->
+              <polygon points="18,14 14,4 24,12" fill="#5C3010" opacity="0.75"/>
+              <polygon points="42,14 46,4 36,12" fill="#5C3010" opacity="0.75"/>
+              <polygon points="19,13 16,6 23,12" fill="#E8A020" opacity="0.5"/>
+              <polygon points="41,13 44,6 37,12" fill="#E8A020" opacity="0.5"/>
+              <!-- face -->
+              <ellipse cx="24" cy="21" rx="4" ry="4.5" fill="#1a1108" opacity="0.9"/>
+              <ellipse cx="36" cy="21" rx="4" ry="4.5" fill="#1a1108" opacity="0.9"/>
+              <ellipse cx="24.5" cy="20" rx="1.5" ry="2" fill="#fff" opacity="0.8"/>
+              <ellipse cx="36.5" cy="20" rx="1.5" ry="2" fill="#fff" opacity="0.8"/>
+              <ellipse cx="30" cy="25" rx="2" ry="1.5" fill="#E8A020" opacity="0.6"/>
+              <!-- whiskers -->
+              <line x1="10" y1="24" x2="20" y2="25" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="10" y1="26" x2="20" y2="26" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="40" y1="25" x2="50" y2="24" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="40" y1="26" x2="50" y2="26" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <!-- tail -->
+              <path d="M46 44 Q56 38 54 50 Q52 58 44 54" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            </svg>
+            <div class="file-name" style="color:rgba(26,17,8,0.6);text-align:center">ginger.jpg</div>
+          </div>
+          <p style="font-family:var(--font-hand);font-size:0.8rem;color:var(--ink-muted);margin-top:0.5rem;text-align:center">emotional support creative director</p>
+        </div>
+
+        <!-- Sky roll -->
+        <div class="card obj-sky float-slow" style="--r:1deg;padding:0.8rem">
+          <div class="tape blue" style="top:-9px;left:40px;transform:rotate(2deg)"></div>
+          <div style="font-family:var(--font-hand);font-size:0.78rem;color:var(--ink-muted);margin-bottom:0.5rem">"I collect skies like color palettes."</div>
+          <div class="camera-roll">
+            <div class="film-frame"><div class="film-photo sky-gradient-1" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-2" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-3" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-4" style="color:transparent"></div></div>
+          </div>
+          <div style="font-size:0.62rem;color:var(--ink-muted);margin-top:0.5rem;letter-spacing:0.06em">sky_01 · sky_02 · sky_03 · sky_04</div>
+        </div>
+
+        <!-- Currently building sticky -->
+        <div class="sticky obj-sticky-build float" style="--r:-1.5deg;z-index:6">
+          <div style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:0.5;margin-bottom:0.3rem">currently building…</div>
+          <div>a portfolio that feels like me, not a template.</div>
+          <div style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">— N</div>
+        </div>
+
+        <!-- Selected work folder -->
+        <div class="card obj-folder-hero float-slow" style="--r:1.5deg;padding:0.9rem">
+          <div class="tape coral" style="top:-9px;left:30px"></div>
+          <div style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.5rem">📁 selected_work/</div>
+          <div style="font-size:0.72rem;color:var(--ink-soft);line-height:1.8">
+            pili.fig<br>
+            biospherix.fig<br>
+            fifa_atl.fig<br>
+            wisdom.fig<br>
+            naagin.fig<br>
+            kuai.fig
+          </div>
+          <div style="margin-top:0.5rem;font-size:0.62rem;color:var(--ink-muted)">6 items · modified today</div>
+        </div>
+
+        <!-- Recent files widget -->
+        <div class="search-widget obj-recent float" style="--r:-1deg">
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.6rem">Recent searches</div>
+          <ul class="search-items">
+            <li>why does this feel stressful?</li>
+            <li>Indian calendar art references</li>
+            <li>best editorial layouts</li>
+          </ul>
+        </div>
+
+        <!-- Paper scrap -->
+        <div class="obj-scrap" style="position:absolute">
+          <div style="background:#fff;padding:0.7rem 0.9rem;border-radius:3px;box-shadow:2px 3px 8px rgba(0,0,0,0.1);transform:rotate(3deg)">
+            <div style="font-family:var(--font-hand);font-size:0.85rem;color:var(--ink-muted);line-height:1.5">
+              note to self:<br>
+              <em>make it feel like you.</em>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sketch arrow -->
+        <div class="sketch-arrow" style="bottom:150px;left:155px;transform:rotate(30deg)">↙</div>
+
+      </div><!-- /collage -->
     </div>
   </div>
+</section>
 
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="reveal">
-        <span class="label">who I am</span>
-        <h2>Strategic.<br><em>Human.</em><br>Creative.</h2>
-        <p class="about-body">I design experiences that help people understand, navigate, and connect — combining structure with emotion, and clarity with craft. Organized, but never cold.</p>
-      </div>
-      <div class="cards">
-        <div class="note-card nc-1 reveal"><span class="pin"></span><div class="n">01</div><h3>Systems</h3><p>I create structure from complexity — research, journeys, information architecture, and frameworks that help people navigate clearly.</p></div>
-        <div class="note-card nc-2 reveal"><span class="pin"></span><div class="n">02</div><h3>Storytelling</h3><p>I use visual language, branding, and narrative to make work feel memorable and emotionally clear — not just functional.</p></div>
-        <div class="note-card nc-3 reveal"><span class="pin"></span><div class="n">03</div><h3>Craft</h3><p>Typography, spacing, hierarchy, the small details — the final layer of polish that makes good design feel effortless.</p></div>
-      </div>
+<!-- ── SELECTED WORK ──────────────────────────────────── -->
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="section-label">
+      <span class="dot-stamp"></span>
+      <span class="label-tag">Selected Work</span>
     </div>
-  </section>
+    <h2 class="section-title display">Open <em style="font-style:italic;color:var(--maroon)">folders.</em></h2>
+    <p class="section-sub">Six projects. Each one connected to something I notice, collect, or care about.</p>
 
-  <section class="sec wrap" id="work">
-    <div class="work-head">
-      <div><span class="label">selected work</span><h2 class="sec-title">A desktop of my projects</h2></div>
-    </div>
-    <p class="work-sub">↳ open a folder to see how I think, not just what I made.</p>
-    <div class="folders">
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--matcha);color:#fff">UX · Mobile App</span>
-        <div class="folder-body" style="background:var(--matcha)">
-          <div class="file"><div class="file-img" style="background:#E4EAE0"><span>Pili App Screens</span></div>
-          <div class="file-info"><div class="file-title">Pili</div><div class="file-sub">Calm Connection System</div><div class="file-desc">A wellness app built on the idea that connection should feel effortless, not another task.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--blue);color:#fff">UX · AI Web App</span>
-        <div class="folder-body" style="background:var(--blue)">
-          <div class="file"><div class="file-img" style="background:#E8EEF4"><span>BioSpherix Interface</span></div>
-          <div class="file-info"><div class="file-title">BioSpherix Planner</div><div class="file-sub">AI-Assisted UX Web App</div><div class="file-desc">Redesigning a complex scientific layout tool to be intuitive without losing technical depth.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--marigold)">UX · Concept App</span>
-        <div class="folder-body" style="background:var(--marigold)">
-          <div class="file"><div class="file-img" style="background:#F7EAD6"><span>KUAI App Screens</span></div>
-          <div class="file-info"><div class="file-title">KUAI</div><div class="file-sub">AI Shopping &amp; Planning App</div><div class="file-desc">An AI assistant that learns your taste and plans outfits, groceries, and errands together.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--matcha);color:#fff">UX · Wayfinding</span>
-        <div class="folder-body" style="background:var(--matcha)">
-          <div class="file"><div class="file-img" style="background:#E4EAE0"><span>FIFA 2026 Experience</span></div>
-          <div class="file-info"><div class="file-title">FIFA WC 2026 Atlanta</div><div class="file-sub">SCADpro UX Collaboration</div><div class="file-desc">Designing the visitor experience for FIFA 2026 Atlanta — from arrival to final whistle.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--maroon);color:#fff">Branding · Packaging</span>
-        <div class="folder-body" style="background:var(--maroon)">
-          <div class="file"><div class="file-img" style="background:#F0E4DC"><span>Wisdom ATL Brand</span></div>
-          <div class="file-info"><div class="file-title">Wisdom ATL Eyewear</div><div class="file-sub">Product, Packaging &amp; Merch</div><div class="file-desc">A full brand identity system for an Atlanta eyewear brand rooted in local culture.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-      <a class="folder reveal">
-        <span class="folder-tab" style="background:var(--coral);color:#fff">Graphic · Campaign</span>
-        <div class="folder-body" style="background:var(--coral)">
-          <div class="file"><div class="file-img" style="background:#F7E7D3"><span>Naagin Sauce Campaign</span></div>
-          <div class="file-info"><div class="file-title">Naagin Sauce</div><div class="file-sub">Graphic Design &amp; Marketing</div><div class="file-desc">Campaign design for an Indian hot sauce brand expanding into bold new markets.</div><span class="open-tag">open folder <span class="ar">→</span></span></div></div>
-        </div>
-      </a>
-    </div>
-  </section>
+    <div class="work-grid">
 
-  <section class="process" id="process">
-    <div class="wrap process-grid">
-      <div class="reveal">
-        <span class="label">behind the build</span>
-        <h2>This portfolio is itself<br>a <em>case study.</em></h2>
-        <p class="process-body">I built this site using AI as a creative collaborator — documenting every prompt, decision, and the moments I pushed back. AI proposes; I decide.</p>
-        <p class="process-body">You can read the finished site, or look behind it on GitHub: the prompts, the rejected versions, the reasoning.</p>
-        <a href="https://github.com/Niharika12002/niharikajain.portfolio" class="btn btn-sun" target="_blank">View on GitHub ↗</a>
+      <!-- PILI -->
+      <div class="folder reveal" data-tab="UX · App Design" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">🌿</span>
+          <div class="folder-title">Pili</div>
+          <div class="folder-subtitle">Grief support app for caregivers</div>
+          <div class="folder-tags">
+            <span class="tag maroon">UX Research</span>
+            <span class="tag">Product Design</span>
+            <span class="tag matcha">Human Connection</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: care, emotion, everyday rituals, and the intimacy of human connection
+          </div>
+        </div>
       </div>
+
+      <!-- BIOSPHERIX -->
+      <div class="folder reveal" data-tab="UX · Dashboard" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">🔬</span>
+          <div class="folder-title">BioSpherix</div>
+          <div class="folder-subtitle">Complex data made navigable</div>
+          <div class="folder-tags">
+            <span class="tag matcha">Information Architecture</span>
+            <span class="tag">Systems Design</span>
+            <span class="tag marigold">Data Viz</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: my systems brain, love of organizing complexity, making the dense feel clear
+          </div>
+        </div>
+      </div>
+
+      <!-- FIFA -->
+      <div class="folder reveal" data-tab="Environmental · SCADpro" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">⚽</span>
+          <div class="folder-title">FIFA World Cup Atlanta 2026</div>
+          <div class="folder-subtitle">Wayfinding for a city-scale event</div>
+          <div class="folder-tags">
+            <span class="tag coral">Environmental Graphics</span>
+            <span class="tag">Wayfinding</span>
+            <span class="tag maroon">City Systems</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: movement, cities, airports, how people navigate spaces without feeling lost
+          </div>
+        </div>
+      </div>
+
+      <!-- WISDOM -->
+      <div class="folder reveal" data-tab="Branding · Packaging" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">👓</span>
+          <div class="folder-title">Wisdom ATL Eyewear</div>
+          <div class="folder-subtitle">Brand identity + packaging system</div>
+          <div class="folder-tags">
+            <span class="tag marigold">Branding</span>
+            <span class="tag">Packaging</span>
+            <span class="tag matcha">Retail Storytelling</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: fashion, product systems, dressing up, and what makes a brand feel intentional
+          </div>
+        </div>
+      </div>
+
+      <!-- NAAGIN -->
+      <div class="folder reveal" data-tab="Graphic Design · Campaign" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">🌶️</span>
+          <div class="folder-title">Naagin Sauce</div>
+          <div class="folder-subtitle">Bold Indian hot sauce campaign</div>
+          <div class="folder-tags">
+            <span class="tag maroon">Campaign Design</span>
+            <span class="tag coral">Indian Visual Culture</span>
+            <span class="tag">Brand Energy</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: Indian visual culture, food, spice, bold branding, and campaign energy I love
+          </div>
+        </div>
+      </div>
+
+      <!-- KUAI -->
+      <div class="folder reveal" data-tab="UX · AI Product" style="margin-top:30px">
+        <div class="folder-inner">
+          <span class="folder-emoji">🤖</span>
+          <div class="folder-title">KUAI</div>
+          <div class="folder-subtitle">AI-powered wardrobe planning</div>
+          <div class="folder-tags">
+            <span class="tag">AI UX</span>
+            <span class="tag marigold">Fashion × Tech</span>
+            <span class="tag matcha">Everyday Planning</span>
+          </div>
+          <div class="folder-connect">
+            ↳ connected to: AI, fashion, planning, and how technology can reduce daily decision fatigue
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /work-grid -->
+  </div>
+</section>
+
+<!-- ── OPEN FILE: NIHARIKA ────────────────────────────── -->
+<section id="about" class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="section-label">
+      <span class="dot-stamp" style="background:var(--marigold)"></span>
+      <span class="label-tag">Personal Archive</span>
+    </div>
+    <h2 class="section-title display" style="margin-bottom:0.2rem">Open File: <em style="font-style:italic;color:var(--marigold)">Niharika</em></h2>
+    <p class="section-sub">Not a bio. An archive of what I notice, collect, love, question, and design.</p>
+
+    <div class="file-section">
+
+      <!-- About intro grid: how my brain + bio note -->
+      <div class="about-intro-grid">
+        <div class="how-card reveal">
+          <p>"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
+          <p class="attr">— how my brain designs</p>
+        </div>
+        <div class="sticky reveal" style="transform:rotate(-0.5deg)">
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.5;margin-bottom:0.5rem">niharika.txt</div>
+          <p style="font-size:0.92rem;line-height:1.6">UX + Graphic Designer. SCAD grad. Based in Atlanta. Deeply interested in how design makes people feel — and feel understood.</p>
+          <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.7">Part Indian, part curious, fully obsessed with tiny details.</p>
+        </div>
+      </div>
+
+      <hr class="dashed-divider">
+
+      <!-- BRAIN GRID: all the personal artifacts -->
+      <div class="brain-grid">
+
+        <!-- Ginger -->
+        <div class="card reveal" style="transform:rotate(-1.5deg)">
+          <div class="tape" style="top:-9px;left:40px"></div>
+          <div class="card-title">🐱 Ginger</div>
+          <div class="file-name" style="margin-bottom:0.7rem">ginger.jpg · emotional support creative director</div>
+          <div class="ginger-card-inner" style="border-radius:6px">
+            <svg class="cat-svg" style="width:70px;height:70px" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ginger the cat illustration">
+              <ellipse cx="30" cy="38" rx="18" ry="16" fill="#5C3010" opacity="0.7"/>
+              <circle cx="30" cy="22" r="13" fill="#5C3010" opacity="0.75"/>
+              <polygon points="18,14 14,4 24,12" fill="#5C3010" opacity="0.75"/>
+              <polygon points="42,14 46,4 36,12" fill="#5C3010" opacity="0.75"/>
+              <polygon points="19,13 16,6 23,12" fill="#E8A020" opacity="0.5"/>
+              <polygon points="41,13 44,6 37,12" fill="#E8A020" opacity="0.5"/>
+              <ellipse cx="24" cy="21" rx="4" ry="4.5" fill="#1a1108" opacity="0.9"/>
+              <ellipse cx="36" cy="21" rx="4" ry="4.5" fill="#1a1108" opacity="0.9"/>
+              <ellipse cx="24.5" cy="20" rx="1.5" ry="2" fill="#fff" opacity="0.8"/>
+              <ellipse cx="36.5" cy="20" rx="1.5" ry="2" fill="#fff" opacity="0.8"/>
+              <ellipse cx="30" cy="25" rx="2" ry="1.5" fill="#E8A020" opacity="0.6"/>
+              <line x1="10" y1="24" x2="20" y2="25" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="10" y1="26" x2="20" y2="26" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="40" y1="25" x2="50" y2="24" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <line x1="40" y1="26" x2="50" y2="26" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+              <path d="M46 44 Q56 38 54 50 Q52 58 44 54" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            </svg>
+            <span style="font-family:var(--font-hand);font-size:0.78rem;color:rgba(26,17,8,0.6)">He thinks he runs this studio.</span>
+          </div>
+        </div>
+
+        <!-- Sky Photos -->
+        <div class="card reveal" style="transform:rotate(1deg)">
+          <div class="tape blue" style="top:-9px;left:30px;transform:rotate(-2deg)"></div>
+          <div class="card-title">📷 Sky Archive</div>
+          <div class="file-name" style="margin-bottom:0.6rem">sky_collection/</div>
+          <div class="camera-roll" style="margin-bottom:0.6rem">
+            <div class="film-frame"><div class="film-photo sky-gradient-1" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-2" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-3" style="color:transparent"></div></div>
+            <div class="film-frame"><div class="film-photo sky-gradient-4" style="color:transparent"></div></div>
+          </div>
+          <div style="font-family:var(--font-hand);font-size:0.9rem;color:var(--ink-muted)">"I collect skies like color palettes."</div>
+        </div>
+
+        <!-- Music widget -->
+        <div class="music-widget reveal" style="transform:rotate(-0.5deg)">
+          <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:0.5rem">Now exploring
+            <span class="music-bar">
+              <span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+          <div style="font-family:var(--font-hand);font-size:1rem;color:var(--cream);line-height:1.5;position:relative;z-index:1">
+            new songs, new genres,<br>Bollywood, indie finds,<br>whatever catches my mood
+          </div>
+          <div style="margin-top:0.8rem;font-size:0.68rem;color:rgba(245,240,232,0.35);letter-spacing:0.05em;position:relative;z-index:1">SHUFFLE ON · REPEAT ALL</div>
+        </div>
+
+        <!-- Trader Joe's receipt -->
+        <div class="card reveal" style="transform:rotate(1.5deg)">
+          <div class="card-title">🛒 TJ Run</div>
+          <div class="receipt">
+            <div class="receipt-header">TRADER JOE'S<br>Atlanta, GA</div>
+            <div class="receipt-item"><span>flowers</span><span>✓</span></div>
+            <div class="receipt-item"><span>matcha</span><span>✓</span></div>
+            <div class="receipt-item"><span>pasta sauce</span><span>✓</span></div>
+            <div class="receipt-item"><span>snacks for late-night Figma</span><span>✓</span></div>
+            <div class="receipt-item"><span>one unnecessary seasonal item</span><span>✓</span></div>
+            <div class="receipt-footer">a ritual, not a chore ✦</div>
+          </div>
+        </div>
+
+        <!-- Watchlist sticky -->
+        <div class="watchlist reveal">
+          <h4>watchlist.txt</h4>
+          <p>murder mysteries / rom-coms / thrillers / biopics / Bollywood</p>
+          <div style="margin-top:0.8rem;font-size:0.8rem;opacity:0.5">currently: all of the above, simultaneously</div>
+        </div>
+
+        <!-- Style file -->
+        <div class="card reveal" style="transform:rotate(-1deg)">
+          <div class="tape coral" style="top:-9px;left:35px;transform:rotate(1.5deg)"></div>
+          <div class="card-title">💅 Style File</div>
+          <div class="file-name" style="margin-bottom:0.7rem">style_references/ · homegrown_brands/</div>
+          <div style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.4rem">color direction</div>
+          <div class="style-swatches">
+            <div class="swatch" style="background:#B5322A" title="terracotta"></div>
+            <div class="swatch" style="background:#E8A020" title="marigold"></div>
+            <div class="swatch" style="background:#4A6741" title="forest"></div>
+            <div class="swatch" style="background:#8B3A6E" title="plum"></div>
+            <div class="swatch" style="background:#2C4A7C" title="navy"></div>
+            <div class="swatch" style="background:#F2C0A0" title="peach"></div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.4rem;margin-top:0.6rem">nails this season</div>
+          <div class="nail-strip">
+            <div class="nail" style="background:#B5322A"></div>
+            <div class="nail" style="background:#E8A020"></div>
+            <div class="nail" style="background:#8B3A6E"></div>
+            <div class="nail" style="background:#2C4A7C"></div>
+            <div class="nail" style="background:#4A6741"></div>
+          </div>
+          <div style="font-family:var(--font-hand);font-size:0.8rem;color:var(--ink-muted);margin-top:0.6rem">discovering homegrown Indian brands · fashion as feeling</div>
+        </div>
+
+        <!-- Indian art forms -->
+        <div class="research-card reveal">
+          <div class="rc-label">currently learning</div>
+          <p>Indian art forms, print culture, textiles, craft, homegrown visual culture — the design language that existed long before "design" was a career.</p>
+          <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:5px">
+            <span class="tag matcha">Block printing</span>
+            <span class="tag matcha">Madhubani</span>
+            <span class="tag matcha">Kalamkari</span>
+            <span class="tag matcha">Phulkari</span>
+          </div>
+        </div>
+
+        <!-- Museums field notes -->
+        <div class="field-notes reveal" style="transform:rotate(0.5deg)">
+          <div class="field-notes-line">what draws me: lighting decisions</div>
+          <div class="field-notes-line">label writing that doesn't talk down</div>
+          <div class="field-notes-line">exhibition flow as storytelling</div>
+          <div class="field-notes-line">how objects carry entire worlds</div>
+          <div class="field-notes-line">walls that make you slow down</div>
+          <div style="margin-top:0.5rem;font-family:var(--font-hand);font-size:0.85rem;color:var(--ink-muted)">museum_notes.txt · ongoing</div>
+        </div>
+
+      </div><!-- /brain-grid -->
+
+      <hr class="dashed-divider">
+
+      <!-- Bottom row: searches + checklist -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem">
+
+        <!-- Recent searches -->
+        <div class="search-widget reveal">
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.7rem">Recent searches</div>
+          <div class="search-bar">
+            <span class="search-icon">⌕</span>
+            <span>niharika is searching again…</span>
+          </div>
+          <ul class="search-items">
+            <li>how do people navigate airports?</li>
+            <li>why does this interface feel stressful?</li>
+            <li>best editorial layouts</li>
+            <li>how to make AI less generic</li>
+            <li>is this spacing bothering anyone else?</li>
+            <li>Indian calendar art references</li>
+            <li>homegrown Indian fashion brands</li>
+          </ul>
+        </div>
+
+        <!-- Things I care about -->
+        <div class="card reveal" style="transform:rotate(0.5deg)">
+          <div class="card-title" style="margin-bottom:0.8rem">things I care about.txt</div>
+          <ul class="checklist">
+            <li><span class="check"></span>clarity</li>
+            <li><span class="check"></span>systems</li>
+            <li><span class="check"></span>storytelling</li>
+            <li><span class="check"></span>emotional connection</li>
+            <li><span class="check"></span>tiny details</li>
+            <li><span class="check"></span>culture</li>
+            <li><span class="check"></span>people not feeling lost</li>
+            <li><span class="check"></span>design that feels useful and beautiful</li>
+          </ul>
+        </div>
+
+      </div><!-- /bottom row -->
+
+    </div><!-- /file-section -->
+  </div>
+</section>
+
+<!-- ── PROCESS NOTE ───────────────────────────────────── -->
+<section class="section" style="padding-top:2rem;padding-bottom:3rem">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
       <div>
-        <div class="step reveal"><span class="num">01</span><p><strong>Prompt engineering</strong> — turning a design brief into language an AI can read, and knowing when to argue with it.</p></div>
-        <div class="step reveal"><span class="num">02</span><p><strong>Creative direction</strong> — reviewing, critiquing, redirecting. The judgment is the design.</p></div>
-        <div class="step reveal"><span class="num">03</span><p><strong>Record of resistance</strong> — every time I rejected an idea and why, documented openly.</p></div>
-        <div class="step reveal"><span class="num">04</span><p><strong>Reflection</strong> — what worked, what didn't, what it taught me about designing with AI.</p></div>
+        <div class="label-tag" style="margin-bottom:1rem">This Portfolio is a Meta-Project</div>
+        <h3 class="serif" style="font-size:1.4rem;font-weight:400;margin-bottom:0.8rem;line-height:1.3">The site you're reading is also part of my work.</h3>
+        <p style="font-size:0.85rem;color:var(--ink-muted);line-height:1.7;margin-bottom:1rem">I built this portfolio the way I design everything — by directing, deciding, pushing back, and making it feel like me. AI was a collaborator. I was the creative director.</p>
+        <p class="process-note">"AI proposes. I decide."</p>
       </div>
-    </div>
-  </section>
-
-  <section class="contact wrap" id="contact">
-    <span class="label">let's connect</span>
-    <h2>Let's make<br>something <em>good.</em></h2>
-    <p class="contact-body">Interested in working together, collaborating, or just curious how I think? I'd love to connect.</p>
-    <div class="contact-actions">
-      <a href="mailto:niharika@email.com" class="btn btn-primary">Get in touch →</a>
-      <a href="https://github.com/Niharika12002/niharikajain.portfolio" class="btn btn-sun" target="_blank">GitHub ↗</a>
-    </div>
-    <p class="note">↳ I usually reply within a day ✿</p>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot-grid">
-        <div>
-          <p class="lead">Let's make something good.</p>
-          <a href="mailto:niharika@email.com" style="font-size:.88rem;color:var(--maroon);font-weight:500">niharika@email.com</a>
+      <div style="display:flex;flex-direction:column;gap:0.8rem">
+        <div class="sticky green reveal">
+          <strong style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6">I use AI for:</strong>
+          <p style="margin-top:0.3rem;font-size:0.9rem">scaffolding, layouts, generating starting points I can push back on</p>
         </div>
-        <div class="foot-links">
-          <a href="#" target="_blank">LinkedIn ↗</a>
-          <a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank">GitHub ↗</a>
-          <a href="#" target="_blank">Resume ↗</a>
+        <div class="sticky blue reveal">
+          <strong style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6">I direct:</strong>
+          <p style="margin-top:0.3rem;font-size:0.9rem">every creative decision, visual system, tone, what stays and what goes</p>
+        </div>
+        <div class="sticky coral reveal">
+          <strong style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6">I push back on:</strong>
+          <p style="margin-top:0.3rem;font-size:0.9rem">generic layouts, buzzwordy copy, anything that doesn't feel like Niharika</p>
         </div>
       </div>
-      <div class="foot-bottom">
-        <p>© <span id="year"></span> Niharika Jain. Designed &amp; built with care (and a lot of matcha).</p>
-        <p class="it">part designer, part storyteller, part systems thinker.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────── -->
+<section id="contact">
+  <div class="wrap contact-inner">
+    <div class="contact-big display">
+      Let's make something<br><em>worth noticing.</em>
+    </div>
+    <p style="font-size:0.9rem;color:rgba(245,240,232,0.55);max-width:42ch;line-height:1.7;font-weight:300">
+      I'm looking for full-time design roles where I can bring both my systems thinking and my personality to the work.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:niharika@example.com" class="contact-link primary">Email me →</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a>
+      <a href="https://drive.google.com" target="_blank" rel="noopener" class="contact-link">Resume ↗</a>
+      <a href="https://behance.net" target="_blank" rel="noopener" class="contact-link">Behance ↗</a>
+    </div>
+
+    <!-- small personal note at bottom of contact -->
+    <div style="margin-top:3rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <div class="sticky" style="font-size:0.82rem;max-width:200px;transform:rotate(-1deg)">
+        p.s. Ginger is available for virtual co-working sessions.
+      </div>
+      <div class="sticky blue" style="font-size:0.82rem;max-width:200px;transform:rotate(0.5deg)">
+        p.p.s. I will absolutely ask where you got your reference images.
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    var nav=document.getElementById('nav');
-    window.addEventListener('scroll',function(){window.scrollY>20?nav.classList.add('scrolled'):nav.classList.remove('scrolled')});
-    var mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
-    mb.addEventListener('click',function(){mm.classList.toggle('open')});
-    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open')})});
-    document.getElementById('year').textContent=new Date().getFullYear();
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-  </script>
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <span>© 2025 Niharika Jain · Built with intention (and AI assistance)</span>
+  <span class="footer-hand">Made in Atlanta ✦ Powered by Ginger</span>
+</footer>
+
+<script>
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Slight parallax on hero collage objects
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset;
+  document.querySelectorAll('.float').forEach((el, i) => {
+    const speed = 0.04 + (i % 3) * 0.02;
+    el.style.transform = `translateY(${scrollY * speed * -1}px) rotate(var(--r, 0deg))`;
+  });
+});
+</script>
 </body>
 </html>
