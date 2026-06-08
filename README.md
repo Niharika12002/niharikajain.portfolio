@@ -1,162 +1,239 @@
-# Niharika Jain — Portfolio
+# Niharika Jain — Portfolio Website
 
-> **Part designer, part storyteller, part systems thinker.**
+A personal portfolio website designed to present my work across UI/UX design, visual communication, branding, product thinking, and AI-assisted design workflows.
 
-🔗 **Live site:** _add your GitHub Pages URL here once enabled_
+This portfolio is not intended to feel like a generic clean template. It is built as a playful, expressive, and organized digital archive of my creative work — a space where projects feel like files, artifacts, notes, and collected moments from my design process.
 
----
-
-## 📌 Brief
-
-This is my personal portfolio as a UX and Graphic Designer — but it's also a project *in* the portfolio.
-
-Most portfolios show you the finished work. This one also shows you the thinking behind it. I built this site using AI as a creative collaborator, and I documented the entire process: the prompts I wrote, the directions I gave, the moments I pushed back, and the decisions I made along the way.
-
-The goal is twofold:
-1. **Present my work** as a designer who cares equally about systems, storytelling, and craft.
-2. **Demonstrate how I work with AI** — not as a shortcut, but as a tool I direct with intention and critique.
-
-The core idea guiding every decision: *transforming messy ideas into thoughtful experiences that people can navigate, understand, and connect with.*
+Live Site:
+https://niharika12002.github.io/niharikajain.portfolio/
 
 ---
 
-## 🤖 AI Direction Log
+## Brief
 
-A record of how I directed the AI throughout this project. AI proposed; I decided.
+The goal of this website is to create a recruiter-friendly portfolio that still feels personal, memorable, and visually expressive.
 
-| Version | Date | What I asked for | What AI generated | What I directed |
-|---------|------|------------------|-------------------|-----------------|
-| v0.1 | _date_ | Wrote a detailed design brief defining personality, tone, visual direction, and structure | — (this was entirely me) | The full creative foundation: voice, mood, what to avoid |
-| v0.2 | _date_ | "Build a homepage that feels like my brief" | Editorial homepage — serif/sans pairing, terracotta accent, two-column hero | Reviewed layout, refined copy tone, adjusted the hero |
-| v0.3 | _date_ | "Build the full multi-page framework" | A complete React + Vite + Tailwind app with routing and components | Directed component structure, content, and organization |
-| v0.4 | _date_ | "Simplify to one HTML file + one README for GitHub Pages" | Single self-contained `index.html` + this documentation | Chose the simpler architecture; defined what the README must contain |
+The site is designed to communicate:
 
-> **How to use this log:** Add a new row every time you iterate. Keep the "What I directed" column honest — that column is the evidence of *your* design judgment.
+* Who I am as a multidisciplinary UI/UX and graphic designer
+* My strongest project work
+* My process, thinking, and visual design sensibility
+* My ability to create systems that feel clear, thoughtful, and emotionally engaging
 
-**My working framework with AI:**
+The portfolio balances two needs:
 
-- **I use AI for:** generating initial layouts, scaffolding code, drafting copy, exploring directions, structuring information, debugging.
-- **I direct:** all creative decisions, the visual system, typography, UX structure, storytelling, and final editing.
-- **I reject:** generic layouts, buzzword-heavy copy, weak hierarchy, off-brand visuals, and anything that doesn't feel like *me*.
+1. **Professional clarity** — recruiters should be able to understand my work quickly.
+2. **Personal expression** — the website should feel playful, whimsical, and specific to my design personality.
 
 ---
 
-## 🛑 Record of Resistance
+## Visual Direction
 
-The moments I pushed back against the AI. This is the most important section — it's where the design actually happened. *Knowing what to keep, change, and throw away is the design.*
+The visual direction is inspired by a **digital scrapbook / desktop archive / organized chaos** aesthetic.
 
-| # | AI suggested / produced | My resistance | What I did instead |
-|---|--------------------------|---------------|--------------------|
-| 1 | _e.g. A generic centered hero with a stock layout_ | _Felt like a template, not like me_ | _Asked for an asymmetric editorial split with the tagline as the headline_ |
-| 2 | _e.g. Buzzword-heavy intro copy_ | _Sounded corporate, not human_ | _Rewrote in plain, conversational language_ |
-| 3 | _add your own_ | | |
-| 4 | _add your own_ | | |
+The site is meant to feel like a smart designer’s creative desktop: expressive, layered, intentional, and easy to navigate.
 
-> **Tip:** Fill this in as you go. Even small disagreements count — "I didn't like this shade of orange so I changed it" is a real design decision worth recording. Recruiters want to see that you have a point of view, not that you accept the first thing handed to you.
+### Key Visual Ideas
+
+* Folder-inspired project cards
+* Desktop archive and file-system references
+* Collage-style image treatments
+* Sticker labels and small visual tags
+* Tape, paper textures, and scrapbook details
+* Playful underlines and doodle arrows
+* Colorful accent moments
+* Mixed artifact-style project layouts
+* Less explanatory text and more visual storytelling
+
+### Design Balance
+
+The site should feel:
+
+* Playful, but not childish
+* Expressive, but not messy
+* Personal, but still professional
+* Visual, but still easy to scan
+* Whimsical, but structured enough for recruiters
+
+Each project should feel like its own artifact rather than a repeated card in a grid.
 
 ---
 
-## 🔄 System Flow Diagram
+## AI Direction Log
 
-How a visitor moves through the site, and the decision points along the way.
+AI was used as a creative and technical partner throughout the website development process.
+
+The role of AI was not to replace design decision-making, but to help explore directions, generate structure, refine language, and speed up iteration.
+
+### How AI Was Used
+
+| Stage               | AI Contribution                                                             |
+| ------------------- | --------------------------------------------------------------------------- |
+| Visual Exploration  | Helped define the scrapbook / desktop archive direction                     |
+| Art Direction       | Generated visual references and layout language for the site                |
+| UX Structure        | Helped keep the navigation and project organization recruiter-friendly      |
+| Copywriting         | Assisted in reducing text-heavy sections and making the tone more personal  |
+| Development Support | Helped translate design direction into website structure and implementation |
+| Iteration           | Supported critique, feedback, and refinement of visual hierarchy            |
+
+### AI Prompting Direction
+
+The core prompt direction focused on making the site feel more playful, personal, and visually expressive while keeping the UX clear.
+
+Example direction used:
+
+> Push the visual system toward a digital scrapbook / desktop archive / organized chaos aesthetic. Use folder-inspired project cards, collage-style image treatments, sticker labels, playful underlines, doodle arrows, tape, paper textures, and colorful accent moments. Keep the UX structure clear and recruiter-friendly underneath. Do not make it messy or childish.
+
+---
+
+## Record of Resistance
+
+Throughout the process, I actively pushed back against design directions that felt too generic, too polished, or disconnected from my personality as a designer.
+
+### What I Resisted
+
+* A standard clean portfolio template
+* Overly minimal layouts with no personality
+* Text-heavy case study sections
+* Identical project cards
+* Generic corporate UI styling
+* Visual systems that felt too safe or predictable
+* A scrapbook style that became too messy or childish
+* Overexplaining projects instead of letting visuals carry the story
+
+### Why I Resisted It
+
+A portfolio should not only show finished work. It should also communicate taste, personality, decision-making, and creative confidence.
+
+For this reason, I wanted the site to feel more like a curated creative archive than a traditional portfolio page.
+
+The final direction keeps the structure clear, but adds visual storytelling through layers, textures, labels, and artifact-based project presentation.
+
+---
+
+## System Architecture
+
+The portfolio is structured as a static front-end website hosted through GitHub Pages.
 
 ```mermaid
 flowchart TD
-    A["Visitor lands on Hero"] --> B{"What are they looking for?"}
-    B -->|"See the work"| C["Selected Work"]
-    B -->|"Understand who I am"| D["About / How I think"]
-    B -->|"How was this built?"| E["Behind the Build"]
-    C --> F["Individual project"]
-    D --> C
-    E --> G["GitHub repo + process log"]
-    F --> H["Contact"]
-    C --> H
-    D --> H
-    G --> H
-    H --> I["Email / LinkedIn / Resume"]
+    A[User visits portfolio website] --> B[GitHub Pages Deployment]
+    B --> C[Portfolio Front-End]
 
-    classDef entry fill:#F0DDD2,stroke:#C4673A,color:#4A1B0C
-    classDef goal fill:#E4EAE0,stroke:#6B7B5E,color:#173404
-    class A entry
-    class H,I goal
+    C --> D[Home Page]
+    C --> E[Projects Section]
+    C --> F[About Section]
+    C --> G[Contact / Links]
+
+    E --> H[Project Cards]
+    H --> I[Case Study Pages / Project Details]
+
+    C --> J[Visual System]
+    J --> K[Scrapbook Layouts]
+    J --> L[Folder-Inspired Cards]
+    J --> M[Sticker Labels]
+    J --> N[Textures / Doodles / Tape Details]
 ```
 
-**The thinking:** Every path leads to contact, but visitors arrive with different goals. A recruiter wants the work first. A creative director might want to understand how I think. Someone curious about AI in design goes straight to the build log. The flow respects all three without forcing a single linear path.
+### Main System Parts
+
+| Part             | Purpose                                                       |
+| ---------------- | ------------------------------------------------------------- |
+| Home Page        | Introduces my identity, tone, and visual personality          |
+| Projects Section | Presents selected work as distinct creative artifacts         |
+| Project Pages    | Provide deeper context, process, and outcomes                 |
+| About Section    | Gives background, skills, and design interests                |
+| Contact Links    | Makes it easy for recruiters or collaborators to reach me     |
+| Visual System    | Creates the playful desktop archive aesthetic across the site |
 
 ---
 
-## 🎨 Visual Direction & Design Goal
+## System Flow
 
-**Goal:** A warm, editorial creative studio — translated into a digital experience. It should feel personal, intelligent, refined, and human. Designed *through* typography and layout rather than heavy effects.
-
-**Typography**
-- Display / headlines: **DM Serif Display** — expressive, editorial, confident
-- Body / UI: **DM Sans** — clean, modern, highly readable
-- Typography is the strongest visual element. Large headlines, generous spacing, clear hierarchy.
-
-**Color palette**
-
-| Role | Color | Hex |
-|------|-------|-----|
-| Background | Cream | `#F5F2EC` |
-| Primary text | Ink (espresso) | `#1C1A16` |
-| Secondary text | Soft ink | `#4A4640` |
-| Accent | Terracotta | `#C4673A` |
-| Soft accent bg | Terracotta light | `#F0DDD2` |
-| Secondary accent | Sage | `#6B7B5E` |
-
-**Mood:** Editorial · Warm · Contemporary · Intentional · Refined · Human · Organized · Curious · Subtly playful.
-
-**Deliberately avoiding:** neon AI aesthetics, cyberpunk, dark futuristic tech styling, startup-bro design, generic templates, overly minimal white pages, corporate language, chaotic animation.
-
-**Interaction:** Soft hover states, gentle scroll reveals, smooth scrolling, a subtle animated scroll hint. Nothing flashy — polish that supports usability, never distracts from it.
-
----
-
-## 🏗️ System Architecture
-
-How the site is built. I deliberately chose the simplest architecture that meets the goal: a single self-contained HTML file, hosted free on GitHub Pages, no build step.
+The user flow is designed to help recruiters and visitors quickly understand who I am, explore my work, and contact me.
 
 ```mermaid
 flowchart LR
-    subgraph Repo["GitHub Repository"]
-        H["index.html<br/>(self-contained site)"]
-        R["README.md<br/>(process documentation)"]
-    end
-    H --> P["GitHub Pages"]
-    P --> U["Live URL"]
-    U --> V["Visitor"]
-    R --> RC["Recruiter reads process"]
-
-    subgraph Inside["Inside index.html"]
-        CSS["Inline CSS<br/>(design system + layout)"]
-        HTML["Semantic HTML<br/>(all sections)"]
-        JS["Vanilla JS<br/>(nav, menu, scroll reveals)"]
-    end
-    H -.contains.-> Inside
-
-    classDef file fill:#F0DDD2,stroke:#C4673A,color:#4A1B0C
-    classDef host fill:#E6F1FB,stroke:#185FA5,color:#042C53
-    class H,R file
-    class P,U host
+    A[Land on Home Page] --> B[Understand Designer Identity]
+    B --> C[Scan Featured Projects]
+    C --> D[Open a Project]
+    D --> E[View Visual Story + Process]
+    E --> F[Return to Projects]
+    F --> G[Explore More Work]
+    G --> H[Read About Section]
+    H --> I[Contact / Resume / LinkedIn]
 ```
 
-**Why this architecture:**
+### Intended Visitor Experience
 
-- **One HTML file** — no framework, no build, no dependencies to break. The whole site is in one place I fully understand and can edit by hand.
-- **Inline CSS with a design-token system** — colors and fonts are defined once as CSS variables (`--cream`, `--ink`, `--terra`) and reused everywhere, the same way a design system works in Figma.
-- **Vanilla JavaScript** — handles only what's needed: sticky nav, mobile menu, and scroll-triggered reveals. No libraries.
-- **GitHub Pages hosting** — free, automatic, and the live URL sits right next to the source code and process log. The medium reinforces the message: the work and the thinking live together.
+1. The visitor lands on the homepage and immediately gets a sense of my personality.
+2. They scan the project archive and see a range of design work.
+3. Each project feels visually distinct and artifact-like.
+4. The visitor can quickly understand the project type, role, and outcome.
+5. They can move deeper into selected case studies without feeling overwhelmed by text.
+6. The site ends with clear contact pathways for professional opportunities.
 
-### File structure
-```
-niharikajain.portfolio/
-├── index.html      ← the entire live site
-└── README.md       ← this file: brief, AI log, resistance, diagrams, direction
+---
+
+## Design Principles
+
+### 1. Organized Chaos
+
+The site can feel layered and expressive, but the underlying structure must stay clear.
+
+### 2. Visual First
+
+Projects should communicate through imagery, hierarchy, and composition before relying on long blocks of text.
+
+### 3. Personal, Not Random
+
+Every decorative element should feel intentional and connected to the portfolio’s creative desktop concept.
+
+### 4. Recruiter-Friendly
+
+Even with a playful visual style, the site should remain easy to skim, navigate, and understand.
+
+### 5. Artifact-Based Storytelling
+
+Projects should feel like different kinds of creative files, not identical portfolio cards.
+
+---
+
+## Project Structure
+
+```mermaid
+flowchart TD
+    A[Portfolio Repository] --> B[Source Files]
+    A --> C[Assets]
+    A --> D[Project Content]
+    A --> E[README Documentation]
+
+    B --> F[HTML / CSS / JavaScript]
+    C --> G[Images, Textures, Graphics]
+    D --> H[Project Titles, Descriptions, Case Study Content]
+    E --> I[Brief, AI Log, Resistance, Architecture, Flow]
 ```
 
 ---
 
+## Future Improvements
+
+Future updates may include:
+
+* Replacing placeholder project content with final case study details
+* Adding more refined project visuals and mockups
+* Creating individual case study pages for each major project
+* Improving responsiveness across screen sizes
+* Adding subtle motion and hover interactions
+* Refining accessibility, alt text, and keyboard navigation
+* Optimizing image loading and performance
+
 ---
 
-*Built by Niharika Jain · 2026*
+## Reflection
+
+This portfolio is both a professional website and a personal design system.
+
+The biggest challenge was finding the right balance between clarity and personality. I did not want the site to become either too plain or too chaotic. The final direction aims to show my work in a way that feels expressive, thoughtful, and intentional while still making it easy for recruiters to understand my skills and projects.
+
+AI helped accelerate exploration, but the creative direction, critique, resistance, and final decisions were guided by my own design judgment.
