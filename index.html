@@ -1,1217 +1,2652 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Niharika Jain — UX & Graphic Designer</title>
-<meta name="description" content="Niharika Jain — UX and Graphic Designer. Part designer, part storyteller, part systems thinker."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Hanken+Grotesk:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Niharika Jain — UX Designer, Graphic Designer, Systems Thinker. SCAD Atlanta." />
+  <title>Niharika Jain — Portfolio</title>
 
-/* ══════════════════════════════════════════════
-   TOKENS
-══════════════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Hanken Grotesk',sans-serif;color:#1C1008;overflow-x:hidden;line-height:1.6}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet" />
 
-:root{
-  --cream:     #F5EEE0;
-  --paper:     #FBF8F0;
-  --paper2:    #F8F3E8;
-  --ink:       #1C1008;
-  --ink2:      #3C2010;
-  --muted:     #7A5835;
-  --faint:     #B89868;
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      /* Backgrounds */
+      --white: #FFFFFF;
+      --soft-white: #FFFCF7;
+      --paper: #FBF8F1;
+      --paper2: #F7F1E7;
+      --paper3: #F2EBD9;
 
-  --maroon:    #6B1F1F;
-  --maroon-d:  #4A1414;
-  --maroon-l:  #8B3030;
-  --marigold:  #D9920A;
-  --marigold-l:#F0B830;
+      /* Brand Colors */
+      --maroon: #6B1E2E;
+      --maroon-dark: #4E1220;
+      --maroon-light: #8B2E42;
+      --marigold: #E8A020;
+      --marigold-light: #F5C060;
+      --marigold-pale: #FDF0D0;
 
-  /* Project accent colors — FRAME only, not fill */
-  --red:    #C83020;  --red-d:    #8C1C10;
-  --cobalt: #2040A8;  --cobalt-d: #102068;
-  --forest: #236040;  --forest-d: #123820;
-  --orange: #C05C18;  --orange-d: #883A08;
-  --coral:  #C03420;  --coral-d:  #881C10;
-  --sky:    #2060C0;  --sky-d:    #103880;
+      /* Project Colors */
+      --red: #C0392B;
+      --red-pale: #FDECEA;
+      --cobalt: #1C4E8A;
+      --cobalt-pale: #EBF1FA;
+      --forest: #2D6A4F;
+      --forest-pale: #E8F4EE;
+      --orange: #D4621A;
+      --orange-pale: #FBF0E8;
+      --coral: #E05A3A;
+      --coral-pale: #FDEEE8;
+      --sky: #3B82C4;
+      --sky-pale: #EBF4FB;
 
-  --sh:   5px 6px 0 rgba(28,16,8,.20);
-  --sh-l: 7px 9px 0 rgba(28,16,8,.24);
-  --sh-s: 3px 4px 0 rgba(28,16,8,.16);
+      /* Ink */
+      --ink: #1C1008;
+      --ink-mid: #3D2B1F;
+      --ink-light: #7A6355;
+      --ink-faint: #B8A899;
 
-  --serif: 'Fraunces',serif;
-  --sans:  'Hanken Grotesk',sans-serif;
-  --hand:  'Caveat',cursive;
+      /* Grid / Texture */
+      --grid-line: rgba(28,16,8,0.04);
+      --grid-line-alt: rgba(28,16,8,0.025);
 
-  --gut: clamp(1.25rem,5.5vw,4.5rem);
-  --sv:  clamp(4rem,9vw,7rem);
-  --r:   8px;
-  --rs:  4px;
-  --rl:  14px;
-}
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(28,16,8,0.08);
+      --shadow-md: 0 6px 24px rgba(28,16,8,0.12);
+      --shadow-lg: 0 12px 40px rgba(28,16,8,0.16);
+      --shadow-folder: 4px 4px 0 rgba(28,16,8,0.12);
 
-/* ══════════════════════════════════════════════
-   SECTION BACKGROUNDS + GRID OVERLAYS
-══════════════════════════════════════════════ */
-.bg-cream{background:var(--cream)}
-.bg-paper{background:var(--paper)}
-.bg-maroon{background:var(--maroon)}
-.bg-marigold{background:var(--marigold)}
-.bg-cream-paper{background:var(--paper2)}
+      /* Radii */
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 16px;
+      --r-xl: 24px;
+      --r-full: 999px;
 
-section,nav{position:relative}
-.gd::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none}
-.gd-cream::before{
-  background-image:linear-gradient(rgba(28,16,8,.042) 1px,transparent 1px),linear-gradient(90deg,rgba(28,16,8,.042) 1px,transparent 1px);
-  background-size:26px 26px;
-}
-.gd-maroon::before{
-  background-image:linear-gradient(rgba(244,238,224,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(244,238,224,.055) 1px,transparent 1px);
-  background-size:26px 26px;
-}
-.gd-yellow::before{
-  background-image:linear-gradient(rgba(28,16,8,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(28,16,8,.06) 1px,transparent 1px);
-  background-size:26px 26px;
-}
+      /* Type Scale */
+      --step--1: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --step-0: clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem);
+      --step-1: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+      --step-2: clamp(1.375rem, 1.2rem + 0.875vw, 1.875rem);
+      --step-3: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+      --step-4: clamp(2.25rem, 1.8rem + 2.25vw, 3.75rem);
+      --step-5: clamp(3rem, 2.2rem + 4vw, 6rem);
 
-/* ══════════════════════════════════════════════
-   LAYOUT
-══════════════════════════════════════════════ */
-.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
-.section{padding:var(--sv) 0}
+      /* Spacing */
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+      --section-py: clamp(4rem, 8vw, 7rem);
 
-/* ══════════════════════════════════════════════
-   TYPE UTILITIES
-══════════════════════════════════════════════ */
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.63rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem;
-}
-.ey-ink  {color:var(--muted)}
-.ey-cream{color:rgba(244,238,224,.55)}
-.ey-ink::before  {content:'';width:16px;height:2px;background:var(--red);display:block}
-.ey-cream::before{content:'';width:16px;height:2px;background:rgba(244,238,224,.4);display:block}
+      /* Fonts */
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+      --font-hand: 'Caveat', cursive;
+    }
 
-/* ══════════════════════════════════════════════
-   TAPE STRIPS
-══════════════════════════════════════════════ */
-.tape{position:absolute;width:44px;height:13px;border-radius:1px;z-index:20}
-.tape-mg{background:rgba(217,146,10,.52)}
-.tape-b {background:rgba(32,64,168,.28)}
-.tape-r {background:rgba(200,48,32,.25)}
-.tape-c {background:rgba(244,238,224,.55)}
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ══════════════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════════════ */
-.btn{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
-  text-decoration:none;padding:.78rem 1.6rem;border-radius:var(--rs);
-  transition:transform .14s,box-shadow .14s;border:none;cursor:pointer;white-space:nowrap;
-}
-.btn-red  {background:var(--red);color:#fff;box-shadow:4px 4px 0 var(--red-d)}
-.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--red-d)}
-.btn-mg   {background:var(--marigold);color:var(--ink);box-shadow:4px 4px 0 rgba(28,16,8,.3)}
-.btn-mg:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,16,8,.3)}
-.btn-ink  {background:var(--ink);color:var(--cream);box-shadow:4px 4px 0 rgba(0,0,0,.4)}
-.btn-ink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.4)}
-.btn-ol-dk{background:transparent;color:var(--ink);border:2px solid rgba(28,16,8,.22);box-shadow:var(--sh-s)}
-.btn-ol-dk:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 rgba(28,16,8,.18)}
-.btn-ol-cr{background:transparent;color:var(--cream);border:2px solid rgba(244,238,224,.32);box-shadow:3px 3px 0 rgba(244,238,224,.12)}
-.btn-ol-cr:hover{transform:translate(-2px,-2px);border-color:rgba(244,238,224,.6)}
+    html { scroll-behavior: smooth; }
 
-/* ══════════════════════════════════════════════
-   NAV
-══════════════════════════════════════════════ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem var(--gut);
-  background:rgba(245,238,224,.93);backdrop-filter:blur(16px);
-  border-bottom:2px solid rgba(28,16,8,.09);
-}
-.logo{font-family:var(--serif);font-style:italic;font-size:1.06rem;font-weight:400;color:var(--ink);text-decoration:none}
-.nav-links{display:flex;gap:1.8rem;list-style:none}
-.nav-links a{font-size:.69rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .14s}
-.nav-links a:hover{color:var(--maroon)}
-.nav-tog{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.nav-tog span{display:block;width:22px;height:1.5px;background:var(--ink)}
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
 
-/* ══════════════════════════════════════════════
-   HERO
-══════════════════════════════════════════════ */
-#hero{padding-top:82px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1fr 440px;gap:2.5rem;align-items:center;width:100%;padding:3rem 0}
+    body {
+      font-family: var(--font-body);
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: var(--step-0);
+      overflow-x: hidden;
+    }
 
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
-  margin-bottom:1.1rem;
-}
-.hero-eyebrow::before{content:'';width:16px;height:2px;background:var(--red);display:block}
-.hero-h{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(2.6rem,5.5vw,4.5rem);
-  line-height:1.04;letter-spacing:-.025em;color:var(--ink);margin-bottom:1.2rem;
-}
-.hero-h .it{font-style:italic;color:var(--red)}
-.hero-sub{font-size:clamp(.9rem,1.3vw,1rem);color:var(--muted);max-width:40ch;line-height:1.78;font-weight:300;margin-bottom:.8rem}
-.hero-note{font-family:var(--hand);font-size:1rem;color:var(--muted);opacity:.82;margin-bottom:1.8rem}
-.hero-ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+    /* Paper + Grid Texture */
+    .paper-grid {
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
 
-/* Hero collage */
-.hero-collage{position:relative;height:540px}
-.hco{position:absolute}
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; font-family: var(--font-body); }
 
-/* Large color blob behind everything */
-.hero-blob{
-  position:absolute;top:30px;right:-20px;
-  width:360px;height:400px;border-radius:50%;
-  background:rgba(32,64,168,.08);
-  filter:blur(0px);
-  z-index:0;
-}
-.hero-blob::after{
-  content:'';position:absolute;
-  inset:-20px;border-radius:50%;
-  background:rgba(200,48,32,.05);
-}
+    /* ============================================================
+       TYPOGRAPHY UTILITIES
+    ============================================================ */
+    .t-display {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .t-display-italic {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .t-body { font-family: var(--font-body); }
+    .t-hand { font-family: var(--font-hand); }
+    .t-label {
+      font-family: var(--font-body);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-/* Profile photo — BIGGER */
-.hco-photo{top:0;right:30px;transform:rotate(-2deg);width:185px;z-index:3}
-.polaroid{background:#fff;padding:9px 9px 40px;box-shadow:var(--sh-l);border-radius:2px;border:1.5px solid rgba(28,16,8,.1);position:relative}
-.pol-img{border-radius:1px;overflow:hidden;background:linear-gradient(145deg,#EAE0D2,#D6C8B6);display:flex;align-items:center;justify-content:center}
-.pol-cap{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-family:var(--hand);font-size:.82rem;color:#555}
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .container--narrow {
+      max-width: 860px;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
 
-/* Blue folder — anchor, larger */
-.hco-folder{top:130px;left:-10px;transform:rotate(-1.5deg);z-index:4}
-.hero-folder{
-  background:var(--cobalt);border:2.5px solid var(--cobalt-d);
-  border-radius:0 var(--rl) var(--rl) var(--rl);
-  box-shadow:var(--sh-l);width:162px;position:relative;
-}
-.hero-folder::before{
-  content:'selected_work/';position:absolute;top:-27px;left:-2px;
-  background:var(--cobalt);border:2.5px solid var(--cobalt-d);border-bottom:none;
-  border-radius:var(--rs) var(--rs) 0 0;
-  padding:4px 11px;font-size:.54rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:rgba(255,255,255,.72);white-space:nowrap;
-}
-.hf-in{padding:.9rem}
-.hf-f{font-size:.62rem;color:rgba(255,255,255,.72);line-height:1.95}
-.hf-ct{font-size:.52rem;color:rgba(255,255,255,.38);margin-top:.35rem;letter-spacing:.05em}
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
 
-/* Ginger card */
-.hco-gin{top:200px;right:10px;transform:rotate(2.5deg);z-index:5;width:128px}
-.gin-card{background:var(--paper);border:2px solid rgba(28,16,8,.15);border-radius:var(--r);box-shadow:var(--sh);padding:.7rem}
-.gin-bg{background:linear-gradient(135deg,#F4BE58,#D88C0C);border-radius:5px;padding:.85rem;display:flex;flex-direction:column;align-items:center;gap:3px}
-.gin-lbl{font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;text-align:center}
-.gin-sub{font-size:.5rem;color:var(--faint);text-align:center;margin-top:1px}
+    /* ============================================================
+       SECTION LABEL EYEBROWS
+    ============================================================ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+    }
+    .eyebrow--light { color: rgba(255,255,255,0.7); }
+    .eyebrow--light::before { background: rgba(255,255,255,0.6); }
+    .eyebrow--marigold { color: var(--marigold); }
+    .eyebrow--marigold::before { background: var(--marigold); }
 
-/* Sky strip */
-.hco-sky{top:340px;right:15px;transform:rotate(.7deg);z-index:2;width:216px}
-.sky-card{background:var(--paper);border:2px solid rgba(28,16,8,.13);border-radius:var(--r);padding:.7rem;box-shadow:var(--sh)}
-.film-row{display:flex;gap:3px;margin-bottom:.4rem}
-.ff{flex:0 0 40px;height:52px;background:#1C1008;border-radius:2px;padding:4px 3px;position:relative}
-.ff::before,.ff::after{content:'';position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#1C1008 0,#1C1008 3px,#000 3px,#000 7px)}
-.ff::before{top:0}.ff::after{bottom:0}
-.ff-img{width:100%;height:100%;border-radius:1px}
-.sky-cap{font-family:var(--hand);font-size:.82rem;color:var(--muted);line-height:1.3}
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-family: var(--font-body);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: var(--r-full);
+      border: 2px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn:active { transform: translateY(0); }
 
-/* Sticky */
-.hco-sticky{top:420px;left:85px;z-index:5}
-.stic{background:#FEF082;border-radius:2px;padding:.62rem .8rem;max-width:152px;box-shadow:2px 3px 8px rgba(28,16,8,.16),0 0 0 1px rgba(28,16,8,.04);font-family:var(--hand);font-size:.9rem;color:#1A1200;line-height:1.45}
+    .btn--primary {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .btn--primary:hover { background: var(--maroon); border-color: var(--maroon); }
 
-/* Mobile chips */
-.hero-mob{display:none;flex-wrap:wrap;gap:.45rem;margin-top:1.3rem}
-.hm{font-size:.64rem;font-weight:500;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(28,16,8,.18);color:var(--muted)}
-.hm.r{border-color:rgba(200,48,32,.35);color:var(--red)}
-.hm.g{border-color:rgba(35,96,64,.35);color:var(--forest)}
+    .btn--outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+    .btn--outline:hover { background: var(--ink); color: var(--paper); }
 
-/* ══════════════════════════════════════════════
-   MARQUEE
-══════════════════════════════════════════════ */
-.mq{background:var(--maroon);border-top:2px solid var(--maroon-d);border-bottom:2px solid var(--maroon-d);padding:.82rem 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1}
-.mq-track{display:inline-flex;animation:mq 30s linear infinite;will-change:transform}
-.mq-item{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,238,224,.82);padding:0 1.2rem;flex-shrink:0}
-.mq-star{color:var(--marigold-l);font-size:.72rem;padding:0 .2rem}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+    .btn--maroon {
+      background: var(--maroon);
+      color: var(--paper);
+      border-color: var(--maroon);
+    }
+    .btn--maroon:hover { background: var(--maroon-dark); border-color: var(--maroon-dark); }
 
-/* ══════════════════════════════════════════════
-   *** THE BIG FIX: PROJECT CARDS ***
-   Color = FRAME + TAB + SHADOW
-   Interior = cream/paper with image area
-══════════════════════════════════════════════ */
-#work{border-top:2px solid rgba(28,16,8,.09)}
-.bento{display:flex;flex-direction:column;gap:2.2rem}
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink-light);
+      border-color: var(--ink-faint);
+      font-size: var(--step--1);
+      padding: 0.4rem 0.9rem;
+    }
+    .btn--ghost:hover { background: var(--paper2); color: var(--ink); border-color: var(--ink-light); }
 
-/* Universal folder anatomy */
-.pf{
-  position:relative;margin-top:30px;cursor:pointer;
-  border-radius:0 var(--rl) var(--rl) var(--rl);
-  overflow:visible;transition:transform .2s,filter .2s;
-}
-.pf:hover{transform:translateY(-3px)}
-.pf:hover .pf-body{box-shadow:var(--sh-l)}
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink-light);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .back-link:hover { color: var(--maroon); border-color: var(--maroon); }
 
-.pf-tab{
-  position:absolute;top:-28px;left:-2px;
-  height:30px;padding:0 14px;
-  display:inline-flex;align-items:center;gap:7px;
-  border-radius:var(--rs) var(--rs) 0 0;
-  font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  white-space:nowrap;border-width:2px;border-style:solid;border-bottom:none;
-}
+    /* ============================================================
+       IMAGE PLACEHOLDERS
+    ============================================================ */
+    .img-placeholder {
+      width: 100%;
+      background: var(--paper2);
+      border: 1.5px dashed var(--ink-faint);
+      border-radius: var(--r-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 2rem 1.5rem;
+      min-height: 220px;
+      color: var(--ink-light);
+      font-size: var(--step--1);
+      font-weight: 500;
+      font-family: var(--font-body);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .img-placeholder .ph-icon {
+      font-size: 1.8rem;
+      opacity: 0.4;
+    }
+    .img-placeholder span { opacity: 0.7; }
 
-/* THE BODY: cream interior with colored border */
-.pf-body{
-  background:var(--paper);border-width:2.5px;border-style:solid;
-  border-radius:0 var(--rl) var(--rl) var(--rl);
-  box-shadow:var(--sh);overflow:hidden;
-  transition:box-shadow .2s;
-}
+    .img-placeholder--tall { min-height: 360px; }
+    .img-placeholder--short { min-height: 160px; }
 
-/* Color classes: border + tab bg + shadow color */
-.pf-red .pf-tab{background:var(--red);border-color:var(--red-d);color:rgba(255,255,255,.85)}
-.pf-red .pf-body{border-color:var(--red)}
-.pf-red{filter:drop-shadow(5px 7px 0 rgba(140,28,16,.35))}
-.pf-red:hover{filter:drop-shadow(7px 10px 0 rgba(140,28,16,.42))}
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav.scrolled {
+      background: rgba(251,248,241,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(28,16,8,0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem var(--gutter);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .nav__logo span {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--maroon);
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .nav__link {
+      font-size: var(--step--1);
+      font-weight: 500;
+      color: var(--ink-mid);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--r-sm);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav__link:hover { color: var(--ink); background: var(--paper2); }
+    .nav__link--cta {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--r-full);
+      font-weight: 600;
+    }
+    .nav__link--cta:hover { background: var(--maroon); color: var(--paper); }
 
-.pf-cobalt .pf-tab{background:var(--cobalt);border-color:var(--cobalt-d);color:rgba(255,255,255,.85)}
-.pf-cobalt .pf-body{border-color:var(--cobalt)}
-.pf-cobalt{filter:drop-shadow(5px 7px 0 rgba(16,32,104,.35))}
-.pf-cobalt:hover{filter:drop-shadow(7px 10px 0 rgba(16,32,104,.42))}
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0.4rem;
+      color: var(--ink);
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.pf-forest .pf-tab{background:var(--forest);border-color:var(--forest-d);color:rgba(255,255,255,.85)}
-.pf-forest .pf-body{border-color:var(--forest)}
-.pf-forest{filter:drop-shadow(5px 7px 0 rgba(18,56,32,.35))}
-.pf-forest:hover{filter:drop-shadow(7px 10px 0 rgba(18,56,32,.42))}
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--paper);
+      border-top: 1px solid var(--paper3);
+      padding: 1rem var(--gutter) 1.5rem;
+      gap: 0.25rem;
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile .nav__link {
+      padding: 0.6rem 0.5rem;
+      font-size: var(--step-0);
+    }
 
-.pf-orange .pf-tab{background:var(--orange);border-color:var(--orange-d);color:rgba(255,255,255,.85)}
-.pf-orange .pf-body{border-color:var(--orange)}
-.pf-orange{filter:drop-shadow(5px 7px 0 rgba(136,58,8,.35))}
-.pf-orange:hover{filter:drop-shadow(7px 10px 0 rgba(136,58,8,.42))}
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__toggle { display: flex; }
+    }
 
-.pf-coral .pf-tab{background:var(--coral);border-color:var(--coral-d);color:rgba(255,255,255,.85)}
-.pf-coral .pf-body{border-color:var(--coral)}
-.pf-coral{filter:drop-shadow(5px 7px 0 rgba(136,28,16,.35))}
-.pf-coral:hover{filter:drop-shadow(7px 10px 0 rgba(136,28,16,.42))}
+    /* ============================================================
+       MARQUEE STRIP
+    ============================================================ */
+    .marquee-strip {
+      background: var(--maroon);
+      overflow: hidden;
+      padding: 0.7rem 0;
+      border-top: 2px solid var(--maroon-dark);
+      border-bottom: 2px solid var(--maroon-dark);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      font-family: var(--font-body);
+      font-size: var(--step--1);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+      white-space: nowrap;
+    }
+    .marquee-item .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--marigold);
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
-.pf-sky .pf-tab{background:var(--sky);border-color:var(--sky-d);color:rgba(255,255,255,.85)}
-.pf-sky .pf-body{border-color:var(--sky)}
-.pf-sky{filter:drop-shadow(5px 7px 0 rgba(16,56,128,.35))}
-.pf-sky:hover{filter:drop-shadow(7px 10px 0 rgba(16,56,128,.42))}
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
+      padding-top: 5rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: var(--section-py) var(--gutter);
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero__text {}
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      margin-bottom: 1.25rem;
+    }
+    .hero__kicker::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--maroon);
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: var(--step-5);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero__headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--maroon);
+    }
+    .hero__sub {
+      font-size: var(--step-1);
+      color: var(--ink-mid);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .hero__collage {
+      position: relative;
+      height: 540px;
+    }
+    /* Collage elements */
+    .collage-card {
+      position: absolute;
+      background: var(--paper2);
+      border-radius: var(--r-lg);
+      border: 1.5px solid rgba(28,16,8,0.1);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .collage-card--profile {
+      width: 220px;
+      height: 280px;
+      top: 30px;
+      right: 20px;
+      transform: rotate(1.5deg);
+    }
+    .collage-card--folder {
+      width: 200px;
+      height: 140px;
+      bottom: 60px;
+      right: 40px;
+      transform: rotate(-2deg);
+      background: var(--paper);
+      border: 2px solid var(--maroon);
+    }
+    .collage-card--ginger {
+      width: 160px;
+      height: 180px;
+      bottom: 40px;
+      left: 20px;
+      transform: rotate(2.5deg);
+      background: var(--paper2);
+    }
+    .collage-card--sky {
+      width: 260px;
+      height: 100px;
+      top: 80px;
+      left: 0;
+      transform: rotate(-1.5deg);
+    }
+    .collage-card--note {
+      width: 160px;
+      height: 120px;
+      top: 230px;
+      left: 30px;
+      transform: rotate(3deg);
+      background: #FFFBE8;
+      border: 1.5px solid rgba(232,160,32,0.4);
+    }
 
-/* ── IMAGE / PREVIEW AREA ── cream-toned, light, project-specific ── */
-.pimg{
-  width:100%;position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid rgba(28,16,8,.1);
-}
-/* warm cream base for ALL placeholders */
-.pimg-cream{background:linear-gradient(145deg,#F8F2E8,#F0E8D6)}
-.pimg-blue {background:linear-gradient(145deg,#EDF2F8,#DDE8F4)}
-.pimg-green{background:linear-gradient(145deg,#EDF4EE,#DCF0DF)}
-.pimg-warm {background:linear-gradient(145deg,#FDF4E8,#F5E8D0)}
-.pimg-red  {background:linear-gradient(145deg,#FDF0EE,#F5E0DA)}
-.pimg-sky  {background:linear-gradient(145deg,#EEF4FD,#DCE8F8)}
+    .folder-tab {
+      position: absolute;
+      top: -12px;
+      left: 14px;
+      background: var(--maroon);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px 4px 0 0;
+    }
+    .folder-tab--marigold { background: var(--marigold); color: var(--ink); }
+    .folder-tab--cobalt { background: var(--cobalt); }
+    .folder-tab--forest { background: var(--forest); }
+    .folder-tab--orange { background: var(--orange); }
+    .folder-tab--coral { background: var(--coral); }
+    .folder-tab--sky { background: var(--sky); }
 
-/* file label always bottom-left */
-.pl-label{
-  position:absolute;bottom:9px;left:10px;
-  font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  background:rgba(28,16,8,.08);color:var(--muted);padding:2px 7px;border-radius:2px;
-}
-.pl-note{position:absolute;top:9px;right:9px;font-size:.48rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+    .collage-profile-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--paper3) 0%, var(--paper2) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem;
+      gap: 0.4rem;
+    }
+    .collage-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--maroon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      border: 3px solid var(--paper);
+      box-shadow: var(--shadow-sm);
+    }
+    .collage-name {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .collage-role {
+      font-size: 0.7rem;
+      color: var(--ink-light);
+      font-weight: 500;
+    }
 
-/* ── PILI specific placeholder ── warm, care-journal ── */
-.ph-pili-wrap{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 16px;
-}
-.ph-pili-main{
-  flex:1;max-width:220px;display:flex;flex-direction:column;gap:8px;
-}
-.ph-pili-card{
-  background:rgba(255,255,255,.75);border:1.5px solid rgba(200,48,32,.15);
-  border-radius:5px;padding:11px 14px;
-}
-.ppc-line{height:5px;border-radius:2px;background:rgba(200,48,32,.4);margin-bottom:6px}
-.ppc-line.s{width:72%;background:rgba(200,48,32,.2)}
-.ppc-line.xs{width:50%;background:rgba(200,48,32,.12)}
-.ppc-dots{display:flex;gap:5px;margin-top:5px}
-.ppc-dot{width:7px;height:7px;border-radius:50%;background:rgba(200,48,32,.28)}
-.ppc-dot:nth-child(2){background:rgba(217,146,10,.38)}
-.ppc-dot:nth-child(3){background:rgba(35,96,64,.28)}
-/* small taped note */
-.pili-note{
-  position:absolute;top:12px;right:12px;transform:rotate(2deg);
-  background:#FEF082;padding:.45rem .6rem;border-radius:2px;
-  box-shadow:1px 2px 4px rgba(28,16,8,.12);
-  font-family:var(--hand);font-size:.72rem;color:#1A1200;line-height:1.35;max-width:90px;
-}
+    .sky-strip {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #87CEEB, #6CA8D6, #9BBFE0, #BFDBF7, #F0C8A0);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0.5rem 0.75rem;
+    }
+    .sky-strip-label {
+      font-family: var(--font-hand);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
 
-/* ── BioSpherix placeholder ── blueprint, cream/pale blue ── */
-.ph-bio-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ph-bio-grid-bg{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(32,64,168,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(32,64,168,.12) 1px,transparent 1px);
-  background-size:20px 20px;
-}
-.ph-bio-canvas{position:relative;z-index:1;width:70%;display:flex;flex-direction:column;gap:9px}
-.ph-bio-row{display:flex;align-items:center;gap:7px}
-.ph-bio-box{
-  border:1.5px solid rgba(32,64,168,.45);border-radius:3px;
-  background:rgba(32,64,168,.06);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.4rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(32,64,168,.8);
-}
-.ph-bio-line{flex:1;height:1.5px;background:rgba(32,64,168,.3);border-radius:1px}
-.ph-bio-dot{width:7px;height:7px;border-radius:50%;background:rgba(32,64,168,.5);flex-shrink:0}
+    .folder-inner {
+      padding: 1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .folder-title {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--maroon);
+    }
+    .folder-files {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .folder-file {
+      font-size: 0.7rem;
+      color: var(--ink-mid);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .folder-file::before {
+      content: '📄';
+      font-size: 0.65rem;
+    }
 
-/* ── FIFA placeholder ── green, route lines, badges ── */
-.ph-fifa-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ph-mline{position:absolute;border:1.5px dashed rgba(35,96,64,.45)}
-.ph-pin{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--forest);box-shadow:0 0 0 3px rgba(35,96,64,.18)}
-.ph-arrow-lbl{position:absolute;font-size:.8rem;color:rgba(35,96,64,.55);font-weight:700}
-/* credential badge shape */
-.ph-badge{
-  position:absolute;bottom:12px;right:12px;
-  background:var(--forest);color:rgba(255,255,255,.9);
-  padding:.35rem .7rem;border-radius:3px;border-radius:2px;
-  font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  box-shadow:2px 2px 0 rgba(18,56,32,.5);
-}
+    .note-inner {
+      padding: 0.75rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .note-line {
+      font-family: var(--font-hand);
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.4;
+    }
 
-/* ── Wisdom placeholder ── orange, warm, binder/swatches ── */
-.ph-wisdom-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:0 16px}
-.ph-binder{
-  width:62px;height:82px;background:rgba(255,255,255,.75);
-  border:2px solid rgba(192,92,24,.35);border-radius:3px 8px 8px 3px;
-  display:flex;align-items:center;justify-content:center;position:relative;
-  box-shadow:3px 3px 0 rgba(136,58,8,.2);
-}
-.ph-binder::before{content:'';position:absolute;left:9px;top:9px;bottom:9px;width:2.5px;background:rgba(192,92,24,.18);border-radius:2px}
-.ph-binder-t{font-size:.36rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(192,92,24,.7);writing-mode:vertical-rl;transform:rotate(180deg);padding-left:7px}
-.ph-swatches{display:flex;flex-direction:column;gap:5px}
-.ph-sw{width:24px;height:18px;border-radius:2px;border:1px solid rgba(28,16,8,.12)}
-.ph-product-rect{width:32px;height:52px;background:rgba(255,255,255,.6);border:1.5px solid rgba(192,92,24,.25);border-radius:2px;box-shadow:2px 2px 0 rgba(136,58,8,.15)}
+    .ginger-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #F5E6CC 0%, #E8D5B0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+    .ginger-emoji { font-size: 3rem; }
+    .ginger-caption {
+      font-family: var(--font-hand);
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      text-align: center;
+    }
 
-/* ── Naagin placeholder ── coral/cream, poster, rip ── */
-.ph-naagin-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.ph-naagin-wrap::before{content:'';position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:rgba(192,52,32,.12);border-radius:50%}
-.naagin-wm{
-  font-family:var(--serif);font-size:1.5rem;font-weight:900;font-style:italic;
-  color:rgba(192,52,32,.4);letter-spacing:.04em;text-align:center;line-height:1.1;
-  position:relative;z-index:1;
-}
-.naagin-sticker{
-  position:absolute;top:10px;right:10px;
-  background:var(--coral);color:#fff;
-  font-size:.46rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:.3rem .6rem;border-radius:2px;
-  transform:rotate(2deg);
-  box-shadow:2px 2px 0 rgba(136,28,16,.4);
-}
-.naagin-rip{
-  position:absolute;bottom:0;left:0;right:0;height:14px;
-  background:var(--paper2);
-  clip-path:polygon(0 86%,4% 16%,8% 72%,12% 10%,16% 68%,21% 22%,26% 80%,31% 12%,36% 70%,41% 20%,46% 78%,51% 24%,56% 76%,61% 10%,66% 68%,71% 20%,76% 80%,81% 14%,86% 72%,91% 24%,96% 76%,100% 86%,100% 100%,0 100%);
-}
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero__collage { height: 320px; }
+      .collage-card--profile { width: 160px; height: 200px; top: 20px; right: 10px; }
+      .collage-card--folder { width: 160px; height: 110px; bottom: 20px; right: 20px; }
+      .collage-card--ginger { width: 120px; height: 130px; bottom: 20px; left: 10px; }
+      .collage-card--sky { width: 200px; height: 80px; top: 50px; left: 0; }
+      .collage-card--note { display: none; }
+    }
 
-/* ── KUAI placeholder ── sky blue, app screens floating ── */
-.ph-kuai-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px}
-.kuai-sc{border-radius:9px;border:2px solid rgba(32,96,192,.35);background:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;padding-top:12px;gap:5px;box-shadow:3px 4px 0 rgba(16,56,128,.18)}
-.kuai-sc.lg{width:60px;height:86px}
-.kuai-sc.sm{width:44px;height:62px;opacity:.75}
-.ksb{height:4px;border-radius:2px;background:rgba(32,96,192,.2)}
-.ksb.a{background:rgba(217,146,10,.4)}
-.kuai-ai-tag{
-  position:absolute;bottom:10px;right:10px;
-  background:rgba(32,96,192,.12);border:1.5px solid rgba(32,96,192,.3);
-  color:rgba(32,96,192,.8);border-radius:20px;
-  font-size:.46rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;
-}
+    /* ============================================================
+       DESKTOP ARCHIVE / WORK SECTION
+    ============================================================ */
+    .work-section {
+      padding: var(--section-py) var(--gutter);
+      position: relative;
+    }
+    .work-section__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .work-section__title {
+      font-family: var(--font-display);
+      font-size: var(--step-4);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+    .work-section__title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--maroon);
+    }
+    .archive-count {
+      font-family: var(--font-hand);
+      font-size: 1.1rem;
+      color: var(--ink-light);
+      padding-bottom: 0.25rem;
+    }
 
-/* ── Info section (cream interior bottom) ── */
-.pinfo{padding:1.1rem 1.3rem 1.3rem;background:var(--paper)}
-.pbadge{display:inline-flex;align-items:center;gap:4px;font-size:.54rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(28,16,8,.07);color:var(--muted);padding:3px 9px;border-radius:2px;border:1px solid rgba(28,16,8,.1);margin-bottom:.6rem}
-.psub{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
-.ptitle{font-family:var(--serif);font-weight:700;color:var(--ink);line-height:1.08;letter-spacing:-.02em;margin-bottom:.4rem}
-.pdesc{color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:.9rem}
-.ptags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.9rem}
-.ptag{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1.5px solid rgba(28,16,8,.15);color:var(--muted)}
-.plink{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:.65rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;
-  border-bottom:2px solid rgba(28,16,8,.35);padding-bottom:1px;
-  transition:border-color .14s;width:fit-content;
-}
-.plink::after{content:'↗'}
-.plink:hover{border-color:var(--red);color:var(--red)}
+    /* Project Grid Layout */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.25rem;
+    }
+    .project-card {
+      position: relative;
+      background: var(--paper);
+      border-radius: var(--r-lg);
+      border: 2px solid transparent;
+      box-shadow: var(--shadow-sm);
+      overflow: visible;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .project-card:hover {
+      transform: translateY(-4px) rotate(0.3deg);
+      box-shadow: var(--shadow-lg);
+      z-index: 2;
+    }
+    .project-card__tab {
+      position: absolute;
+      top: -13px;
+      left: 16px;
+      height: 13px;
+      padding: 0 12px;
+      border-radius: 5px 5px 0 0;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    .project-card__body {
+      padding: 1.25rem;
+    }
+    .project-card__img {
+      width: 100%;
+      border-radius: var(--r-md);
+      margin-bottom: 1rem;
+    }
+    .project-card__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      opacity: 0.7;
+    }
+    .project-card__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .project-card__desc {
+      font-size: var(--step--1);
+      color: var(--ink-light);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .project-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--r-full);
+      background: var(--paper2);
+      color: var(--ink-mid);
+      border: 1px solid rgba(28,16,8,0.1);
+    }
 
-/* Two-column layouts */
-.pf-hero-inner{display:grid;grid-template-columns:1fr 1.05fr}
-.pf-wide-inner {display:grid;grid-template-columns:1.05fr 1fr}
-.pf-copy{padding:2rem 2.4rem;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
-.pf-copy .ptitle{font-size:clamp(1.9rem,3.5vw,2.7rem)}
-.pf-copy .pdesc{font-size:.9rem;max-width:36ch}
-.pf-copy-r{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
-.pf-copy-r .ptitle{font-size:clamp(1.3rem,2.2vw,1.8rem)}
-.pf-copy-r .pdesc{font-size:.84rem;max-width:32ch}
+    /* Card sizing by position */
+    .card--pili { grid-column: span 3; border-color: var(--red); }
+    .card--pili .project-card__tab { background: var(--red); }
+    .card--pili .project-card__label { color: var(--red); }
 
-/* divider between copy and image inside hero/wide cards */
-.pf-hero-inner>.pf-copy{border-right:2px solid rgba(28,16,8,.09)}
-.pf-wide-inner>.pf-copy-r{border-left:2px solid rgba(28,16,8,.09)}
+    .card--biospherix { grid-column: span 3; border-color: var(--cobalt); }
+    .card--biospherix .project-card__tab { background: var(--cobalt); }
+    .card--biospherix .project-card__label { color: var(--cobalt); }
 
-/* pair rows */
-.row-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
-.row-small{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+    .card--fifa { grid-column: span 2; border-color: var(--forest); }
+    .card--fifa .project-card__tab { background: var(--forest); }
+    .card--fifa .project-card__label { color: var(--forest); }
 
-/* ══════════════════════════════════════════════
-   ABOUT — MAROON, LARGER ARTIFACTS
-══════════════════════════════════════════════ */
-#about{border-top:2px solid var(--maroon-d);border-bottom:2px solid var(--maroon-d)}
-.about-grid{display:grid;grid-template-columns:1fr 360px;gap:4.5rem;align-items:start}
-.about-h{font-family:var(--serif);font-size:clamp(2rem,3.8vw,2.9rem);font-weight:400;line-height:1.06;color:#fff;margin-bottom:.4rem}
-.about-h .it{font-style:italic;color:var(--marigold-l)}
-.about-meta{color:rgba(244,238,224,.55);font-size:.82rem;font-weight:300;margin-bottom:1.4rem}
-.about-q{border-left:3px solid var(--marigold);padding:.6rem 0 .6rem 1.2rem;margin-bottom:1.4rem}
-.about-q p{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:rgba(244,238,224,.92);line-height:1.55;font-weight:300}
-.about-para{font-size:.84rem;color:rgba(244,238,224,.68);font-weight:300;line-height:1.82;max-width:44ch;margin-bottom:1.4rem}
-.about-para strong{font-weight:500;color:rgba(244,238,224,.92)}
-.about-chips{display:flex;flex-wrap:wrap;gap:.4rem}
-.ach{font-size:.61rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(244,238,224,.18);color:rgba(244,238,224,.58);transition:border-color .14s,color .14s}
-.ach:hover{border-color:var(--marigold);color:var(--marigold-l)}
+    .card--wisdom { grid-column: span 2; border-color: var(--orange); }
+    .card--wisdom .project-card__tab { background: var(--orange); }
+    .card--wisdom .project-card__label { color: var(--orange); }
 
-/* About collage — LARGER artifacts */
-.about-collage{position:relative;height:480px}
-.ac{position:absolute}
+    .card--naagin { grid-column: span 2; border-color: var(--coral); }
+    .card--naagin .project-card__tab { background: var(--coral); }
+    .card--naagin .project-card__label { color: var(--coral); }
 
-/* cream artifact cards on maroon bg */
-.art{background:var(--paper);border:2px solid rgba(28,16,8,.12);border-radius:var(--r);box-shadow:5px 6px 0 rgba(28,16,8,.38)}
+    .card--naagin { grid-column: span 2; }
+    .card--kuai { grid-column: span 2; border-color: var(--sky); }
+    .card--kuai .project-card__tab { background: var(--sky); }
+    .card--kuai .project-card__label { color: var(--sky); }
 
-/* Larger searches */
-.art-searches{width:196px;padding:.9rem 1rem}
-.s-lbl{font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
-.s-l{font-size:.7rem;color:var(--ink2);padding:3.5px 0;border-bottom:1px solid rgba(28,16,8,.07);display:flex;align-items:flex-start;gap:5px;line-height:1.38;font-weight:300}
-.s-l:last-child{border-bottom:none}
-.s-l::before{content:'↗';color:var(--red);font-size:.58rem;margin-top:2px;flex-shrink:0}
+    .card--pili .project-card__name { font-size: var(--step-2); }
+    .card--biospherix .project-card__name { font-size: var(--step-2); }
+    .card--fifa .project-card__name, .card--wisdom .project-card__name { font-size: var(--step-1); }
+    .card--naagin .project-card__name, .card--kuai .project-card__name { font-size: var(--step-1); }
 
-/* Larger collect */
-.art-collect{width:182px;padding:.9rem 1rem}
-.cfname{font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.citem{font-size:.7rem;color:var(--ink2);padding:2.5px 0;font-weight:300;display:flex;gap:6px;align-items:center}
-.citem::before{content:'·';color:var(--red);font-weight:900}
+    @media (max-width: 1000px) {
+      .project-grid { grid-template-columns: repeat(4, 1fr); }
+      .card--pili { grid-column: span 2; }
+      .card--biospherix { grid-column: span 2; }
+      .card--fifa { grid-column: span 2; }
+      .card--wisdom { grid-column: span 2; }
+      .card--naagin { grid-column: span 2; }
+      .card--kuai { grid-column: span 2; }
+    }
+    @media (max-width: 640px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .card--pili, .card--biospherix, .card--fifa, .card--wisdom, .card--naagin, .card--kuai { grid-column: span 1; }
+    }
 
-/* Larger sky in about */
-.art-sky{padding:.75rem;width:200px}
+    /* ============================================================
+       CASE STUDY BASE STYLES
+    ============================================================ */
+    .case-study {
+      padding: var(--section-py) var(--gutter);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .case-study__header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--paper3);
+    }
+    .case-study__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .meta-item { }
+    .meta-item__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.25rem;
+    }
+    .meta-item__value {
+      font-size: var(--step--1);
+      font-weight: 600;
+      color: var(--ink-mid);
+    }
 
-/* Ginger in about — larger polaroid */
-.art-gin{width:138px}
-.art-gin .pol-img{width:120px;height:120px}
-.art-gin .pol-cap{font-size:.78rem}
+    .case-study__title {
+      font-family: var(--font-display);
+      font-size: var(--step-4);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .case-study__subtitle {
+      font-size: var(--step-1);
+      color: var(--ink-mid);
+      max-width: 680px;
+      line-height: 1.6;
+    }
 
-/* About mobile */
-.about-mob{display:none;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--paper3);
+      margin: 2.5rem 0;
+    }
 
-/* ══════════════════════════════════════════════
-   PROCESS — MARIGOLD + PINBOARD FEEL
-══════════════════════════════════════════════ */
-#process{border-top:2px solid rgba(28,16,8,.12);border-bottom:2px solid rgba(28,16,8,.12)}
-.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.proc-h{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:.65rem}
-.proc-h .it{font-style:italic;color:var(--maroon)}
-.proc-tl{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--maroon);margin-bottom:1.3rem;line-height:1.3;font-weight:400}
-.proc-body{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.82;max-width:40ch;margin-bottom:1.4rem}
+    .cs-section {
+      margin-bottom: 3rem;
+    }
+    .cs-section__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+    }
+    .cs-section__title {
+      font-family: var(--font-display);
+      font-size: var(--step-2);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .cs-section__body {
+      font-size: var(--step-0);
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 720px;
+    }
+    .cs-section__body p + p { margin-top: 0.85rem; }
 
-/* Pinboard cards — slight rotations, cream on yellow */
-.proc-pin{display:flex;flex-direction:column;gap:.75rem}
-.pcard{
-  background:var(--paper);border:2px solid rgba(28,16,8,.16);
-  border-radius:var(--r);box-shadow:var(--sh);padding:.9rem 1.1rem;
-  position:relative;overflow:hidden;
-}
-.pcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3.5px}
-.pc-r::before{background:var(--red)}.pc-g::before{background:var(--forest)}
-.pc-b::before{background:var(--cobalt)}.pc-o::before{background:var(--orange)}
-.pc-r{transform:rotate(-.5deg)}.pc-g{transform:rotate(.4deg)}
-.pc-b{transform:rotate(-.3deg)}.pc-o{transform:rotate(.6deg)}
-/* Push-pin decoration */
-.pcard::after{
-  content:'●';position:absolute;top:8px;right:10px;
-  font-size:.55rem;color:rgba(28,16,8,.2);
-}
-.pcfile{font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
-.pctitle{font-family:var(--serif);font-size:.96rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
-.pcdesc{font-size:.74rem;color:var(--muted);font-weight:300;line-height:1.55}
+    /* Research / Insight Cards */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .insight-card {
+      background: var(--paper2);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      border-left: 3px solid var(--maroon);
+    }
+    .insight-card__num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--maroon);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .insight-card__text {
+      font-size: var(--step--1);
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
 
-/* ══════════════════════════════════════════════
-   CONTACT — CREAM + MAROON ELEMENTS
-══════════════════════════════════════════════ */
-#contact{border-top:2px solid rgba(28,16,8,.1)}
-.contact-grid{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
-.contact-h{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.06;margin-bottom:1rem;color:var(--ink)}
-.contact-h .it{font-style:italic;color:var(--red)}
-.contact-sub{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.78;max-width:40ch;margin-bottom:1.8rem}
-.contact-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.2rem}
-/* Sticky notes — same as approved */
-.sticky-row{display:flex;flex-wrap:wrap;gap:1rem}
-.sn-y{background:#FEF082;border-radius:2px;padding:.8rem 1rem;box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.05);font-family:var(--hand);font-size:.95rem;color:#1A1200;line-height:1.5;max-width:220px;transform:rotate(-.5deg)}
-.sn-b{background:#D6EEFF;border-radius:2px;padding:.8rem 1rem;box-shadow:2px 3px 8px rgba(28,16,8,.14),0 0 0 1px rgba(28,16,8,.05);font-family:var(--hand);font-size:.95rem;color:#001A33;line-height:1.5;max-width:240px;transform:rotate(.4deg)}
+    .principle-card {
+      background: var(--paper);
+      border: 1.5px solid var(--paper3);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .principle-card__num {
+      font-family: var(--font-hand);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .principle-card__title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .principle-card__text {
+      font-size: var(--step--1);
+      color: var(--ink-light);
+      line-height: 1.5;
+    }
 
-/* contact visual: Ginger polaroid */
-.ct-gin{transform:rotate(1.5deg)}
-.ct-pol{box-shadow:var(--sh-l)}
-.cg-bg{width:100px;height:100px;background:linear-gradient(135deg,#F4BE58,#D88C0C);display:flex;align-items:center;justify-content:center;border-radius:1px}
+    .reflection-card {
+      background: var(--paper2);
+      border: 1.5px solid var(--paper3);
+      border-radius: var(--r-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      font-size: var(--step-0);
+      color: var(--ink-mid);
+      line-height: 1.7;
+      font-style: italic;
+      font-family: var(--font-display);
+      position: relative;
+    }
+    .reflection-card::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.25rem;
+      font-size: 5rem;
+      color: var(--paper3);
+      font-family: var(--font-display);
+      line-height: 1;
+      z-index: 0;
+    }
+    .reflection-card p { position: relative; z-index: 1; }
 
-/* ══════════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════════ */
-footer{
-  background:var(--ink);padding:1.3rem var(--gut);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
-  position:relative;z-index:1;
-}
-.fl{font-size:.67rem;color:rgba(244,238,224,.28);letter-spacing:.04em}
-.fr{font-family:var(--serif);font-style:italic;font-size:.76rem;color:rgba(244,238,224,.3)}
+    /* Case study section dividers with project color */
+    .cs-section-block {
+      background: var(--paper);
+      background-image:
+        linear-gradient(var(--grid-line-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-alt) 1px, transparent 1px);
+      background-size: 40px 40px;
+      border-radius: var(--r-xl);
+      padding: 3rem var(--gutter);
+      margin-bottom: 1.5rem;
+    }
 
-/* ══════════════════════════════════════════════
-   REVEAL
-══════════════════════════════════════════════ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.ha>*{opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) forwards}
-.ha>*:nth-child(1){animation-delay:.04s}.ha>*:nth-child(2){animation-delay:.15s}
-.ha>*:nth-child(3){animation-delay:.26s}.ha>*:nth-child(4){animation-delay:.37s}
-.ha>*:nth-child(5){animation-delay:.47s}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-.reveal.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.ha>*,.reveal{animation:none;opacity:1;transform:none}}
+    /* ============================================================
+       PROJECT SECTION WRAPPERS (color-accent borders)
+    ============================================================ */
+    .project-section {
+      border-top: 4px solid var(--paper3);
+      padding-top: 0.5rem;
+    }
+    .project-section--pili { border-color: var(--red); }
+    .project-section--biospherix { border-color: var(--cobalt); }
+    .project-section--fifa { border-color: var(--forest); }
+    .project-section--wisdom { border-color: var(--orange); }
+    .project-section--naagin { border-color: var(--coral); }
+    .project-section--kuai { border-color: var(--sky); }
 
-/* ══════════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════════ */
-@media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-collage{display:none}
-  .hero-mob{display:flex}
-  .pf-hero-inner,.pf-wide-inner{grid-template-columns:1fr}
-  .pf-copy,.pf-copy-r{border-right:none!important;border-left:none!important;border-bottom:2px solid rgba(28,16,8,.09);padding:1.5rem 1.4rem}
-  .about-grid{grid-template-columns:1fr}
-  .about-collage{display:none}
-  .about-mob{display:flex}
-  .proc-grid{grid-template-columns:1fr;gap:2.5rem}
-  .contact-grid{grid-template-columns:1fr}
-  .ct-gin{display:none}
-}
-@media(max-width:680px){
-  .row-pair,.row-small{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .nav-tog{display:flex}
-  .nav-links.open{
-    display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
-    background:rgba(245,238,224,.97);padding:1rem var(--gut);gap:.8rem;
-    border-bottom:2px solid rgba(28,16,8,.1);
-  }
-}
-@media(max-width:480px){
-  .pf-copy,.pf-copy-r{padding:1.2rem 1.1rem}
-  .contact-h{font-size:clamp(1.8rem,7vw,2.4rem)}
-}
+    /* accent on case study section eyebrows */
+    .project-section--pili .eyebrow { color: var(--red); }
+    .project-section--pili .eyebrow::before { background: var(--red); }
+    .project-section--biospherix .eyebrow { color: var(--cobalt); }
+    .project-section--biospherix .eyebrow::before { background: var(--cobalt); }
+    .project-section--fifa .eyebrow { color: var(--forest); }
+    .project-section--fifa .eyebrow::before { background: var(--forest); }
+    .project-section--wisdom .eyebrow { color: var(--orange); }
+    .project-section--wisdom .eyebrow::before { background: var(--orange); }
+    .project-section--naagin .eyebrow { color: var(--coral); }
+    .project-section--naagin .eyebrow::before { background: var(--coral); }
+    .project-section--kuai .eyebrow { color: var(--sky); }
+    .project-section--kuai .eyebrow::before { background: var(--sky); }
 
-/* cat svg helper */
-.cat-svg{display:block}
-</style>
+    .project-section--pili .insight-card { border-left-color: var(--red); }
+    .project-section--pili .insight-card__num { color: var(--red); }
+    .project-section--biospherix .insight-card { border-left-color: var(--cobalt); }
+    .project-section--biospherix .insight-card__num { color: var(--cobalt); }
+    .project-section--fifa .insight-card { border-left-color: var(--forest); }
+    .project-section--fifa .insight-card__num { color: var(--forest); }
+    .project-section--wisdom .insight-card { border-left-color: var(--orange); }
+    .project-section--wisdom .insight-card__num { color: var(--orange); }
+    .project-section--naagin .insight-card { border-left-color: var(--coral); }
+    .project-section--naagin .insight-card__num { color: var(--coral); }
+    .project-section--kuai .insight-card { border-left-color: var(--sky); }
+    .project-section--kuai .insight-card__num { color: var(--sky); }
+
+    /* ============================================================
+       PILI — accent adjustments
+    ============================================================ */
+    .pili-header-accent {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: var(--r-sm);
+    }
+
+    /* ============================================================
+       ABOUT SECTION (maroon)
+    ============================================================ */
+    .about-section {
+      background: var(--maroon);
+      padding: var(--section-py) var(--gutter);
+      color: white;
+    }
+    .about-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-quote {
+      font-family: var(--font-display);
+      font-size: var(--step-2);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 1.5rem;
+    }
+    .about-body {
+      font-size: var(--step-0);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.75;
+    }
+    .about-body p + p { margin-top: 0.75rem; }
+    .about-artifacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .artifact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-lg);
+      padding: 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+    .artifact-card__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .artifact-card__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .artifact-card__content {
+      font-size: var(--step--1);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .artifact-card--ginger { background: rgba(232,160,32,0.15); border-color: rgba(232,160,32,0.2); }
+    .artifact-card--sky { background: rgba(59,130,196,0.15); border-color: rgba(59,130,196,0.2); }
+    .artifact-card--searches { background: rgba(255,255,255,0.06); }
+    .artifact-card--collect { background: rgba(255,255,255,0.06); }
+
+    .sky-film {
+      display: flex;
+      gap: 3px;
+      margin-top: 0.5rem;
+    }
+    .sky-film-frame {
+      flex: 1;
+      height: 44px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #87CEEB, #6CA8D6);
+    }
+    .sky-film-frame:nth-child(2) { background: linear-gradient(180deg, #C4D8E8, #9BBFE0); }
+    .sky-film-frame:nth-child(3) { background: linear-gradient(180deg, #F0C8A0, #E0B085); }
+    .sky-film-frame:nth-child(4) { background: linear-gradient(180deg, #B0C8E0, #88A8C8); }
+
+    .search-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .search-item {
+      font-size: var(--step--1);
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .search-item::before {
+      content: '→';
+      color: rgba(255,255,255,0.3);
+      font-size: 0.7rem;
+    }
+    .collect-list {
+      font-size: var(--step--1);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 800px) {
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-artifacts { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .about-artifacts { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       PROCESS / BEHIND THE BUILD (marigold)
+    ============================================================ */
+    .process-section {
+      background: var(--marigold);
+      padding: var(--section-py) var(--gutter);
+      position: relative;
+      overflow: hidden;
+    }
+    .process-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(28,16,8,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,16,8,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .process-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .process-tagline {
+      font-family: var(--font-display);
+      font-size: var(--step-3);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .process-tagline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+    .process-sub {
+      font-size: var(--step-1);
+      color: var(--ink-mid);
+      max-width: 480px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+    .process-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+    .process-card {
+      background: var(--paper);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(28,16,8,0.06);
+    }
+    .process-card:nth-child(1) { transform: rotate(-1.2deg); }
+    .process-card:nth-child(2) { transform: rotate(0.8deg); margin-top: 1.5rem; }
+    .process-card:nth-child(3) { transform: rotate(-0.5deg); margin-top: -0.75rem; }
+    .process-card:nth-child(4) { transform: rotate(1.5deg); margin-top: 0.5rem; }
+
+    .process-card__filename {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .process-card__filename::before {
+      content: '📄';
+      font-size: 0.7rem;
+    }
+    .process-card__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .process-card__body {
+      font-size: var(--step--1);
+      color: var(--ink-mid);
+      line-height: 1.55;
+    }
+
+    .process-ai-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--ink);
+      color: white;
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--r-full);
+      font-family: var(--font-display);
+      font-size: var(--step-1);
+      font-style: italic;
+      margin-top: 2.5rem;
+    }
+    .process-ai-note strong {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       CONTACT SECTION
+    ============================================================ */
+    .contact-section {
+      padding: var(--section-py) var(--gutter);
+    }
+    .contact-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: var(--step-4);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      margin-bottom: 1rem;
+    }
+    .contact-headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--maroon);
+    }
+    .contact-body {
+      font-size: var(--step-0);
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .contact-sticky-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+    .sticky-note {
+      background: #FFFBE8;
+      border: 1px solid rgba(232,160,32,0.3);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      font-family: var(--font-hand);
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 1.5;
+      transform: rotate(-1deg);
+    }
+    .sticky-note:nth-child(2) { transform: rotate(1.5deg); background: #F0FBF0; border-color: rgba(45,106,79,0.25); }
+
+    @media (max-width: 800px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-sticky-notes { flex-direction: row; flex-wrap: wrap; }
+      .sticky-note { flex: 1; min-width: 200px; }
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 2rem var(--gutter);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-sig {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--step-0);
+      color: rgba(255,255,255,0.9);
+    }
+    .footer-sig strong { font-style: normal; }
+    .footer-nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+    .footer-link {
+      font-size: var(--step--1);
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: rgba(255,255,255,0.9); }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       MISC UTILITIES
+    ============================================================ */
+    .text-maroon { color: var(--maroon); }
+    .text-cobalt { color: var(--cobalt); }
+    .text-forest { color: var(--forest); }
+    .text-orange { color: var(--orange); }
+    .text-coral { color: var(--coral); }
+    .text-sky { color: var(--sky); }
+
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-5 { margin-bottom: 3rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; }
+      .three-col { grid-template-columns: 1fr; }
+    }
+
+    /* feature callout box */
+    .callout {
+      background: var(--paper2);
+      border: 1.5px solid var(--paper3);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout--pili { border-left: 4px solid var(--red); }
+    .callout--biospherix { border-left: 4px solid var(--cobalt); }
+    .callout--fifa { border-left: 4px solid var(--forest); }
+    .callout--wisdom { border-left: 4px solid var(--orange); }
+    .callout--naagin { border-left: 4px solid var(--coral); }
+    .callout--kuai { border-left: 4px solid var(--sky); }
+    .callout__title {
+      font-weight: 700;
+      font-size: var(--step--1);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+    .callout__body {
+      font-size: var(--step--1);
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* process step inline */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--paper2);
+      border: 1.5px solid var(--paper3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      margin-top: 0.1rem;
+    }
+    .step-text {
+      font-size: var(--step-0);
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* Section separators */
+    .section-band {
+      height: 3px;
+      background: linear-gradient(to right, var(--maroon), var(--marigold), var(--cobalt));
+    }
+  </style>
 </head>
-<body>
 
-<!-- ══ NAV ══ -->
-<nav class="bg-cream">
-  <a href="#" class="logo">Niharika Jain</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="nav-tog" id="navToggle" aria-label="Toggle navigation">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<body class="paper-grid">
 
-<!-- ══ HERO ══ -->
-<section id="hero" class="bg-cream gd gd-cream">
-  <div class="wrap">
-    <div class="hero-grid">
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Niharika<span>Jain</span></a>
+      <ul class="nav__links" role="list">
+        <li><a href="#work" class="nav__link">Work</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#process" class="nav__link">Process</a></li>
+        <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+      <a href="#work" class="nav__link">Work</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#process" class="nav__link">Process</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </div>
+  </nav>
 
-      <div class="ha">
-        <div class="hero-eyebrow">UX + Graphic Design &nbsp;·&nbsp; SCAD &nbsp;·&nbsp; Atlanta, GA</div>
-        <h1 class="hero-h">Part designer,<br>part <span class="it">storyteller,</span><br>part systems<br>thinker.</h1>
-        <p class="hero-sub">I'm Niharika Jain — a UX and graphic designer turning messy ideas into thoughtful experiences people can navigate, understand, and connect with.</p>
-        <p class="hero-note">everything here is organized / on purpose ✦ promise</p>
-        <div class="hero-ctas">
-          <a href="#work" class="btn btn-red">Open my work ↓</a>
-          <a href="#about" class="btn btn-ol-dk">Open File: Niharika</a>
-        </div>
-        <div class="hero-mob">
-          <span class="hm r">Ginger's person</span>
-          <span class="hm g">Sky collector</span>
-          <span class="hm">Indian art forms</span>
-          <span class="hm r">Systems thinker</span>
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero paper-grid" id="top">
+    <div class="hero__inner">
+      <div class="hero__text reveal">
+        <div class="hero__kicker">SCAD Atlanta · UX + Graphic Design</div>
+        <h1 class="hero__headline">
+          Part designer,<br>
+          part <em>storyteller</em>,<br>
+          part systems<br>thinker.
+        </h1>
+        <p class="hero__sub">
+          I'm Niharika — I design the way I collect things. Noticing patterns, saving details, and turning scattered pieces into experiences people can understand and feel.
+        </p>
+        <div class="hero__ctas">
+          <a href="#work" class="btn btn--primary">View Work ↓</a>
+          <a href="#about" class="btn btn--outline">Open File: Niharika</a>
         </div>
       </div>
 
-      <!-- COLLAGE -->
-      <div class="hero-collage">
-        <!-- Color blob behind everything -->
-        <div class="hero-blob"></div>
-
-        <!-- Profile photo — bigger -->
-        <div class="hco hco-photo">
-          <div class="tape tape-mg" style="top:-8px;left:52px;transform:rotate(-1deg)"></div>
-          <div class="polaroid">
-            <div class="pol-img" style="width:167px;height:167px">
-              <svg width="54" height="72" viewBox="0 0 54 72" fill="none" aria-hidden="true">
-                <circle cx="27" cy="20" r="14" fill="rgba(120,88,58,.8)"/>
-                <path d="M2 72Q2 46 27 46Q52 46 52 72" fill="rgba(120,88,58,.8)"/>
-              </svg>
-            </div>
-            <div class="pol-cap">profile-photo.jpg</div>
+      <div class="hero__collage" aria-hidden="true">
+        <!-- Profile card -->
+        <div class="collage-card collage-card--profile">
+          <div class="collage-profile-inner">
+            <div class="collage-avatar">NJ</div>
+            <span class="collage-name">Niharika Jain</span>
+            <span class="collage-role">UX · Graphic · Systems</span>
           </div>
         </div>
 
-        <!-- Blue folder — anchor -->
-        <div class="hco hco-folder">
-          <div class="hero-folder">
-            <div class="hf-in">
-              <div class="hf-f">pili.fig</div>
-              <div class="hf-f">biospherix.fig</div>
-              <div class="hf-f">fifa_atl.fig</div>
-              <div class="hf-f">wisdom.fig</div>
-              <div class="hf-f">naagin.fig</div>
-              <div class="hf-f">kuai.fig</div>
-              <div class="hf-ct">6 files · open to explore</div>
+        <!-- Sky strip -->
+        <div class="collage-card collage-card--sky">
+          <div class="sky-strip">
+            <span class="sky-strip-label">sky archive</span>
+          </div>
+        </div>
+
+        <!-- Selected work folder -->
+        <div class="collage-card collage-card--folder">
+          <div class="folder-tab">selected_work</div>
+          <div class="folder-inner">
+            <span class="folder-title">6 projects</span>
+            <div class="folder-files">
+              <span class="folder-file">pili.fig</span>
+              <span class="folder-file">biospherix.fig</span>
+              <span class="folder-file">fifa-atlanta.pdf</span>
+              <span class="folder-file">wisdom-atl.fig</span>
             </div>
           </div>
         </div>
 
         <!-- Ginger -->
-        <div class="hco hco-gin">
-          <div class="tape tape-r" style="top:-8px;left:26px;transform:rotate(2deg)"></div>
-          <div class="gin-card">
-            <div class="gin-bg">
-              <svg class="cat-svg" width="46" height="46" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
-                <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
-                <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
-                <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
-                <polygon points="43,13 47,3 37,11" fill="#5C3010" opacity=".8"/>
-                <polygon points="18,12 15,5 23,11" fill="#E8A020" opacity=".55"/>
-                <polygon points="42,12 45,5 37,11" fill="#E8A020" opacity=".55"/>
-                <ellipse cx="24" cy="21" rx="3.5" ry="4" fill="#1a1108" opacity=".9"/>
-                <ellipse cx="36" cy="21" rx="3.5" ry="4" fill="#1a1108" opacity=".9"/>
-                <ellipse cx="24.8" cy="19.5" rx="1.2" ry="1.8" fill="#fff" opacity=".85"/>
-                <ellipse cx="36.8" cy="19.5" rx="1.2" ry="1.8" fill="#fff" opacity=".85"/>
-                <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
-                <path d="M46 43Q57 37 54 50Q51 58 44 53" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75"/>
-                <line x1="10" y1="23" x2="20" y2="24.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
-                <line x1="10" y1="25.5" x2="20" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
-                <line x1="40" y1="24.5" x2="50" y2="23" stroke="#fff" stroke-width=".8" opacity=".5"/>
-                <line x1="40" y1="25.5" x2="50" y2="25.5" stroke="#fff" stroke-width=".8" opacity=".5"/>
-              </svg>
-            </div>
-            <div class="gin-lbl">ginger.jpg</div>
-            <div class="gin-sub">emotional support creative director</div>
+        <div class="collage-card collage-card--ginger">
+          <div class="ginger-inner">
+            <span class="ginger-emoji">🐱</span>
+            <span class="ginger-caption">Ginger<br>emotional support<br>creative director</span>
           </div>
+        </div>
+
+        <!-- Note -->
+        <div class="collage-card collage-card--note">
+          <div class="note-inner">
+            <span class="note-line">currently working on:</span>
+            <span class="note-line" style="font-weight:600;">Pili capstone ✓</span>
+            <span class="note-line">open to work!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE STRIP
+  ============================================================ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <!-- Set 1 -->
+      <span class="marquee-item">UX Design <span class="dot"></span></span>
+      <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+      <span class="marquee-item">Systems Thinking <span class="dot"></span></span>
+      <span class="marquee-item">Storytelling <span class="dot"></span></span>
+      <span class="marquee-item">Indian Visual Culture <span class="dot"></span></span>
+      <span class="marquee-item">Tiny Details <span class="dot"></span></span>
+      <span class="marquee-item">Organized Chaos <span class="dot"></span></span>
+      <span class="marquee-item">AI-Assisted Building <span class="dot"></span></span>
+      <span class="marquee-item">Emotional Design <span class="dot"></span></span>
+      <span class="marquee-item">SCAD Atlanta <span class="dot"></span></span>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <span class="marquee-item">UX Design <span class="dot"></span></span>
+      <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+      <span class="marquee-item">Systems Thinking <span class="dot"></span></span>
+      <span class="marquee-item">Storytelling <span class="dot"></span></span>
+      <span class="marquee-item">Indian Visual Culture <span class="dot"></span></span>
+      <span class="marquee-item">Tiny Details <span class="dot"></span></span>
+      <span class="marquee-item">Organized Chaos <span class="dot"></span></span>
+      <span class="marquee-item">AI-Assisted Building <span class="dot"></span></span>
+      <span class="marquee-item">Emotional Design <span class="dot"></span></span>
+      <span class="marquee-item">SCAD Atlanta <span class="dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DESKTOP ARCHIVE / PROJECT GRID
+  ============================================================ -->
+  <section class="work-section paper-grid" id="work">
+    <div class="container">
+      <div class="work-section__header reveal">
+        <div>
+          <div class="eyebrow">Desktop Archive</div>
+          <h2 class="work-section__title">Selected <em>Work</em></h2>
+        </div>
+        <span class="archive-count t-hand">6 projects open —</span>
+      </div>
+
+      <div class="project-grid">
+        <!-- PILI -->
+        <a href="#pili" class="project-card card--pili reveal">
+          <div class="project-card__tab">Senior Capstone</div>
+          <div class="project-card__body">
+            <div class="img-placeholder img-placeholder--tall project-card__img">
+              <span class="ph-icon">🌱</span>
+              <span>pili-hero.jpg</span>
+            </div>
+            <!-- TODO: Add final Pili device render -->
+            <div class="project-card__label">UX / Product Design</div>
+            <h3 class="project-card__name">Pili</h3>
+            <p class="project-card__desc">A postpartum care companion designed for the mothers nobody checks on — the ones who are "fine."</p>
+            <div class="project-card__tags">
+              <span class="tag">UX Research</span>
+              <span class="tag">Product Design</span>
+              <span class="tag">Care Systems</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- BIOSPHERIX -->
+        <a href="#biospherix" class="project-card card--biospherix reveal">
+          <div class="project-card__tab">UX + AI</div>
+          <div class="project-card__body">
+            <div class="img-placeholder img-placeholder--tall project-card__img">
+              <span class="ph-icon">🧬</span>
+              <span>biospherix-interface.jpg</span>
+            </div>
+            <!-- TODO: Add BioSpherix live URL -->
+            <div class="project-card__label">UX / Web App</div>
+            <h3 class="project-card__name">BioSpherix</h3>
+            <p class="project-card__desc">Redesigning the lab environment planning workflow for researchers who were spending hours on spreadsheets.</p>
+            <div class="project-card__tags">
+              <span class="tag">Web App</span>
+              <span class="tag">AI Workflow</span>
+              <span class="tag">Research UX</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- FIFA -->
+        <a href="#fifa" class="project-card card--fifa reveal">
+          <div class="project-card__tab">SCADpro</div>
+          <div class="project-card__body">
+            <div class="img-placeholder project-card__img">
+              <span class="ph-icon">⚽</span>
+              <span>fifa-wayfinding.jpg</span>
+            </div>
+            <!-- TODO: Add FIFA final journey map -->
+            <div class="project-card__label">Service Design</div>
+            <h3 class="project-card__name">FIFA WC 2026 Atlanta</h3>
+            <p class="project-card__desc">City-scale fan experience design for the World Cup — wayfinding, transit, and atmosphere at stadium scale.</p>
+            <div class="project-card__tags">
+              <span class="tag">Journey Mapping</span>
+              <span class="tag">Wayfinding</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- WISDOM -->
+        <a href="#wisdom" class="project-card card--wisdom reveal">
+          <div class="project-card__tab">Branding</div>
+          <div class="project-card__body">
+            <div class="img-placeholder project-card__img">
+              <span class="ph-icon">👓</span>
+              <span>wisdom-packaging.jpg</span>
+            </div>
+            <!-- TODO: Add Wisdom packaging images -->
+            <div class="project-card__label">Branding / Packaging</div>
+            <h3 class="project-card__name">Wisdom ATL Eyewear</h3>
+            <p class="project-card__desc">Full brand identity and retail packaging for an Atlanta-born independent eyewear brand.</p>
+            <div class="project-card__tags">
+              <span class="tag">Packaging</span>
+              <span class="tag">Visual Identity</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- NAAGIN -->
+        <a href="#naagin" class="project-card card--naagin reveal">
+          <div class="project-card__tab">Campaign</div>
+          <div class="project-card__body">
+            <div class="img-placeholder project-card__img">
+              <span class="ph-icon">🌶️</span>
+              <span>naagin-campaign.jpg</span>
+            </div>
+            <!-- TODO: Add Naagin campaign screenshots -->
+            <div class="project-card__label">Graphic Design</div>
+            <h3 class="project-card__name">Naagin Sauce</h3>
+            <p class="project-card__desc">Campaign and marketing design for a boldly Indian hot sauce brand that refuses to be quiet.</p>
+            <div class="project-card__tags">
+              <span class="tag">Campaign</span>
+              <span class="tag">Marketing Design</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- KUAI -->
+        <a href="#kuai" class="project-card card--kuai reveal">
+          <div class="project-card__tab">AI / Concept</div>
+          <div class="project-card__body">
+            <div class="img-placeholder project-card__img">
+              <span class="ph-icon">✨</span>
+              <span>kuai-app-screens.jpg</span>
+            </div>
+            <!-- TODO: Add KUAI app screens -->
+            <div class="project-card__label">AI UX / Concept</div>
+            <h3 class="project-card__name">KUAI</h3>
+            <p class="project-card__desc">An AI-powered fashion and lifestyle planning app — what happens when your wardrobe thinks with you.</p>
+            <div class="project-card__tags">
+              <span class="tag">AI UX</span>
+              <span class="tag">Concept Design</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       PILI CASE STUDY
+  ============================================================ -->
+  <section id="pili" class="project-section project-section--pili">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">Senior Capstone · UX / Product Design</div>
+        <h2 class="case-study__title">
+          Pili — <span class="pili-header-accent">Postpartum Care</span>
+        </h2>
+        <p class="case-study__subtitle">
+          A care companion app designed for new mothers navigating the emotional and physical complexity of postpartum life — built around the mothers who are always "fine" until they're not.
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Role</div><div class="meta-item__value">Lead UX + Visual Designer</div></div>
+          <div class="meta-item"><div class="meta-item__label">Type</div><div class="meta-item__value">Senior Capstone, SCAD</div></div>
+          <div class="meta-item"><div class="meta-item__label">Platform</div><div class="meta-item__value">iOS Mobile App</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Figma, Miro, Primary Research</div></div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">🌱</span>
+        <span>pili-device.jpg</span>
+      </div>
+      <!-- TODO: Add final Pili device render -->
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Overview</div>
+        <div class="cs-section__title">The Problem Nobody Talks About</div>
+        <div class="cs-section__body">
+          <p>The first year after birth is a medical event. But the healthcare system largely treats it like a footnote — six-week checkups, general advice, and the assumption that "new mom instinct" fills the gaps.</p>
+          <p>Pili starts from a different question: what does a new mother actually need day-to-day, emotionally and physically, when every resource she finds is either alarmist, oversimplified, or written for someone else?</p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="two-col reveal">
+        <div class="cs-section">
+          <div class="cs-section__label">The Gap</div>
+          <div class="cs-section__title">Between the Discharge Sheet and the First Pediatrician Visit</div>
+          <div class="cs-section__body">
+            <p>After delivery, most mothers receive a two-page discharge pamphlet and a six-week follow-up date. The gap in between — filled with sleep deprivation, hormonal shifts, physical recovery, feeding challenges, and the invisible labor of keeping another human alive — is largely unsupported.</p>
+            <p>Existing apps either track baby milestones or monitor postpartum depression symptoms. Pili lives in between: a daily care companion that holds both the mother and the baby in view at once.</p>
+          </div>
+        </div>
+        <div class="img-placeholder img-placeholder--tall reveal">
+          <span class="ph-icon">📋</span>
+          <span>pili-problem-map.jpg</span>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Research</div>
+        <div class="cs-section__title">What I Found</div>
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card__num">1 in 5</div>
+            <div class="insight-card__text">new mothers experience postpartum mood disorders — most go undiagnosed beyond the first few weeks</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">"Fine."</div>
+            <div class="insight-card__text">The most common answer when a new mother is asked how she's doing — even when she isn't</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">6 wks</div>
+            <div class="insight-card__text">The standard follow-up window after birth — the entire fourth trimester fits in this gap with almost no clinical touchpoints</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">3 AM</div>
+            <div class="insight-card__text">The hour most postpartum anxiety spirals happen. No support exists that meets someone there without judgment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">User Research</div>
+        <div class="cs-section__title">Who Pili Is For</div>
+        <div class="cs-section__body">
+          <p>I conducted in-depth interviews with new and recent mothers, along with secondary research into postpartum clinical literature and support-seeking behavior online. The interviews were semi-structured and focused on daily routines, moments of overwhelm, and what "support" actually meant to them.</p>
+          <p>The pattern that kept surfacing: the biggest barrier wasn't access to information. It was permission — the permission to have needs of their own, separate from their baby's needs.</p>
+        </div>
+        <div class="callout callout--pili mt-3">
+          <div class="callout__title">Key Research Finding</div>
+          <div class="callout__body">"Every resource I found was about the baby, or about whether I had postpartum depression. Nothing was just... for me, as a person who was going through something really hard and needed to feel less alone." — Interview participant</div>
+        </div>
+      </div>
+
+      <div class="img-placeholder mb-4 reveal">
+        <span class="ph-icon">🗺️</span>
+        <span>pili-app-screens.jpg</span>
+      </div>
+      <!-- TODO: Add Pili app screen flow -->
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Design Principles</div>
+        <div class="cs-section__title">Four Things Pili Refuses to Do</div>
+        <div class="insight-grid">
+          <div class="principle-card">
+            <div class="principle-card__num">01</div>
+            <div class="principle-card__title">Never symptom-check without consent</div>
+            <div class="principle-card__text">Pili checks in — it doesn't survey. Emotional tracking is always opt-in and framed as care, not clinical measurement.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__num">02</div>
+            <div class="principle-card__title">Never compete with the baby</div>
+            <div class="principle-card__text">Pili holds both the mother and the baby in view. Baby milestones and maternal care are woven together, not siloed.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__num">03</div>
+            <div class="principle-card__title">Never alarm without context</div>
+            <div class="principle-card__text">Health information is presented with emotional context — not as a list of warning signs, but as a conversation.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__num">04</div>
+            <div class="principle-card__title">Never assume "fine" means fine</div>
+            <div class="principle-card__text">The app's daily check-in is designed around what the mother wants to share, not what the system needs to know.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">System Design</div>
+        <div class="cs-section__title">How Pili Works</div>
+        <div class="cs-section__body">
+          <p>Pili's core system is a daily care loop: a gentle check-in, a curated content feed, a symptom and mood journal, and an escalation pathway to professional care. Everything is designed to feel like a trusted friend — not a medical form.</p>
+        </div>
+        <div class="step-list mt-3">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Daily Check-in:</strong> A low-friction, high-empathy prompt that asks how the mother is feeling — physically and emotionally — with optional depth.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Care Feed:</strong> Personalized content — articles, prompts, gentle exercises — surfaced based on where she is in her postpartum timeline, not generic new-mom content.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Journal + Patterns:</strong> An optional mood and symptom log that builds a private record she can share with her provider at the six-week visit — or sooner.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>Support Pathways:</strong> If a check-in surfaces something that needs more, Pili gently connects her to resources — peer support, crisis lines, or her care team — without alarming her.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="img-placeholder img-placeholder--tall">
+          <span class="ph-icon">📱</span>
+          <span>pili-screens-onboarding.jpg</span>
+        </div>
+        <div class="img-placeholder img-placeholder--tall">
+          <span class="ph-icon">📊</span>
+          <span>pili-screens-checkin.jpg</span>
+        </div>
+      </div>
+      <!-- TODO: Add Pili final onboarding and check-in screens -->
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>Pili taught me that the hardest design challenge isn't building something complex — it's building something that doesn't add more weight to someone already carrying a lot. Every interaction had to earn its place. Every prompt had to ask only what it needed to. The visual system had to feel warm without being saccharine, clinical without being cold. Getting that balance right — that's what I kept coming back to.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       BIOSPHERIX CASE STUDY
+  ============================================================ -->
+  <section id="biospherix" class="project-section project-section--biospherix">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">UX Design / Web App / AI Workflow</div>
+        <h2 class="case-study__title">BioSpherix — Lab Environment Planning</h2>
+        <p class="case-study__subtitle">
+          Redesigning the lab environment configuration workflow for research scientists who were spending hours juggling datasheets, PDFs, and spreadsheets to answer one question: will this setup work?
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Role</div><div class="meta-item__value">UX Designer + Developer</div></div>
+          <div class="meta-item"><div class="meta-item__label">Type</div><div class="meta-item__value">Live Web Application</div></div>
+          <div class="meta-item"><div class="meta-item__label">Platform</div><div class="meta-item__value">Browser / Desktop</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Figma, React, AI APIs</div></div>
+        </div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">🧬</span>
+        <span>biospherix-interface.jpg</span>
+      </div>
+      <!-- TODO: Add BioSpherix live URL -->
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Context</div>
+        <div class="cs-section__title">The Researcher's Workflow Problem</div>
+        <div class="cs-section__body">
+          <p>BioSpherix makes precision laboratory enclosures — systems that control oxygen, CO2, temperature, and humidity for sensitive biological research. Configuring these systems requires researchers to cross-reference multiple product datasheets, understand compatibility rules, and validate configurations before purchasing.</p>
+          <p>The existing process was entirely manual. Researchers downloaded PDFs, built their own spreadsheets, emailed sales reps with questions, and often discovered incompatibilities only after weeks of back-and-forth.</p>
+        </div>
+      </div>
+
+      <div class="insight-grid mb-4 reveal">
+        <div class="insight-card">
+          <div class="insight-card__num">3–5 hrs</div>
+          <div class="insight-card__text">Typical time a researcher spends manually configuring a lab setup before reaching out to sales</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card__num">40%</div>
+          <div class="insight-card__text">Of initial configurations submitted to sales had at least one compatibility issue requiring revision</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card__num">2+ weeks</div>
+          <div class="insight-card__text">Average sales cycle just to validate a configuration — before any purchasing decision</div>
+        </div>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="cs-section">
+          <div class="cs-section__label">Solution</div>
+          <div class="cs-section__title">An AI-Assisted Configuration Tool</div>
+          <div class="cs-section__body">
+            <p>I designed and built a web application that guides researchers through the configuration process — letting them build a lab setup step by step, with real-time compatibility checking and AI-assisted recommendations.</p>
+            <p>The AI layer isn't a chatbot. It's embedded intelligence: as the user makes selections, the system surfaces compatibility warnings, suggests common configurations for their research context, and explains why certain combinations do or don't work.</p>
+          </div>
+        </div>
+        <div class="img-placeholder img-placeholder--tall reveal">
+          <span class="ph-icon">⚙️</span>
+          <span>biospherix-configurator.jpg</span>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Key Features</div>
+        <div class="cs-section__title">What the Tool Does</div>
+        <div class="three-col mt-2">
+          <div class="principle-card">
+            <div class="principle-card__title">Step-by-Step Builder</div>
+            <div class="principle-card__text">Guided configuration flow that mirrors how researchers actually think about their lab setup — by research context, not product catalog.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__title">Real-Time Validation</div>
+            <div class="principle-card__text">Compatibility rules run automatically in the background. Errors surface before they become expensive mistakes.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__title">AI Recommendations</div>
+            <div class="principle-card__text">Based on the researcher's stated context — cell type, protocol, lab size — the system suggests proven configurations from BioSpherix's library.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Design Process</div>
+        <div class="cs-section__title">From Spreadsheet to Interface</div>
+        <div class="cs-section__body">
+          <p>The design challenge wasn't making the interface look good — it was making the complexity legible. Researchers are domain experts. They know what an OxyCycler is. The interface couldn't talk down to them, but it also couldn't just be a form.</p>
+          <p>I mapped the existing spreadsheet logic, extracted the decision tree, and designed an interface that walked through the same decisions in a sequence that felt natural rather than algorithmic.</p>
+        </div>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="img-placeholder">
+          <span class="ph-icon">📐</span>
+          <span>biospherix-wireframes.jpg</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="ph-icon">✅</span>
+          <span>biospherix-validation.jpg</span>
+        </div>
+      </div>
+      <!-- TODO: Add BioSpherix final interface screens -->
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>BioSpherix was where I learned that good UX for expert users means getting out of the way. The temptation is to over-explain, to add tooltips on every button, to make the system feel "helpful." The researchers I was designing for didn't need handholding — they needed their existing knowledge made more powerful. That shift changed how I approach every technical interface design since.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       FIFA CASE STUDY
+  ============================================================ -->
+  <section id="fifa" class="project-section project-section--fifa">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">SCADpro · Service Design · Journey Mapping</div>
+        <h2 class="case-study__title">FIFA World Cup 2026 — Atlanta Fan Experience</h2>
+        <p class="case-study__subtitle">
+          A service design project for the 2026 FIFA World Cup in Atlanta — designing the fan experience at city scale, from arrival to atmosphere to the final whistle.
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Context</div><div class="meta-item__value">SCADpro Industry Project</div></div>
+          <div class="meta-item"><div class="meta-item__label">Type</div><div class="meta-item__value">Service Design / Experience Strategy</div></div>
+          <div class="meta-item"><div class="meta-item__label">Scale</div><div class="meta-item__value">City-wide, 800,000+ visitors</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Miro, Figma, Journey Mapping</div></div>
+        </div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">⚽</span>
+        <span>fifa-wayfinding.jpg</span>
+      </div>
+      <!-- TODO: Add FIFA final journey map -->
+
+      <div class="two-col reveal">
+        <div class="cs-section">
+          <div class="cs-section__label">The Challenge</div>
+          <div class="cs-section__title">A City That Wasn't Built for This</div>
+          <div class="cs-section__body">
+            <p>Atlanta is hosting multiple World Cup 2026 matches at Mercedes-Benz Stadium. The stadium can hold 75,000 people. The surrounding infrastructure — transit, wayfinding, hospitality — was not designed around an influx of international fans who may not speak English, may be unfamiliar with Atlanta's geography, and are expecting a world-class experience.</p>
+            <p>The project challenged us to map the full fan journey — arrival at the airport, navigation to the stadium, the match experience itself, and the post-match exit — and identify where the experience breaks down and how to fix it.</p>
+          </div>
+        </div>
+        <div class="img-placeholder img-placeholder--tall reveal">
+          <span class="ph-icon">🗺️</span>
+          <span>fifa-atlanta-map.jpg</span>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Stakeholders</div>
+        <div class="cs-section__title">Who This Design Serves</div>
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card__num">Fans</div>
+            <div class="insight-card__text">Domestic and international visitors, many arriving in Atlanta for the first time — with different languages, navigation needs, and accessibility requirements</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Operators</div>
+            <div class="insight-card__text">Stadium staff, transit workers, Atlanta police, volunteers — all needing to coordinate across a city-scale event</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">City</div>
+            <div class="insight-card__text">The City of Atlanta and the Atlanta Convention & Visitors Bureau — invested in the economic and reputational impact of the event</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Journey Mapping</div>
+        <div class="cs-section__title">From Hartsfield-Jackson to Full Time</div>
+        <div class="cs-section__body">
+          <p>We built a comprehensive journey map covering five phases of the fan experience: arrival (airport), orientation (navigating the city), approach (getting to the stadium), the match, and departure. Each phase was analyzed for pain points, moments of delight, and systemic failures.</p>
+          <p>The most critical finding: wayfinding breaks down completely between the MARTA station and the stadium entrance — a half-mile stretch that lacks clear signage, shade, or any indication that fans are heading in the right direction.</p>
+        </div>
+      </div>
+
+      <div class="img-placeholder mb-4 reveal">
+        <span class="ph-icon">📍</span>
+        <span>fifa-journey-map-full.jpg</span>
+      </div>
+      <!-- TODO: Add FIFA final journey map output -->
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Design Directions</div>
+        <div class="cs-section__title">What We Recommended</div>
+        <div class="three-col mt-2">
+          <div class="principle-card">
+            <div class="principle-card__title">Wayfinding System</div>
+            <div class="principle-card__text">A ground-level wayfinding language — color-coded by language and fan zone — that works even in a crowd, even without a phone signal.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__title">Fan Zone Anchors</div>
+            <div class="principle-card__text">Designated gathering points across downtown Atlanta that create community and distribute crowd load before and after matches.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card__title">Digital + Physical Bridge</div>
+            <div class="principle-card__text">An official event app layer that layers over MARTA's existing system — real-time crowd guidance, language support, and emergency routing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>FIFA was the first time I designed at a scale where every decision had to account for thousands of people with completely different contexts. You can't design a "default user" when your user base is one person from Senegal, one family from Brazil, and one group of college students from Georgia, all arriving at the same gate at the same time. That shift from persona-thinking to systems-thinking was the biggest thing I took away.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       WISDOM ATL CASE STUDY
+  ============================================================ -->
+  <section id="wisdom" class="project-section project-section--wisdom">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">Branding · Packaging · Visual Identity</div>
+        <h2 class="case-study__title">Wisdom ATL Eyewear — Brand Identity</h2>
+        <p class="case-study__subtitle">
+          A complete brand identity and retail packaging system for an Atlanta-born independent eyewear brand — from logo to lens cloth, shelf to shop window.
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Role</div><div class="meta-item__value">Brand Designer</div></div>
+          <div class="meta-item"><div class="meta-item__label">Deliverables</div><div class="meta-item__value">Identity, Packaging, Retail Display</div></div>
+          <div class="meta-item"><div class="meta-item__label">Market</div><div class="meta-item__value">Independent Eyewear / Atlanta</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Figma, Illustrator, InDesign</div></div>
+        </div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">👓</span>
+        <span>wisdom-packaging.jpg</span>
+      </div>
+      <!-- TODO: Add Wisdom packaging images -->
+
+      <div class="two-col reveal">
+        <div class="cs-section">
+          <div class="cs-section__label">Brand Context</div>
+          <div class="cs-section__title">An Atlanta Brand That Thinks Like a Local</div>
+          <div class="cs-section__body">
+            <p>Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture — distinct from national chains, and designed for customers who want glasses that feel like a choice, not a default. The brief called for an identity that was sophisticated without being cold, local without being provincial, and bold without being loud.</p>
+            <p>Atlanta's creative scene — its music, its visual arts community, its architecture — became the research ground for the visual direction. The brand had to feel like it belonged here.</p>
+          </div>
+        </div>
+        <div class="img-placeholder img-placeholder--tall reveal">
+          <span class="ph-icon">🎨</span>
+          <span>wisdom-moodboard.jpg</span>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">Packaging System</div>
+        <div class="cs-section__title">Every Touchpoint Considered</div>
+        <div class="cs-section__body">
+          <p>The packaging system spans the full retail and unboxing experience: primary case, secondary box, lens cloth, care card, and shopping bag. Each item is a considered brand moment — consistent in material and tone, distinct enough to reward close attention.</p>
+        </div>
+        <div class="insight-grid mt-3">
+          <div class="insight-card">
+            <div class="insight-card__num">Case</div>
+            <div class="insight-card__text">Hard case with embossed wordmark — designed to be kept, not discarded</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Box</div>
+            <div class="insight-card__text">Secondary retail box with interior print — the unboxing moment as a brand statement</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Care Card</div>
+            <div class="insight-card__text">Small-format brand card that uses the brand voice: specific, warm, distinctly ATL</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Retail</div>
+            <div class="insight-card__text">Visual merchandising direction for independent retail — how the brand looks on a shelf, not just in print</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="img-placeholder">
+          <span class="ph-icon">📦</span>
+          <span>wisdom-case-detail.jpg</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="ph-icon">🏪</span>
+          <span>wisdom-retail-display.jpg</span>
+        </div>
+      </div>
+      <!-- TODO: Add Wisdom case detail and retail display images -->
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>Wisdom ATL taught me how much meaning lives in material choices — the weight of a box, the texture of a lens cloth, the decision to emboss rather than print. Good brand packaging design isn't decoration. It's the brand's handshake with the customer at the moment they decide this thing was worth buying. Every choice either earns that moment or wastes it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       NAAGIN SAUCE CASE STUDY
+  ============================================================ -->
+  <section id="naagin" class="project-section project-section--naagin">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">Graphic Design · Campaign · Marketing</div>
+        <h2 class="case-study__title">Naagin Sauce — Campaign Design</h2>
+        <p class="case-study__subtitle">
+          Campaign and marketing design for Naagin Sauce, an unapologetically Indian hot sauce brand that wears its identity loud and refuses to apologize for it.
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Role</div><div class="meta-item__value">Graphic Designer</div></div>
+          <div class="meta-item"><div class="meta-item__label">Type</div><div class="meta-item__value">Campaign / Marketing Design</div></div>
+          <div class="meta-item"><div class="meta-item__label">Brand</div><div class="meta-item__value">Naagin Sauce (India)</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Illustrator, Photoshop, InDesign</div></div>
+        </div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">🌶️</span>
+        <span>naagin-campaign.jpg</span>
+      </div>
+      <!-- TODO: Add Naagin campaign screenshots -->
+
+      <div class="two-col reveal">
+        <div class="cs-section">
+          <div class="cs-section__label">The Brand</div>
+          <div class="cs-section__title">Hot Sauce That Knows Exactly What It Is</div>
+          <div class="cs-section__body">
+            <p>Naagin is not trying to be Tabasco. It's not trying to be a "fusion" brand. It's Indian hot sauce, full stop — bold flavors, bold personality, zero apology. The brand's existing visual language is already charged: the Naagin (serpent goddess) iconography, the bright India-ink red, the graphic density of Indian poster culture.</p>
+            <p>My role was to extend that language into campaign contexts — social content, print, promotional materials — while keeping the brand's loud energy intact.</p>
+          </div>
+        </div>
+        <div class="img-placeholder img-placeholder--tall reveal">
+          <span class="ph-icon">🐍</span>
+          <span>naagin-brand-system.jpg</span>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">What the Work Shows</div>
+        <div class="cs-section__title">Campaign Design in Practice</div>
+        <div class="cs-section__body">
+          <p>The campaign work demonstrates my ability to work within and extend a strong existing visual identity — understanding what a brand is trying to say, then finding the most direct way to say it louder. With Naagin, "louder" is always the right answer. The challenge is staying in control of loud.</p>
+        </div>
+        <div class="callout callout--naagin mt-3">
+          <div class="callout__title">Design Context</div>
+          <div class="callout__body">Campaign materials were designed across social formats (Instagram, packaging inserts, print ads) with a focus on maintaining graphic consistency across contexts that reward high visual contrast and cultural specificity.</div>
+        </div>
+      </div>
+
+      <div class="three-col reveal">
+        <div class="img-placeholder">
+          <span class="ph-icon">📱</span>
+          <span>naagin-social-01.jpg</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="ph-icon">🖼️</span>
+          <span>naagin-print-01.jpg</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="ph-icon">📦</span>
+          <span>naagin-packaging-01.jpg</span>
+        </div>
+      </div>
+      <!-- TODO: Add Naagin campaign screenshots -->
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>Naagin was a reminder that working with a brand that's already visually confident is its own kind of challenge. You can't start from scratch. You can't redesign it to feel more "you." Your job is to understand it deeply enough to extend it — to make something new that still sounds like the same voice. That discipline — extension over invention — is a skill I keep coming back to.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       KUAI CASE STUDY
+  ============================================================ -->
+  <section id="kuai" class="project-section project-section--kuai">
+    <div class="case-study">
+      <div class="case-study__header reveal">
+        <a href="#work" class="back-link">← Back to Project Archive</a>
+        <div class="eyebrow mt-2">AI / UX Concept · Fashion + Lifestyle Planning</div>
+        <h2 class="case-study__title">KUAI — AI Fashion & Lifestyle Planner</h2>
+        <p class="case-study__subtitle">
+          A concept AI app that thinks alongside you about your wardrobe, your plans, and how the two connect — exploring what it looks like when fashion planning becomes genuinely intelligent.
+        </p>
+        <div class="case-study__meta">
+          <div class="meta-item"><div class="meta-item__label">Role</div><div class="meta-item__value">UX Designer / Concept Lead</div></div>
+          <div class="meta-item"><div class="meta-item__label">Type</div><div class="meta-item__value">AI UX Concept / Prototype</div></div>
+          <div class="meta-item"><div class="meta-item__label">Platform</div><div class="meta-item__value">iOS Concept App</div></div>
+          <div class="meta-item"><div class="meta-item__label">Tools</div><div class="meta-item__value">Figma, Prototyping, Concept Design</div></div>
+        </div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall mb-5 reveal">
+        <span class="ph-icon">✨</span>
+        <span>kuai-app-screens.jpg</span>
+      </div>
+      <!-- TODO: Add KUAI app screens -->
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">The Concept</div>
+        <div class="cs-section__title">What If Your Wardrobe Thought With You?</div>
+        <div class="cs-section__body">
+          <p>KUAI starts with a frustration most people recognize: you have an event, you have a wardrobe full of clothes, and somehow you still feel like you have nothing to wear. The problem isn't the clothes — it's the context gap between what you own and what you need.</p>
+          <p>KUAI bridges that gap with an AI layer that understands your wardrobe, your calendar, your preferences, and your budget — and surfaces the right outfit for the right moment without the decision fatigue.</p>
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <div class="cs-section__label">App Structure</div>
+        <div class="cs-section__title">Four Core Modules</div>
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card__num">Closet</div>
+            <div class="insight-card__text">Your wardrobe as a living inventory — photographed, tagged, and understood by the system</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Plan</div>
+            <div class="insight-card__text">Calendar-connected outfit planning — KUAI sees what's coming and prepares options in advance</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Shop</div>
+            <div class="insight-card__text">AI-filtered shopping recommendations that fill actual gaps in your wardrobe, not just trending items</div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card__num">Style</div>
+            <div class="insight-card__text">A personal style profile that evolves over time — learning what you reach for and what stays on the hanger</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="img-placeholder">
+          <span class="ph-icon">👗</span>
+          <span>kuai-closet-view.jpg</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="ph-icon">📅</span>
+          <span>kuai-plan-view.jpg</span>
+        </div>
+      </div>
+      <!-- TODO: Add KUAI app screens -->
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">AI UX Considerations</div>
+        <div class="cs-section__title">Where AI Earns Its Place</div>
+        <div class="cs-section__body">
+          <p>KUAI raised questions I kept returning to throughout the design: when does AI assistance feel like help versus surveillance? The closet inventory model requires the user to trust the system with something personal — their clothes, their calendar, their habits. That trust has to be earned through transparency and control, not assumed.</p>
+          <p>Every AI recommendation in KUAI shows its reasoning. You always know why a suggestion was made, and you can always override it. The system learns from your choices — but the choices are always yours.</p>
+        </div>
+      </div>
+
+      <div class="cs-section mt-4 reveal">
+        <div class="cs-section__label">Reflection</div>
+      </div>
+      <div class="reflection-card reveal">
+        <p>KUAI is where I got most interested in the ethics of AI UX — not in an abstract way, but in a very practical way. How do you make an AI feature feel useful rather than creepy? How do you communicate model confidence without creating false certainty? How much does the user need to understand about how a recommendation was made to trust it? I don't have complete answers yet. But asking those questions more carefully has changed how I think about every AI-touched interface I design.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band"></div>
+
+  <!-- ============================================================
+       ABOUT / OPEN FILE: NIHARIKA
+  ============================================================ -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="reveal">
+        <div class="eyebrow eyebrow--light">Open File: Niharika</div>
+        <h2 class="about-quote">"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</h2>
+        <div class="about-body">
+          <p>I'm a UX and graphic designer from SCAD Atlanta with a background that spans product design, visual identity, service design, and AI-assisted workflows. I work best at the intersection of systems and stories — the place where structure meets soul.</p>
+          <p>When I'm not designing, I'm cooking from memory without a recipe, deep in a murder mystery or a Bollywood film I've already watched twice, haunting every art museum within driving distance, or photographing the sky in whatever city I happen to be in. I'm particular about my nails, enthusiastic about Indian homegrown brands, and occasionally sidetracked by very good music.</p>
+          <p>I am always dressing up for no reason, always collecting things that don't quite have a category yet, and absolutely always thinking about what the next project will feel like.</p>
+        </div>
+      </div>
+
+      <div class="about-artifacts reveal">
+        <!-- Ginger -->
+        <div class="artifact-card artifact-card--ginger">
+          <div class="artifact-card__label">Emotional Support Creative Director</div>
+          <div class="artifact-card__title">Ginger 🐱</div>
+          <div class="artifact-card__content">Orange. Opinionated. Has walked across my keyboard during three final presentations. Still employed.</div>
         </div>
 
         <!-- Sky strip -->
-        <div class="hco hco-sky">
-          <div class="tape tape-b" style="top:-8px;left:64px;transform:rotate(1.5deg)"></div>
-          <div class="sky-card">
-            <div class="film-row">
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#52A0D8,#8CC8E0,#F2F6FC)"></div></div>
-            </div>
-            <div class="sky-cap">"I collect skies like color palettes."</div>
+        <div class="artifact-card artifact-card--sky">
+          <div class="artifact-card__label">Ongoing Archive</div>
+          <div class="artifact-card__title">Sky Photographs</div>
+          <div class="sky-film">
+            <div class="sky-film-frame"></div>
+            <div class="sky-film-frame"></div>
+            <div class="sky-film-frame"></div>
+            <div class="sky-film-frame"></div>
+          </div>
+          <div class="artifact-card__content" style="margin-top:0.6rem">Collected as color palette references. Also just because they're beautiful and the sky is free.</div>
+        </div>
+
+        <!-- Recent searches -->
+        <div class="artifact-card artifact-card--searches">
+          <div class="artifact-card__label">Recent Searches</div>
+          <div class="artifact-card__title">What I Look Up</div>
+          <div class="search-list">
+            <span class="search-item">"Indian homegrown brands visual identity"</span>
+            <span class="search-item">"postpartum care design systems"</span>
+            <span class="search-item">"Y2K graphic design typography"</span>
+            <span class="search-item">"murder mystery book 2025"</span>
           </div>
         </div>
 
-        <!-- Sticky -->
-        <div class="hco hco-sticky">
-          <div class="stic">organized chaos,<br><em>on purpose.</em></div>
+        <!-- Things I collect -->
+        <div class="artifact-card artifact-card--collect">
+          <div class="artifact-card__label">Things I Collect</div>
+          <div class="artifact-card__title">What I Save</div>
+          <div class="collect-list">
+            Sky photographs · Museum receipts · Interesting packaging · Hindi film posters · Screenshots of type I like · Menus with strong art direction · Nails reference images · Street food wrappers
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══ MARQUEE ══ -->
-<div class="mq" aria-hidden="true">
-  <div class="mq-track">
-    <span class="mq-item">UX Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">Graphic Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">Systems Thinking</span><span class="mq-star">✦</span>
-    <span class="mq-item">Storytelling</span><span class="mq-star">✦</span>
-    <span class="mq-item">Indian Visual Culture</span><span class="mq-star">✦</span>
-    <span class="mq-item">Tiny Details</span><span class="mq-star">✦</span>
-    <span class="mq-item">Organized Chaos</span><span class="mq-star">✦</span>
-    <span class="mq-item">AI-Assisted Building</span><span class="mq-star">✦</span>
-    <span class="mq-item">Emotional Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">SCAD · Atlanta</span><span class="mq-star">✦</span>
-    <span class="mq-item">UX Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">Graphic Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">Systems Thinking</span><span class="mq-star">✦</span>
-    <span class="mq-item">Storytelling</span><span class="mq-star">✦</span>
-    <span class="mq-item">Indian Visual Culture</span><span class="mq-star">✦</span>
-    <span class="mq-item">Tiny Details</span><span class="mq-star">✦</span>
-    <span class="mq-item">Organized Chaos</span><span class="mq-star">✦</span>
-    <span class="mq-item">AI-Assisted Building</span><span class="mq-star">✦</span>
-    <span class="mq-item">Emotional Design</span><span class="mq-star">✦</span>
-    <span class="mq-item">SCAD · Atlanta</span><span class="mq-star">✦</span>
-  </div>
-</div>
+  <!-- ============================================================
+       PROCESS / BEHIND THE BUILD
+  ============================================================ -->
+  <section class="process-section" id="process">
+    <div class="process-inner">
+      <div class="reveal">
+        <div class="eyebrow eyebrow--marigold">Behind the Build</div>
+        <h2 class="process-tagline">This portfolio is also <em>a case study.</em></h2>
+        <p class="process-sub">The site you're looking at was designed and built with AI assistance — every decision documented, every push-back recorded.</p>
+      </div>
 
-<!-- ══ WORK / DESKTOP ARCHIVE ══ -->
-<section id="work" class="section bg-cream-paper gd gd-cream">
-  <div class="wrap">
-    <div class="eyebrow ey-ink">Desktop Archive</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:.4rem">Project Files</h2>
-    <p style="font-size:.875rem;color:var(--muted);font-weight:300;max-width:46ch;line-height:1.72;margin-bottom:2.5rem">Open a file to see how I think, not just what I made.</p>
-
-    <div class="bento">
-
-      <!-- ══ PILI: hero, full-width ══ -->
-      <div class="pf pf-red reveal">
-        <div class="pf-tab">Senior Capstone &nbsp;·&nbsp; UX / Product / Service / Industrial Design</div>
-        <div class="pf-body">
-          <div class="pf-hero-inner">
-            <!-- Copy left -->
-            <div class="pf-copy">
-              <span class="pbadge">★ Main Case Study</span>
-              <div class="psub">Emotional UX · Physical Product · System Design</div>
-              <div class="ptitle">Pili</div>
-              <p class="pdesc">A calm connection system for older adults, families, and caregivers — combining research, emotional design, physical product thinking, UI/UX, and exhibition storytelling.</p>
-              <div class="ptags" style="margin-bottom:1.2rem">
-                <span class="ptag">Emotional UX</span>
-                <span class="ptag">Product Design</span>
-                <span class="ptag">Service Design</span>
-                <span class="ptag">Research</span>
-                <span class="ptag">Industrial Design</span>
-              </div>
-              <a href="#" class="plink">Open case study</a>
-            </div>
-            <!-- Image right -->
-            <div class="pimg pimg-cream" style="aspect-ratio:4/3;position:relative">
-              <div class="ph-pili-wrap">
-                <div class="ph-pili-main">
-                  <div class="ph-pili-card">
-                    <div class="ppc-line"></div>
-                    <div class="ppc-line s"></div>
-                    <div class="ppc-line xs"></div>
-                    <div class="ppc-dots">
-                      <div class="ppc-dot"></div>
-                      <div class="ppc-dot"></div>
-                      <div class="ppc-dot"></div>
-                    </div>
-                  </div>
-                  <div class="ph-pili-card" style="opacity:.6">
-                    <div class="ppc-line s"></div>
-                    <div class="ppc-line xs"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="pili-note">care,<br>connection,<br><em>clarity</em></div>
-              <span class="pl-label">pili-hero.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-          </div>
+      <div class="process-board reveal">
+        <div class="process-card">
+          <div class="process-card__filename">prompts.md</div>
+          <div class="process-card__title">The Prompt Log</div>
+          <div class="process-card__body">Every prompt I gave Claude to generate code and content — including the ones that went in completely the wrong direction and the ones that were embarrassingly specific about what I wanted the font size to be.</div>
+        </div>
+        <div class="process-card">
+          <div class="process-card__filename">decisions.md</div>
+          <div class="process-card__title">Creative Direction Calls</div>
+          <div class="process-card__body">The moments where I said "no, not like that" — when the AI proposed beige and I said maroon, when it made flat cards and I asked for folders, when it wrote formal copy and I asked it to sound like me.</div>
+        </div>
+        <div class="process-card">
+          <div class="process-card__filename">rejected-versions.txt</div>
+          <div class="process-card__title">The Record of Resistance</div>
+          <div class="process-card__body">Every version I rejected and why. The overly corporate iteration. The one that was technically correct and completely soulless. The version Ginger didn't approve of (she walked on the keyboard; I took it as feedback).</div>
+        </div>
+        <div class="process-card">
+          <div class="process-card__filename">commits.log</div>
+          <div class="process-card__title">Build History</div>
+          <div class="process-card__body">The actual commit history on GitHub — showing the real messy, iterative, sometimes chaotic process of building a portfolio when you're also learning as you go.</div>
         </div>
       </div>
 
-      <!-- ══ BIOSPHERIX: wide, image left ══ -->
-      <div class="pf pf-cobalt reveal">
-        <div class="pf-tab">AI / UX Web App &nbsp;·&nbsp; Workflow Design &nbsp;·&nbsp; Real User</div>
-        <div class="pf-body">
-          <div class="pf-wide-inner">
-            <!-- Image left -->
-            <div class="pimg pimg-blue" style="aspect-ratio:16/10;position:relative;min-height:250px">
-              <div class="ph-bio-wrap">
-                <div class="ph-bio-grid-bg"></div>
-                <div class="ph-bio-canvas">
-                  <div class="ph-bio-row">
-                    <div class="ph-bio-box" style="width:70px;height:30px">Input</div>
-                    <div class="ph-bio-line"></div><div class="ph-bio-dot"></div><div class="ph-bio-line"></div>
-                    <div class="ph-bio-box" style="width:78px;height:30px">AI Planner</div>
-                  </div>
-                  <div class="ph-bio-row" style="margin-left:12px">
-                    <div class="ph-bio-line" style="flex:none;width:30px"></div>
-                    <div class="ph-bio-box" style="width:60px;height:24px;opacity:.75">Layout</div>
-                    <div class="ph-bio-line"></div>
-                    <div class="ph-bio-box" style="width:60px;height:24px;opacity:.75">Output</div>
-                  </div>
-                  <div class="ph-bio-row">
-                    <div class="ph-bio-box" style="width:50px;height:20px;opacity:.5">Spec</div>
-                    <div class="ph-bio-line"></div><div class="ph-bio-dot" style="opacity:.45"></div><div class="ph-bio-line"></div>
-                    <div class="ph-bio-box" style="width:50px;height:20px;opacity:.5">CAD</div>
-                  </div>
-                </div>
-              </div>
-              <span class="pl-label">biospherix-interface.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-            <!-- Copy right -->
-            <div class="pf-copy-r">
-              <span class="pbadge">Strong UX Case Study</span>
-              <div class="psub">AI Tool · Workflow · Engineering System</div>
-              <div class="ptitle">BioSpherix<br>Layout Planner</div>
-              <p class="pdesc">An AI-assisted layout planning web app built for a real user — solving a complex workflow problem before CAD development.</p>
-              <div class="ptags" style="margin-bottom:1.1rem">
-                <span class="ptag">AI Tool</span>
-                <span class="ptag">Information Architecture</span>
-                <span class="ptag">Web App</span>
-                <span class="ptag">Workflow Design</span>
-              </div>
-              <a href="#" class="plink">Open case study</a>
-            </div>
-          </div>
-        </div>
+      <div class="process-ai-note reveal">
+        <strong>AI proposes.</strong> I decide.
       </div>
 
-      <!-- ══ FIFA + WISDOM: pair ══ -->
-      <div class="row-pair">
-
-        <div class="pf pf-forest reveal">
-          <div class="pf-tab">SCADpro Collaboration · Experience Design</div>
-          <div class="pf-body">
-            <div class="pimg pimg-green" style="aspect-ratio:3/2;position:relative">
-              <div class="ph-fifa-wrap">
-                <div class="ph-mline" style="top:42%;left:10%;width:55%;transform:rotate(-4deg)"></div>
-                <div class="ph-mline" style="top:56%;left:28%;width:42%;transform:rotate(7deg)"></div>
-                <div class="ph-pin" style="top:36%;left:12%"></div>
-                <div class="ph-pin" style="top:43%;left:60%;opacity:.65;width:7px;height:7px"></div>
-                <div class="ph-pin" style="top:57%;left:42%;opacity:.45;width:6px;height:6px"></div>
-                <div class="ph-arrow-lbl" style="top:28%;right:22%">→</div>
-                <div class="ph-badge">FIFA · Atlanta 2026</div>
-              </div>
-              <span class="pl-label">fifa-wayfinding.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-            <div class="pinfo">
-              <div class="psub">City-Scale Systems · Client Work</div>
-              <div class="ptitle" style="font-size:1.1rem">FIFA World Cup<br>Atlanta 2026</div>
-              <p class="pdesc" style="font-size:.76rem;margin-bottom:.75rem">Stakeholder research, journey mapping, and visitor experience design for a city-scale event.</p>
-              <div class="ptags" style="margin-bottom:.75rem">
-                <span class="ptag">Service Design</span>
-                <span class="ptag">Wayfinding</span>
-                <span class="ptag">Research</span>
-              </div>
-              <a href="#" class="plink" style="font-size:.6rem">Open folder</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pf pf-orange reveal">
-          <div class="pf-tab">Product · Packaging · Retail Experience</div>
-          <div class="pf-body">
-            <div class="pimg pimg-warm" style="aspect-ratio:3/2;position:relative">
-              <div class="ph-wisdom-wrap">
-                <div class="ph-binder"><div class="ph-binder-t">Wisdom ATL</div></div>
-                <div class="ph-swatches">
-                  <div class="ph-sw" style="background:#222"></div>
-                  <div class="ph-sw" style="background:#D4A060"></div>
-                  <div class="ph-sw" style="background:#F5EEE0"></div>
-                </div>
-                <div class="ph-product-rect"></div>
-              </div>
-              <span class="pl-label">wisdom-packaging.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-            <div class="pinfo">
-              <div class="psub">Commercial Design · Fashion-Adjacent</div>
-              <div class="ptitle" style="font-size:1.1rem">Wisdom ATL<br>Eyewear</div>
-              <p class="pdesc" style="font-size:.76rem;margin-bottom:.75rem">Product direction, packaging, visual merchandising, retail display, and brand storytelling.</p>
-              <div class="ptags" style="margin-bottom:.75rem">
-                <span class="ptag">Branding</span>
-                <span class="ptag">Packaging</span>
-                <span class="ptag">Retail Design</span>
-              </div>
-              <a href="#" class="plink" style="font-size:.6rem">Open folder</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /row-pair -->
-
-      <!-- ══ NAAGIN + KUAI: small ══ -->
-      <div class="row-small">
-
-        <div class="pf pf-coral reveal">
-          <div class="pf-tab">Graphic Design · Campaign · Marketing</div>
-          <div class="pf-body">
-            <div class="pimg pimg-red" style="aspect-ratio:5/3;position:relative">
-              <div class="ph-naagin-wrap">
-                <div class="naagin-wm">Naagin<br>Sauce</div>
-                <div class="naagin-sticker">Spicy ✦</div>
-              </div>
-              <div class="naagin-rip"></div>
-              <span class="pl-label">naagin-campaign.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-            <div class="pinfo" style="padding:.85rem 1.1rem 1rem">
-              <span class="pbadge" style="font-size:.5rem;margin-bottom:.45rem">Professional Design Experience</span>
-              <div class="ptitle" style="font-size:.98rem">Naagin Sauce</div>
-              <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">Campaign visuals, digital marketing, and graphic design for an Indian hot sauce brand.</p>
-              <div class="ptags" style="margin-bottom:.6rem">
-                <span class="ptag">Campaign</span>
-                <span class="ptag">Branding</span>
-                <span class="ptag">Social Media</span>
-              </div>
-              <a href="#" class="plink" style="font-size:.58rem">Explore ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pf pf-sky reveal">
-          <div class="pf-tab">AI Product · UX Experiment</div>
-          <div class="pf-body">
-            <div class="pimg pimg-sky" style="aspect-ratio:5/3;position:relative">
-              <div class="ph-kuai-wrap">
-                <div class="kuai-sc lg">
-                  <div class="ksb" style="width:38px"></div>
-                  <div class="ksb" style="width:28px"></div>
-                  <div class="ksb" style="width:34px"></div>
-                  <div class="ksb a" style="width:30px"></div>
-                </div>
-                <div class="kuai-sc sm">
-                  <div class="ksb" style="width:28px"></div>
-                  <div class="ksb" style="width:20px"></div>
-                  <div class="ksb a" style="width:24px"></div>
-                </div>
-              </div>
-              <div class="kuai-ai-tag">AI-assisted ✦</div>
-              <span class="pl-label">kuai-app-screens.jpg</span>
-              <span class="pl-note">replace with final</span>
-            </div>
-            <div class="pinfo" style="padding:.85rem 1.1rem 1rem">
-              <span class="pbadge" style="font-size:.5rem;margin-bottom:.45rem">AI Experimentation</span>
-              <div class="ptitle" style="font-size:.98rem">KUAI</div>
-              <p class="pdesc" style="font-size:.72rem;margin-bottom:.6rem">AI shopping assistant — interface structure and early AI-assisted product thinking.</p>
-              <div class="ptags" style="margin-bottom:.6rem">
-                <span class="ptag">AI UX</span>
-                <span class="ptag">App Design</span>
-                <span class="ptag">Fashion × Tech</span>
-              </div>
-              <a href="#" class="plink" style="font-size:.58rem">Explore ↗</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /row-small -->
-
-    </div><!-- /bento -->
-  </div>
-</section>
-
-<!-- ══ ABOUT — MAROON ══ -->
-<section id="about" class="section bg-maroon gd gd-maroon">
-  <div class="wrap">
-    <div class="eyebrow ey-cream">Open File: Niharika</div>
-    <div class="about-grid">
-
-      <div>
-        <h2 class="about-h">Not a bio.<br>A few <span class="it">clues.</span></h2>
-        <p class="about-meta">What I notice, collect, love, and turn into design.</p>
-
-        <div class="about-mob">
-          <span class="ach">Ginger's person</span><span class="ach">Sky collector</span>
-          <span class="ach">Indian art forms</span><span class="ach">Systems thinker</span>
-        </div>
-
-        <div class="about-q reveal">
-          <p>"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
-        </div>
-        <p class="about-para reveal">I'm a UX and graphic designer based in Atlanta, graduating from SCAD in 2025. My work sits at the intersection of clarity and feeling — I want people to navigate experiences without ever feeling lost, and to feel something when they arrive.</p>
-        <p class="about-para reveal">Outside of design, I'm usually cooking, discovering music, watching murder mysteries or Bollywood, visiting museums, dressing up, finding <strong>Indian homegrown brands</strong>, getting my nails done, or taking another picture of the sky.</p>
-        <div class="about-chips reveal">
-          <span class="ach">Clarity</span><span class="ach">Systems</span>
-          <span class="ach">Storytelling</span><span class="ach">Emotional connection</span>
-          <span class="ach">Tiny details</span><span class="ach">Culture</span>
-          <span class="ach">People not feeling lost</span>
-        </div>
-      </div>
-
-      <!-- 4 LARGER artifacts -->
-      <div class="about-collage">
-
-        <!-- Searches — bigger -->
-        <div class="ac" style="top:0;left:0;transform:rotate(-1deg)">
-          <div class="tape tape-c" style="top:-8px;left:44px;transform:rotate(-1.5deg)"></div>
-          <div class="art art-searches reveal">
-            <div class="s-lbl">Recent searches</div>
-            <div class="s-l">how do people navigate airports?</div>
-            <div class="s-l">why does this interface feel stressful?</div>
-            <div class="s-l">Indian calendar art references</div>
-            <div class="s-l">is this spacing bothering anyone else?</div>
-          </div>
-        </div>
-
-        <!-- Ginger — bigger polaroid -->
-        <div class="ac" style="top:0;right:0;transform:rotate(2.5deg)">
-          <div class="tape tape-mg" style="top:-8px;left:24px;transform:rotate(1.5deg)"></div>
-          <div class="art art-gin polaroid reveal">
-            <div class="pol-img" style="width:120px;height:120px">
-              <svg class="cat-svg" width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger the cat">
-                <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
-                <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
-                <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
-                <polygon points="43,13 47,3 37,11" fill="#5C3010" opacity=".8"/>
-                <polygon points="18,12 15,5 23,11" fill="#E8A020" opacity=".55"/>
-                <polygon points="42,12 45,5 37,11" fill="#E8A020" opacity=".55"/>
-                <ellipse cx="24" cy="21" rx="3.5" ry="4" fill="#1a1108" opacity=".9"/>
-                <ellipse cx="36" cy="21" rx="3.5" ry="4" fill="#1a1108" opacity=".9"/>
-                <ellipse cx="24.8" cy="19.5" rx="1.2" ry="1.8" fill="#fff" opacity=".85"/>
-                <ellipse cx="36.8" cy="19.5" rx="1.2" ry="1.8" fill="#fff" opacity=".85"/>
-                <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
-                <path d="M46 43Q57 37 54 50Q51 58 44 53" stroke="#5C3010" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75"/>
-              </svg>
-            </div>
-            <div class="pol-cap">ginger.jpg</div>
-          </div>
-        </div>
-
-        <!-- Sky — wider -->
-        <div class="ac" style="top:188px;right:4px;transform:rotate(-1.5deg)">
-          <div class="tape tape-b" style="top:-8px;left:55px;transform:rotate(2deg)"></div>
-          <div class="art art-sky reveal">
-            <div class="film-row">
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF7040,#FFD060,#87CEEB)"></div></div>
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#2C3E8A,#5B8AC8,#C4D4EE)"></div></div>
-              <div class="ff"><div class="ff-img" style="background:linear-gradient(#FF94A0,#FEBC90,#FFF4C0)"></div></div>
-            </div>
-            <div class="sky-cap">"I collect skies like color palettes."</div>
-          </div>
-        </div>
-
-        <!-- Collect — bottom left -->
-        <div class="ac" style="top:296px;left:0;transform:rotate(.5deg)">
-          <div class="tape tape-mg" style="top:-8px;left:35px;transform:rotate(-2deg)"></div>
-          <div class="art art-collect reveal">
-            <div class="cfname">things_i_collect.txt</div>
-            <div class="citem">visual systems</div>
-            <div class="citem">Indian art forms</div>
-            <div class="citem">fashion references</div>
-            <div class="citem">museum notes</div>
-            <div class="citem">songs</div>
-            <div class="citem">tiny details</div>
-          </div>
-        </div>
-
+      <div class="mt-4 reveal">
+        <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn--primary">View on GitHub →</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══ PROCESS — MARIGOLD ══ -->
-<section id="process" class="section bg-marigold gd gd-yellow">
-  <div class="wrap">
-    <div class="eyebrow ey-ink">Behind the Build</div>
-    <div class="proc-grid">
-      <div>
-        <h2 class="proc-h">This portfolio is<br>also a <span class="it">case study.</span></h2>
-        <div class="proc-tl">"AI proposes. I decide."</div>
-        <p class="proc-body">I built this portfolio the way I design everything — directing, deciding, pushing back, and making it feel like me. AI was a tool I used with intention. Every prompt was art-directed. Every output critiqued.</p>
-        <p class="proc-body" style="margin-top:-.5rem">The full record lives on GitHub: every version, every rejected direction, every moment I said "no, that's not it."</p>
-        <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-mg">View on GitHub ↗</a>
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="contact-section paper-grid" id="contact">
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="eyebrow">Let's Work Together</div>
+        <h2 class="contact-headline">Let's make<br>something <em>good.</em></h2>
+        <p class="contact-body">
+          I'm currently open to full-time UX and graphic design roles, freelance projects, and collaborations that have strong opinions about what they want to become. If that sounds like you, let's talk.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:niharika@example.com" class="btn btn--maroon">Send an Email ↗</a>
+          <a href="https://linkedin.com/in/niharikajain" target="_blank" rel="noopener" class="btn btn--outline">LinkedIn ↗</a>
+          <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proc-pin">
-        <div class="pcard pc-r reveal">
-          <div class="pcfile">prompts.md</div>
-          <div class="pctitle">Prompting as Art Direction</div>
-          <div class="pcdesc">Every AI prompt was a creative brief — written with intent, references, and a clear point of view about what I didn't want.</div>
+
+      <div class="contact-sticky-notes reveal">
+        <div class="sticky-note">
+          p.s. — I take every interview as a chance to show you what obsessing over tiny details actually looks like in a conversation. Fair warning.
         </div>
-        <div class="pcard pc-g reveal">
-          <div class="pcfile">decisions.md</div>
-          <div class="pctitle">Direction, Not Generation</div>
-          <div class="pcdesc">I made every visual and structural decision. AI generated starting points. I shaped, rejected, and refined until it felt like mine.</div>
-        </div>
-        <div class="pcard pc-b reveal">
-          <div class="pcfile">rejected-versions.txt</div>
-          <div class="pctitle">Record of Resistance</div>
-          <div class="pcdesc">I documented every version that felt too generic or template-like. Knowing what doesn't feel like you is half the creative brief.</div>
-        </div>
-        <div class="pcard pc-o reveal">
-          <div class="pcfile">commits.log</div>
-          <div class="pctitle">Iteration in Public</div>
-          <div class="pcdesc">Every decision is committed. The build history is a design process — public, honest, and ongoing.</div>
+        <div class="sticky-note">
+          p.p.s. — If you also have a strong opinion about Indian food, Bollywood, or the correct hierarchy of hot sauce heat levels, we will get along just fine.
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══ CONTACT — CREAM ══ -->
-<section id="contact" class="section bg-cream gd gd-cream">
-  <div class="wrap">
-    <div class="eyebrow ey-ink">Get in touch</div>
-    <div class="contact-grid">
-      <div>
-        <h2 class="contact-h">Let's make something<br><span class="it">worth noticing.</span></h2>
-        <p class="contact-sub">I'm looking for full-time design roles where I can bring both my systems thinking and my taste to the work.</p>
-        <div class="contact-btns">
-          <a href="mailto:niharika@example.com" class="btn btn-red">Email me →</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-ol-dk">LinkedIn ↗</a>
-          <a href="#" class="btn btn-ol-dk">Resume ↗</a>
-          <a href="https://behance.net" target="_blank" rel="noopener" class="btn btn-ol-dk">Behance ↗</a>
-        </div>
-        <div class="sticky-row">
-          <div class="sn-y">p.s. Ginger approves thoughtful emails.</div>
-          <div class="sn-b">p.p.s. I will absolutely ask where you got your reference images.</div>
-        </div>
-      </div>
-      <!-- Ginger polaroid -->
-      <div class="ct-gin">
-        <div class="polaroid ct-pol">
-          <div class="cg-bg">
-            <svg class="cat-svg" width="52" height="52" viewBox="0 0 60 60" fill="none" aria-label="Ginger">
-              <ellipse cx="30" cy="38" rx="18" ry="15" fill="#5C3010" opacity=".76"/>
-              <circle cx="30" cy="22" r="13" fill="#5C3010" opacity=".8"/>
-              <polygon points="17,13 13,3 23,11" fill="#5C3010" opacity=".8"/>
-              <polygon points="43,13 47,3 37,11" fill="#5C3010" opacity=".8"/>
-              <ellipse cx="24" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
-              <ellipse cx="36" cy="21" rx="3.5" ry="4" fill="#fff" opacity=".8"/>
-              <ellipse cx="30" cy="25.5" rx="2" ry="1.4" fill="#E8A020" opacity=".65"/>
-            </svg>
-          </div>
-          <div class="pol-cap">ginger.jpg</div>
-        </div>
-        <div style="font-family:var(--hand);font-size:.86rem;color:var(--muted);text-align:center;margin-top:.2rem">very professional.</div>
-      </div>
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-sig">Made in Atlanta <strong>✦</strong> Powered by <em>Ginger</em></p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#work" class="footer-link">Work</a>
+        <a href="#about" class="footer-link">About</a>
+        <a href="#process" class="footer-link">Process</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ══ FOOTER ══ -->
-<footer>
-  <span class="fl">© 2025 Niharika Jain · Built with intention (and AI assistance)</span>
-  <span class="fr">Made in Atlanta ✦ Powered by Ginger</span>
-</footer>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── Sticky nav ──────────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
-<script>
-const tog=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
-tog.addEventListener('click',()=>nl.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+    // ── Mobile nav toggle ────────────────────────────────────────
+    const toggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+    // ── Scroll reveal ─────────────────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ── Smooth scroll polyfill for anchor links ──────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
