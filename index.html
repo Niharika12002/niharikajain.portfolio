@@ -653,6 +653,162 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
 /* divider */
 .div{border:none;border-top:1px solid var(--paper3);margin:2.25rem 0}
 
+/* ── CONCISE CASE STUDY COMPONENTS ── */
+
+/* intro block */
+.cs-intro{
+  max-width:680px;font-size:var(--fs-1);color:var(--ink-2);
+  line-height:1.7;margin-bottom:2.5rem;
+  padding-bottom:2rem;border-bottom:1px solid var(--paper3);
+}
+
+/* role list */
+.role-block{margin-bottom:2.5rem}
+.role-block__lbl{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-4);margin-bottom:.75rem;
+}
+.role-block__title{
+  font-family:var(--ff-display);font-size:var(--fs-2);
+  font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;
+}
+.role-list{display:flex;flex-direction:column;gap:.4rem;max-width:620px}
+.role-list__item{
+  font-size:var(--fs-0);color:var(--ink-2);line-height:1.6;
+  display:flex;align-items:flex-start;gap:.6rem;
+}
+.role-list__item::before{
+  content:'';display:inline-block;width:5px;height:5px;
+  border-radius:50%;background:var(--ink-4);flex-shrink:0;margin-top:.5rem;
+}
+.pv--pili   .role-list__item::before{background:var(--red)}
+.pv--bio    .role-list__item::before{background:var(--cobalt)}
+.pv--fifa   .role-list__item::before{background:var(--forest)}
+.pv--wisdom .role-list__item::before{background:var(--orange)}
+.pv--naagin .role-list__item::before{background:var(--coral)}
+.pv--kuai   .role-list__item::before{background:var(--sky)}
+
+/* decisions section */
+.decisions{margin-bottom:2.5rem}
+.decisions__lbl{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-4);margin-bottom:.75rem;
+}
+.decisions__title{
+  font-family:var(--ff-display);font-size:var(--fs-2);
+  font-weight:700;letter-spacing:-.02em;margin-bottom:1.75rem;
+}
+.dec{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.75rem 2.5rem;align-items:start;
+  margin-bottom:2rem;padding-bottom:2rem;
+  border-bottom:1px solid var(--paper3);
+}
+.dec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.dec--reverse{direction:rtl}
+.dec--reverse>*{direction:ltr}
+@media(max-width:680px){.dec,.dec--reverse{grid-template-columns:1fr;direction:ltr}}
+.dec__content{}
+.dec__num{
+  font-family:var(--ff-hand);font-size:1.1rem;color:var(--ink-4);
+  margin-bottom:.35rem;
+}
+.dec__title{
+  font-family:var(--ff-display);font-size:var(--fs-2);
+  font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem;line-height:1.1;
+}
+.pv--pili   .dec__title{color:var(--red)}
+.pv--bio    .dec__title{color:var(--cobalt)}
+.pv--fifa   .dec__title{color:var(--forest)}
+.pv--wisdom .dec__title{color:var(--orange)}
+.pv--naagin .dec__title{color:var(--coral)}
+.pv--kuai   .dec__title{color:var(--sky)}
+.dec__body{
+  font-size:var(--fs-0);color:var(--ink-2);line-height:1.72;max-width:520px;
+}
+.dec__img{width:100%}
+
+/* image placeholder — no emoji, filename label style */
+.ph-clean{
+  width:100%;background:var(--paper2);
+  border:1.5px solid var(--paper3);
+  border-radius:var(--r-8);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:.5rem;
+  padding:2.5rem 1.5rem;min-height:240px;
+  color:var(--ink-4);text-align:center;
+}
+.ph-clean__icon{
+  width:36px;height:36px;border-radius:var(--r-4);
+  display:flex;align-items:center;justify-content:center;
+}
+.pv--pili   .ph-clean__icon{background:var(--red-pl);color:var(--red)}
+.pv--bio    .ph-clean__icon{background:var(--cobalt-pl);color:var(--cobalt)}
+.pv--fifa   .ph-clean__icon{background:var(--forest-pl);color:var(--forest)}
+.pv--wisdom .ph-clean__icon{background:var(--orange-pl);color:var(--orange)}
+.pv--naagin .ph-clean__icon{background:var(--coral-pl);color:var(--coral)}
+.pv--kuai   .ph-clean__icon{background:var(--sky-pl);color:var(--sky)}
+.ph-clean__icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.ph-clean__name{
+  font-size:var(--fs--1);font-weight:600;color:var(--ink-3);
+  font-family:var(--ff-body);letter-spacing:.03em;
+}
+.ph-clean__size{font-size:10px;color:var(--ink-4);margin-top:.1rem}
+
+.ph-clean--tall{min-height:360px}
+.ph-clean--hero{min-height:460px}
+.ph-clean--short{min-height:160px}
+
+/* outcome block */
+.outcome{
+  background:var(--paper2);border-radius:var(--r-12);
+  padding:1.75rem 2rem;margin-bottom:2.5rem;
+  border-left:4px solid var(--ink-5);
+}
+.pv--pili   .outcome{border-left-color:var(--red)}
+.pv--bio    .outcome{border-left-color:var(--cobalt)}
+.pv--fifa   .outcome{border-left-color:var(--forest)}
+.pv--wisdom .outcome{border-left-color:var(--orange)}
+.pv--naagin .outcome{border-left-color:var(--coral)}
+.pv--kuai   .outcome{border-left-color:var(--sky)}
+.outcome__lbl{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-4);margin-bottom:.5rem;
+}
+.outcome__body{
+  font-size:var(--fs-0);color:var(--ink-2);line-height:1.72;max-width:680px;
+}
+.outcome__list{display:flex;flex-direction:column;gap:.45rem;margin-top:.1rem}
+.outcome__item{
+  font-size:var(--fs-0);color:var(--ink-2);line-height:1.6;
+  display:flex;align-items:flex-start;gap:.6rem;
+}
+.outcome__item::before{
+  content:'↳';color:var(--ink-4);flex-shrink:0;
+  font-size:.8rem;margin-top:.1rem;
+}
+
+/* gallery */
+.gallery{margin-bottom:2.5rem}
+.gallery__lbl{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-4);margin-bottom:1rem;
+}
+.gallery__grid{
+  display:grid;gap:1rem;
+}
+.gallery__grid--2{grid-template-columns:1fr 1fr}
+.gallery__grid--3{grid-template-columns:repeat(3,1fr)}
+.gallery__grid--2-1{grid-template-columns:2fr 1fr}
+.gallery__grid--1-2{grid-template-columns:1fr 2fr}
+@media(max-width:680px){
+  .gallery__grid--2,.gallery__grid--3,
+  .gallery__grid--2-1,.gallery__grid--1-2{grid-template-columns:1fr}
+}
+
+/* section spacing override for concise layout */
+.cs-block{margin-bottom:2.5rem}
+
 </style>
 </head>
 
@@ -687,7 +843,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
   <section class="hero pg" id="top">
     <div class="hero__in">
       <div class="reveal">
-        <div class="hero__kicker">SCAD Atlanta · UX + Graphic Design · Class of 2025</div>
+        <div class="hero__kicker">SCAD Atlanta · UX + Graphic Design · Class of 2026</div>
         <h1 class="hero__h1">
           Part designer,<br>
           part <em>storyteller</em>,<br>
@@ -834,7 +990,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
             </div><!-- TODO: Add FIFA journey map output -->
             <div class="pcard__cat">Service Design</div>
             <h3 class="pcard__name">FIFA WC 2026<br>Atlanta</h3>
-            <p class="pcard__desc">City-scale fan experience — wayfinding, transit, atmosphere for 800,000+ visitors across match days.</p>
+            <p class="pcard__desc">City-scale fan experience — wayfinding, transit, and atmosphere across multiple match days in Atlanta.</p>
             <div class="pcard__foot">
               <div class="pcard__tags">
                 <span class="tag">Journey Mapping</span>
@@ -1179,436 +1335,436 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
 <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
 <script>
 /* ── project content data ───────────────────────────────────────────── */
+
+// Shared SVG icons for clean placeholders (no emoji in visual areas)
+const ICO = {
+  image: `<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
+  layout:`<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>`,
+  mobile:`<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round" stroke-width="3"/></svg>`,
+  device:`<svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`,
+  screen:`<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+  map:   `<svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,
+  pkg:   `<svg viewBox="0 0 24 24"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
+  brand: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+  flow:  `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/></svg>`,
+  spark: `<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  app:   `<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>`,
+};
+
+function ph(icon, filename, size='') {
+  return `<div class="ph-clean${size ? ' ph-clean--'+size : ''}">
+    <div class="ph-clean__icon">${ICO[icon] || ICO.image}</div>
+    <div class="ph-clean__name">${filename}</div>
+  </div>`;
+}
+
+function dec(num, title, body, imgIcon, imgFile, reverse=false) {
+  const content = `<div class="dec__content">
+      <div class="dec__num">${num}</div>
+      <div class="dec__title">${title}</div>
+      <div class="dec__body">${body}</div>
+    </div>
+    <div class="dec__img">${ph(imgIcon, imgFile)}</div>`;
+  return `<div class="dec${reverse ? ' dec--reverse' : ''} reveal">${content}</div>`;
+}
+
 const PROJECTS = {
 
+  /* ═══════════ PILI ═══════════ */
   pili: {
     slug: 'pili',
     colorClass: 'pv--pili',
-    accentColor: '#B83025',
     cat: 'UX / Product + Physical Design · Senior Capstone',
-    title: 'Pili — Care Connection System',
-    subtitle: 'A calm connection system for older adults, their families, and their caregivers — combining a physical tabletop device, a family app, and a caregiver dashboard into one designed ecosystem.',
+    title: 'Pili',
+    subtitle: 'A calm connection system for older adults, their families, and caregivers — built across three touchpoints: a physical device, a family app, and a caregiver dashboard.',
     meta: [
-      {label:'Role', val:'Lead UX + Visual Designer'},
-      {label:'Type', val:'Senior Capstone, SCAD'},
-      {label:'Platform', val:'Physical Device + iOS + Web Dashboard'},
-      {label:'Tools', val:'Figma, Miro, Primary Research'},
+      {label:'Role',     val:'Lead UX + Visual Designer'},
+      {label:'Context',  val:'Senior Capstone, SCAD Atlanta'},
+      {label:'Platform', val:'Physical Device · iOS App · Web Dashboard'},
+      {label:'Tools',    val:'Figma · Miro · Primary Research'},
     ],
-    heroImg: {icon:'🌱', label:'pili-device-render.jpg'},
+    heroImg: {icon:'device', label:'pili-system-overview.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Overview</div>
-        <div class="cs-s__h">The Problem</div>
-        <div class="cs-s__p">
-          <p>As people age, the everyday connections that used to happen naturally — a quick call, a visit, knowing someone is okay — become harder to maintain. Families feel out of the loop. Caregivers operate without full context. Older adults often find current technology either overwhelming or alienating.</p>
-          <p>Pili addresses the connection gap between older adults, their families, and their caregivers — not by adding more screens, but by designing a system where technology fades into the background and care moves to the foreground.</p>
+      <div class="cs-intro reveal">
+        Pili addresses the connection gap between older adults, their families, and professional caregivers. Most care technology serves one audience at a time — either the older adult or the family. Pili is designed as a shared ecosystem, so care feels like presence rather than surveillance.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Led end-to-end UX design across three distinct form factors: a physical tabletop device, an iOS family app, and a web caregiver dashboard</div>
+          <div class="role-list__item">Conducted primary research with older adults, family members, and caregivers to understand how "care" is experienced differently by each stakeholder</div>
+          <div class="role-list__item">Designed the system architecture — how the three surfaces share information without any one audience receiving more than they need</div>
+          <div class="role-list__item">Developed the visual and interaction language for the device (which deliberately avoids medical or tech aesthetics)</div>
+          <div class="role-list__item">Created prototypes and final deliverables for the SCAD senior capstone presentation</div>
         </div>
       </div>
 
-      <hr class="div"/>
-
-      <div class="cs-2 reveal">
-        <div class="cs-s">
-          <div class="cs-s__lbl">The Gap</div>
-          <div class="cs-s__h">Between Families and Care</div>
-          <div class="cs-s__p">
-            <p>Existing care technology tends to serve one audience at a time — either the older adult (medical alerts, simplified phones) or the family (location apps, remote monitoring). Almost nothing is designed as a shared ecosystem.</p>
-            <p>Pili's hypothesis: if you design the connection system rather than just a tool for each person, care feels less like surveillance and more like being in the same room.</p>
-          </div>
-        </div>
-        <div class="ph ph--tall reveal">
-          <span class="ph-ico">📐</span><span>pili-system-diagram.jpg</span>
-        </div><!-- TODO: Add Pili system diagram -->
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Three choices that shaped everything</div>
+        ${dec('Decision 01', 'Designing connection beyond live calls',
+          'Real connection between families and older adults doesn\'t happen through scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle, low-stakes signals (a soft light, a shared photo update, a mood indicator) so families feel connected without requiring the older adult to initiate or navigate a screen.',
+          'device', 'pili-device-ambient-states.jpg')}
+        ${dec('Decision 02', 'Making the device feel domestic, not clinical',
+          'Most assistive technology signals "medical" before it signals "home." I made a deliberate choice to design the physical device like a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall or attached to a body. Material language, form factor, and interaction all follow this principle.',
+          'image', 'pili-device-form-study.jpg', true)}
+        ${dec('Decision 03', 'Building one system across three surfaces',
+          'Rather than designing three separate products that talk to each other, I designed one system with three views. Each surface — device, family app, caregiver dashboard — shows only the information its user needs. The older adult is never aware of what the family or caregiver can see. Trust is built through information architecture, not promises.',
+          'layout', 'pili-system-architecture.jpg')}
       </div>
 
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">The System</div>
-        <div class="cs-s__h">Three Parts, One Ecosystem</div>
-        <div class="cs-3">
-          <div class="prin-card">
-            <div class="prin-card__n">01</div>
-            <div class="prin-card__h">The Device</div>
-            <div class="prin-card__t">A calm, physical tabletop presence for the older adult — designed so it doesn't feel like a monitor, a medical device, or a phone. Low friction, ambient, warm.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__n">02</div>
-            <div class="prin-card__h">The Family App</div>
-            <div class="prin-card__t">An iOS app for family members — gentle status updates, easy connection moments, a shared view of how their person is doing without requiring the older adult to operate a smartphone.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__n">03</div>
-            <div class="prin-card__h">The Caregiver Dashboard</div>
-            <div class="prin-card__t">A web-based dashboard for professional caregivers — care notes, schedule visibility, communication with families, and a full picture of the person they're caring for.</div>
-          </div>
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Designed and presented a complete three-part system as senior capstone work at SCAD Atlanta</div>
+          <div class="outcome__item">Delivered prototypes for all three surfaces: physical device interaction model, iOS family app, and web caregiver dashboard</div>
+          <div class="outcome__item">Demonstrated how multi-stakeholder UX requires different trust models and information architectures for each audience</div>
         </div>
       </div>
 
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Research</div>
-        <div class="cs-s__h">What I Found</div>
-        <div class="ins-grid">
-          <div class="ins-card"><div class="ins-card__n">3 users</div><div class="ins-card__t">Primary stakeholders with different needs: older adult, family member, professional caregiver — each with completely different mental models of "care"</div></div>
-          <div class="ins-card"><div class="ins-card__n">Ambient</div><div class="ins-card__t">The strongest design direction from research: presence over performance. Older adults wanted to feel connected without feeling monitored</div></div>
-          <div class="ins-card"><div class="ins-card__n">Trust</div><div class="ins-card__t">The core currency of the system. Every design decision had to earn trust with all three stakeholders simultaneously</div></div>
-          <div class="ins-card"><div class="ins-card__n">Friction</div><div class="ins-card__t">The biggest barrier to adoption of current tech was not capability — it was friction. Every extra step lost a user</div></div>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
+          ${ph('mobile', 'pili-family-app-screens.jpg', 'tall')}
+          ${ph('screen', 'pili-caregiver-dashboard.jpg', 'tall')}
         </div>
-      </div>
-
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Design Principles</div>
-        <div class="cs-s__h">What Pili Refuses to Do</div>
-        <div class="prin-grid">
-          <div class="prin-card"><div class="prin-card__n">01</div><div class="prin-card__h">Never feel like surveillance</div><div class="prin-card__t">Connection, not monitoring. The older adult always has agency over what's shared and how.</div></div>
-          <div class="prin-card"><div class="prin-card__n">02</div><div class="prin-card__h">Never require a smartphone</div><div class="prin-card__t">The physical device is the primary interface for the older adult. No app required on their end.</div></div>
-          <div class="prin-card"><div class="prin-card__n">03</div><div class="prin-card__h">Never show more than is needed</div><div class="prin-card__t">Each surface shows only what its audience needs. No one gets the full picture except in aggregate for safety.</div></div>
-          <div class="prin-card"><div class="prin-card__n">04</div><div class="prin-card__h">Never feel medical</div><div class="prin-card__t">Pili is a care system, not a health monitoring device. The visual and interaction language stays warm, not clinical.</div></div>
+        <div class="gallery__grid gallery__grid--3">
+          ${ph('device', 'pili-device-render.jpg')}
+          ${ph('flow',   'pili-system-flow.jpg')}
+          ${ph('image',  'pili-research-synthesis.jpg')}
         </div>
-      </div>
-
-      <div class="cs-2 reveal">
-        <div class="ph ph--tall"><span class="ph-ico">📱</span><span>pili-family-app.jpg</span></div>
-        <div class="ph ph--tall"><span class="ph-ico">💻</span><span>pili-caregiver-dashboard.jpg</span></div>
-      </div><!-- TODO: Add Pili app screens and dashboard -->
-
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>Pili taught me that the hardest design challenge isn't complexity — it's designing something that three completely different people need to trust, for completely different reasons, at the same time. Every design decision had to hold. The physical device couldn't feel clinical. The family app couldn't feel intrusive. The caregiver dashboard couldn't feel impersonal. Getting that balance — across form factors, across users, across what "care" means to each of them — that's what I kept coming back to.</p>
       </div>
     `
   },
 
+  /* ═══════════ BIOSPHERIX ═══════════ */
   biospherix: {
     slug: 'biospherix',
     colorClass: 'pv--bio',
-    accentColor: '#1A4A82',
-    cat: 'UX / AI-Assisted Web App · Live Project',
-    title: 'BioSpherix — Layout Planner',
-    subtitle: 'An AI-assisted layout planning web application built for Nihar, a mechanical engineer at BioSpherix — designed to turn client requirements into clear 2D system layouts before CAD or Blender development begins.',
+    cat: 'UX / Web App · Live Project',
+    title: 'BioSpherix Layout Planner',
+    subtitle: 'An AI-assisted layout planning web app built for Nihar, a mechanical engineer at BioSpherix — turning client requirements into shareable 2D system layouts before CAD development begins.',
     meta: [
-      {label:'Role', val:'UX Designer + Developer'},
-      {label:'User', val:'Nihar, Mechanical Engineer at BioSpherix'},
-      {label:'Platform', val:'Browser / Desktop Web App'},
-      {label:'Tools', val:'Figma, React, AI APIs'},
+      {label:'Role',    val:'UX Designer + Developer'},
+      {label:'User',    val:'Nihar, Mechanical Engineer · BioSpherix'},
+      {label:'Type',    val:'Live Web Application'},
+      {label:'Tools',   val:'Figma · React · Claude API'},
     ],
-    heroImg: {icon:'🧬', label:'biospherix-interface.jpg'},
+    heroImg: {icon:'screen', label:'biospherix-app-overview.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Context</div>
-        <div class="cs-s__h">The Real User: One Engineer, One Specific Problem</div>
-        <div class="cs-s__p">
-          <p>BioSpherix makes precision laboratory enclosures — systems that control oxygen, CO2, temperature, and humidity for sensitive biological research. Nihar is a mechanical engineer on their team who works with clients to configure these systems before any physical design begins.</p>
-          <p>The existing process: Nihar receives client requirements via email, translates them into a manual layout sketch, iterates with the client over multiple rounds, and only then moves into CAD or Blender. The bottleneck was the translation layer — turning words and requirements into a spatial layout that both Nihar and the client could reason about together.</p>
+      <div class="cs-intro reveal">
+        Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. The process was slow, hard to share, and prone to miscommunication. I designed and built a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout in minutes, not hours.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Researched Nihar's existing workflow through direct observation and structured conversation — mapped the bottlenecks in the requirements-to-layout process</div>
+          <div class="role-list__item">Designed the UX: information architecture, input flow, layout canvas, and validation feedback system</div>
+          <div class="role-list__item">Built the working web application using React, with an AI layer (Claude API) to interpret requirements and suggest layout configurations</div>
+          <div class="role-list__item">Designed around Nihar's domain expertise — not a product for novices, but a tool that makes an expert faster</div>
         </div>
       </div>
 
-      <div class="ins-grid reveal">
-        <div class="ins-card"><div class="ins-card__n">1 user</div><div class="ins-card__t">Not a broad market product — this was designed specifically for Nihar's workflow and his specific needs as an engineer working with varied clients</div></div>
-        <div class="ins-card"><div class="ins-card__n">Pre-CAD</div><div class="ins-card__t">The tool lives in the gap between client requirements and CAD development — the messy middle where most miscommunication happens</div></div>
-        <div class="ins-card"><div class="ins-card__n">2D First</div><div class="ins-card__t">The goal is a clear, shareable 2D layout — not a final design, but a shared visual language between engineer and client</div></div>
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Three choices that shaped the tool</div>
+        ${dec('Decision 01', 'Turning requirements into a visual layout canvas',
+          'The core problem was a translation gap: clients describe space and needs in words, engineers think in spatial configurations. I designed an input system that captures requirements in plain language and immediately renders them onto a constrained 2D canvas — giving Nihar and the client a shared spatial language before any technical specification is written.',
+          'layout', 'biospherix-canvas-view.jpg')}
+        ${dec('Decision 02', 'Designing around Nihar\'s real workflow',
+          'Nihar is a domain expert. He doesn\'t need tooltips explaining what an OxyCycler is. The entire UX is built around the assumption of existing knowledge — the tool compresses the slow parts of his workflow without adding friction or re-teaching him his own job. Interface complexity scales with task complexity, not user familiarity.',
+          'flow', 'biospherix-workflow-map.jpg', true)}
+        ${dec('Decision 03', 'Using AI to accelerate, not replace, design judgment',
+          'The AI layer suggests layout configurations based on the client\'s stated requirements — but it always surfaces its reasoning and always defers to Nihar\'s override. The tool treats AI output as a first draft, not a final answer. Nihar reviews, adjusts, annotates, and exports. The AI reduces his time-to-first-draft; his judgment determines the final output.',
+          'spark', 'biospherix-ai-suggestions.jpg')}
       </div>
 
-      <hr class="div"/>
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Built and shipped a working web application used by Nihar at BioSpherix</div>
+          <div class="outcome__item">Reduced the time from client requirements to first reviewable layout draft</div>
+          <div class="outcome__item">Demonstrated a real AI-assisted design workflow where AI accelerates expert judgment rather than replacing it</div>
+        </div>
+      </div><!-- TODO: Confirm specific outcome metrics with Nihar -->
 
-      <div class="cs-2 reveal">
-        <div class="cs-s">
-          <div class="cs-s__lbl">The Solution</div>
-          <div class="cs-s__h">An AI-Assisted Layout Tool</div>
-          <div class="cs-s__p">
-            <p>The BioSpherix Layout Planner is a web application that takes client requirements as input and uses AI to generate, validate, and refine 2D system layout options — giving Nihar a faster path from requirements to a reviewable plan.</p>
-            <p>The AI layer doesn't replace Nihar's judgment — it accelerates the first-pass translation so that conversations with clients can start from something concrete rather than blank paper.</p>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--1-2" style="margin-bottom:1rem">
+          ${ph('screen', 'biospherix-interface-full.jpg', 'tall')}
+          <div style="display:flex;flex-direction:column;gap:1rem">
+            ${ph('layout', 'biospherix-layout-output.jpg')}
+            ${ph('flow',   'biospherix-input-form.jpg')}
           </div>
         </div>
-        <div class="ph ph--tall reveal">
-          <span class="ph-ico">⚙️</span><span>biospherix-configurator.jpg</span>
-        </div><!-- TODO: Add BioSpherix interface screenshot -->
-      </div>
-
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Key Features</div>
-        <div class="cs-s__h">What the App Does</div>
-        <div class="cs-3">
-          <div class="prin-card">
-            <div class="prin-card__h">Requirements Intake</div>
-            <div class="prin-card__t">Structured input for client requirements — room dimensions, enclosure types, gas needs, workflow constraints — in plain language, not engineering spec format.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__h">AI Layout Generation</div>
-            <div class="prin-card__t">Given the requirements, the system generates 2D layout options that respect spatial and compatibility constraints — starting points for review, not final answers.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__h">Iteration + Export</div>
-            <div class="prin-card__t">Nihar can adjust, annotate, and export layouts as shareable documents for client review before any CAD work begins.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Design Approach</div>
-        <div class="cs-s__h">Designing for One Expert User</div>
-        <div class="cs-s__p">
-          <p>Designing for one named, known user changed everything. There were no personas, no edge cases to hedge for, no "target audience" to generalize. The design question was simply: what does Nihar need, in the order he needs it, with the least possible friction?</p>
-          <p>That meant resisting the urge to over-explain. Nihar knows what an OxyCycler is. He doesn't need tooltips. He needs the interface to match his existing mental model and get out of the way.</p>
-        </div>
-        <div class="callout">
-          <div class="callout__h">Design Principle</div>
-          <div class="callout__b">Expert users don't need to be taught how to do their job. They need their knowledge made more powerful, not summarized back to them.</div>
-        </div>
-      </div>
-
-      <div class="cs-2 reveal">
-        <div class="ph"><span class="ph-ico">📐</span><span>biospherix-wireframes.jpg</span></div>
-        <div class="ph"><span class="ph-ico">🗺️</span><span>biospherix-layout-output.jpg</span></div>
-      </div><!-- TODO: Add BioSpherix wireframes and layout output -->
-
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>BioSpherix was where I learned that good UX for expert users means getting out of the way. The temptation is to add tooltips everywhere, to surface every option, to make the system feel "helpful." The right move was the opposite — model Nihar's existing process, compress the slow parts, and leave his expertise intact. That shift in thinking has changed how I approach every technical interface I design since.</p>
-      </div>
+      </div><!-- TODO: Add BioSpherix live URL -->
     `
   },
 
+  /* ═══════════ FIFA ═══════════ */
   fifa: {
     slug: 'fifa',
     colorClass: 'pv--fifa',
-    accentColor: '#2A6045',
-    cat: 'Service Design · Journey Mapping · SCADpro Industry Project',
+    cat: 'Service Design · Journey Mapping · SCADpro',
     title: 'FIFA World Cup 2026 — Atlanta Fan Experience',
-    subtitle: 'A service design project for the 2026 FIFA World Cup in Atlanta — mapping and redesigning the fan journey at city scale, from Hartsfield-Jackson to the final whistle.',
+    subtitle: 'A SCADpro service design project — mapping and redesigning the fan journey for the 2026 FIFA World Cup matches hosted in Atlanta.',
     meta: [
-      {label:'Context', val:'SCADpro Industry Collaboration'},
-      {label:'Type', val:'Service Design / Experience Strategy'},
-      {label:'Scale', val:'City-wide, 800,000+ visitors'},
-      {label:'Tools', val:'Miro, Figma, Journey Mapping'},
+      {label:'Context',  val:'SCADpro Industry Collaboration'},
+      {label:'Type',     val:'Service Design / Experience Strategy'},
+      {label:'Scale',    val:'City-wide, multi-match event'},
+      {label:'Tools',    val:'Miro · Figma · Journey Mapping'},
     ],
-    heroImg: {icon:'⚽', label:'fifa-wayfinding.jpg'},
+    heroImg: {icon:'map', label:'fifa-journey-map-overview.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">The Challenge</div>
-        <div class="cs-s__h">A City That Wasn't Built for This</div>
-        <div class="cs-s__p">
-          <p>Atlanta is hosting multiple 2026 FIFA World Cup matches at Mercedes-Benz Stadium, which holds 75,000 people. The surrounding infrastructure — transit, wayfinding, hospitality — was not designed around a surge of international visitors arriving from dozens of countries, speaking dozens of languages, unfamiliar with Atlanta's geography.</p>
-          <p>The SCADpro project challenged our team to map the full fan journey — arrival at the airport, navigation through the city, the stadium experience, and post-match exit — and identify where it breaks down and how to fix it.</p>
+      <div class="cs-intro reveal">
+        Atlanta is hosting multiple 2026 FIFA World Cup matches at Mercedes-Benz Stadium. The challenge: international fans, most arriving for the first time, navigating a city whose transit and wayfinding infrastructure wasn't designed for this scale of event. I worked on a SCADpro team to map the full fan journey and translate research into actionable service design recommendations.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Mapped the end-to-end fan journey across five phases: airport arrival, city orientation, stadium approach, the match, and departure</div>
+          <div class="role-list__item">Identified critical friction points through stakeholder research and on-ground observation (particularly the MARTA-to-stadium corridor)</div>
+          <div class="role-list__item">Developed service design recommendations across wayfinding, transit, and fan zone strategy</div>
+          <div class="role-list__item">Contributed to the final presentation and visual documentation for the SCADpro client handoff</div>
         </div>
       </div>
 
-      <div class="ins-grid reveal">
-        <div class="ins-card"><div class="ins-card__n">Fans</div><div class="ins-card__t">Domestic and international visitors, many arriving in Atlanta for the first time, with different languages and accessibility needs</div></div>
-        <div class="ins-card"><div class="ins-card__n">Operators</div><div class="ins-card__t">Stadium staff, MARTA transit workers, Atlanta police, and volunteers — all needing to coordinate across a single city-scale event</div></div>
-        <div class="ins-card"><div class="ins-card__n">City</div><div class="ins-card__t">Atlanta and the Convention & Visitors Bureau — with major economic and reputational stakes tied to the quality of the experience</div></div>
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Three things that shaped the recommendations</div>
+        ${dec('Decision 01', 'Mapping the fan journey beyond the stadium',
+          'The official event experience begins and ends at the stadium gate — but the fan journey begins at the airport and ends hours after the final whistle. I advocated for mapping the full arc, including the unofficial spaces (hotel lobbies, MARTA platforms, downtown streets) where the experience either earns goodwill or loses it. The most critical failure point we found was a half-mile stretch between the MARTA station and the stadium with no clear signage.',
+          'map', 'fifa-journey-map-full.jpg')}
+        ${dec('Decision 02', 'Designing for crowd movement and uncertainty',
+          'An international fan base means you cannot assume language, local knowledge, or phone signal. I pushed for a wayfinding approach built on visual redundancy — color, symbol, and ground-level markings working together — so the system functions for someone who can\'t read English, doesn\'t have data service, and is moving in a crowd of thousands.',
+          'flow', 'fifa-wayfinding-system.jpg', true)}
+        ${dec('Decision 03', 'Translating research into service recommendations',
+          'Journey maps are only useful if they lead to something actionable. I helped translate our research synthesis into three prioritized service design directions: a ground-level wayfinding language, fan zone anchor points across downtown Atlanta, and a digital-physical bridging layer for transit guidance. Each recommendation was scoped for real-world feasibility.',
+          'image', 'fifa-recommendations-board.jpg')}
       </div>
 
-      <hr class="div"/>
-
-      <div class="cs-2 reveal">
-        <div class="cs-s">
-          <div class="cs-s__lbl">Journey Mapping</div>
-          <div class="cs-s__h">Five Phases, One Journey</div>
-          <div class="cs-s__p">
-            <p>We built a comprehensive journey map across five phases: airport arrival, city orientation, stadium approach, the match, and departure. Each phase was analyzed for friction points, emotional peaks and drops, and systemic failures.</p>
-            <p>The most critical finding: wayfinding breaks down completely between the MARTA station and the stadium entrance — a half-mile stretch with no clear signage, no shade, and no signal that fans are heading in the right direction.</p>
-          </div>
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Produced a complete fan journey map and service design recommendation deck for SCADpro client presentation</div>
+          <div class="outcome__item">Identified the MARTA-to-stadium corridor as the highest-priority friction point in the fan experience</div>
+          <div class="outcome__item">Contributed to a city-scale service design project spanning transit, wayfinding, and event atmosphere</div>
         </div>
-        <div class="ph ph--tall reveal">
-          <span class="ph-ico">🗺️</span><span>fifa-journey-map.jpg</span>
-        </div><!-- TODO: Add FIFA journey map output -->
-      </div>
+      </div><!-- TODO: Add final SCADpro deliverable details -->
 
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Design Directions</div>
-        <div class="cs-s__h">What We Recommended</div>
-        <div class="cs-3">
-          <div class="prin-card">
-            <div class="prin-card__h">Ground-Level Wayfinding</div>
-            <div class="prin-card__t">A wayfinding language using color, symbol, and ground markings that works even in a crowd, even without phone signal, even for someone who can't read English.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__h">Fan Zone Anchors</div>
-            <div class="prin-card__t">Designated gathering points across downtown Atlanta — community-building nodes that distribute crowd load and give fans a place to be between MARTA and the gate.</div>
-          </div>
-          <div class="prin-card">
-            <div class="prin-card__h">Digital + Physical Bridge</div>
-            <div class="prin-card__t">An event app layer with real-time crowd guidance, multilingual support, and emergency routing — bridging MARTA's existing system and the stadium experience.</div>
-          </div>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
+          ${ph('map',   'fifa-journey-map-final.jpg', 'tall')}
+          ${ph('image', 'fifa-wayfinding-concepts.jpg', 'tall')}
         </div>
-      </div>
-
-      <div class="ph reveal">
-        <span class="ph-ico">📍</span><span>fifa-final-recommendations.jpg</span>
-      </div><!-- TODO: Add FIFA final recommendation slides -->
-
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>FIFA was the first time I designed at a scale where every decision had to hold for thousands of people with completely different contexts. You can't design a default user when your user is someone from Senegal, a family from Brazil, and a group of Georgia college students all arriving at the same gate at the same time. That shift from persona-thinking to systems-thinking was the biggest thing I took from this project.</p>
+        <div class="gallery__grid gallery__grid--2">
+          ${ph('flow',  'fifa-stakeholder-map.jpg')}
+          ${ph('image', 'fifa-fan-zone-concept.jpg')}
+        </div>
       </div>
     `
   },
 
+  /* ═══════════ WISDOM ═══════════ */
   wisdom: {
     slug: 'wisdom',
     colorClass: 'pv--wisdom',
-    accentColor: '#C85C18',
-    cat: 'Brand Identity · Packaging · Visual Identity',
-    title: 'Wisdom ATL Eyewear — Brand Identity',
-    subtitle: 'A complete brand identity and packaging system for an Atlanta-born independent eyewear brand — from wordmark to lens cloth, concept to shelf.',
+    cat: 'Brand Design · Packaging · Retail Experience',
+    title: 'Wisdom ATL Eyewear',
+    subtitle: 'Product direction, packaging design, and buyer-facing visual storytelling for an Atlanta-born independent eyewear brand.',
     meta: [
-      {label:'Role', val:'Brand Designer'},
-      {label:'Deliverables', val:'Identity, Packaging, Retail Display'},
-      {label:'Market', val:'Independent Eyewear / Atlanta'},
-      {label:'Tools', val:'Figma, Illustrator, InDesign'},
+      {label:'Role',         val:'Brand + Packaging Designer'},
+      {label:'Deliverables', val:'Packaging · Retail Display · Visual Merchandising'},
+      {label:'Market',       val:'Independent Eyewear / Atlanta'},
+      {label:'Tools',        val:'Figma · Illustrator · InDesign'},
     ],
-    heroImg: {icon:'👓', label:'wisdom-packaging.jpg'},
+    heroImg: {icon:'pkg', label:'wisdom-packaging-hero.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">Brand Context</div>
-        <div class="cs-s__h">An Atlanta Brand That Thinks Like a Local</div>
-        <div class="cs-s__p">
-          <p>Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture — distinct from national chains, designed for customers who want glasses that feel like a deliberate choice. The brief called for an identity that was sophisticated without being cold, local without being provincial, bold without being loud.</p>
-          <p>Atlanta's creative scene — its music, visual arts community, architecture — became the research ground. The brand had to feel like it could only have come from here.</p>
+      <div class="cs-intro reveal">
+        Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture. My work focused on the physical and retail-facing side of the brand: packaging design, product presentation, visual merchandising direction, and the buyer experience from shelf to unboxing.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Designed the product packaging system — primary case, secondary retail box, lens cloth, and care card</div>
+          <div class="role-list__item">Developed visual merchandising direction for independent retail: how the brand lives on a shelf, in a display, and in a shop window</div>
+          <div class="role-list__item">Created buyer-facing storytelling materials that communicate the brand's identity at the point of decision</div>
+          <div class="role-list__item">Ensured consistency across physical touchpoints — from the weight of a box to the finish of a printed card</div>
         </div>
       </div>
 
-      <div class="cs-2 reveal">
-        <div class="cs-s">
-          <div class="cs-s__lbl">Packaging System</div>
-          <div class="cs-s__h">Every Touchpoint Considered</div>
-          <div class="cs-s__p">
-            <p>The packaging system spans the full retail and unboxing experience: primary hard case, secondary retail box, lens cloth, care card, and shopping bag. Each item is a considered brand moment — consistent in tone and material, distinct enough to reward close attention.</p>
-          </div>
-          <div class="ins-grid" style="margin-top:1rem">
-            <div class="ins-card"><div class="ins-card__n">Case</div><div class="ins-card__t">Hard case with embossed wordmark — designed to be kept, not discarded</div></div>
-            <div class="ins-card"><div class="ins-card__n">Box</div><div class="ins-card__t">Retail box with interior print — the unboxing moment as a brand statement</div></div>
-            <div class="ins-card"><div class="ins-card__n">Care Card</div><div class="ins-card__t">Brand card using a voice that is specific, warm, and distinctly ATL</div></div>
-          </div>
-        </div>
-        <div class="ph ph--tall reveal">
-          <span class="ph-ico">📦</span><span>wisdom-packaging-system.jpg</span>
-        </div><!-- TODO: Add Wisdom packaging photos -->
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Three choices that shaped the retail experience</div>
+        ${dec('Decision 01', 'Turning eyewear into a retail story',
+          'Most independent eyewear packaging either over-minimizes (plain kraft, no personality) or over-explains (dense text, lifestyle photography). I chose a middle path: give the packaging enough visual character to be memorable and photogenic, but keep the structure clean enough that the product — not the box — is the hero. Every element earns its place.',
+          'pkg', 'wisdom-retail-packaging.jpg')}
+        ${dec('Decision 02', 'Translating brand personality into physical touchpoints',
+          'A brand that bills itself as Atlanta-rooted has to feel like it belongs here. I researched Atlanta\'s visual culture — its architecture, its art scene, the specific kind of confident warmth the city has — and translated that into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.',
+          'image', 'wisdom-material-details.jpg', true)}
+        ${dec('Decision 03', 'Designing for buyer-facing clarity',
+          'Independent retail means the product often has to sell itself without a salesperson. The visual merchandising direction was built around one principle: a customer who knows nothing about the brand should be able to read its personality and price positioning within three seconds of seeing it on a shelf. Color, type hierarchy, and display architecture all serve that goal.',
+          'brand', 'wisdom-shelf-display.jpg')}
       </div>
 
-      <div class="cs-2 reveal">
-        <div class="ph"><span class="ph-ico">🏪</span><span>wisdom-retail-display.jpg</span></div>
-        <div class="ph"><span class="ph-ico">🎨</span><span>wisdom-brand-system.jpg</span></div>
-      </div><!-- TODO: Add Wisdom retail and brand system images -->
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Delivered a complete packaging system spanning primary case, retail box, lens cloth, and care card</div>
+          <div class="outcome__item">Produced visual merchandising direction for independent retail environments</div>
+          <div class="outcome__item">Created buyer-facing brand storytelling materials designed for point-of-purchase impact</div>
+        </div>
+      </div><!-- TODO: Add final client feedback or deployment details -->
 
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>Wisdom ATL taught me how much meaning lives in material choices — the weight of a box, the texture of a lens cloth, whether to emboss or print. Good packaging design is the brand's handshake with the customer at the exact moment they decide it was worth buying. Every choice either earns that moment or wastes it.</p>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--2-1" style="margin-bottom:1rem">
+          ${ph('pkg',   'wisdom-packaging-system.jpg', 'tall')}
+          ${ph('image', 'wisdom-case-detail.jpg', 'tall')}
+        </div>
+        <div class="gallery__grid gallery__grid--3">
+          ${ph('brand', 'wisdom-retail-display.jpg')}
+          ${ph('image', 'wisdom-care-card.jpg')}
+          ${ph('image', 'wisdom-unboxing.jpg')}
+        </div>
       </div>
     `
   },
 
+  /* ═══════════ NAAGIN ═══════════ */
   naagin: {
     slug: 'naagin',
     colorClass: 'pv--naagin',
-    accentColor: '#D4522E',
     cat: 'Graphic Design · Campaign · Marketing',
-    title: 'Naagin Sauce — Campaign Design',
-    subtitle: 'Campaign and marketing design for Naagin Sauce — an unapologetically Indian hot sauce brand that wears its identity loud and refuses to apologize for it.',
+    title: 'Naagin Sauce',
+    subtitle: 'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and print contexts.',
     meta: [
-      {label:'Role', val:'Graphic Designer'},
-      {label:'Type', val:'Campaign / Marketing Design'},
-      {label:'Brand', val:'Naagin Sauce (India)'},
-      {label:'Tools', val:'Illustrator, Photoshop, InDesign'},
+      {label:'Role',   val:'Graphic Designer'},
+      {label:'Type',   val:'Campaign / Marketing Design'},
+      {label:'Brand',  val:'Naagin Sauce'},
+      {label:'Tools',  val:'Illustrator · Photoshop · InDesign'},
     ],
-    heroImg: {icon:'🌶️', label:'naagin-campaign.jpg'},
+    heroImg: {icon:'image', label:'naagin-campaign-hero.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">The Brand</div>
-        <div class="cs-s__h">Hot Sauce That Knows Exactly What It Is</div>
-        <div class="cs-s__p">
-          <p>Naagin is not trying to be Tabasco. It's not a "fusion" brand. It's Indian hot sauce, full stop — bold flavor, bold personality, zero apology. The brand's existing visual language is already charged: the Naagin (serpent goddess) iconography, the deep India-ink red, the graphic density of Indian poster culture.</p>
-          <p>My role was to extend that language into campaign contexts — social content, print, promotional materials — while keeping the brand's loud energy intact and controlled.</p>
+      <div class="cs-intro reveal">
+        Naagin Sauce is Indian hot sauce with a sharp visual identity — bold typography, the Naagin (serpent goddess) iconography, and the graphic density of Indian poster culture baked in. My role was to extend that identity into campaign and marketing contexts without diluting what makes it unmistakably Naagin.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Designed campaign materials across social, print, and digital formats</div>
+          <div class="role-list__item">Extended the existing brand identity into new contexts while maintaining the visual language's integrity</div>
+          <div class="role-list__item">Worked within the brand's established color, type, and iconography system — extension, not redesign</div>
         </div>
       </div>
 
-      <div class="cs-2 reveal">
-        <div class="cs-s">
-          <div class="cs-s__lbl">The Work</div>
-          <div class="cs-s__h">Extension Over Invention</div>
-          <div class="cs-s__p">
-            <p>Working with a brand that already has a strong visual identity is its own design challenge. You can't start from scratch. You can't redesign it to feel more "you." The job is to understand it deeply enough to extend it — to make something new that still sounds like the same voice.</p>
-            <p>With Naagin, "loud" is always the right register. The challenge is staying in control of loud — using the graphic system consistently enough that every new piece reads as unmistakably Naagin.</p>
-          </div>
-        </div>
-        <div class="ph ph--tall reveal">
-          <span class="ph-ico">🐍</span><span>naagin-brand-extension.jpg</span>
-        </div><!-- TODO: Add Naagin campaign screenshots -->
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Two choices that defined the work</div>
+        ${dec('Decision 01', 'Extending an existing bold brand voice',
+          'Working with a brand that already has a strong identity means your job is understanding it deeply enough to extend it convincingly — not reinventing it. Every campaign asset I made had to pass one test: does this sound like Naagin, or does it sound like someone\'s impression of Naagin? The visual grammar of Indian poster culture — high contrast, layered typography, saturated color — was the foundation, not the inspiration.',
+          'image', 'naagin-brand-extension.jpg')}
+        ${dec('Decision 02', 'Designing for digital campaign impact',
+          'Social content for a brand this visually dense requires deliberate simplification — knowing which elements to foreground in a 1:1 frame versus a static print ad versus a packaging insert. I made format-specific decisions for each context while keeping the brand\'s loudness consistent across all of them.',
+          'brand', 'naagin-digital-formats.jpg', true)}
       </div>
 
-      <div class="cs-3 reveal">
-        <div class="ph"><span class="ph-ico">📱</span><span>naagin-social-01.jpg</span></div>
-        <div class="ph"><span class="ph-ico">🖼️</span><span>naagin-print-01.jpg</span></div>
-        <div class="ph"><span class="ph-ico">📦</span><span>naagin-packaging-01.jpg</span></div>
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Delivered campaign materials spanning social media formats, digital ads, and print</div>
+          <div class="outcome__item">Demonstrated the ability to work inside and extend a strong pre-existing visual identity</div>
+          <div class="outcome__item">Applied Indian visual culture references with specificity, not as surface decoration</div>
+        </div>
       </div><!-- TODO: Add Naagin campaign screenshots -->
 
-      <div class="callout reveal">
-        <div class="callout__h">What This Work Shows</div>
-        <div class="callout__b">My ability to work inside a strong existing visual identity — understanding what a brand is trying to say, then finding the most direct way to say it more effectively. Extending rather than overwriting.</div>
-      </div>
-
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>Naagin reminded me that the discipline of extension — working within constraints you didn't set — is a real and underrated skill. The brand already had something. My job wasn't to improve it. It was to amplify it without breaking it. That's a different kind of creative problem, and I found it genuinely interesting.</p>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">
+          ${ph('image', 'naagin-social-campaign.jpg')}
+          ${ph('image', 'naagin-print-ad.jpg')}
+          ${ph('pkg',   'naagin-packaging-graphic.jpg')}
+        </div>
+        <div class="gallery__grid gallery__grid--2">
+          ${ph('image', 'naagin-digital-banner.jpg')}
+          ${ph('brand', 'naagin-brand-system.jpg')}
+        </div>
       </div>
     `
   },
 
+  /* ═══════════ KUAI ═══════════ */
   kuai: {
     slug: 'kuai',
     colorClass: 'pv--kuai',
-    accentColor: '#2E74B8',
-    cat: 'AI UX / Concept Design · App Exploration',
-    title: 'KUAI — AI Shopping & Lifestyle Planner',
-    subtitle: 'A concept AI app for fashion and lifestyle planning — exploring what genuinely intelligent wardrobe and shopping assistance could look like when it actually knows your context.',
+    cat: 'AI UX · Concept Design · App Exploration',
+    title: 'KUAI',
+    subtitle: 'A concept AI app for shopping and lifestyle planning — exploring how an AI assistant could reduce decision fatigue without replacing the user\'s judgment.',
     meta: [
-      {label:'Role', val:'UX Designer / Concept Lead'},
-      {label:'Type', val:'AI UX Concept / Prototype Exploration'},
+      {label:'Role',     val:'UX Designer / Concept Lead'},
+      {label:'Type',     val:'AI UX Concept / Prototype Exploration'},
       {label:'Platform', val:'iOS Concept App'},
-      {label:'Tools', val:'Figma, Concept Design, Prototyping'},
+      {label:'Tools',    val:'Figma · Prototyping'},
     ],
-    heroImg: {icon:'✨', label:'kuai-app-screens.jpg'},
+    heroImg: {icon:'app', label:'kuai-app-overview.jpg', size:'hero'},
     body: `
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">The Concept</div>
-        <div class="cs-s__h">What If Your Wardrobe Thought With You?</div>
-        <div class="cs-s__p">
-          <p>KUAI starts from a frustration most people know: you have an event, you have a full closet, and you still feel like you have nothing to wear. The problem isn't the clothes — it's the gap between what you own, what you need, and what you're actually in the mood for.</p>
-          <p>KUAI is a concept for an AI app that bridges that gap — understanding your wardrobe, your calendar, your shopping preferences, and your style over time, and surfacing the right option at the right moment without decision fatigue.</p>
+      <div class="cs-intro reveal">
+        KUAI is a concept AI app designed around one question: how do you build an AI assistant that genuinely reduces decision fatigue in planning and shopping — without becoming something that just makes choices for you? The exploration focused on AI as a planning layer, not a recommendation engine.
+      </div>
+
+      <div class="role-block reveal">
+        <div class="role-block__lbl">My Role</div>
+        <div class="role-block__title">What I Did</div>
+        <div class="role-list">
+          <div class="role-list__item">Defined the concept direction and core AI interaction model</div>
+          <div class="role-list__item">Designed the app structure, key flows, and information architecture</div>
+          <div class="role-list__item">Explored how AI recommendations should be presented to build trust without creating dependency</div>
+          <div class="role-list__item">Prototyped key screens and interaction moments in Figma</div>
         </div>
       </div>
 
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">App Structure</div>
-        <div class="cs-s__h">Four Core Modules</div>
-        <div class="ins-grid">
-          <div class="ins-card"><div class="ins-card__n">Closet</div><div class="ins-card__t">Your wardrobe as a living inventory — photographed, tagged, and understood by the system over time</div></div>
-          <div class="ins-card"><div class="ins-card__n">Plan</div><div class="ins-card__t">Calendar-connected outfit planning — KUAI sees what's coming and prepares options in advance, not at 7am</div></div>
-          <div class="ins-card"><div class="ins-card__n">Shop</div><div class="ins-card__t">AI-filtered shopping that fills actual gaps in your wardrobe, not just what's trending or sponsored</div></div>
-          <div class="ins-card"><div class="ins-card__n">Style</div><div class="ins-card__t">A personal style profile that evolves — learning what you reach for and what stays unworn</div></div>
-        </div>
+      <div class="decisions reveal">
+        <div class="decisions__lbl">Key Design Decisions</div>
+        <div class="decisions__title">Two choices that defined the concept</div>
+        ${dec('Decision 01', 'Designing AI as a planning assistant, not a chatbot',
+          'Most AI shopping experiences are either a chatbot or a feed of "recommended for you" items. KUAI explores a third model: AI as a structured planning layer that understands context — your schedule, your existing inventory, your stated preferences — and helps you prepare in advance rather than reacting in the moment. The AI acts as a thought partner in a planning view, not a voice in a chat window.',
+          'app', 'kuai-planning-view.jpg')}
+        ${dec('Decision 02', 'Reducing decision fatigue through structure',
+          'The root cause of shopping decision fatigue isn\'t too many options — it\'s options without context. KUAI\'s design addresses this by surfacing options within a structured frame: what do you need it for, when, and what do you already have? Every AI suggestion appears in that context, with its reasoning visible, so the user is making an informed choice rather than responding to a prompt.',
+          'flow', 'kuai-decision-structure.jpg', true)}
       </div>
 
-      <div class="cs-2 reveal">
-        <div class="ph"><span class="ph-ico">👗</span><span>kuai-closet-view.jpg</span></div>
-        <div class="ph"><span class="ph-ico">📅</span><span>kuai-plan-view.jpg</span></div>
-      </div><!-- TODO: Add KUAI app screens -->
-
-      <div class="cs-s reveal">
-        <div class="cs-s__lbl">AI UX Considerations</div>
-        <div class="cs-s__h">When Does Assistance Become Surveillance?</div>
-        <div class="cs-s__p">
-          <p>KUAI raised design questions I kept returning to: when does AI feel like a helpful collaborator versus something watching you? The closet inventory model requires trust — the user has to give the system access to something personal. That trust can't be assumed. It has to be earned through transparency, control, and decisions the user can always override.</p>
-          <p>Every AI recommendation in KUAI shows its reasoning. The system learns from your choices — but the choices stay yours. The AI is a thought partner, not a prescription.</p>
+      <div class="outcome reveal">
+        <div class="outcome__lbl">Outcome</div>
+        <div class="outcome__list">
+          <div class="outcome__item">Produced a concept prototype exploring a new AI interaction model for planning and shopping assistance</div>
+          <div class="outcome__item">Developed a framework for AI recommendation transparency — how much context a user needs to trust a suggestion</div>
+          <div class="outcome__item">Contributed to an ongoing exploration of where AI adds genuine planning value versus where it creates the illusion of help</div>
         </div>
-        <div class="callout">
-          <div class="callout__h">The AI UX Question I Keep Coming Back To</div>
-          <div class="callout__b">How much does the user need to understand about how a recommendation was made in order to trust it? Not a rhetorical question — I'm still working on the answer.</div>
-        </div>
-      </div>
+      </div><!-- TODO: Add KUAI app screens when prototype is finalized -->
 
-      <div class="cs-s mt-3 reveal"><div class="cs-s__lbl">Reflection</div></div>
-      <div class="reflection reveal">
-        <p>KUAI is where I got most interested in the ethics of AI UX — not abstractly, but practically. How do you make an AI feature feel useful rather than creepy? How do you communicate model confidence without creating false certainty? I don't have complete answers. But asking those questions more carefully has changed how I think about every AI-touched interface I design.</p>
+      <div class="gallery reveal">
+        <div class="gallery__lbl">Final Visuals</div>
+        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
+          ${ph('app',  'kuai-home-screen.jpg', 'tall')}
+          ${ph('flow', 'kuai-planning-flow.jpg', 'tall')}
+        </div>
+        <div class="gallery__grid gallery__grid--3">
+          ${ph('spark', 'kuai-ai-suggestions.jpg')}
+          ${ph('app',   'kuai-detail-view.jpg')}
+          ${ph('image', 'kuai-concept-map.jpg')}
+        </div>
       </div>
     `
   },
@@ -1722,6 +1878,8 @@ function buildProject(d) {
       <div class="cs__mi-val">${m.val}</div>
     </div>`).join('');
 
+  const heroSize = d.heroImg.size || 'tall';
+
   return `
   <div class="pv ${d.colorClass}">
     <div class="pv__band"></div>
@@ -1735,8 +1893,8 @@ function buildProject(d) {
         <p class="cs__sub">${d.subtitle}</p>
         <div class="cs__meta">${meta}</div>
       </div>
-      <div class="ph ph--tall reveal" style="margin-bottom:3rem">
-        <span class="ph-ico">${d.heroImg.icon}</span><span>${d.heroImg.label}</span>
+      <div style="margin-bottom:3rem" class="reveal">
+        ${ph(d.heroImg.icon, d.heroImg.label, heroSize)}
       </div>
       ${d.body}
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--paper3)" class="reveal">
