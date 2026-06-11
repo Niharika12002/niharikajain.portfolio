@@ -81,87 +81,221 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 .nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
 @media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
 
+
 /* ━━━ HERO ━━━ */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:4rem;position:relative;overflow:hidden}
-.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:var(--sec) var(--gut)}
-.hero__content{max-width:620px;position:relative;z-index:2}
+.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:clamp(4rem,10vw,7rem) var(--gut) clamp(5rem,12vw,8rem)}
+.hero__content{max-width:600px;position:relative;z-index:2}
 .hero__hi{font-family:var(--ff-h);font-size:clamp(1.1rem,1rem+.4vw,1.3rem);color:var(--esp3);margin-bottom:.5rem}
 .hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:1.5rem}
-.hero__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
+.hero__h1 .hl-olive{color:var(--olive);font-style:italic;font-weight:400}
+.hero__h1 .hl-rust{color:var(--rust);font-style:italic;font-weight:400}
 .hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:480px;margin-bottom:2rem}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.4rem;font-size:var(--fs--1);font-weight:600;background:var(--esp);color:var(--cream);border-radius:999px;border:2px solid var(--esp);transition:all .15s}
-.hero__cta1:hover{background:var(--olive);border-color:var(--olive);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;font-size:var(--fs--1);font-weight:600;background:var(--olive);color:#fff;border-radius:6px;border:none;transition:all .15s;letter-spacing:.02em}
+.hero__cta1:hover{background:#5A6B32;transform:translateY(-2px);box-shadow:var(--sh-md)}
 .hero__cta2{font-size:var(--fs--1);font-weight:500;color:var(--esp3);border-bottom:1px solid var(--esp5);padding-bottom:1px;transition:color .15s}
 .hero__cta2:hover{color:var(--esp);border-color:var(--esp3)}
+.hero__annot{font-family:var(--ff-h);font-size:.95rem;color:var(--rust);margin-top:1.2rem;display:flex;align-items:center;gap:.4rem}
+.hero__annot svg{width:30px;height:20px;stroke:var(--forest);fill:none;stroke-width:1.5;flex-shrink:0}
 
-/* hero artifacts */
+/* hero artifacts — richer, more specific */
 .hero__art{position:absolute;inset:0;pointer-events:none;z-index:1}
-.hart{position:absolute;transition:transform .4s ease}
-.hart--folder{top:10%;right:6%;width:160px;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:6px;padding:.7rem .9rem;transform:rotate(2deg);box-shadow:var(--sh-xs)}
-.hart--folder::before{content:'case files';position:absolute;top:-9px;left:10px;background:var(--olive);color:#fff;font-size:7px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px 3px 0 0}
-.hart--folder span{font-size:.65rem;color:var(--esp2);display:block;line-height:1.7}
-.hart--receipt{bottom:18%;right:10%;width:130px;background:var(--cream);border:1px dashed var(--cream4);padding:.55rem .65rem;transform:rotate(-3deg);font-size:.58rem;color:var(--esp3);letter-spacing:.04em;line-height:1.9;text-align:center;text-transform:uppercase}
-.hart--stamp{top:28%;right:30%;width:50px;height:58px;border:2px solid var(--rust);border-radius:3px;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);opacity:.45}
-.hart--stamp span{font-family:var(--ff-h);font-size:.6rem;color:var(--rust);text-align:center;line-height:1.2}
-.hart--matchbox{bottom:32%;left:2%;background:var(--marigold);color:var(--esp);padding:.3rem .7rem;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-3deg);border-radius:3px;box-shadow:var(--sh-xs)}
-.hart--photo{bottom:14%;right:36%;width:110px;height:82px;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:6px;transform:rotate(1.5deg);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--esp4);box-shadow:var(--sh-xs)}
-.hart--note{top:62%;right:5%;font-family:var(--ff-h);font-size:.88rem;color:var(--esp3);transform:rotate(2deg);line-height:1.4}
-.hart--textile{position:absolute;top:0;right:0;width:40px;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 3px,var(--cream3) 3px,var(--cream3) 4px);opacity:.4;border-radius:0 0 0 8px}
-@media(max-width:900px){.hero__art{display:none}}
+.hart{position:absolute}
+
+/* envelope with tape */
+.hart--env{top:6%;left:3%;width:180px;transform:rotate(-2deg)}
+.hart--env-body{width:100%;height:90px;background:linear-gradient(160deg,#C8B898,#D4C4A8);border-radius:2px;position:relative;box-shadow:var(--sh-sm)}
+.hart--env-flap{width:100%;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-top:50px solid #BCA888;position:absolute;top:0;left:0}
+.hart--env-tape{position:absolute;top:-8px;left:20px;background:rgba(240,230,200,.85);border:1px solid rgba(200,180,140,.3);padding:.15rem .5rem;font-family:var(--ff-h);font-size:.72rem;color:var(--esp2);transform:rotate(-1deg);border-radius:2px}
+.hart--env-cards{position:absolute;top:-15px;left:15px;right:15px;height:30px}
+.hart--env-card{position:absolute;background:var(--cream);border:1px solid var(--cream3);border-radius:2px;width:70px;height:35px;font-size:.45rem;color:var(--esp4);display:flex;align-items:flex-end;padding:3px 4px;font-weight:600;letter-spacing:.05em}
+.hart--env-card:nth-child(1){left:0;top:0;transform:rotate(-2deg)}
+.hart--env-card:nth-child(2){left:35px;top:-5px;transform:rotate(1deg)}
+.hart--env-card:nth-child(3){left:70px;top:-2px;transform:rotate(-1deg)}
+
+/* irani cafe receipt */
+.hart--receipt{bottom:8%;left:4%;width:165px;background:var(--cream);border:1px solid var(--cream3);padding:0;transform:rotate(2deg);box-shadow:var(--sh-sm);overflow:hidden;font-family:var(--ff-b)}
+.hart--receipt-top{background:var(--cream);padding:.6rem .7rem .4rem;border-bottom:1px dashed var(--cream4)}
+.hart--receipt-top .r-title{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--esp);margin-bottom:.1rem}
+.hart--receipt-top .r-loc{font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-align:center;color:var(--esp3)}
+.hart--receipt-body{padding:.4rem .7rem}
+.hart--receipt-body .r-line{display:flex;justify-content:space-between;font-size:.55rem;color:var(--esp2);line-height:1.8}
+.hart--receipt-body .r-dash{border-bottom:1px dashed var(--cream4);margin:.15rem 0}
+.hart--receipt-foot{padding:.3rem .7rem .5rem;border-top:1px dashed var(--cream4);text-align:center}
+.hart--receipt-foot .r-thanks{font-size:.55rem;font-weight:600;color:var(--esp2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.1rem}
+.hart--receipt-foot .r-hindi{font-size:.6rem;color:var(--esp3)}
+.hart--receipt-foot .r-date{font-size:.48rem;color:var(--esp4);margin-top:.2rem;letter-spacing:.04em}
+/* zigzag bottom edge */
+.hart--receipt::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;
+background:repeating-linear-gradient(90deg,var(--cream) 0,var(--cream) 4px,transparent 4px,transparent 8px);
+}
+
+/* Indian postal stamp */
+.hart--stamp{top:8%;right:28%;width:72px;height:82px;border:2px solid #8B4513;padding:3px;transform:rotate(-5deg);background:var(--cream)}
+.hart--stamp-inner{width:100%;height:100%;border:1px solid #8B4513;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.2rem;gap:.1rem;background:linear-gradient(180deg,#F8F4EC,#F0E8D8)}
+.hart--stamp-hindi{font-size:.5rem;color:#8B4513;font-weight:700;letter-spacing:.05em}
+.hart--stamp-eng{font-size:.4rem;color:#8B4513;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hart--stamp-val{position:absolute;top:5px;right:8px;font-size:.55rem;font-weight:800;color:#8B4513}
+.hart--stamp-flower{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle,#C85C3A 20%,#D4885C 40%,transparent 42%),conic-gradient(from 0deg,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A);border:1px solid rgba(139,69,19,.3);margin:.1rem 0}
+/* perforated edge */
+.hart--stamp::before{content:'';position:absolute;inset:-6px;border:3px dotted rgba(139,69,19,.2);border-radius:2px;pointer-events:none}
+
+/* photo frame */
+.hart--photo{top:12%;right:4%;width:170px;height:200px;background:var(--cream);border:1px solid var(--cream3);border-radius:4px;box-shadow:var(--sh-md);padding:8px 8px 28px;transform:rotate(2.5deg)}
+.hart--photo-img{width:100%;height:100%;background:linear-gradient(140deg,#4A5838 0%,#5A6848 30%,#6A7858 60%,#8A9478 100%);border-radius:2px;position:relative;overflow:hidden}
+.hart--photo-img::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(200,160,80,.2),transparent 40%,rgba(0,0,0,.1))}
+.hart--photo-lbl{position:absolute;bottom:6px;right:10px;font-family:var(--ff-h);font-size:.55rem;color:var(--esp4)}
+
+/* matchbox */
+.hart--matchbox{bottom:10%;right:6%;width:130px;height:85px;background:linear-gradient(140deg,#D4C4A0,#C8B890);border:2px solid #A89870;border-radius:4px;transform:rotate(3deg);box-shadow:var(--sh-md);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem}
+.hart--matchbox-title{font-size:.5rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8B3A1A;text-align:center;margin-bottom:.15rem}
+.hart--matchbox-brand{font-size:.85rem;font-weight:800;color:#8B3A1A;font-family:var(--ff-d);text-align:center;line-height:1}
+.hart--matchbox-hindi{font-size:.7rem;color:#8B3A1A;font-weight:700;text-align:center}
+.hart--matchbox-reg{font-size:.35rem;color:#8B3A1A;letter-spacing:.06em;text-align:center;margin-top:.15rem}
+.hart--matchbox-border{position:absolute;inset:4px;border:1.5px solid rgba(139,58,26,.3);border-radius:2px;pointer-events:none}
+
+/* handwritten annotation */
+.hart--annot{display:none}
+
+/* textile strip at bottom */
+.hero__textile{position:absolute;bottom:0;left:0;right:0;height:48px;z-index:3;overflow:hidden;opacity:.7}
+.hero__textile-inner{width:100%;height:100%;background:
+  repeating-linear-gradient(90deg,#C8A060 0,#C8A060 2px,transparent 2px,transparent 12px),
+  repeating-linear-gradient(0deg,rgba(60,80,40,.15) 0,rgba(60,80,40,.15) 1px,transparent 1px,transparent 6px),
+  linear-gradient(0deg,#E8D8C0,#DDD0B8);
+background-size:12px 100%,100% 6px,100% 100%;
+border-top:1px solid var(--cream4)}
+
+@media(max-width:900px){.hero__art{display:none}.hero__textile{display:none}.hero__annot{display:none}}
 
 /* ━━━ SELECTED WORK ━━━ */
-.sw{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.sw{padding:var(--sec) 0}
 .sw__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
 .sw__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
-.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:400px;margin-bottom:2.5rem}
+.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:400px;margin-bottom:3rem}
 
 .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
-@media(max-width:700px){.sw-grid{grid-template-columns:1fr}}
+@media(max-width:800px){.sw-grid{grid-template-columns:1fr}}
 
-/* base card */
-.sc{border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;position:relative}
-.sc:hover{transform:translateY(-4px);box-shadow:var(--sh-md);z-index:2}
-.sc__vis{width:100%;aspect-ratio:5/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.sc__vis-lbl{font-size:var(--fs--1);font-weight:500;color:var(--esp4);letter-spacing:.02em}
-.sc__info{padding:1.2rem 1.3rem 1.3rem}
-.sc__yr{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
-.sc__name{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;letter-spacing:-.015em;margin-bottom:.35rem;line-height:1.1}
-.sc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.55;margin-bottom:.7rem}
-.sc__skills{font-size:10px;color:var(--esp4);letter-spacing:.03em;line-height:1.6;margin-bottom:.7rem}
-.sc__cta{font-size:var(--fs--1);font-weight:600;color:var(--esp2);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s}
+/* card base — side-by-side layout */
+.sc{border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:grid;grid-template-columns:.48fr .52fr;position:relative;min-height:320px}
+.sc:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(44,24,16,.12);z-index:2}
+@media(max-width:550px){.sc{grid-template-columns:1fr;min-height:auto}.sc__vis{min-height:260px}}
+.sc__vis{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:1.2rem}
+.sc__info{padding:1.3rem 1.4rem;display:flex;flex-direction:column;justify-content:center}
+.sc__yr{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.sc__name{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;letter-spacing:-.015em;margin-bottom:.4rem;line-height:1.1}
+.sc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.55;margin-bottom:.75rem}
+.sc__skills{font-size:10px;color:var(--esp4);letter-spacing:.03em;line-height:1.7;margin-bottom:.85rem}
+.sc__cta{font-size:var(--fs--1);font-weight:600;color:var(--esp2);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s,color .15s}
 .sc:hover .sc__cta{gap:.5rem;color:var(--esp)}
 
-/* Pili — care manual */
-.sc--pili{background:var(--olive-l);border:1.5px solid rgba(107,124,63,.12)}
-.sc--pili .sc__vis{background:linear-gradient(155deg,#E6EBD8,#F0F3E8,#DDE4CC)}
-.sc--pili .sc__vis::after{content:'care guide';position:absolute;top:10px;right:10px;font-family:var(--ff-h);font-size:.7rem;color:var(--olive);background:rgba(255,255,255,.7);padding:.15rem .45rem;border-radius:3px}
-.sc--pili .sc__name{color:var(--olive)}.sc--pili .sc__yr{color:var(--olive)}
-.sc--pili::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--matcha);border-radius:10px 10px 0 0}
+/* ── Pili — care guide card ── */
+.sc--pili{background:var(--cream);border:1.5px solid var(--cream3)}
+.sc--pili .sc__vis{background:linear-gradient(155deg,#E8ECDC,#F0F4E8,#E4EAD4)}
+.sc--pili .sc__name{color:var(--olive)}
+.sc--pili .sc__yr{color:var(--olive)}
+.sc--pili .sc__cta{color:var(--olive)}
+/* care guide internal layout */
+.pili-guide{width:100%;height:100%;display:flex;flex-direction:column;gap:.5rem;font-family:var(--ff-b)}
+.pili-guide__hdr{display:flex;justify-content:space-between;align-items:flex-start}
+.pili-guide__logo{font-family:var(--ff-d);font-size:1.1rem;font-weight:700;color:var(--olive);line-height:1}
+.pili-guide__sub{font-size:.5rem;color:var(--olive);font-weight:500;letter-spacing:.06em}
+/* device placeholder */
+.pili-guide__device{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:100px}
+.pili-device{width:72px;height:72px;border-radius:50%;background:linear-gradient(140deg,var(--matcha),var(--olive));box-shadow:inset 0 -3px 8px rgba(0,0,0,.15),var(--sh-sm);position:relative}
+.pili-device::after{content:'';position:absolute;top:12px;left:12px;right:12px;bottom:12px;border-radius:50%;background:repeating-conic-gradient(rgba(255,255,255,.1) 0 9deg,transparent 9deg 18deg)}
+/* annotation lines */
+.pili-annot{position:absolute;font-size:.45rem;color:var(--esp3);letter-spacing:.03em;white-space:nowrap}
+.pili-annot::before{content:'';position:absolute;background:var(--esp4);height:1px}
+.pili-annot--1{top:15%;right:0}.pili-annot--1::before{width:20px;right:100%;top:50%;margin-right:3px}
+.pili-annot--2{bottom:25%;right:0}.pili-annot--2::before{width:15px;right:100%;top:50%;margin-right:3px}
+.pili-annot--3{bottom:10%;left:0}.pili-annot--3::before{width:18px;left:100%;top:50%;margin-left:3px}
+/* getting started bar */
+.pili-guide__bar{background:var(--cream);border-radius:6px;padding:.35rem .5rem}
+.pili-guide__bar-title{font-size:.45rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--esp2);margin-bottom:.25rem}
+.pili-guide__icons{display:flex;gap:.4rem;justify-content:center}
+.pili-guide__icon{display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.pili-guide__icon-circle{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cream3);display:flex;align-items:center;justify-content:center}
+.pili-guide__icon-circle svg{width:10px;height:10px;stroke:var(--esp3);fill:none;stroke-width:2}
+.pili-guide__icon span{font-size:.35rem;color:var(--esp4);text-align:center;max-width:40px;line-height:1.2}
 
-/* BioSpherix — blueprint */
-.sc--bio{background:var(--cobalt-l);border:1.5px solid rgba(26,74,130,.1)}
-.sc--bio .sc__vis{background:#E4ECF6;background-image:linear-gradient(rgba(26,74,130,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.05) 1px,transparent 1px);background-size:20px 20px}
-.sc--bio .sc__vis::after{content:'blueprint';position:absolute;top:10px;left:10px;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);background:rgba(255,255,255,.6);padding:.15rem .4rem;border-radius:2px}
-.sc--bio .sc__name{color:var(--cobalt)}.sc--bio .sc__yr{color:var(--cobalt)}
-.sc--bio::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cobalt);border-radius:10px 10px 0 0}
+/* ── BioSpherix — blueprint ── */
+.sc--bio{background:var(--cream);border:1.5px solid rgba(26,74,130,.08)}
+.sc--bio .sc__vis{
+  background:#E2EBF6;
+  background-image:linear-gradient(rgba(26,74,130,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.06) 1px,transparent 1px);
+  background-size:18px 18px;position:relative;
+}
+.sc--bio .sc__name{color:var(--cobalt)}
+.sc--bio .sc__yr{color:var(--cobalt)}
+.sc--bio .sc__cta{color:var(--cobalt)}
+/* folder tab */
+.bio-tab{position:absolute;top:-1px;left:12px;background:var(--cobalt);color:#fff;font-size:7px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:0 0 4px 4px;z-index:1}
+/* blueprint internal */
+.bio-plan{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.4rem}
+.bio-plan__title{font-size:.45rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt)}
+.bio-plan__drawing{flex:1;position:relative;border:1px solid rgba(26,74,130,.12);border-radius:4px;min-height:80px}
+.bio-plan__room{position:absolute;border:1.5px solid rgba(26,74,130,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.35rem;color:rgba(26,74,130,.5);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.bio-plan__room--1{top:8%;left:5%;width:40%;height:45%}
+.bio-plan__room--2{top:8%;right:5%;width:45%;height:35%}
+.bio-plan__room--3{bottom:8%;left:15%;width:60%;height:30%}
+.bio-plan__annot{position:absolute;font-size:.38rem;color:var(--cobalt);font-style:italic;font-family:var(--ff-h)}
+.bio-plan__annot--1{top:58%;right:8%}
+.bio-plan__annot--2{bottom:45%;left:8%}
+.bio-plan__specs{font-size:.38rem;color:rgba(26,74,130,.5);letter-spacing:.04em;line-height:1.6;border-top:1px solid rgba(26,74,130,.08);padding-top:.3rem}
+.bio-plan__tagline{font-family:var(--ff-d);font-size:.55rem;font-weight:700;color:var(--cobalt);font-style:italic;margin-top:.1rem}
 
-/* FIFA — credential */
-.sc--fifa{background:var(--forest-l);border:1.5px solid rgba(42,96,69,.1)}
-.sc--fifa .sc__vis{background:linear-gradient(150deg,#D0E6D8,#E4F0EA,#C8DED0)}
-.sc--fifa .sc__vis::after{content:'event pass';position:absolute;bottom:10px;right:10px;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:rgba(255,255,255,.6);padding:.15rem .4rem;border-radius:2px}
-.sc--fifa .sc__name{color:var(--forest)}.sc--fifa .sc__yr{color:var(--forest)}
-.sc--fifa::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--forest);border-radius:10px 10px 0 0}
-.sc--fifa::after{content:'';position:absolute;right:-1px;top:16px;bottom:16px;width:10px;background:repeating-linear-gradient(to bottom,transparent,transparent 5px,var(--cream) 5px,var(--cream) 7px)}
+/* ── FIFA — event credential ── */
+.sc--fifa{background:var(--cream);border:1.5px solid rgba(42,96,69,.08)}
+.sc--fifa .sc__vis{background:var(--forest);color:#fff;position:relative}
+.sc--fifa .sc__name{color:var(--forest)}
+.sc--fifa .sc__yr{color:var(--forest)}
+.sc--fifa .sc__cta{color:var(--forest)}
+/* credential internal */
+.fifa-pass{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.3rem;color:rgba(255,255,255,.85)}
+.fifa-pass__header{font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4;color:rgba(255,255,255,.6)}
+.fifa-pass__city{font-family:var(--ff-d);font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:.04em;line-height:1}
+.fifa-pass__date{font-size:.42rem;color:rgba(255,255,255,.5);letter-spacing:.06em;margin-bottom:.1rem}
+/* venue dots */
+.fifa-pass__map{flex:1;position:relative;min-height:50px}
+.fifa-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8)}
+.fifa-dot--1{top:20%;left:20%}.fifa-dot--2{top:40%;left:60%}.fifa-dot--3{top:70%;left:35%}.fifa-dot--4{bottom:10%;right:20%}
+.fifa-line{position:absolute;top:0;left:0;width:100%;height:100%}
+.fifa-line svg{width:100%;height:100%}
+.fifa-pass__cred{display:grid;grid-template-columns:1fr 1fr;gap:.2rem;font-size:.38rem;letter-spacing:.06em}
+.fifa-pass__cred dt{color:rgba(255,255,255,.4);text-transform:uppercase;font-weight:700}
+.fifa-pass__cred dd{color:rgba(255,255,255,.8);font-weight:500}
+.fifa-pass__badge{background:var(--tomato);color:#fff;padding:.2rem .5rem;border-radius:3px;font-size:.42rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;margin-top:.15rem}
+/* barcode at top */
+.sc--fifa .sc__vis::before{content:'';position:absolute;top:0;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 2px,transparent 2px,transparent 5px)}
 
-/* Wisdom — product tag */
-.sc--wisdom{background:var(--rust-l);border:1.5px solid rgba(184,92,58,.08)}
-.sc--wisdom .sc__vis{background:linear-gradient(160deg,#ECD8C8,#FAF0E8,#E4D0BC)}
-.sc--wisdom .sc__vis::after{content:'product tag';position:absolute;top:10px;left:10px;font-family:var(--ff-h);font-size:.7rem;color:var(--rust);background:rgba(255,255,255,.65);padding:.15rem .45rem;border-radius:3px}
-.sc--wisdom .sc__name{color:var(--rust)}.sc--wisdom .sc__yr{color:var(--rust)}
-.sc--wisdom::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--rust);border-radius:10px 10px 0 0}
+/* ── Wisdom — product tag ── */
+.sc--wisdom{background:var(--cream);border:1.5px solid rgba(184,92,58,.06)}
+.sc--wisdom .sc__vis{background:linear-gradient(160deg,#ECD8C8,#F8F0E6,#E8D4C0);position:relative}
+.sc--wisdom .sc__name{color:var(--rust)}
+.sc--wisdom .sc__yr{color:var(--rust)}
+.sc--wisdom .sc__cta{color:var(--rust)}
+/* tag internal */
+.wisdom-tag{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.4rem}
+.wisdom-tag__brand{font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--esp2);text-align:center;padding-bottom:.3rem;border-bottom:1px solid var(--cream4)}
+/* eyewear placeholder */
+.wisdom-tag__img{flex:1;display:flex;align-items:center;justify-content:center;min-height:60px}
+.wisdom-tag__glasses{width:80px;height:30px;position:relative}
+.wisdom-tag__glasses::before,.wisdom-tag__glasses::after{content:'';position:absolute;top:0;width:32px;height:24px;border:2px solid var(--esp3);border-radius:50%}
+.wisdom-tag__glasses::before{left:0}.wisdom-tag__glasses::after{right:0}
+.wisdom-tag__bridge{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:14px;height:6px;border-top:2px solid var(--esp3);border-radius:50% 50% 0 0}
+/* spec fields */
+.wisdom-tag__specs{display:grid;grid-template-columns:auto 1fr;gap:.15rem .5rem;font-size:.4rem;letter-spacing:.06em;border-top:1px solid var(--cream4);padding-top:.3rem}
+.wisdom-tag__specs dt{font-weight:700;text-transform:uppercase;color:var(--esp3)}
+.wisdom-tag__specs dd{color:var(--esp2)}
+.wisdom-tag__edition{font-size:.38rem;letter-spacing:.08em;text-transform:uppercase;color:var(--esp4);text-align:center;margin-top:.1rem}
+/* string detail at top */
+.sc--wisdom .sc__vis::before{content:'';position:absolute;top:0;left:50%;width:1px;height:14px;background:var(--cream4);z-index:1}
+.sc--wisdom .sc__vis::after{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;border:1.5px solid var(--cream4)}
 
-/* secondary cards */
+/* secondary cards — keep existing */
 .more{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.5rem}
 @media(max-width:900px){.more{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.more{grid-template-columns:1fr}}
@@ -332,22 +466,78 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 <div class="hero__in">
 <div class="hero__content reveal">
 <p class="hero__hi">Hi, I'm Niharika —</p>
-<h1 class="hero__h1">a UX designer who turns<br><em>messy systems</em> into calm,<br>playful experiences.</h1>
+<h1 class="hero__h1">a <span class="hl-olive">UX designer</span> who turns<br>messy systems into calm,<br><span class="hl-rust">playful</span> experiences.</h1>
 <p class="hero__sub">Digital products, physical-digital systems, and visual stories for human-centered experiences.</p>
 <div class="hero__ctas">
 <a href="#work" class="hero__cta1">View my work ↗</a>
 <a href="#" class="hero__cta2">Download resume</a><!-- TODO: Add resume link -->
 </div>
+<div class="hero__annot">
+<span style="font-family:var(--ff-h);color:var(--rust)">selected work inside</span>
+<svg viewBox="0 0 30 20"><path d="M2 10C8 10 16 5 25 12" stroke-linecap="round"/><path d="M20 8L26 12L22 16" stroke-linecap="round"/></svg>
+</div>
 </div>
 <div class="hero__art" aria-hidden="true">
-<div class="hart hart--textile"></div>
-<div class="hart hart--folder"><span>pili.fig</span><span>biospherix.fig</span><span>fifa-atlanta.pdf</span><span>wisdom-atl.fig</span></div>
-<div class="hart hart--receipt">Irani Chai House<br>·····················<br>SCAD Atlanta<br>UX + Graphic Design<br>Class of 2026<br>·····················<br>Open to work ✓</div>
-<div class="hart hart--stamp"><span>India<br>Post</span></div>
-<div class="hart hart--matchbox">Atlanta, GA</div>
-<div class="hart hart--photo">niharika-photo.jpg</div>
-<div class="hart hart--note">messy → calm<br>scattered → clear ✦</div>
+<!-- Envelope with tape label and file cards -->
+<div class="hart hart--env">
+<div class="hart--env-cards">
+<div class="hart--env-card">pili.fig</div>
+<div class="hart--env-card">biospherix</div>
+<div class="hart--env-card">fifa-atl</div>
 </div>
+<div class="hart--env-body">
+<div class="hart--env-flap"></div>
+</div>
+<div class="hart--env-tape">ideas in progress</div>
+</div>
+
+<!-- Irani Cafe receipt -->
+<div class="hart hart--receipt">
+<div class="hart--receipt-top">
+<div class="r-title">Irani Cafe</div>
+<div class="r-loc">Churchgate</div>
+</div>
+<div class="hart--receipt-body">
+<div class="r-line"><span>1 Cutting Chai</span><span>18.00</span></div>
+<div class="r-line"><span>1 Bun Maska</span><span>25.00</span></div>
+<div class="r-dash"></div>
+<div class="r-line"><span>Total</span><span>43.00</span></div>
+</div>
+<div class="hart--receipt-foot">
+<div class="r-thanks">Thank you!</div>
+<div class="r-hindi">धन्यवाद!</div>
+<div class="r-date">21/04/24 &nbsp; 09:37 AM</div>
+</div>
+</div>
+
+<!-- Indian postal stamp -->
+<div class="hart hart--stamp">
+<div class="hart--stamp-val">500</div>
+<div class="hart--stamp-inner">
+<span class="hart--stamp-hindi">भारत</span>
+<div class="hart--stamp-flower"></div>
+<span class="hart--stamp-eng">India</span>
+</div>
+</div>
+
+<!-- Photo frame -->
+<div class="hart hart--photo">
+<div class="hart--photo-img"></div>
+<span class="hart--photo-lbl">niharika-photo.jpg</span>
+</div>
+
+<!-- Safety Matches box -->
+<div class="hart hart--matchbox">
+<div class="hart--matchbox-border"></div>
+<div class="hart--matchbox-title">Safety Matches</div>
+<div class="hart--matchbox-brand">बाघ</div>
+<div class="hart--matchbox-hindi">BAAGH</div>
+<div class="hart--matchbox-reg">REGD. No. 247365</div>
+</div>
+</div>
+
+<!-- Textile strip at bottom -->
+<div class="hero__textile"><div class="hero__textile-inner"></div></div>
 </div>
 </section>
 
@@ -361,8 +551,29 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 </div>
 
 <div class="sw-grid">
+<!-- PILI — care guide card -->
 <div class="sc sc--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-<div class="sc__vis"><span class="sc__vis-lbl">pili-device-render.jpg</span></div>
+<div class="sc__vis">
+<div class="pili-guide">
+<div class="pili-guide__hdr">
+<div><div class="pili-guide__logo">pili</div><div class="pili-guide__sub">Care Guide</div></div>
+</div>
+<div class="pili-guide__device">
+<div class="pili-device"></div>
+<span class="pili-annot pili-annot--1">Press to connect</span>
+<span class="pili-annot pili-annot--2">Soft touch fabric</span>
+<span class="pili-annot pili-annot--3">LED status light</span>
+</div>
+<div class="pili-guide__bar">
+<div class="pili-guide__bar-title">Getting Started</div>
+<div class="pili-guide__icons">
+<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5"/></svg></div><span>Press &amp; hold</span></div>
+<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><path d="M8 3C5 3 3 5 3 8s2 5 5 5 5-2 5-5-2-5-5-5z"/><path d="M8 6v4"/></svg></div><span>Place near loved one</span></div>
+<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><path d="M4 8h8M8 4v8"/></svg></div><span>Stay connected</span></div>
+</div>
+</div>
+</div>
+</div>
 <div class="sc__info">
 <div class="sc__yr">2026 · Senior Capstone</div>
 <h3 class="sc__name">Pili</h3>
@@ -372,8 +583,23 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 </div>
 </div>
 
+<!-- BIOSPHERIX — blueprint -->
 <div class="sc sc--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-<div class="sc__vis"><span class="sc__vis-lbl">biospherix-interface.jpg</span></div>
+<div class="sc__vis">
+<div class="bio-tab">BioSpherix</div>
+<div class="bio-plan">
+<div class="bio-plan__title">Plan View · Scale 1:150</div>
+<div class="bio-plan__drawing">
+<div class="bio-plan__room bio-plan__room--1">BSL-2400</div>
+<div class="bio-plan__room bio-plan__room--2">Service</div>
+<div class="bio-plan__room bio-plan__room--3">Clearance Zone</div>
+<span class="bio-plan__annot bio-plan__annot--1">Airflow optimized</span>
+<span class="bio-plan__annot bio-plan__annot--2">Access clearance</span>
+</div>
+<div class="bio-plan__specs">Chamber BSL-2400 · Temp: -20° to 60°C · Humidity: 10-98% RH</div>
+<div class="bio-plan__tagline">Modular. Scalable. Sustainable.</div>
+</div>
+</div>
 <div class="sc__info">
 <div class="sc__yr">2026 · Product / Web App</div>
 <h3 class="sc__name">BioSpherix Layout Planner</h3>
@@ -383,8 +609,28 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 </div>
 </div>
 
+<!-- FIFA — event credential -->
 <div class="sc sc--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-<div class="sc__vis"><span class="sc__vis-lbl">fifa-city-pass.jpg</span></div>
+<div class="sc__vis">
+<div class="fifa-pass">
+<div class="fifa-pass__header">FIFA World Cup 26™</div>
+<div class="fifa-pass__city">ATLANTA</div>
+<div class="fifa-pass__date">June 11 – July 19, 2026</div>
+<div class="fifa-pass__map">
+<div class="fifa-dot fifa-dot--1"></div>
+<div class="fifa-dot fifa-dot--2"></div>
+<div class="fifa-dot fifa-dot--3"></div>
+<div class="fifa-dot fifa-dot--4"></div>
+<div class="fifa-line"><svg viewBox="0 0 100 80"><path d="M20 16 L60 32 L35 56 L80 70" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-dasharray="3,3"/></svg></div>
+</div>
+<dl class="fifa-pass__cred">
+<dt>Name</dt><dd>Niharika Jain</dd>
+<dt>Role</dt><dd>Design Team</dd>
+<dt>Access</dt><dd>All Venues</dd>
+</dl>
+<div class="fifa-pass__badge">WE ARE ATL</div>
+</div>
+</div>
 <div class="sc__info">
 <div class="sc__yr">2026 · SCADpro</div>
 <h3 class="sc__name">FIFA World Cup 2026 Atlanta</h3>
@@ -394,8 +640,24 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 </div>
 </div>
 
+<!-- WISDOM — product tag -->
 <div class="sc sc--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
-<div class="sc__vis"><span class="sc__vis-lbl">wisdom-product-tag.jpg</span></div>
+<div class="sc__vis">
+<div class="wisdom-tag">
+<div class="wisdom-tag__brand">Wisdom ATL Eyewear</div>
+<div class="wisdom-tag__img">
+<div class="wisdom-tag__glasses">
+<div class="wisdom-tag__bridge"></div>
+</div>
+</div>
+<dl class="wisdom-tag__specs">
+<dt>Model</dt><dd>Riverside</dd>
+<dt>Color</dt><dd>Honey Tort</dd>
+<dt>Width</dt><dd>51 □ 20 145</dd>
+</dl>
+<div class="wisdom-tag__edition">Limited Edition · Made in Atlanta</div>
+</div>
+</div>
 <div class="sc__info">
 <div class="sc__yr">2026 · Collaboration</div>
 <h3 class="sc__name">Wisdom ATL Eyewear</h3>
