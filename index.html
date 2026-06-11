@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Niharika Jain — UX + Graphic Designer. SCAD Atlanta. Part designer, part storyteller, part systems thinker." />
+  <meta name="description" content="Niharika Jain — UX Designer. Turning messy systems into calm, playful experiences. SCAD Atlanta 2026." />
   <title>Niharika Jain</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,6 +36,13 @@
   --coral-pl:    #FAECE6;
   --sky:         #2E74B8;
   --sky-pl:      #E8F2FA;
+  --olive:       #6B7C3F;
+  --olive-pl:    #F2F4EB;
+  --matcha:      #8A9E6A;
+  --rust:        #B85C3A;
+  --pink:        #D4888C;
+  --pink-pl:     #FAF0F0;
+  --powder:      #9CB8D4;
   --ink:         #1A0E08;
   --ink-2:       #382418;
   --ink-3:       #6E5548;
@@ -164,74 +171,35 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
 /* ═══════════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════════ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  transition:background .2s,box-shadow .2s;
-}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s}
 .nav.scrolled{
-  background:rgba(251,250,246,.94);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 1px 0 rgba(26,14,8,.07);
+  background:rgba(251,250,246,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 rgba(26,14,8,.06);
 }
-.nav__in{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem var(--gut);max-width:1280px;margin:0 auto;
-}
-.nav__logo{
-  font-family:var(--ff-display);font-weight:700;font-size:1.05rem;
-  letter-spacing:-.01em;color:var(--ink);
-}
-.nav__logo em{font-style:italic;font-weight:400;color:var(--maroon)}
-.nav__links{display:flex;align-items:center;gap:.15rem}
+.nav__in{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gut);max-width:1280px;margin:0 auto}
+.nav__logo{font-family:var(--ff-display);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink)}
+.nav__links{display:flex;align-items:center;gap:.25rem}
 .nav__a{
-  font-size:var(--fs--1);font-weight:500;color:var(--ink-2);
-  padding:.32rem .65rem;border-radius:var(--r-4);
-  transition:color .15s,background .15s;
+  font-size:var(--fs--1);font-weight:500;color:var(--ink-3);
+  padding:.28rem .55rem;border-radius:var(--r-4);transition:color .15s;
 }
-.nav__a:hover{color:var(--ink);background:var(--paper2)}
-.nav__cta{
-  background:var(--ink);color:var(--paper)!important;
-  padding:.32rem .85rem;border-radius:var(--r-99);font-weight:600;
-}
-.nav__cta:hover{background:var(--maroon)!important}
-.nav__tog{
-  display:none;padding:.4rem;color:var(--ink);
-  flex-direction:column;gap:5px;
-}
+.nav__a:hover{color:var(--ink)}
+.nav__tog{display:none;padding:.4rem;color:var(--ink);flex-direction:column;gap:5px}
 .nav__tog span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
 .nav__tog.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav__tog.open span:nth-child(2){opacity:0}
 .nav__tog.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav__mob{
-  display:none;flex-direction:column;
-  background:var(--paper);border-top:1px solid var(--paper3);
-  padding:1rem var(--gut) 1.5rem;gap:.2rem;
-}
+.nav__mob{display:none;flex-direction:column;background:var(--paper);border-top:1px solid var(--paper3);padding:1rem var(--gut) 1.5rem;gap:.15rem}
 .nav__mob.open{display:flex}
-.nav__mob .nav__a{padding:.55rem .5rem;font-size:var(--fs-0)}
-@media(max-width:740px){
-  .nav__links{display:none}
-  .nav__tog{display:flex}
-}
+.nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
+@media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
 
 /* ═══════════════════════════════════════════════════
-   MARQUEE
+   SUBTLE DIVIDER (replaces heavy marquee + band)
 ═══════════════════════════════════════════════════ */
-.marquee{background:var(--maroon);overflow:hidden;padding:.65rem 0;border-top:2px solid var(--maroon-dk);border-bottom:2px solid var(--maroon-dk)}
-.marquee__track{display:flex;width:max-content;animation:mq 34s linear infinite}
-.marquee__track:hover{animation-play-state:paused}
-.marquee__item{
-  display:inline-flex;align-items:center;gap:1.2rem;padding:0 1.5rem;
-  font-size:var(--fs--1);font-weight:500;letter-spacing:.06em;
-  color:rgba(255,255,255,.82);white-space:nowrap;
-}
-.marquee__item .bead{width:4px;height:4px;border-radius:50%;background:var(--marigold);flex-shrink:0}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.divider-line{height:1px;background:var(--paper3);margin:0}
 
-/* ═══════════════════════════════════════════════════
-   SECTION BAND
-═══════════════════════════════════════════════════ */
-.band{height:3px;background:linear-gradient(to right,var(--maroon),var(--marigold),var(--cobalt))}
+
 
 /* ═══════════════════════════════════════════════════
    SCROLL REVEAL
@@ -261,152 +229,259 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
    ██  HOME  ██
 ═══════════════════════════════════════════════════ */
 
+
 /* ── HERO ── */
-.hero{
+.hero2{
   min-height:100vh;display:flex;align-items:center;
   padding-top:4.5rem;position:relative;overflow:hidden;
+  background:var(--paper);
 }
-.hero__in{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;
-  align-items:center;padding:var(--sec) var(--gut);
-  max-width:1280px;margin:0 auto;width:100%;
+.hero2__in{
+  position:relative;max-width:1280px;margin:0 auto;width:100%;
+  padding:clamp(3rem,8vw,6rem) var(--gut);
 }
-.hero__kicker{
+.hero2__content{max-width:640px;position:relative;z-index:2}
+.hero2__greeting{
+  font-family:var(--ff-hand);font-size:clamp(1.1rem,1rem + .5vw,1.3rem);
+  color:var(--ink-3);margin-bottom:.6rem;
+}
+.hero2__h1{
+  font-family:var(--ff-display);font-size:var(--fs-5);font-weight:700;
+  line-height:1.04;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;
+}
+.hero2__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
+.hero2__sub{
+  font-size:var(--fs-1);color:var(--ink-2);line-height:1.65;
+  max-width:500px;margin-bottom:2rem;
+}
+.hero2__ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.hero2__cta-primary{
   display:inline-flex;align-items:center;gap:.5rem;
-  font-size:var(--fs--1);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--maroon);margin-bottom:1.1rem;
+  padding:.65rem 1.5rem;font-size:var(--fs--1);font-weight:600;letter-spacing:.03em;
+  background:var(--ink);color:var(--paper);border-radius:var(--r-99);
+  border:2px solid var(--ink);transition:background .15s,transform .15s,box-shadow .15s;
 }
-.hero__kicker::before{content:'';display:inline-block;width:10px;height:10px;background:var(--maroon);border-radius:2px;transform:rotate(45deg)}
-.hero__h1{font-family:var(--ff-display);font-size:var(--fs-5);font-weight:700;line-height:1.0;letter-spacing:-.03em;margin-bottom:1.4rem;color:var(--ink)}
-.hero__h1 em{font-style:italic;font-weight:400;color:var(--maroon)}
-.hero__sub{font-size:var(--fs-1);color:var(--ink-2);line-height:1.65;max-width:500px;margin-bottom:1.8rem}
-.hero__sub strong{font-weight:600;color:var(--ink)}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:.65rem}
+.hero2__cta-primary:hover{background:var(--olive);border-color:var(--olive);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.hero2__cta-secondary{
+  font-size:var(--fs--1);font-weight:500;color:var(--ink-3);
+  border-bottom:1px solid var(--ink-5);padding-bottom:2px;
+  transition:color .15s,border-color .15s;
+}
+.hero2__cta-secondary:hover{color:var(--ink);border-color:var(--ink)}
 
-/* hero collage */
-.hero__collage{position:relative;height:560px}
-.hc{position:absolute;background:var(--paper2);border-radius:var(--r-16);border:1.5px solid rgba(26,14,8,.09);box-shadow:var(--sh-md);overflow:hidden}
+/* hero decorative artifacts */
+.hero2__artifacts{position:absolute;inset:0;pointer-events:none;z-index:1}
+.h-artifact{
+  position:absolute;font-family:var(--ff-body);font-size:var(--fs--1);
+  transition:transform .4s ease;
+}
+/* folder tab */
+.h-art--folder{
+  top:12%;right:8%;
+  background:var(--paper2);border:1.5px solid var(--paper3);border-radius:var(--r-6);
+  padding:.75rem 1rem;transform:rotate(2deg);
+  box-shadow:var(--sh-xs);width:160px;
+}
+.h-art--folder::before{
+  content:'case files';position:absolute;top:-10px;left:12px;
+  background:var(--olive);color:#fff;font-size:8px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px 3px 0 0;
+}
+.h-art--folder-files{display:flex;flex-direction:column;gap:.2rem;margin-top:.4rem}
+.h-art--folder-file{font-size:.68rem;color:var(--ink-2);display:flex;align-items:center;gap:.3rem}
+.h-art--folder-file::before{content:'—';color:var(--ink-5);font-size:.6rem}
 
-.hc--profile{width:230px;height:295px;top:24px;right:12px;transform:rotate(1.8deg)}
-.hc--sky{width:270px;height:105px;top:70px;left:0;transform:rotate(-1.5deg)}
-.hc--folder{width:210px;height:150px;bottom:55px;right:35px;transform:rotate(-1.8deg);background:var(--paper);border:2px solid var(--maroon)}
-.hc--note{width:170px;height:130px;bottom:60px;left:15px;transform:rotate(2.8deg);background:#FFFCE8;border:1.5px solid rgba(217,144,32,.35)}
-.hc--tag{position:absolute;top:240px;left:5px;transform:rotate(-6deg);background:var(--marigold);color:var(--ink);font-family:var(--ff-hand);font-size:.9rem;padding:.25rem .75rem;border-radius:var(--r-4);box-shadow:var(--sh-xs)}
-
-/* profile card inside */
-.hc__profile{width:100%;height:100%;background:linear-gradient(155deg,var(--paper3) 0%,var(--paper2) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.1rem;gap:.35rem}
-.hc__av{width:78px;height:78px;border-radius:50%;background:var(--maroon);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-size:1.9rem;color:#fff;font-weight:700;margin-bottom:.4rem;border:3px solid var(--paper);box-shadow:var(--sh-sm)}
-.hc__name{font-family:var(--ff-display);font-size:.82rem;font-weight:700;color:var(--ink)}
-.hc__role{font-size:.68rem;color:var(--ink-3);font-weight:500;text-align:center}
-
-/* sky strip */
-.hc__sky{width:100%;height:100%;background:linear-gradient(to right,#84C4E8,#68A4CE,#96BADC,#BDD6EE,#EEC898);display:flex;align-items:flex-end;justify-content:flex-end;padding:.45rem .6rem}
-.hc__sky-lbl{font-family:var(--ff-hand);font-size:.8rem;color:rgba(255,255,255,.85);writing-mode:vertical-rl}
-
-/* folder inside */
-.hc__folder{padding:.85rem;height:100%;display:flex;flex-direction:column;gap:.35rem}
-.hc__ftab{position:absolute;top:-12px;left:14px;background:var(--maroon);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px 4px 0 0}
-.hc__ftitle{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--maroon);margin-top:.3rem}
-.hc__ffile{font-size:.68rem;color:var(--ink-2);font-weight:500;display:flex;align-items:center;gap:.35rem}
-.hc__ffile::before{content:'📄';font-size:.6rem}
-
-/* sticky note inside */
-.hc__note{padding:.7rem;height:100%;display:flex;flex-direction:column;gap:.28rem}
-.hc__nline{font-family:var(--ff-hand);font-size:.88rem;color:var(--ink-2);line-height:1.4}
-.hc__nline strong{font-weight:600}
-
-@media(max-width:880px){
-  .hero__in{grid-template-columns:1fr;gap:2rem}
-  .hero__collage{height:310px}
-  .hc--profile{width:160px;height:208px;top:18px;right:8px}
-  .hc--sky{width:200px;height:80px;top:44px;left:0}
-  .hc--folder{width:165px;height:116px;bottom:18px;right:18px}
-  .hc--note{width:138px;height:105px;bottom:22px;left:10px}
-  .hc--tag{display:none}
+/* receipt strip */
+.h-art--receipt{
+  bottom:18%;right:12%;
+  background:var(--paper);border:1px solid var(--paper3);
+  padding:.6rem .75rem;width:140px;transform:rotate(-3deg);
+  box-shadow:var(--sh-xs);border-radius:var(--r-4);
+  font-size:.62rem;color:var(--ink-3);letter-spacing:.04em;line-height:1.8;
 }
 
-/* ── WORK GRID ── */
-.work{padding:var(--sec) var(--gut)}
-.work__hd{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
-.work__title{font-family:var(--ff-display);font-size:var(--fs-4);font-weight:700;letter-spacing:-.025em;line-height:1}
-.work__title em{font-style:italic;font-weight:400;color:var(--maroon)}
-.work__ct{font-family:var(--ff-hand);font-size:1.05rem;color:var(--ink-3);padding-bottom:.2rem}
-
-/* project card grid */
-.pgrid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  grid-template-rows:auto auto;
-  gap:1.25rem;
+/* stamp */
+.h-art--stamp{
+  top:22%;right:32%;
+  width:56px;height:64px;border:2px solid var(--rust);border-radius:var(--r-4);
+  display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);
+  opacity:.55;
 }
-.pcard{
-  position:relative;background:var(--paper);
-  border-radius:var(--r-16);border:2px solid transparent;
-  box-shadow:var(--sh-sm);overflow:visible;
-  transition:transform .2s,box-shadow .2s;
-  cursor:pointer;
+.h-art--stamp-inner{
+  width:44px;height:52px;border:1px solid var(--rust);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-hand);font-size:.65rem;color:var(--rust);text-align:center;
+  line-height:1.2;
 }
-.pcard:hover{transform:translateY(-5px) rotate(.25deg);box-shadow:var(--sh-xl);z-index:2}
-.pcard__tab{
-  position:absolute;top:-13px;left:16px;height:13px;padding:0 12px;
-  border-radius:5px 5px 0 0;font-size:9px;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:#fff;display:flex;align-items:center;
+
+/* matchbox label */
+.h-art--matchbox{
+  bottom:28%;left:2%;
+  background:var(--marigold);color:var(--ink);
+  padding:.4rem .8rem;border-radius:var(--r-4);
+  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  transform:rotate(-4deg);box-shadow:var(--sh-xs);
 }
-.pcard__body{padding:1.2rem}
-.pcard__img{width:100%;border-radius:var(--r-8);margin-bottom:.9rem}
-.pcard__cat{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;opacity:.75}
-.pcard__name{font-family:var(--ff-display);font-weight:700;line-height:1.08;letter-spacing:-.015em;margin-bottom:.35rem}
-.pcard__desc{font-size:var(--fs--1);color:var(--ink-3);line-height:1.5;margin-bottom:.75rem}
-.pcard__foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-.pcard__tags{display:flex;flex-wrap:wrap;gap:.3rem}
-.tag{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.04em;padding:.18rem .55rem;border-radius:var(--r-99);background:var(--paper2);color:var(--ink-2);border:1px solid rgba(26,14,8,.09)}
-.pcard__open{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:.3rem;opacity:.7;transition:opacity .15s}
-.pcard:hover .pcard__open{opacity:1}
 
-/* card sizes */
-.c-pili{grid-column:span 3;border-color:var(--red)}
-.c-pili .pcard__tab{background:var(--red)}
-.c-pili .pcard__cat{color:var(--red)}
-.c-pili .pcard__name{font-size:var(--fs-2)}
-
-.c-bio{grid-column:span 3;border-color:var(--cobalt)}
-.c-bio .pcard__tab{background:var(--cobalt)}
-.c-bio .pcard__cat{color:var(--cobalt)}
-.c-bio .pcard__name{font-size:var(--fs-2)}
-
-.c-fifa{grid-column:span 2;border-color:var(--forest)}
-.c-fifa .pcard__tab{background:var(--forest)}
-.c-fifa .pcard__cat{color:var(--forest)}
-
-.c-wisdom{grid-column:span 2;border-color:var(--orange)}
-.c-wisdom .pcard__tab{background:var(--orange)}
-.c-wisdom .pcard__cat{color:var(--orange)}
-
-.c-naagin{grid-column:span 2;border-color:var(--coral)}
-.c-naagin .pcard__tab{background:var(--coral)}
-.c-naagin .pcard__cat{color:var(--coral)}
-
-.c-kuai{grid-column:span 2;border-color:var(--sky)}
-.c-kuai .pcard__tab{background:var(--sky)}
-.c-kuai .pcard__cat{color:var(--sky)}
-
-/* last row: naagin + kuai take 2+2 of 6 cols but there's a gap-filler */
-.pgrid-row2{grid-column:span 6;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.pgrid-row2 .c-naagin,.pgrid-row2 .c-kuai{grid-column:span 1}
-
-@media(max-width:1020px){
-  .pgrid{grid-template-columns:repeat(4,1fr)}
-  .c-pili,.c-bio{grid-column:span 2}
-  .c-fifa,.c-wisdom,.c-naagin,.c-kuai{grid-column:span 2}
+/* photo frame */
+.h-art--photo{
+  bottom:12%;right:38%;
+  width:120px;height:90px;background:var(--paper2);border:1.5px solid var(--paper3);
+  border-radius:var(--r-6);transform:rotate(1.5deg);box-shadow:var(--sh-xs);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;color:var(--ink-4);font-weight:500;
 }
-@media(max-width:620px){
-  .pgrid{grid-template-columns:1fr 1fr}
-  .c-pili,.c-bio,.c-fifa,.c-wisdom,.c-naagin,.c-kuai{grid-column:span 2}
+
+/* handwritten note */
+.h-art--note{
+  top:60%;right:6%;
+  font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3);
+  transform:rotate(2deg);line-height:1.4;
 }
-@media(max-width:400px){
-  .pgrid{grid-template-columns:1fr}
-  .c-pili,.c-bio,.c-fifa,.c-wisdom,.c-naagin,.c-kuai{grid-column:span 1}
+
+/* doodle arrow */
+.h-art--arrow{
+  top:48%;right:26%;
+  width:40px;height:20px;color:var(--ink-4);opacity:.5;
+  transform:rotate(15deg);
 }
+
+@media(max-width:900px){
+  .hero2__artifacts{display:none}
+}
+
+/* ── SELECTED WORK ── */
+.sel-work{padding:var(--sec) var(--gut)}
+.sel-work__in{max-width:1280px;margin:0 auto}
+.sel-work__tape{
+  display:inline-block;font-family:var(--ff-hand);font-size:.85rem;
+  color:var(--ink-3);background:var(--marigold-pl);
+  padding:.15rem .65rem;border-radius:var(--r-2);
+  transform:rotate(-1.5deg);margin-bottom:.75rem;
+  border:1px solid rgba(217,144,32,.2);
+}
+.sel-work__h{
+  font-family:var(--ff-display);font-size:var(--fs-4);font-weight:700;
+  letter-spacing:-.025em;margin-bottom:.5rem;
+}
+.sel-work__sub{
+  font-size:var(--fs-0);color:var(--ink-3);margin-bottom:3rem;
+  max-width:420px;
+}
+
+/* main 2×2 project grid */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+@media(max-width:700px){.proj-grid{grid-template-columns:1fr}}
+
+/* base project card */
+.proj-card{
+  border-radius:var(--r-12);overflow:hidden;cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease;
+  display:flex;flex-direction:column;position:relative;
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);z-index:2}
+.proj-card__visual{
+  width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.proj-card__visual-label{
+  font-size:var(--fs--1);font-weight:500;color:var(--ink-4);
+  letter-spacing:.03em;
+}
+.proj-card__info{padding:1.25rem 1.4rem 1.4rem}
+.proj-card__year{
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:.5rem;
+}
+.proj-card__name{
+  font-family:var(--ff-display);font-size:var(--fs-2);font-weight:700;
+  letter-spacing:-.02em;margin-bottom:.4rem;line-height:1.1;
+}
+.proj-card__desc{
+  font-size:var(--fs--1);color:var(--ink-3);line-height:1.55;margin-bottom:.85rem;
+}
+.proj-card__skills{
+  font-size:10px;color:var(--ink-4);letter-spacing:.04em;margin-bottom:.85rem;
+  line-height:1.5;
+}
+.proj-card__cta{
+  font-size:var(--fs--1);font-weight:600;letter-spacing:.04em;color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:.35rem;
+  transition:color .15s,gap .15s;
+}
+.proj-card:hover .proj-card__cta{color:var(--ink);gap:.5rem}
+
+/* ── Card 1: Pili — care manual ── */
+.proj-card--pili{background:var(--olive-pl);border:1.5px solid rgba(107,124,63,.15)}
+.proj-card--pili .proj-card__visual{background:linear-gradient(160deg,#E8ECDE 0%,#F2F4EB 50%,#E0E8D0 100%)}
+.proj-card--pili .proj-card__name{color:var(--olive)}
+.proj-card--pili .proj-card__year{color:var(--olive)}
+/* care manual accent line */
+.proj-card--pili::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--matcha);
+}
+
+/* ── Card 2: BioSpherix — blueprint ── */
+.proj-card--bio{background:#F2F6FA;border:1.5px solid rgba(26,74,130,.12)}
+.proj-card--bio .proj-card__visual{
+  background:#E8EFF8;
+  background-image:linear-gradient(rgba(26,74,130,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.06) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.proj-card--bio .proj-card__name{color:var(--cobalt)}
+.proj-card--bio .proj-card__year{color:var(--cobalt)}
+.proj-card--bio::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--cobalt);
+}
+
+/* ── Card 3: FIFA — event credential ── */
+.proj-card--fifa{background:var(--forest-pl);border:1.5px solid rgba(42,96,69,.12)}
+.proj-card--fifa .proj-card__visual{background:linear-gradient(150deg,#D8ECE2 0%,#E6F2EC 50%,#D0E4D8 100%)}
+.proj-card--fifa .proj-card__name{color:var(--forest)}
+.proj-card--fifa .proj-card__year{color:var(--forest)}
+.proj-card--fifa::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--forest);
+}
+/* perforated edge on right */
+.proj-card--fifa::before{
+  content:'';position:absolute;right:-1px;top:20px;bottom:20px;width:12px;
+  background:repeating-linear-gradient(to bottom,transparent,transparent 6px,var(--paper) 6px,var(--paper) 8px);
+  z-index:1;
+}
+
+/* ── Card 4: Wisdom — lookbook page ── */
+.proj-card--wisdom{background:var(--orange-pl);border:1.5px solid rgba(200,92,24,.1)}
+.proj-card--wisdom .proj-card__visual{background:linear-gradient(160deg,#F0E0D0 0%,#FAF0E8 50%,#ECD8C4 100%)}
+.proj-card--wisdom .proj-card__name{color:var(--orange)}
+.proj-card--wisdom .proj-card__year{color:var(--orange)}
+.proj-card--wisdom::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--orange);
+}
+
+/* ── Secondary / More Files row ── */
+.more-files{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;margin-top:.5rem;
+}
+.more-card{
+  background:var(--paper);border:1.5px solid var(--paper3);
+  border-radius:var(--r-8);padding:1rem 1.1rem;
+  cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .15s;
+}
+.more-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--ink-5)}
+.more-card__name{
+  font-family:var(--ff-display);font-size:var(--fs-0);font-weight:700;
+  margin-bottom:.25rem;letter-spacing:-.01em;
+}
+.more-card__desc{font-size:var(--fs--1);color:var(--ink-3);line-height:1.5;margin-bottom:.5rem}
+.more-card__cta{font-size:10px;font-weight:600;color:var(--ink-4);letter-spacing:.04em}
+.more-card:hover .more-card__cta{color:var(--ink)}
+
+
 
 /* ── OPEN FILE: NIHARIKA (maroon) ── */
 .about{background:var(--maroon);padding:var(--sec) var(--gut);color:#fff}
@@ -817,12 +892,13 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
 <!-- ═══════════════ NAV ═══════════════ -->
 <nav class="nav" id="nav">
   <div class="nav__in">
-    <a href="#/" class="nav__logo" id="nav-logo">Niharika<em>Jain</em></a>
+    <a href="#/" class="nav__logo" id="nav-logo">Niharika Jain</a>
     <ul class="nav__links">
       <li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
       <li><a href="#about" class="nav__a" id="nav-about">About</a></li>
-      <li><a href="#process" class="nav__a" id="nav-process">Process</a></li>
-      <li><a href="#contact" class="nav__a nav__cta" id="nav-contact">Contact</a></li>
+      <li><a href="#play" class="nav__a" id="nav-play">Play</a></li>
+      <li><a href="#" class="nav__a" id="nav-resume">Resume</a></li><!-- TODO: Add resume link -->
+      <li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
     </ul>
     <button class="nav__tog" id="navTog" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -831,7 +907,8 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
   <div class="nav__mob" id="navMob">
     <a href="#work" class="nav__a">Work</a>
     <a href="#about" class="nav__a">About</a>
-    <a href="#process" class="nav__a">Process</a>
+    <a href="#play" class="nav__a">Play</a>
+    <a href="#" class="nav__a">Resume</a><!-- TODO: Add resume link -->
     <a href="#contact" class="nav__a">Contact</a>
   </div>
 </nav>
@@ -840,231 +917,155 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
 <div id="home-view">
 
   <!-- HERO -->
-  <section class="hero pg" id="top">
-    <div class="hero__in">
-      <div class="reveal">
-        <div class="hero__kicker">SCAD Atlanta · UX + Graphic Design · Class of 2026</div>
-        <h1 class="hero__h1">
-          Part designer,<br>
-          part <em>storyteller</em>,<br>
-          part systems<br>thinker.
+  <section class="hero2" id="top">
+    <div class="hero2__in">
+      <div class="hero2__content reveal">
+        <p class="hero2__greeting">Hi, I'm Niharika —</p>
+        <h1 class="hero2__h1">
+          a UX designer who turns<br>
+          <em>messy systems</em> into calm,<br>
+          playful experiences.
         </h1>
-        <p class="hero__sub">
-          I design the way I collect things — <strong>noticing patterns, saving details,</strong> and turning scattered pieces into something people can understand and feel. Based in Atlanta. Fueled by curiosity, strong tea, and an unreasonable amount of saved references.
-        </p>
-        <div class="hero__ctas">
-          <a href="#work" class="btn btn-ink">See the Work ↓</a>
-          <a href="#about" class="btn btn-outline">Open File: Niharika</a>
+        <p class="hero2__sub">Digital products, physical-digital systems, and visual stories for human-centered experiences.</p>
+        <div class="hero2__ctas">
+          <a href="#work" class="hero2__cta-primary">View my work ↗</a>
+          <a href="#" class="hero2__cta-secondary">Download resume</a><!-- TODO: Add resume link -->
         </div>
       </div>
 
-      <div class="hero__collage" aria-hidden="true">
-        <!-- Profile card -->
-        <div class="hc hc--profile">
-          <div class="hc__profile">
-            <div class="hc__av">NJ</div>
-            <span class="hc__name">Niharika Jain</span>
-            <span class="hc__role">UX · Graphic · Systems</span>
-          </div>
-        </div>
-        <!-- Sky -->
-        <div class="hc hc--sky">
-          <div class="hc__sky">
-            <span class="hc__sky-lbl">sky archive</span>
-          </div>
-        </div>
-        <!-- Folder -->
-        <div class="hc hc--folder">
-          <div class="hc__ftab">selected_work</div>
-          <div class="hc__folder">
-            <span class="hc__ftitle">6 projects open</span>
-            <div style="display:flex;flex-direction:column;gap:.22rem;margin-top:.25rem">
-              <span class="hc__ffile">pili.fig</span>
-              <span class="hc__ffile">biospherix-planner.fig</span>
-              <span class="hc__ffile">fifa-atlanta.pdf</span>
-              <span class="hc__ffile">wisdom-atl.fig</span>
-            </div>
-          </div>
-        </div>
-        <!-- Sticky note -->
-        <div class="hc hc--note">
-          <div class="hc__note">
-            <span class="hc__nline">currently:</span>
-            <span class="hc__nline"><strong>Pili capstone ✓</strong></span>
-            <span class="hc__nline">open to roles ✦</span>
-            <span class="hc__nline" style="margin-top:.3rem;color:var(--ink-3);font-size:.8rem">Atlanta / remote</span>
-          </div>
-        </div>
-        <!-- Tag -->
-        <div class="hc--tag">available for hire ✦</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span class="marquee__item">UX Design<span class="bead"></span></span>
-      <span class="marquee__item">Graphic Design<span class="bead"></span></span>
-      <span class="marquee__item">Systems Thinking<span class="bead"></span></span>
-      <span class="marquee__item">Indian Visual Culture<span class="bead"></span></span>
-      <span class="marquee__item">Tiny Details<span class="bead"></span></span>
-      <span class="marquee__item">Organized Chaos<span class="bead"></span></span>
-      <span class="marquee__item">AI-Assisted Building<span class="bead"></span></span>
-      <span class="marquee__item">Emotional Design<span class="bead"></span></span>
-      <span class="marquee__item">Storytelling<span class="bead"></span></span>
-      <span class="marquee__item">SCAD Atlanta<span class="bead"></span></span>
-      <span class="marquee__item">UX Design<span class="bead"></span></span>
-      <span class="marquee__item">Graphic Design<span class="bead"></span></span>
-      <span class="marquee__item">Systems Thinking<span class="bead"></span></span>
-      <span class="marquee__item">Indian Visual Culture<span class="bead"></span></span>
-      <span class="marquee__item">Tiny Details<span class="bead"></span></span>
-      <span class="marquee__item">Organized Chaos<span class="bead"></span></span>
-      <span class="marquee__item">AI-Assisted Building<span class="bead"></span></span>
-      <span class="marquee__item">Emotional Design<span class="bead"></span></span>
-      <span class="marquee__item">Storytelling<span class="bead"></span></span>
-      <span class="marquee__item">SCAD Atlanta<span class="bead"></span></span>
-    </div>
-  </div>
-
-  <!-- DESKTOP ARCHIVE -->
-  <section class="work pg" id="work">
-    <div class="wrap">
-      <div class="work__hd reveal">
-        <div>
-          <div class="eyebrow">Desktop Archive</div>
-          <h2 class="work__title">Selected <em>Work</em></h2>
-        </div>
-        <span class="work__ct">6 folders open —</span>
-      </div>
-
-      <div class="pgrid">
-        <!-- PILI -->
-        <div class="pcard c-pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-          <div class="pcard__tab">Senior Capstone</div>
-          <div class="pcard__body">
-            <div class="ph ph--tall pcard__img">
-              <span class="ph-ico">🌱</span><span>pili-hero.jpg</span>
-            </div><!-- TODO: Add Pili device render -->
-            <div class="pcard__cat">UX / Product + Physical Design</div>
-            <h3 class="pcard__name">Pili</h3>
-            <p class="pcard__desc">A calm connection system for older adults, families, and caregivers — device, app, and dashboard working together.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">UX Research</span>
-                <span class="tag">Physical + Digital</span>
-                <span class="tag">Care Systems</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
+      <!-- Decorative artifacts (replaced by real assets later) -->
+      <div class="hero2__artifacts" aria-hidden="true">
+        <!-- Folder tab -->
+        <div class="h-artifact h-art--folder">
+          <div class="h-art--folder-files">
+            <span class="h-art--folder-file">pili.fig</span>
+            <span class="h-art--folder-file">biospherix.fig</span>
+            <span class="h-art--folder-file">fifa-atlanta.pdf</span>
+            <span class="h-art--folder-file">wisdom-atl.fig</span>
           </div>
         </div>
 
-        <!-- BIOSPHERIX -->
-        <div class="pcard c-bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-          <div class="pcard__tab">Live Web App</div>
-          <div class="pcard__body">
-            <div class="ph ph--tall pcard__img">
-              <span class="ph-ico">🧬</span><span>biospherix-interface.jpg</span>
-            </div><!-- TODO: Add BioSpherix screenshots -->
-            <div class="pcard__cat">UX / AI-Assisted Web App</div>
-            <h3 class="pcard__name">BioSpherix</h3>
-            <p class="pcard__desc">An AI-assisted layout planning tool built for a mechanical engineer — turning client requirements into 2D system layouts before CAD.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">Web App</span>
-                <span class="tag">AI Workflow</span>
-                <span class="tag">Engineering UX</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
-          </div>
+        <!-- Receipt strip -->
+        <div class="h-artifact h-art--receipt">
+          SCAD ATLANTA<br>
+          UX + GRAPHIC DESIGN<br>
+          CLASS OF 2026<br>
+          ·····················<br>
+          READY FOR WORK ✓
         </div>
 
-        <!-- FIFA -->
-        <div class="pcard c-fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-          <div class="pcard__tab">SCADpro</div>
-          <div class="pcard__body">
-            <div class="ph pcard__img">
-              <span class="ph-ico">⚽</span><span>fifa-wayfinding.jpg</span>
-            </div><!-- TODO: Add FIFA journey map output -->
-            <div class="pcard__cat">Service Design</div>
-            <h3 class="pcard__name">FIFA WC 2026<br>Atlanta</h3>
-            <p class="pcard__desc">City-scale fan experience — wayfinding, transit, and atmosphere across multiple match days in Atlanta.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">Journey Mapping</span>
-                <span class="tag">Wayfinding</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
-          </div>
+        <!-- Indian stamp -->
+        <div class="h-artifact h-art--stamp">
+          <div class="h-art--stamp-inner">INDIA<br>POST</div>
         </div>
 
-        <!-- WISDOM -->
-        <div class="pcard c-wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
-          <div class="pcard__tab">Branding</div>
-          <div class="pcard__body">
-            <div class="ph pcard__img">
-              <span class="ph-ico">👓</span><span>wisdom-packaging.jpg</span>
-            </div><!-- TODO: Add Wisdom packaging photos -->
-            <div class="pcard__cat">Brand Identity / Packaging</div>
-            <h3 class="pcard__name">Wisdom ATL<br>Eyewear</h3>
-            <p class="pcard__desc">Product, packaging, visual merchandising, and buyer-facing retail storytelling for an Atlanta-born independent eyewear brand.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">Packaging</span>
-                <span class="tag">Visual Identity</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
-          </div>
+        <!-- Matchbox label -->
+        <div class="h-artifact h-art--matchbox">Atlanta, GA</div>
+
+        <!-- Photo frame placeholder -->
+        <div class="h-artifact h-art--photo">niharika-photo.jpg</div>
+
+        <!-- Handwritten note -->
+        <div class="h-artifact h-art--note">
+          messy → calm<br>
+          scattered → clear ✦
         </div>
 
-        <!-- NAAGIN -->
-        <div class="pcard c-naagin reveal" data-project="naagin" role="button" tabindex="0" aria-label="Open Naagin Sauce case study">
-          <div class="pcard__tab">Campaign</div>
-          <div class="pcard__body">
-            <div class="ph pcard__img">
-              <span class="ph-ico">🌶️</span><span>naagin-campaign.jpg</span>
-            </div><!-- TODO: Add Naagin campaign screenshots -->
-            <div class="pcard__cat">Graphic Design / Campaign</div>
-            <h3 class="pcard__name">Naagin Sauce</h3>
-            <p class="pcard__desc">Campaign and marketing design for an unapologetically Indian hot sauce brand with strong visual identity.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">Campaign</span>
-                <span class="tag">Marketing Design</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- KUAI -->
-        <div class="pcard c-kuai reveal" data-project="kuai" role="button" tabindex="0" aria-label="Open KUAI case study">
-          <div class="pcard__tab">AI / Concept</div>
-          <div class="pcard__body">
-            <div class="ph pcard__img">
-              <span class="ph-ico">✨</span><span>kuai-app-screens.jpg</span>
-            </div><!-- TODO: Add KUAI app screens -->
-            <div class="pcard__cat">AI UX / Concept Design</div>
-            <h3 class="pcard__name">KUAI</h3>
-            <p class="pcard__desc">An AI shopping and planning app concept — organizing decisions, comparing options, and reducing purchase overwhelm.</p>
-            <div class="pcard__foot">
-              <div class="pcard__tags">
-                <span class="tag">AI UX</span>
-                <span class="tag">Concept</span>
-              </div>
-              <span class="pcard__open">Open ↗</span>
-            </div>
-          </div>
+        <!-- Doodle arrow -->
+        <div class="h-artifact h-art--arrow">
+          <svg viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 10 C10 10, 20 4, 35 10"/><path d="M30 6 L36 10 L30 14"/></svg>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="band"></div>
+  <div class="divider-line"></div>
+
+  <!-- SELECTED WORK -->
+  <section class="sel-work" id="work">
+    <div class="sel-work__in">
+      <div class="reveal">
+        <div class="sel-work__tape">selected work</div>
+        <h2 class="sel-work__h">Selected Work</h2>
+        <p class="sel-work__sub">A small archive of systems, stories, and experiments.</p>
+      </div>
+
+      <!-- Main 2×2 grid -->
+      <div class="proj-grid">
+        <!-- PILI — care manual -->
+        <div class="proj-card proj-card--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
+          <div class="proj-card__visual">
+            <span class="proj-card__visual-label">pili-device-render.jpg</span>
+          </div><!-- TODO: Add Pili hero visual -->
+          <div class="proj-card__info">
+            <div class="proj-card__year">2026 · Senior Capstone</div>
+            <h3 class="proj-card__name">Pili</h3>
+            <p class="proj-card__desc">A calm connection system for older adults, families, and caregivers.</p>
+            <div class="proj-card__skills">UX Research · Product Design · UI/UX · Physical-Digital System</div>
+            <span class="proj-card__cta">Open case file →</span>
+          </div>
+        </div>
+
+        <!-- BIOSPHERIX — blueprint -->
+        <div class="proj-card proj-card--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
+          <div class="proj-card__visual">
+            <span class="proj-card__visual-label">biospherix-interface.jpg</span>
+          </div><!-- TODO: Add BioSpherix hero visual -->
+          <div class="proj-card__info">
+            <div class="proj-card__year">2026 · Product / Web App</div>
+            <h3 class="proj-card__name">BioSpherix Layout Planner</h3>
+            <p class="proj-card__desc">An AI-assisted layout planning tool for custom environmental chamber systems.</p>
+            <div class="proj-card__skills">AI · UX · Web App · Engineering Workflow</div>
+            <span class="proj-card__cta">Open case file →</span>
+          </div>
+        </div>
+
+        <!-- FIFA — event credential -->
+        <div class="proj-card proj-card--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
+          <div class="proj-card__visual">
+            <span class="proj-card__visual-label">fifa-city-pass.jpg</span>
+          </div><!-- TODO: Add FIFA hero visual -->
+          <div class="proj-card__info">
+            <div class="proj-card__year">2026 · SCADpro</div>
+            <h3 class="proj-card__name">FIFA World Cup 2026 Atlanta</h3>
+            <p class="proj-card__desc">A collaborative UX concept for the Atlanta World Cup experience.</p>
+            <div class="proj-card__skills">UX Research · Service Design · Collaboration</div>
+            <span class="proj-card__cta">Open case file →</span>
+          </div>
+        </div>
+
+        <!-- WISDOM — lookbook page -->
+        <div class="proj-card proj-card--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
+          <div class="proj-card__visual">
+            <span class="proj-card__visual-label">wisdom-product-tag.jpg</span>
+          </div><!-- TODO: Add Wisdom hero visual -->
+          <div class="proj-card__info">
+            <div class="proj-card__year">2026 · Collaboration</div>
+            <h3 class="proj-card__name">Wisdom ATL Eyewear</h3>
+            <p class="proj-card__desc">Eyewear product, packaging, and visual merchandising collaboration.</p>
+            <div class="proj-card__skills">Product Design · Packaging · Visual Merchandising</div>
+            <span class="proj-card__cta">Open case file →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- More files — secondary projects -->
+      <div class="more-files reveal">
+        <div class="more-card" data-project="naagin" role="button" tabindex="0" aria-label="Open Naagin Sauce case study">
+          <h4 class="more-card__name">Naagin Sauce</h4>
+          <p class="more-card__desc">Campaign and digital marketing for an Indian hot sauce brand.</p>
+          <span class="more-card__cta">Open case file →</span>
+        </div>
+        <div class="more-card" data-project="kuai" role="button" tabindex="0" aria-label="Open KUAI case study">
+          <h4 class="more-card__name">KUAI</h4>
+          <p class="more-card__desc">AI shopping and planning app concept.</p>
+          <span class="more-card__cta">Open case file →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"></div>
 
   <!-- OPEN FILE: NIHARIKA -->
   <section class="about" id="about">
@@ -1109,7 +1110,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
   </section>
 
   <!-- THINGS I KEEP NOTICING -->
-  <section class="brain pg" id="brain">
+  <section class="brain pg" id="play">
     <div class="brain__in">
       <div class="brain__top reveal">
         <div>
@@ -1829,14 +1830,14 @@ document.addEventListener('DOMContentLoaded', route);
 /* ── nav anchor handling ─────────────────────────────────────────────── */
 function updateNavForHome() {
   document.querySelectorAll('.nav__a[data-anchor]').forEach(a => a.removeAttribute('href'));
-  ['work','about','process','contact'].forEach(id => {
+  ['work','about','play','contact'].forEach(id => {
     const el = document.getElementById('nav-' + id);
     if (el) el.href = '#' + id;
   });
 }
 function updateNavForProject() {
   // nav links go back to home then section
-  ['work','about','process','contact'].forEach(id => {
+  ['work','about','play','contact'].forEach(id => {
     const el = document.getElementById('nav-' + id);
     if (el) el.href = '#' + id;
   });
@@ -1887,7 +1888,7 @@ function buildProject(d) {
   <div class="pv ${d.colorClass}">
     <div class="pv__band"></div>
     <div class="pv__back wrap">
-      <button class="pv__back-btn">← Back to Desktop Archive</button>
+      <button class="pv__back-btn">← Back to Selected Work</button>
     </div>
     <div class="cs wrap">
       <div class="cs__hdr reveal">
@@ -1901,7 +1902,7 @@ function buildProject(d) {
       </div>
       ${d.body}
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--paper3)" class="reveal">
-        <button class="pv__back-btn" onclick="navigate('/')">← Back to Desktop Archive</button>
+        <button class="pv__back-btn" onclick="navigate('/')">← Back to Selected Work</button>
       </div>
     </div>
   </div>`;
