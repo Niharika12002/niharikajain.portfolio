@@ -1,1962 +1,828 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Niharika Jain — UX Designer. Turning messy systems into calm, playful experiences. SCAD Atlanta 2026." />
-  <title>Niharika Jain</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Niharika Jain — UX Designer. Turning messy systems into calm, playful experiences. SCAD Atlanta 2026."/>
+<title>Niharika Jain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════════════ */
-:root {
-  --paper:       #FBFAF6;
-  --paper2:      #F5F1E8;
-  --paper3:      #EDE7D8;
-  --paper4:      #E5DCC8;
-  --maroon:      #6B1E2E;
-  --maroon-dk:   #4A1420;
-  --maroon-lt:   #8B3040;
-  --marigold:    #D99020;
-  --marigold-lt: #F2B84B;
-  --marigold-pl: #FDF3D8;
-  --red:         #B83025;
-  --red-pl:      #FAECEA;
-  --cobalt:      #1A4A82;
-  --cobalt-pl:   #EBF1FA;
-  --forest:      #2A6045;
-  --forest-pl:   #E6F2EC;
-  --orange:      #C85C18;
-  --orange-pl:   #FAF0E8;
-  --coral:       #D4522E;
-  --coral-pl:    #FAECE6;
-  --sky:         #2E74B8;
-  --sky-pl:      #E8F2FA;
-  --olive:       #6B7C3F;
-  --olive-pl:    #F2F4EB;
-  --matcha:      #8A9E6A;
-  --rust:        #B85C3A;
-  --pink:        #D4888C;
-  --pink-pl:     #FAF0F0;
-  --powder:      #9CB8D4;
-  --ink:         #1A0E08;
-  --ink-2:       #382418;
-  --ink-3:       #6E5548;
-  --ink-4:       #A89080;
-  --ink-5:       #D4C4B8;
-  --grid:        rgba(26,14,8,.035);
-  --grid2:       rgba(26,14,8,.02);
-  --sh-xs: 0 1px 4px rgba(26,14,8,.07);
-  --sh-sm: 0 2px 10px rgba(26,14,8,.09);
-  --sh-md: 0 5px 22px rgba(26,14,8,.11);
-  --sh-lg: 0 10px 44px rgba(26,14,8,.14);
-  --sh-xl: 0 20px 60px rgba(26,14,8,.18);
-  --sh-off: 5px 5px 0 rgba(26,14,8,.10);
-  --r-2: 2px; --r-4: 4px; --r-6: 6px; --r-8: 8px;
-  --r-12: 12px; --r-16: 16px; --r-24: 24px; --r-99: 999px;
-  --ff-display: 'Fraunces', Georgia, serif;
-  --ff-body:    'Hanken Grotesk', system-ui, sans-serif;
-  --ff-hand:    'Caveat', cursive;
-  --fs--1: clamp(.75rem, .68rem + .3vw, .875rem);
-  --fs-0:  clamp(.9rem, .82rem + .35vw, 1rem);
-  --fs-1:  clamp(1.05rem, .95rem + .55vw, 1.3rem);
-  --fs-2:  clamp(1.3rem, 1.1rem + .95vw, 1.85rem);
-  --fs-3:  clamp(1.65rem, 1.35rem + 1.5vw, 2.5rem);
-  --fs-4:  clamp(2.1rem, 1.6rem + 2.5vw, 3.8rem);
-  --fs-5:  clamp(2.8rem, 1.8rem + 5vw, 6.2rem);
-  --gut: clamp(1.25rem, 5vw, 2.75rem);
-  --sec: clamp(4rem, 9vw, 7.5rem);
+:root{
+--cream:#FAF8F3;--cream2:#F3EDE0;--cream3:#E8E0D0;--cream4:#DDD4C0;
+--esp:#2C1810;--esp2:#4A3428;--esp3:#7A6458;--esp4:#A89888;--esp5:#CCC0B4;
+--olive:#6B7C3F;--matcha:#8A9E6A;--olive-l:#F2F4EB;
+--rust:#B85C3A;--rust-l:#FAF0E8;
+--marigold:#D4960C;--marigold-l:#FDF3D8;
+--tomato:#C4533A;--tomato-l:#FAECEA;
+--powder:#9CB8D4;--powder-l:#EDF3FA;
+--pink:#D4888C;--pink-l:#FAF0F0;
+--forest:#2A6045;--forest-l:#E6F2EC;
+--cobalt:#1A4A82;--cobalt-l:#E8F0FA;
+--sh-xs:0 1px 3px rgba(44,24,16,.06);
+--sh-sm:0 2px 8px rgba(44,24,16,.08);
+--sh-md:0 4px 16px rgba(44,24,16,.1);
+--ff-d:'Fraunces',Georgia,serif;--ff-b:'Hanken Grotesk',system-ui,sans-serif;--ff-h:'Caveat',cursive;
+--fs--1:clamp(.75rem,.68rem+.3vw,.875rem);--fs-0:clamp(.875rem,.82rem+.3vw,1rem);
+--fs-1:clamp(1.05rem,.95rem+.5vw,1.25rem);--fs-2:clamp(1.25rem,1.05rem+1vw,1.75rem);
+--fs-3:clamp(1.6rem,1.3rem+1.5vw,2.4rem);--fs-4:clamp(2rem,1.5rem+2.5vw,3.5rem);
+--fs-5:clamp(2.6rem,1.6rem+5vw,5.5rem);
+--gut:clamp(1.25rem,5vw,2.75rem);--sec:clamp(3.5rem,8vw,7rem);
 }
-
-/* ═══════════════════════════════════════════════════
-   RESET
-═══════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul,ol{list-style:none}
-button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{font-family:var(--ff-b);background:var(--cream);color:var(--esp);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
 
-/* ═══════════════════════════════════════════════════
-   PAPER + GRID TEXTURE
-═══════════════════════════════════════════════════ */
-.pg{
-  background-color:var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:40px 40px;
-}
+/* paper texture */
+.paper{position:relative}
+.paper::before{content:'';position:absolute;inset:0;opacity:.35;pointer-events:none;
+background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E")}
 
-/* ═══════════════════════════════════════════════════
-   LAYOUT
-═══════════════════════════════════════════════════ */
-.wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gut)}
-.wrap--mid{max-width:960px}
-.wrap--narrow{max-width:720px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+/* tape label */
+.tape{display:inline-block;font-family:var(--ff-h);font-size:.82rem;color:var(--esp3);background:var(--marigold-l);padding:.12rem .6rem;border-radius:2px;transform:rotate(-1.5deg);border:1px solid rgba(212,150,12,.15)}
 
-/* ═══════════════════════════════════════════════════
-   TYPE
-═══════════════════════════════════════════════════ */
-.t-disp{font-family:var(--ff-display);font-weight:700;line-height:1.02;letter-spacing:-.025em}
-.t-disp-i{font-family:var(--ff-display);font-style:italic;font-weight:400;line-height:1.08}
-.t-hand{font-family:var(--ff-hand)}
-.t-label{font-family:var(--ff-body);font-size:var(--fs--1);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--ff-body);font-size:var(--fs--1);font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
-  margin-bottom:.9rem;
-}
-.eyebrow::before{content:'';display:inline-block;width:16px;height:2px;background:currentColor;border-radius:2px;flex-shrink:0}
-.eyebrow--lt{color:rgba(255,255,255,.65)}
-.eyebrow--lt::before{background:rgba(255,255,255,.55)}
-.eyebrow--mg{color:var(--marigold)}
-.eyebrow--mg::before{background:var(--marigold)}
+/* stamp label */
+.stamp{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--rust);border-radius:3px;padding:.2rem .5rem;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);transform:rotate(-4deg);opacity:.6}
 
-/* ═══════════════════════════════════════════════════
-   BUTTONS
-═══════════════════════════════════════════════════ */
-.btn{
-  display:inline-flex;align-items:center;gap:.45rem;
-  padding:.62rem 1.35rem;
-  font-family:var(--ff-body);font-size:var(--fs--1);font-weight:600;letter-spacing:.03em;
-  border-radius:var(--r-99);border:2px solid transparent;
-  transition:transform .15s,box-shadow .15s,background .15s,color .15s;
-  white-space:nowrap;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
-.btn:active{transform:translateY(0)}
-.btn-ink{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.btn-ink:hover{background:var(--maroon);border-color:var(--maroon)}
-.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
-.btn-outline:hover{background:var(--ink);color:var(--paper)}
-.btn-maroon{background:var(--maroon);color:var(--paper);border-color:var(--maroon)}
-.btn-maroon:hover{background:var(--maroon-dk);border-color:var(--maroon-dk)}
-.btn-ghost{background:transparent;color:var(--ink-3);border-color:var(--ink-5);padding:.38rem .85rem}
-.btn-ghost:hover{background:var(--paper2);color:var(--ink);border-color:var(--ink-4)}
-
-/* ═══════════════════════════════════════════════════
-   IMAGE PLACEHOLDERS
-═══════════════════════════════════════════════════ */
-.ph{
-  width:100%;background:var(--paper2);
-  border:1.5px dashed var(--ink-5);border-radius:var(--r-8);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.4rem;padding:2rem 1.5rem;min-height:220px;
-  color:var(--ink-4);font-size:var(--fs--1);font-weight:500;
-  font-family:var(--ff-body);letter-spacing:.04em;text-align:center;
-}
-.ph .ph-ico{font-size:1.6rem;opacity:.5}
-.ph span{opacity:.75}
-.ph--tall{min-height:380px}
-.ph--short{min-height:140px}
-.ph--sq{min-height:0;aspect-ratio:1}
-
-/* ═══════════════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════════════ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s}
-.nav.scrolled{
-  background:rgba(251,250,246,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  box-shadow:0 1px 0 rgba(26,14,8,.06);
-}
-.nav__in{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gut);max-width:1280px;margin:0 auto}
-.nav__logo{font-family:var(--ff-display);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink)}
-.nav__links{display:flex;align-items:center;gap:.25rem}
-.nav__a{
-  font-size:var(--fs--1);font-weight:500;color:var(--ink-3);
-  padding:.28rem .55rem;border-radius:var(--r-4);transition:color .15s;
-}
-.nav__a:hover{color:var(--ink)}
-.nav__tog{display:none;padding:.4rem;color:var(--ink);flex-direction:column;gap:5px}
-.nav__tog span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
-.nav__tog.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav__tog.open span:nth-child(2){opacity:0}
-.nav__tog.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav__mob{display:none;flex-direction:column;background:var(--paper);border-top:1px solid var(--paper3);padding:1rem var(--gut) 1.5rem;gap:.15rem}
-.nav__mob.open{display:flex}
-.nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
-@media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
-
-/* ═══════════════════════════════════════════════════
-   SUBTLE DIVIDER (replaces heavy marquee + band)
-═══════════════════════════════════════════════════ */
-.divider-line{height:1px;background:var(--paper3);margin:0}
-
-
-
-/* ═══════════════════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-/* ═══════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════ */
-.footer{background:var(--ink);padding:1.75rem var(--gut)}
-.footer__in{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.footer__sig{font-family:var(--ff-display);font-style:italic;font-size:var(--fs-0);color:rgba(255,255,255,.88)}
-.footer__sig strong{font-style:normal}
-.footer__nav{display:flex;gap:1.25rem}
-.footer__a{font-size:var(--fs--1);font-weight:500;color:rgba(255,255,255,.45);transition:color .15s}
-.footer__a:hover{color:rgba(255,255,255,.88)}
-
-/* ═══════════════════════════════════════════════════
-   VIEW ROUTING
-═══════════════════════════════════════════════════ */
+/* routing */
 #home-view{display:block}
 #project-view{display:none}
 #project-view.active{display:block}
 
-/* ═══════════════════════════════════════════════════
-   ██  HOME  ██
-═══════════════════════════════════════════════════ */
+/* placeholder */
+.ph{width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:8px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--esp4);font-size:var(--fs--1);font-weight:500;letter-spacing:.03em}
+.ph--tall{min-height:360px}
+.ph--hero{min-height:440px}
 
+/* ━━━ NAV ━━━ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s}
+.nav.scrolled{background:rgba(250,248,243,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(44,24,16,.06)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gut);max-width:1200px;margin:0 auto}
+.nav__logo{font-family:var(--ff-d);font-weight:600;font-size:1.05rem;color:var(--esp)}
+.nav__links{display:flex;gap:.2rem}
+.nav__a{font-size:var(--fs--1);font-weight:500;color:var(--esp3);padding:.28rem .55rem;border-radius:4px;transition:color .15s}
+.nav__a:hover{color:var(--esp)}
+.nav__tog{display:none;padding:.4rem;color:var(--esp);flex-direction:column;gap:5px}
+.nav__tog span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+.nav__tog.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav__tog.open span:nth-child(2){opacity:0}
+.nav__tog.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav__mob{display:none;flex-direction:column;background:var(--cream);border-top:1px solid var(--cream3);padding:1rem var(--gut) 1.5rem;gap:.15rem}
+.nav__mob.open{display:flex}
+.nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
+@media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
 
-/* ── HERO ── */
-.hero2{
-  min-height:100vh;display:flex;align-items:center;
-  padding-top:4.5rem;position:relative;overflow:hidden;
-  background:var(--paper);
-}
-.hero2__in{
-  position:relative;max-width:1280px;margin:0 auto;width:100%;
-  padding:clamp(3rem,8vw,6rem) var(--gut);
-}
-.hero2__content{max-width:640px;position:relative;z-index:2}
-.hero2__greeting{
-  font-family:var(--ff-hand);font-size:clamp(1.1rem,1rem + .5vw,1.3rem);
-  color:var(--ink-3);margin-bottom:.6rem;
-}
-.hero2__h1{
-  font-family:var(--ff-display);font-size:var(--fs-5);font-weight:700;
-  line-height:1.04;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;
-}
-.hero2__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
-.hero2__sub{
-  font-size:var(--fs-1);color:var(--ink-2);line-height:1.65;
-  max-width:500px;margin-bottom:2rem;
-}
-.hero2__ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-.hero2__cta-primary{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.65rem 1.5rem;font-size:var(--fs--1);font-weight:600;letter-spacing:.03em;
-  background:var(--ink);color:var(--paper);border-radius:var(--r-99);
-  border:2px solid var(--ink);transition:background .15s,transform .15s,box-shadow .15s;
-}
-.hero2__cta-primary:hover{background:var(--olive);border-color:var(--olive);transform:translateY(-2px);box-shadow:var(--sh-md)}
-.hero2__cta-secondary{
-  font-size:var(--fs--1);font-weight:500;color:var(--ink-3);
-  border-bottom:1px solid var(--ink-5);padding-bottom:2px;
-  transition:color .15s,border-color .15s;
-}
-.hero2__cta-secondary:hover{color:var(--ink);border-color:var(--ink)}
+/* ━━━ HERO ━━━ */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:4rem;position:relative;overflow:hidden}
+.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:var(--sec) var(--gut)}
+.hero__content{max-width:620px;position:relative;z-index:2}
+.hero__hi{font-family:var(--ff-h);font-size:clamp(1.1rem,1rem+.4vw,1.3rem);color:var(--esp3);margin-bottom:.5rem}
+.hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
+.hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:480px;margin-bottom:2rem}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.4rem;font-size:var(--fs--1);font-weight:600;background:var(--esp);color:var(--cream);border-radius:999px;border:2px solid var(--esp);transition:all .15s}
+.hero__cta1:hover{background:var(--olive);border-color:var(--olive);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.hero__cta2{font-size:var(--fs--1);font-weight:500;color:var(--esp3);border-bottom:1px solid var(--esp5);padding-bottom:1px;transition:color .15s}
+.hero__cta2:hover{color:var(--esp);border-color:var(--esp3)}
 
-/* hero decorative artifacts */
-.hero2__artifacts{position:absolute;inset:0;pointer-events:none;z-index:1}
-.h-artifact{
-  position:absolute;font-family:var(--ff-body);font-size:var(--fs--1);
-  transition:transform .4s ease;
-}
-/* folder tab */
-.h-art--folder{
-  top:12%;right:8%;
-  background:var(--paper2);border:1.5px solid var(--paper3);border-radius:var(--r-6);
-  padding:.75rem 1rem;transform:rotate(2deg);
-  box-shadow:var(--sh-xs);width:160px;
-}
-.h-art--folder::before{
-  content:'case files';position:absolute;top:-10px;left:12px;
-  background:var(--olive);color:#fff;font-size:8px;font-weight:800;
-  letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px 3px 0 0;
-}
-.h-art--folder-files{display:flex;flex-direction:column;gap:.2rem;margin-top:.4rem}
-.h-art--folder-file{font-size:.68rem;color:var(--ink-2);display:flex;align-items:center;gap:.3rem}
-.h-art--folder-file::before{content:'—';color:var(--ink-5);font-size:.6rem}
+/* hero artifacts */
+.hero__art{position:absolute;inset:0;pointer-events:none;z-index:1}
+.hart{position:absolute;transition:transform .4s ease}
+.hart--folder{top:10%;right:6%;width:160px;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:6px;padding:.7rem .9rem;transform:rotate(2deg);box-shadow:var(--sh-xs)}
+.hart--folder::before{content:'case files';position:absolute;top:-9px;left:10px;background:var(--olive);color:#fff;font-size:7px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px 3px 0 0}
+.hart--folder span{font-size:.65rem;color:var(--esp2);display:block;line-height:1.7}
+.hart--receipt{bottom:18%;right:10%;width:130px;background:var(--cream);border:1px dashed var(--cream4);padding:.55rem .65rem;transform:rotate(-3deg);font-size:.58rem;color:var(--esp3);letter-spacing:.04em;line-height:1.9;text-align:center;text-transform:uppercase}
+.hart--stamp{top:28%;right:30%;width:50px;height:58px;border:2px solid var(--rust);border-radius:3px;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);opacity:.45}
+.hart--stamp span{font-family:var(--ff-h);font-size:.6rem;color:var(--rust);text-align:center;line-height:1.2}
+.hart--matchbox{bottom:32%;left:2%;background:var(--marigold);color:var(--esp);padding:.3rem .7rem;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-3deg);border-radius:3px;box-shadow:var(--sh-xs)}
+.hart--photo{bottom:14%;right:36%;width:110px;height:82px;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:6px;transform:rotate(1.5deg);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--esp4);box-shadow:var(--sh-xs)}
+.hart--note{top:62%;right:5%;font-family:var(--ff-h);font-size:.88rem;color:var(--esp3);transform:rotate(2deg);line-height:1.4}
+.hart--textile{position:absolute;top:0;right:0;width:40px;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 3px,var(--cream3) 3px,var(--cream3) 4px);opacity:.4;border-radius:0 0 0 8px}
+@media(max-width:900px){.hero__art{display:none}}
 
-/* receipt strip */
-.h-art--receipt{
-  bottom:18%;right:12%;
-  background:var(--paper);border:1px solid var(--paper3);
-  padding:.6rem .75rem;width:140px;transform:rotate(-3deg);
-  box-shadow:var(--sh-xs);border-radius:var(--r-4);
-  font-size:.62rem;color:var(--ink-3);letter-spacing:.04em;line-height:1.8;
-}
+/* ━━━ SELECTED WORK ━━━ */
+.sw{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.sw__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.sw__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:400px;margin-bottom:2.5rem}
 
-/* stamp */
-.h-art--stamp{
-  top:22%;right:32%;
-  width:56px;height:64px;border:2px solid var(--rust);border-radius:var(--r-4);
-  display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);
-  opacity:.55;
-}
-.h-art--stamp-inner{
-  width:44px;height:52px;border:1px solid var(--rust);border-radius:2px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--ff-hand);font-size:.65rem;color:var(--rust);text-align:center;
-  line-height:1.2;
-}
+.sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+@media(max-width:700px){.sw-grid{grid-template-columns:1fr}}
 
-/* matchbox label */
-.h-art--matchbox{
-  bottom:28%;left:2%;
-  background:var(--marigold);color:var(--ink);
-  padding:.4rem .8rem;border-radius:var(--r-4);
-  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  transform:rotate(-4deg);box-shadow:var(--sh-xs);
-}
+/* base card */
+.sc{border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;position:relative}
+.sc:hover{transform:translateY(-4px);box-shadow:var(--sh-md);z-index:2}
+.sc__vis{width:100%;aspect-ratio:5/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sc__vis-lbl{font-size:var(--fs--1);font-weight:500;color:var(--esp4);letter-spacing:.02em}
+.sc__info{padding:1.2rem 1.3rem 1.3rem}
+.sc__yr{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.sc__name{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;letter-spacing:-.015em;margin-bottom:.35rem;line-height:1.1}
+.sc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.55;margin-bottom:.7rem}
+.sc__skills{font-size:10px;color:var(--esp4);letter-spacing:.03em;line-height:1.6;margin-bottom:.7rem}
+.sc__cta{font-size:var(--fs--1);font-weight:600;color:var(--esp2);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s}
+.sc:hover .sc__cta{gap:.5rem;color:var(--esp)}
 
-/* photo frame */
-.h-art--photo{
-  bottom:12%;right:38%;
-  width:120px;height:90px;background:var(--paper2);border:1.5px solid var(--paper3);
-  border-radius:var(--r-6);transform:rotate(1.5deg);box-shadow:var(--sh-xs);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.6rem;color:var(--ink-4);font-weight:500;
-}
+/* Pili — care manual */
+.sc--pili{background:var(--olive-l);border:1.5px solid rgba(107,124,63,.12)}
+.sc--pili .sc__vis{background:linear-gradient(155deg,#E6EBD8,#F0F3E8,#DDE4CC)}
+.sc--pili .sc__vis::after{content:'care guide';position:absolute;top:10px;right:10px;font-family:var(--ff-h);font-size:.7rem;color:var(--olive);background:rgba(255,255,255,.7);padding:.15rem .45rem;border-radius:3px}
+.sc--pili .sc__name{color:var(--olive)}.sc--pili .sc__yr{color:var(--olive)}
+.sc--pili::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--matcha);border-radius:10px 10px 0 0}
 
-/* handwritten note */
-.h-art--note{
-  top:60%;right:6%;
-  font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3);
-  transform:rotate(2deg);line-height:1.4;
-}
+/* BioSpherix — blueprint */
+.sc--bio{background:var(--cobalt-l);border:1.5px solid rgba(26,74,130,.1)}
+.sc--bio .sc__vis{background:#E4ECF6;background-image:linear-gradient(rgba(26,74,130,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.05) 1px,transparent 1px);background-size:20px 20px}
+.sc--bio .sc__vis::after{content:'blueprint';position:absolute;top:10px;left:10px;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);background:rgba(255,255,255,.6);padding:.15rem .4rem;border-radius:2px}
+.sc--bio .sc__name{color:var(--cobalt)}.sc--bio .sc__yr{color:var(--cobalt)}
+.sc--bio::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cobalt);border-radius:10px 10px 0 0}
 
-/* doodle arrow */
-.h-art--arrow{
-  top:48%;right:26%;
-  width:40px;height:20px;color:var(--ink-4);opacity:.5;
-  transform:rotate(15deg);
-}
+/* FIFA — credential */
+.sc--fifa{background:var(--forest-l);border:1.5px solid rgba(42,96,69,.1)}
+.sc--fifa .sc__vis{background:linear-gradient(150deg,#D0E6D8,#E4F0EA,#C8DED0)}
+.sc--fifa .sc__vis::after{content:'event pass';position:absolute;bottom:10px;right:10px;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:rgba(255,255,255,.6);padding:.15rem .4rem;border-radius:2px}
+.sc--fifa .sc__name{color:var(--forest)}.sc--fifa .sc__yr{color:var(--forest)}
+.sc--fifa::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--forest);border-radius:10px 10px 0 0}
+.sc--fifa::after{content:'';position:absolute;right:-1px;top:16px;bottom:16px;width:10px;background:repeating-linear-gradient(to bottom,transparent,transparent 5px,var(--cream) 5px,var(--cream) 7px)}
 
-@media(max-width:900px){
-  .hero2__artifacts{display:none}
-}
+/* Wisdom — product tag */
+.sc--wisdom{background:var(--rust-l);border:1.5px solid rgba(184,92,58,.08)}
+.sc--wisdom .sc__vis{background:linear-gradient(160deg,#ECD8C8,#FAF0E8,#E4D0BC)}
+.sc--wisdom .sc__vis::after{content:'product tag';position:absolute;top:10px;left:10px;font-family:var(--ff-h);font-size:.7rem;color:var(--rust);background:rgba(255,255,255,.65);padding:.15rem .45rem;border-radius:3px}
+.sc--wisdom .sc__name{color:var(--rust)}.sc--wisdom .sc__yr{color:var(--rust)}
+.sc--wisdom::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--rust);border-radius:10px 10px 0 0}
 
-/* ── SELECTED WORK ── */
-.sel-work{padding:var(--sec) var(--gut)}
-.sel-work__in{max-width:1280px;margin:0 auto}
-.sel-work__tape{
-  display:inline-block;font-family:var(--ff-hand);font-size:.85rem;
-  color:var(--ink-3);background:var(--marigold-pl);
-  padding:.15rem .65rem;border-radius:var(--r-2);
-  transform:rotate(-1.5deg);margin-bottom:.75rem;
-  border:1px solid rgba(217,144,32,.2);
-}
-.sel-work__h{
-  font-family:var(--ff-display);font-size:var(--fs-4);font-weight:700;
-  letter-spacing:-.025em;margin-bottom:.5rem;
-}
-.sel-work__sub{
-  font-size:var(--fs-0);color:var(--ink-3);margin-bottom:3rem;
-  max-width:420px;
-}
+/* secondary cards */
+.more{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.5rem}
+@media(max-width:900px){.more{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.more{grid-template-columns:1fr}}
+.mc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:.9rem 1rem;cursor:pointer;transition:transform .2s,box-shadow .15s,border-color .15s}
+.mc:hover{transform:translateY(-3px);box-shadow:var(--sh-sm);border-color:var(--esp5)}
+.mc__icon{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem;display:flex;align-items:center;gap:.3rem}
+.mc--naagin .mc__icon{color:var(--tomato)}.mc--naagin .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--tomato)}
+.mc--kuai .mc__icon{color:var(--powder)}.mc--kuai .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--powder)}
+.mc--easeout .mc__icon{color:var(--pink)}.mc--easeout .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--pink)}
+.mc--rsg .mc__icon{color:var(--marigold)}.mc--rsg .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--marigold)}
+.mc__name{font-family:var(--ff-d);font-size:var(--fs-0);font-weight:700;margin-bottom:.2rem;letter-spacing:-.01em}
+.mc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.5;margin-bottom:.4rem}
+.mc__cta{font-size:10px;font-weight:600;color:var(--esp4)}
+.mc:hover .mc__cta{color:var(--esp)}
 
-/* main 2×2 project grid */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
-@media(max-width:700px){.proj-grid{grid-template-columns:1fr}}
+/* ━━━ HOW I DESIGN ━━━ */
+.hid{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.hid__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.hid__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
+.hid__sub{font-size:var(--fs-0);color:var(--esp3);margin-bottom:2.5rem;max-width:460px}
+.hid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.hid-grid{grid-template-columns:1fr}}
+.hid-card{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.4rem 1.3rem}
+.hid-card__n{font-family:var(--ff-h);font-size:1rem;color:var(--esp4);margin-bottom:.4rem}
+.hid-card__h{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem}
+.hid-card__p{font-size:var(--fs--1);color:var(--esp3);line-height:1.6}
 
-/* base project card */
-.proj-card{
-  border-radius:var(--r-12);overflow:hidden;cursor:pointer;
-  transition:transform .2s ease,box-shadow .2s ease;
-  display:flex;flex-direction:column;position:relative;
-}
-.proj-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);z-index:2}
-.proj-card__visual{
-  width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.proj-card__visual-label{
-  font-size:var(--fs--1);font-weight:500;color:var(--ink-4);
-  letter-spacing:.03em;
-}
-.proj-card__info{padding:1.25rem 1.4rem 1.4rem}
-.proj-card__year{
-  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-4);margin-bottom:.5rem;
-}
-.proj-card__name{
-  font-family:var(--ff-display);font-size:var(--fs-2);font-weight:700;
-  letter-spacing:-.02em;margin-bottom:.4rem;line-height:1.1;
-}
-.proj-card__desc{
-  font-size:var(--fs--1);color:var(--ink-3);line-height:1.55;margin-bottom:.85rem;
-}
-.proj-card__skills{
-  font-size:10px;color:var(--ink-4);letter-spacing:.04em;margin-bottom:.85rem;
-  line-height:1.5;
-}
-.proj-card__cta{
-  font-size:var(--fs--1);font-weight:600;letter-spacing:.04em;color:var(--ink-2);
-  display:inline-flex;align-items:center;gap:.35rem;
-  transition:color .15s,gap .15s;
-}
-.proj-card:hover .proj-card__cta{color:var(--ink);gap:.5rem}
+/* ━━━ ABOUT ━━━ */
+.about{padding:var(--sec) 0;background:var(--cream2);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3)}
+.about__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start}
+@media(max-width:800px){.about__in{grid-template-columns:1fr;gap:2rem}}
+.about__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1}
+.about__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.78;max-width:520px}
+.about__body p+p{margin-top:.7rem}
+.about__cards{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+@media(max-width:500px){.about__cards{grid-template-columns:1fr}}
+.acard{background:var(--cream);border:1px solid var(--cream3);border-radius:8px;padding:.9rem 1rem}
+.acard__lbl{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.4rem}
+.acard__title{font-family:var(--ff-d);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
+.acard__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.5}
 
-/* ── Card 1: Pili — care manual ── */
-.proj-card--pili{background:var(--olive-pl);border:1.5px solid rgba(107,124,63,.15)}
-.proj-card--pili .proj-card__visual{background:linear-gradient(160deg,#E8ECDE 0%,#F2F4EB 50%,#E0E8D0 100%)}
-.proj-card--pili .proj-card__name{color:var(--olive)}
-.proj-card--pili .proj-card__year{color:var(--olive)}
-/* care manual accent line */
-.proj-card--pili::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--matcha);
-}
+/* ━━━ PLAY / ARCHIVE ━━━ */
+.play{padding:var(--sec) 0;border-bottom:1px solid var(--cream3)}
+.play__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.play__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
+.play__sub{font-size:var(--fs-0);color:var(--esp3);max-width:440px;margin-bottom:2rem}
+.play-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:700px){.play-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:450px){.play-grid{grid-template-columns:1fr}}
+.pc{background:var(--cream2);border:1px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem;position:relative}
+.pc:nth-child(1){border-left:3px solid var(--rust)}
+.pc:nth-child(2){border-left:3px solid var(--marigold)}
+.pc:nth-child(3){border-left:3px solid var(--powder)}
+.pc:nth-child(4){border-left:3px solid var(--forest)}
+.pc:nth-child(5){border-left:3px solid var(--olive)}
+.pc:nth-child(6){border-left:3px solid var(--pink)}
+.pc__title{font-family:var(--ff-d);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
+.pc__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.55}
 
-/* ── Card 2: BioSpherix — blueprint ── */
-.proj-card--bio{background:#F2F6FA;border:1.5px solid rgba(26,74,130,.12)}
-.proj-card--bio .proj-card__visual{
-  background:#E8EFF8;
-  background-image:linear-gradient(rgba(26,74,130,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.06) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.proj-card--bio .proj-card__name{color:var(--cobalt)}
-.proj-card--bio .proj-card__year{color:var(--cobalt)}
-.proj-card--bio::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--cobalt);
-}
+/* ━━━ AI DIRECTION LOG ━━━ */
+.ailog{padding:var(--sec) 0;border-bottom:1px solid var(--cream3)}
+.ailog__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.ailog__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
+.ailog__sub{font-size:var(--fs-0);color:var(--esp3);max-width:520px;margin-bottom:2rem}
+.ailog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+@media(max-width:800px){.ailog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:450px){.ailog-grid{grid-template-columns:1fr}}
+.alc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem;transform:rotate(0deg)}
+.alc:nth-child(1){transform:rotate(-.8deg)}.alc:nth-child(2){transform:rotate(.6deg)}
+.alc:nth-child(3){transform:rotate(-.4deg)}.alc:nth-child(4){transform:rotate(1deg)}
+.alc__file{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
+.alc__title{font-family:var(--ff-d);font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.alc__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.55}
+.ailog__stamp{display:inline-flex;align-items:center;gap:.5rem;background:var(--esp);color:var(--cream);padding:.6rem 1.2rem;border-radius:999px;font-family:var(--ff-d);font-style:italic;font-size:var(--fs-1)}
+.ailog__stamp strong{font-style:normal;font-weight:700}
 
-/* ── Card 3: FIFA — event credential ── */
-.proj-card--fifa{background:var(--forest-pl);border:1.5px solid rgba(42,96,69,.12)}
-.proj-card--fifa .proj-card__visual{background:linear-gradient(150deg,#D8ECE2 0%,#E6F2EC 50%,#D0E4D8 100%)}
-.proj-card--fifa .proj-card__name{color:var(--forest)}
-.proj-card--fifa .proj-card__year{color:var(--forest)}
-.proj-card--fifa::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--forest);
-}
-/* perforated edge on right */
-.proj-card--fifa::before{
-  content:'';position:absolute;right:-1px;top:20px;bottom:20px;width:12px;
-  background:repeating-linear-gradient(to bottom,transparent,transparent 6px,var(--paper) 6px,var(--paper) 8px);
-  z-index:1;
-}
+/* ━━━ CONTACT ━━━ */
+.contact{padding:var(--sec) 0}
+.contact__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.2fr .8fr;gap:3.5rem;align-items:start}
+@media(max-width:800px){.contact__in{grid-template-columns:1fr;gap:2rem}}
+.contact__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:.7rem}
+.contact__h em{font-style:italic;font-weight:400;color:var(--olive)}
+.contact__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7;max-width:480px;margin-bottom:1.5rem}
+.contact__links{display:flex;flex-wrap:wrap;gap:.6rem}
+.contact__links a{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem 1.1rem;font-size:var(--fs--1);font-weight:600;border:1.5px solid var(--cream3);border-radius:999px;transition:all .15s}
+.contact__links a:hover{border-color:var(--esp3);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.contact__note{font-family:var(--ff-h);font-size:.95rem;color:var(--esp4);margin-top:2rem}
+.contact__sticky{background:var(--marigold-l);border:1px solid rgba(212,150,12,.15);border-radius:8px;padding:1.1rem;font-family:var(--ff-h);font-size:1rem;color:var(--esp2);line-height:1.5;transform:rotate(1deg)}
+.contact__sticky:nth-child(2){transform:rotate(-1.2deg);margin-top:.75rem;background:var(--olive-l);border-color:rgba(107,124,63,.12)}
 
-/* ── Card 4: Wisdom — lookbook page ── */
-.proj-card--wisdom{background:var(--orange-pl);border:1.5px solid rgba(200,92,24,.1)}
-.proj-card--wisdom .proj-card__visual{background:linear-gradient(160deg,#F0E0D0 0%,#FAF0E8 50%,#ECD8C4 100%)}
-.proj-card--wisdom .proj-card__name{color:var(--orange)}
-.proj-card--wisdom .proj-card__year{color:var(--orange)}
-.proj-card--wisdom::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--orange);
-}
+/* ━━━ FOOTER ━━━ */
+.footer{background:var(--cream2);border-top:1px solid var(--cream3);padding:2rem var(--gut)}
+.footer__in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.footer__sig{font-family:var(--ff-d);font-style:italic;font-size:var(--fs-0);color:var(--esp3)}
+.footer__nav{display:flex;flex-wrap:wrap;gap:1rem}
+.footer__a{font-size:var(--fs--1);font-weight:500;color:var(--esp4);transition:color .15s}
+.footer__a:hover{color:var(--esp)}
 
-/* ── Secondary / More Files row ── */
-.more-files{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1rem;margin-top:.5rem;
-}
-.more-card{
-  background:var(--paper);border:1.5px solid var(--paper3);
-  border-radius:var(--r-8);padding:1rem 1.1rem;
-  cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .15s;
-}
-.more-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--ink-5)}
-.more-card__name{
-  font-family:var(--ff-display);font-size:var(--fs-0);font-weight:700;
-  margin-bottom:.25rem;letter-spacing:-.01em;
-}
-.more-card__desc{font-size:var(--fs--1);color:var(--ink-3);line-height:1.5;margin-bottom:.5rem}
-.more-card__cta{font-size:10px;font-weight:600;color:var(--ink-4);letter-spacing:.04em}
-.more-card:hover .more-card__cta{color:var(--ink)}
-
-
-
-/* ── OPEN FILE: NIHARIKA (maroon) ── */
-.about{background:var(--maroon);padding:var(--sec) var(--gut);color:#fff}
-.about__in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about__q{
-  font-family:var(--ff-display);font-style:italic;font-weight:400;
-  font-size:var(--fs-2);line-height:1.42;color:rgba(255,255,255,.96);
-  margin-bottom:1.5rem;
-}
-.about__q strong{font-style:normal;font-weight:700}
-.about__body{font-size:var(--fs-0);color:rgba(255,255,255,.78);line-height:1.78}
-.about__body p+p{margin-top:.8rem}
-.about__right{display:flex;flex-direction:column;gap:1rem}
-.acard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-16);padding:1.15rem}
-.acard--ginger{background:rgba(217,144,32,.14);border-color:rgba(217,144,32,.2)}
-.acard--sky{background:rgba(46,116,184,.16);border-color:rgba(46,116,184,.22)}
-.acard__lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.6rem}
-.acard__title{font-family:var(--ff-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.45rem}
-.acard__body{font-size:var(--fs--1);color:rgba(255,255,255,.65);line-height:1.55}
-.sky-film{display:flex;gap:3px;margin-top:.5rem}
-.sky-frame{flex:1;height:46px;border-radius:3px}
-@media(max-width:820px){.about__in{grid-template-columns:1fr;gap:2.5rem}}
-
-/* ── THINGS I KEEP NOTICING (brain section) ── */
-.brain{padding:var(--sec) var(--gut)}
-.brain__in{max-width:1280px;margin:0 auto}
-.brain__top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3rem;align-items:start}
-.brain__intro-h{font-family:var(--ff-display);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
-.brain__intro-h em{font-style:italic;font-weight:400;color:var(--ink-3)}
-.brain__intro-p{font-size:var(--fs-0);color:var(--ink-2);line-height:1.75}
-.brain__intro-p p+p{margin-top:.7rem}
-
-/* camera roll strip */
-.camroll{display:flex;gap:.5rem;overflow-x:auto;padding:.5rem 0 .75rem;scrollbar-width:none}
-.camroll::-webkit-scrollbar{display:none}
-.camroll__frame{
-  flex-shrink:0;width:120px;height:92px;border-radius:var(--r-6);
-  background:var(--paper2);border:1.5px solid var(--paper3);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.3rem;font-size:.62rem;color:var(--ink-4);
-  position:relative;overflow:hidden;
-}
-.camroll__frame .cr-sky{position:absolute;inset:0;display:block}
-.camroll__frame .cr-lbl{position:relative;z-index:1;font-family:var(--ff-hand);font-size:.75rem;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.3)}
-
-/* artifact grid */
-.artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-@media(max-width:820px){.brain__top{grid-template-columns:1fr}.artifact-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.artifact-grid{grid-template-columns:1fr}}
-
-.art-card{
-  background:var(--paper);border:1.5px solid var(--paper3);
-  border-radius:var(--r-12);padding:1.15rem;box-shadow:var(--sh-xs);
-  position:relative;
-}
-.art-card--tabs{background:#FFFCE8;border-color:rgba(217,144,32,.3)}
-.art-card--notices{background:var(--paper2)}
-.art-card--beliefs{background:var(--ink);border-color:var(--ink)}
-.art-card--collecting{background:var(--paper2)}
-.art-card--searching{background:var(--paper)}
-.art-card--open-tabs{background:var(--cobalt-pl);border-color:rgba(26,74,130,.15)}
-.art-card__lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.65rem}
-.art-card--beliefs .art-card__lbl{color:rgba(255,255,255,.4)}
-.art-card__title{font-family:var(--ff-display);font-size:1rem;font-weight:700;margin-bottom:.55rem}
-.art-card--beliefs .art-card__title{color:#fff}
-.art-card__list{display:flex;flex-direction:column;gap:.32rem}
-.art-card__item{font-size:var(--fs--1);color:var(--ink-2);line-height:1.5;display:flex;align-items:flex-start;gap:.4rem}
-.art-card--beliefs .art-card__item{color:rgba(255,255,255,.72)}
-.art-card__item::before{content:'—';color:var(--ink-4);flex-shrink:0;font-size:.75rem;margin-top:.05rem}
-.art-card--beliefs .art-card__item::before{color:rgba(255,255,255,.3)}
-.art-card--open-tabs .art-card__item::before{content:'⬭';color:var(--cobalt);font-size:.65rem}
-.art-card--open-tabs .art-card__item{color:var(--cobalt)}
-.art-card--collecting .art-card__item::before{content:'○';color:var(--maroon);font-size:.7rem}
-.art-card--searching .art-card__item::before{content:'→';font-size:.7rem}
-.art-card__note{font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3);margin-top:.6rem;line-height:1.5}
-
-/* marginalia annotation */
-.marginal{
-  position:relative;padding-left:2.2rem;
-  font-family:var(--ff-hand);font-size:.95rem;
-  color:var(--ink-3);line-height:1.55;
-}
-.marginal::before{
-  content:'';position:absolute;left:0;top:.1rem;
-  width:1.5rem;height:1.5rem;border-radius:50%;
-  background:var(--paper3);display:flex;
-}
-
-/* ── BEHIND THE BUILD (marigold) ── */
-.build{background:var(--marigold);padding:var(--sec) var(--gut);position:relative;overflow:hidden}
-.build::before{
-  content:'';position:absolute;inset:0;
-  background-image:linear-gradient(rgba(26,14,8,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,14,8,.06) 1px,transparent 1px);
-  background-size:40px 40px;
-}
-.build__in{max-width:1280px;margin:0 auto;position:relative;z-index:1}
-.build__h{font-family:var(--ff-display);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
-.build__h em{font-style:italic;font-weight:400}
-.build__sub{font-size:var(--fs-1);color:var(--ink-2);max-width:480px;margin-bottom:2.75rem;line-height:1.6}
-.build__board{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;align-items:start}
-@media(max-width:820px){.build__board{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.build__board{grid-template-columns:1fr}}
-.bcard{background:var(--paper);border-radius:var(--r-8);padding:1.2rem;box-shadow:var(--sh-md);border:1px solid rgba(26,14,8,.05)}
-.bcard:nth-child(1){transform:rotate(-1.1deg)}
-.bcard:nth-child(2){transform:rotate(.9deg);margin-top:1.4rem}
-.bcard:nth-child(3){transform:rotate(-.6deg);margin-top:-.6rem}
-.bcard:nth-child(4){transform:rotate(1.4deg);margin-top:.4rem}
-.bcard__file{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.7rem;display:flex;align-items:center;gap:.35rem}
-.bcard__file::before{content:'📄';font-size:.65rem}
-.bcard__title{font-family:var(--ff-display);font-size:1rem;font-weight:700;margin-bottom:.45rem}
-.bcard__body{font-size:var(--fs--1);color:var(--ink-2);line-height:1.55}
-.build__stamp{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--ink);color:#fff;
-  padding:.75rem 1.35rem;border-radius:var(--r-99);
-  font-family:var(--ff-display);font-style:italic;font-size:var(--fs-1);
-  margin-top:2.5rem;
-}
-.build__stamp strong{font-style:normal;font-weight:700}
-.build__gh{margin-top:1.25rem}
-
-/* ── CONTACT ── */
-.contact{padding:var(--sec) var(--gut)}
-.contact__in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;align-items:start}
-@media(max-width:820px){.contact__in{grid-template-columns:1fr;gap:2.5rem}}
-.contact__h{font-family:var(--ff-display);font-size:var(--fs-4);font-weight:700;letter-spacing:-.025em;line-height:1.0;margin-bottom:.85rem}
-.contact__h em{font-style:italic;font-weight:400;color:var(--maroon)}
-.contact__body{font-size:var(--fs-0);color:var(--ink-2);line-height:1.72;max-width:520px;margin-bottom:1.75rem}
-.contact__links{display:flex;flex-wrap:wrap;gap:.65rem}
-.stickies{display:flex;flex-direction:column;gap:1rem;padding-top:.75rem}
-.sticky{
-  background:#FFFCE8;border:1px solid rgba(217,144,32,.3);
-  border-radius:var(--r-8);padding:1.15rem;box-shadow:var(--sh-xs);
-  font-family:var(--ff-hand);font-size:1.05rem;color:var(--ink-2);line-height:1.5;
-}
-.sticky:nth-child(1){transform:rotate(-1.1deg)}
-.sticky:nth-child(2){transform:rotate(1.3deg);background:#EFF8F0;border-color:rgba(42,96,69,.2)}
-
-/* ═══════════════════════════════════════════════════
-   ██  PROJECT VIEW  ██
-═══════════════════════════════════════════════════ */
-.pv{padding-top:4.5rem}
-.pv__back{
-  padding:1.25rem var(--gut);max-width:1280px;margin:0 auto;
-}
-.pv__back-btn{
-  display:inline-flex;align-items:center;gap:.45rem;
-  font-size:var(--fs--1);font-weight:700;letter-spacing:.04em;
-  color:var(--ink-3);border-bottom:1px solid transparent;
-  transition:color .15s,border-color .15s;padding:.3rem 0;
-}
-.pv__back-btn:hover{color:var(--maroon);border-color:var(--maroon)}
-
-/* project header band */
-.pv__band{height:4px}
-.pv--pili   .pv__band{background:var(--red)}
-.pv--bio    .pv__band{background:var(--cobalt)}
-.pv--fifa   .pv__band{background:var(--forest)}
-.pv--wisdom .pv__band{background:var(--orange)}
-.pv--naagin .pv__band{background:var(--coral)}
-.pv--kuai   .pv__band{background:var(--sky)}
-
-/* case study layout */
-.cs{padding:2.5rem var(--gut) var(--sec);max-width:1280px;margin:0 auto}
-.cs__hdr{margin-bottom:2.75rem;padding-bottom:2rem;border-bottom:1px solid var(--paper3)}
-.cs__cat{font-size:var(--fs--1);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem;opacity:.7}
-.pv--pili   .cs__cat{color:var(--red)}
-.pv--bio    .cs__cat{color:var(--cobalt)}
-.pv--fifa   .cs__cat{color:var(--forest)}
-.pv--wisdom .cs__cat{color:var(--orange)}
-.pv--naagin .cs__cat{color:var(--coral)}
-.pv--kuai   .cs__cat{color:var(--sky)}
-.cs__h1{font-family:var(--ff-display);font-size:var(--fs-4);font-weight:700;letter-spacing:-.025em;line-height:1.0;margin-bottom:.7rem}
-.cs__sub{font-size:var(--fs-1);color:var(--ink-2);max-width:680px;line-height:1.65;margin-bottom:1.5rem}
-.cs__meta{display:flex;flex-wrap:wrap;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--paper3)}
-.cs__mi-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.25rem}
-.cs__mi-val{font-size:var(--fs--1);font-weight:600;color:var(--ink-2)}
-
-/* cs sections */
-.cs-s{margin-bottom:2.75rem}
-.cs-s__lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.4rem}
-.cs-s__h{font-family:var(--ff-display);font-size:var(--fs-2);font-weight:700;letter-spacing:-.02em;margin-bottom:.85rem}
-.cs-s__p{font-size:var(--fs-0);color:var(--ink-2);line-height:1.78;max-width:720px}
-.cs-s__p p+p{margin-top:.8rem}
-
-/* insight cards */
-.ins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.9rem;margin-top:1.1rem}
-.ins-card{background:var(--paper2);border-radius:var(--r-8);padding:1.15rem;border-left:3px solid var(--ink-5)}
-.pv--pili   .ins-card{border-left-color:var(--red)}
-.pv--bio    .ins-card{border-left-color:var(--cobalt)}
-.pv--fifa   .ins-card{border-left-color:var(--forest)}
-.pv--wisdom .ins-card{border-left-color:var(--orange)}
-.pv--naagin .ins-card{border-left-color:var(--coral)}
-.pv--kuai   .ins-card{border-left-color:var(--sky)}
-.ins-card__n{font-family:var(--ff-display);font-size:1.7rem;font-weight:700;line-height:1;margin-bottom:.2rem}
-.pv--pili   .ins-card__n{color:var(--red)}
-.pv--bio    .ins-card__n{color:var(--cobalt)}
-.pv--fifa   .ins-card__n{color:var(--forest)}
-.pv--wisdom .ins-card__n{color:var(--orange)}
-.pv--naagin .ins-card__n{color:var(--coral)}
-.pv--kuai   .ins-card__n{color:var(--sky)}
-.ins-card__t{font-size:var(--fs--1);color:var(--ink-2);line-height:1.5}
-
-/* principle cards */
-.prin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1rem}
-.prin-card{background:var(--paper);border:1.5px solid var(--paper3);border-radius:var(--r-8);padding:1.15rem;box-shadow:var(--sh-xs)}
-.prin-card__n{font-family:var(--ff-hand);font-size:1.3rem;color:var(--ink-4);margin-bottom:.35rem}
-.prin-card__h{font-family:var(--ff-display);font-size:1rem;font-weight:700;margin-bottom:.35rem}
-.prin-card__t{font-size:var(--fs--1);color:var(--ink-3);line-height:1.5}
-
-/* callout */
-.callout{background:var(--paper2);border-radius:var(--r-8);padding:1.15rem 1.35rem;margin:1.35rem 0;border-left:4px solid var(--ink-5)}
-.pv--pili   .callout{border-left-color:var(--red)}
-.pv--bio    .callout{border-left-color:var(--cobalt)}
-.pv--fifa   .callout{border-left-color:var(--forest)}
-.pv--wisdom .callout{border-left-color:var(--orange)}
-.pv--naagin .callout{border-left-color:var(--coral)}
-.pv--kuai   .callout{border-left-color:var(--sky)}
-.callout__h{font-weight:700;font-size:var(--fs--1);margin-bottom:.35rem;letter-spacing:.03em}
-.callout__b{font-size:var(--fs--1);color:var(--ink-2);line-height:1.6;font-style:italic}
-
-/* step list */
-.steps{display:flex;flex-direction:column;gap:.9rem;margin-top:.9rem}
-.step{display:flex;gap:.9rem;align-items:flex-start}
-.step__n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--paper2);border:1.5px solid var(--paper3);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;font-size:.75rem;color:var(--ink-2);margin-top:.1rem}
-.step__t{font-size:var(--fs-0);color:var(--ink-2);line-height:1.65}
-
-/* 2-col layout inside cs */
-.cs-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
-.cs-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
-@media(max-width:700px){.cs-2,.cs-3{grid-template-columns:1fr}}
-
-/* reflection */
-.reflection{
-  background:var(--paper2);border:1.5px solid var(--paper3);
-  border-radius:var(--r-16);padding:1.65rem;
-  font-family:var(--ff-display);font-style:italic;font-size:var(--fs-1);
-  color:var(--ink-2);line-height:1.65;position:relative;
-  box-shadow:var(--sh-xs);
-}
-.reflection::before{content:'"';position:absolute;top:-.4rem;left:1.1rem;font-size:4.5rem;color:var(--paper3);font-family:var(--ff-display);line-height:1;z-index:0}
-.reflection p{position:relative;z-index:1}
-
-/* divider */
-.div{border:none;border-top:1px solid var(--paper3);margin:2.25rem 0}
-
-/* ── CONCISE CASE STUDY COMPONENTS ── */
-
-/* intro block */
-.cs-intro{
-  max-width:680px;font-size:var(--fs-1);color:var(--ink-2);
-  line-height:1.7;margin-bottom:2.5rem;
-  padding-bottom:2rem;border-bottom:1px solid var(--paper3);
-}
-
-/* role list */
-.role-block{margin-bottom:2.5rem}
-.role-block__lbl{
-  font-size:9px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-4);margin-bottom:.75rem;
-}
-.role-block__title{
-  font-family:var(--ff-display);font-size:var(--fs-2);
-  font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;
-}
-.role-list{display:flex;flex-direction:column;gap:.4rem;max-width:620px}
-.role-list__item{
-  font-size:var(--fs-0);color:var(--ink-2);line-height:1.6;
-  display:flex;align-items:flex-start;gap:.6rem;
-}
-.role-list__item::before{
-  content:'';display:inline-block;width:5px;height:5px;
-  border-radius:50%;background:var(--ink-4);flex-shrink:0;margin-top:.5rem;
-}
-.pv--pili   .role-list__item::before{background:var(--red)}
-.pv--bio    .role-list__item::before{background:var(--cobalt)}
-.pv--fifa   .role-list__item::before{background:var(--forest)}
-.pv--wisdom .role-list__item::before{background:var(--orange)}
-.pv--naagin .role-list__item::before{background:var(--coral)}
-.pv--kuai   .role-list__item::before{background:var(--sky)}
-
-/* decisions section */
-.decisions{margin-bottom:2.5rem}
-.decisions__lbl{
-  font-size:9px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-4);margin-bottom:.75rem;
-}
-.decisions__title{
-  font-family:var(--ff-display);font-size:var(--fs-2);
-  font-weight:700;letter-spacing:-.02em;margin-bottom:1.75rem;
-}
-.dec{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1.75rem 2.5rem;align-items:start;
-  margin-bottom:2rem;padding-bottom:2rem;
-  border-bottom:1px solid var(--paper3);
-}
+/* ━━━ PROJECT VIEW ━━━ */
+.pv{padding-top:4rem}
+.pv__back{padding:1.2rem var(--gut);max-width:1200px;margin:0 auto}
+.pv__back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs--1);font-weight:600;color:var(--esp3);transition:color .15s}
+.pv__back-btn:hover{color:var(--esp)}
+.cs{padding:2rem var(--gut) var(--sec);max-width:1200px;margin:0 auto}
+.cs__hdr{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
+.cs__file{font-family:var(--ff-h);font-size:.85rem;color:var(--esp4);margin-bottom:.5rem}
+.cs__h1{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem}
+.cs__sub{font-size:var(--fs-1);color:var(--esp2);max-width:640px;line-height:1.6;margin-bottom:1.2rem}
+.cs__meta{display:flex;flex-wrap:wrap;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cream3)}
+.cs__mi-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.2rem}
+.cs__mi-val{font-size:var(--fs--1);font-weight:600;color:var(--esp2)}
+.cs-intro{max-width:640px;font-size:var(--fs-1);color:var(--esp2);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
+.role-block{margin-bottom:2rem}
+.role-block__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;margin-bottom:.8rem}
+.role-list{display:flex;flex-direction:column;gap:.35rem;max-width:580px}
+.role-list__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.6;display:flex;align-items:baseline;gap:.5rem}
+.role-list__item::before{content:'·';color:var(--esp4);font-weight:700}
+.decisions{margin-bottom:2rem}
+.decisions__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;margin-bottom:1.5rem}
+.dec{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3);align-items:start}
 .dec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.dec--reverse{direction:rtl}
-.dec--reverse>*{direction:ltr}
-@media(max-width:680px){.dec,.dec--reverse{grid-template-columns:1fr;direction:ltr}}
-.dec__content{}
-.dec__num{
-  font-family:var(--ff-hand);font-size:1.1rem;color:var(--ink-4);
-  margin-bottom:.35rem;
-}
-.dec__title{
-  font-family:var(--ff-display);font-size:var(--fs-2);
-  font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem;line-height:1.1;
-}
-.pv--pili   .dec__title{color:var(--red)}
-.pv--bio    .dec__title{color:var(--cobalt)}
-.pv--fifa   .dec__title{color:var(--forest)}
-.pv--wisdom .dec__title{color:var(--orange)}
-.pv--naagin .dec__title{color:var(--coral)}
-.pv--kuai   .dec__title{color:var(--sky)}
-.dec__body{
-  font-size:var(--fs-0);color:var(--ink-2);line-height:1.72;max-width:520px;
-}
-.dec__img{width:100%}
-
-/* image placeholder — no emoji, filename label style */
-.ph-clean{
-  width:100%;background:var(--paper2);
-  border:1.5px solid var(--paper3);
-  border-radius:var(--r-8);
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:.5rem;
-  padding:2.5rem 1.5rem;min-height:240px;
-  color:var(--ink-4);text-align:center;
-}
-.ph-clean__icon{
-  width:36px;height:36px;border-radius:var(--r-4);
-  display:flex;align-items:center;justify-content:center;
-}
-.pv--pili   .ph-clean__icon{background:var(--red-pl);color:var(--red)}
-.pv--bio    .ph-clean__icon{background:var(--cobalt-pl);color:var(--cobalt)}
-.pv--fifa   .ph-clean__icon{background:var(--forest-pl);color:var(--forest)}
-.pv--wisdom .ph-clean__icon{background:var(--orange-pl);color:var(--orange)}
-.pv--naagin .ph-clean__icon{background:var(--coral-pl);color:var(--coral)}
-.pv--kuai   .ph-clean__icon{background:var(--sky-pl);color:var(--sky)}
-.ph-clean__icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
-.ph-clean__name{
-  font-size:var(--fs--1);font-weight:600;color:var(--ink-3);
-  font-family:var(--ff-body);letter-spacing:.03em;
-}
-.ph-clean__size{font-size:10px;color:var(--ink-4);margin-top:.1rem}
-
-.ph-clean--tall{min-height:360px}
-.ph-clean--hero{min-height:460px}
-.ph-clean--short{min-height:160px}
-
-/* outcome block */
-.outcome{
-  background:var(--paper2);border-radius:var(--r-12);
-  padding:1.75rem 2rem;margin-bottom:2.5rem;
-  border-left:4px solid var(--ink-5);
-}
-.pv--pili   .outcome{border-left-color:var(--red)}
-.pv--bio    .outcome{border-left-color:var(--cobalt)}
-.pv--fifa   .outcome{border-left-color:var(--forest)}
-.pv--wisdom .outcome{border-left-color:var(--orange)}
-.pv--naagin .outcome{border-left-color:var(--coral)}
-.pv--kuai   .outcome{border-left-color:var(--sky)}
-.outcome__lbl{
-  font-size:9px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-4);margin-bottom:.5rem;
-}
-.outcome__body{
-  font-size:var(--fs-0);color:var(--ink-2);line-height:1.72;max-width:680px;
-}
-.outcome__list{display:flex;flex-direction:column;gap:.45rem;margin-top:.1rem}
-.outcome__item{
-  font-size:var(--fs-0);color:var(--ink-2);line-height:1.6;
-  display:flex;align-items:flex-start;gap:.6rem;
-}
-.outcome__item::before{
-  content:'↳';color:var(--ink-4);flex-shrink:0;
-  font-size:.8rem;margin-top:.1rem;
-}
-
-/* gallery */
-.gallery{margin-bottom:2.5rem}
-.gallery__lbl{
-  font-size:9px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-4);margin-bottom:1rem;
-}
-.gallery__grid{
-  display:grid;gap:1rem;
-}
+@media(max-width:680px){.dec{grid-template-columns:1fr}}
+.dec__n{font-family:var(--ff-h);font-size:1rem;color:var(--esp4);margin-bottom:.3rem}
+.dec__title{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem;line-height:1.15}
+.dec__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7}
+.outcome{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.5rem 1.6rem;margin-bottom:2rem}
+.outcome__h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
+.outcome__list{display:flex;flex-direction:column;gap:.35rem}
+.outcome__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.6;display:flex;align-items:baseline;gap:.5rem}
+.outcome__item::before{content:'↳';color:var(--esp4);font-size:.8rem}
+.gallery{margin-bottom:2rem}
+.gallery__h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.8rem}
+.gallery__grid{display:grid;gap:1rem}
 .gallery__grid--2{grid-template-columns:1fr 1fr}
 .gallery__grid--3{grid-template-columns:repeat(3,1fr)}
-.gallery__grid--2-1{grid-template-columns:2fr 1fr}
-.gallery__grid--1-2{grid-template-columns:1fr 2fr}
-@media(max-width:680px){
-  .gallery__grid--2,.gallery__grid--3,
-  .gallery__grid--2-1,.gallery__grid--1-2{grid-template-columns:1fr}
-}
-
-/* section spacing override for concise layout */
-.cs-block{margin-bottom:2.5rem}
-
+@media(max-width:680px){.gallery__grid--2,.gallery__grid--3{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
 
-<!-- ═══════════════ NAV ═══════════════ -->
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav__in">
-    <a href="#/" class="nav__logo" id="nav-logo">Niharika Jain</a>
-    <ul class="nav__links">
-      <li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
-      <li><a href="#about" class="nav__a" id="nav-about">About</a></li>
-      <li><a href="#play" class="nav__a" id="nav-play">Play</a></li>
-      <li><a href="#" class="nav__a" id="nav-resume">Resume</a></li><!-- TODO: Add resume link -->
-      <li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
-    </ul>
-    <button class="nav__tog" id="navTog" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav__mob" id="navMob">
-    <a href="#work" class="nav__a">Work</a>
-    <a href="#about" class="nav__a">About</a>
-    <a href="#play" class="nav__a">Play</a>
-    <a href="#" class="nav__a">Resume</a><!-- TODO: Add resume link -->
-    <a href="#contact" class="nav__a">Contact</a>
-  </div>
+<div class="nav__in">
+<a href="#/" class="nav__logo" id="nav-logo">Niharika Jain</a>
+<ul class="nav__links">
+<li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
+<li><a href="#about" class="nav__a" id="nav-about">About</a></li>
+<li><a href="#play" class="nav__a" id="nav-play">Play</a></li>
+<li><a href="#" class="nav__a" id="nav-resume">Resume</a></li><!-- TODO: Add resume link -->
+<li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
+</ul>
+<button class="nav__tog" id="navTog" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+<div class="nav__mob" id="navMob">
+<a href="#work" class="nav__a">Work</a>
+<a href="#about" class="nav__a">About</a>
+<a href="#play" class="nav__a">Play</a>
+<a href="#" class="nav__a">Resume</a>
+<a href="#contact" class="nav__a">Contact</a>
+</div>
 </nav>
 
-<!-- ═══════════════ HOME VIEW ═══════════════ -->
+<!-- HOME VIEW -->
 <div id="home-view">
 
-  <!-- HERO -->
-  <section class="hero2" id="top">
-    <div class="hero2__in">
-      <div class="hero2__content reveal">
-        <p class="hero2__greeting">Hi, I'm Niharika —</p>
-        <h1 class="hero2__h1">
-          a UX designer who turns<br>
-          <em>messy systems</em> into calm,<br>
-          playful experiences.
-        </h1>
-        <p class="hero2__sub">Digital products, physical-digital systems, and visual stories for human-centered experiences.</p>
-        <div class="hero2__ctas">
-          <a href="#work" class="hero2__cta-primary">View my work ↗</a>
-          <a href="#" class="hero2__cta-secondary">Download resume</a><!-- TODO: Add resume link -->
-        </div>
-      </div>
+<!-- HERO -->
+<section class="hero paper" id="top">
+<div class="hero__in">
+<div class="hero__content reveal">
+<p class="hero__hi">Hi, I'm Niharika —</p>
+<h1 class="hero__h1">a UX designer who turns<br><em>messy systems</em> into calm,<br>playful experiences.</h1>
+<p class="hero__sub">Digital products, physical-digital systems, and visual stories for human-centered experiences.</p>
+<div class="hero__ctas">
+<a href="#work" class="hero__cta1">View my work ↗</a>
+<a href="#" class="hero__cta2">Download resume</a><!-- TODO: Add resume link -->
+</div>
+</div>
+<div class="hero__art" aria-hidden="true">
+<div class="hart hart--textile"></div>
+<div class="hart hart--folder"><span>pili.fig</span><span>biospherix.fig</span><span>fifa-atlanta.pdf</span><span>wisdom-atl.fig</span></div>
+<div class="hart hart--receipt">Irani Chai House<br>·····················<br>SCAD Atlanta<br>UX + Graphic Design<br>Class of 2026<br>·····················<br>Open to work ✓</div>
+<div class="hart hart--stamp"><span>India<br>Post</span></div>
+<div class="hart hart--matchbox">Atlanta, GA</div>
+<div class="hart hart--photo">niharika-photo.jpg</div>
+<div class="hart hart--note">messy → calm<br>scattered → clear ✦</div>
+</div>
+</div>
+</section>
 
-      <!-- Decorative artifacts (replaced by real assets later) -->
-      <div class="hero2__artifacts" aria-hidden="true">
-        <!-- Folder tab -->
-        <div class="h-artifact h-art--folder">
-          <div class="h-art--folder-files">
-            <span class="h-art--folder-file">pili.fig</span>
-            <span class="h-art--folder-file">biospherix.fig</span>
-            <span class="h-art--folder-file">fifa-atlanta.pdf</span>
-            <span class="h-art--folder-file">wisdom-atl.fig</span>
-          </div>
-        </div>
+<!-- SELECTED WORK -->
+<section class="sw" id="work">
+<div class="sw__in">
+<div class="reveal">
+<div class="tape">selected work</div>
+<h2 class="sw__h">Selected Work</h2>
+<p class="sw__sub">A small archive of systems, stories, and experiments.</p>
+</div>
 
-        <!-- Receipt strip -->
-        <div class="h-artifact h-art--receipt">
-          SCAD ATLANTA<br>
-          UX + GRAPHIC DESIGN<br>
-          CLASS OF 2026<br>
-          ·····················<br>
-          READY FOR WORK ✓
-        </div>
+<div class="sw-grid">
+<div class="sc sc--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
+<div class="sc__vis"><span class="sc__vis-lbl">pili-device-render.jpg</span></div>
+<div class="sc__info">
+<div class="sc__yr">2026 · Senior Capstone</div>
+<h3 class="sc__name">Pili</h3>
+<p class="sc__desc">A calm connection system for older adults, families, and caregivers.</p>
+<div class="sc__skills">UX Research · Product Design · UI/UX · Physical-Digital System</div>
+<span class="sc__cta">Open case file →</span>
+</div>
+</div>
 
-        <!-- Indian stamp -->
-        <div class="h-artifact h-art--stamp">
-          <div class="h-art--stamp-inner">INDIA<br>POST</div>
-        </div>
+<div class="sc sc--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
+<div class="sc__vis"><span class="sc__vis-lbl">biospherix-interface.jpg</span></div>
+<div class="sc__info">
+<div class="sc__yr">2026 · Product / Web App</div>
+<h3 class="sc__name">BioSpherix Layout Planner</h3>
+<p class="sc__desc">An AI-assisted layout planning tool for custom environmental chamber systems.</p>
+<div class="sc__skills">AI · UX · Web App · Engineering Workflow</div>
+<span class="sc__cta">Open case file →</span>
+</div>
+</div>
 
-        <!-- Matchbox label -->
-        <div class="h-artifact h-art--matchbox">Atlanta, GA</div>
+<div class="sc sc--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
+<div class="sc__vis"><span class="sc__vis-lbl">fifa-city-pass.jpg</span></div>
+<div class="sc__info">
+<div class="sc__yr">2026 · SCADpro</div>
+<h3 class="sc__name">FIFA World Cup 2026 Atlanta</h3>
+<p class="sc__desc">A collaborative UX concept for the Atlanta World Cup experience.</p>
+<div class="sc__skills">UX Research · Service Design · Collaboration</div>
+<span class="sc__cta">Open case file →</span>
+</div>
+</div>
 
-        <!-- Photo frame placeholder -->
-        <div class="h-artifact h-art--photo">niharika-photo.jpg</div>
+<div class="sc sc--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
+<div class="sc__vis"><span class="sc__vis-lbl">wisdom-product-tag.jpg</span></div>
+<div class="sc__info">
+<div class="sc__yr">2026 · Collaboration</div>
+<h3 class="sc__name">Wisdom ATL Eyewear</h3>
+<p class="sc__desc">Eyewear product, packaging, and visual merchandising collaboration.</p>
+<div class="sc__skills">Product Design · Packaging · Visual Merchandising</div>
+<span class="sc__cta">Open case file →</span>
+</div>
+</div>
+</div>
 
-        <!-- Handwritten note -->
-        <div class="h-artifact h-art--note">
-          messy → calm<br>
-          scattered → clear ✦
-        </div>
+<div class="more reveal">
+<div class="mc mc--naagin" data-project="naagin" role="button" tabindex="0"><div class="mc__icon">Spice Label</div><h4 class="mc__name">Naagin Sauce</h4><p class="mc__desc">Campaign and digital marketing for an Indian hot sauce brand.</p><span class="mc__cta">Open case file →</span></div>
+<div class="mc mc--kuai" data-project="kuai" role="button" tabindex="0"><div class="mc__icon">AI Receipt</div><h4 class="mc__name">KUAI</h4><p class="mc__desc">AI shopping and planning app concept.</p><span class="mc__cta">Open case file →</span></div>
+<div class="mc mc--easeout" data-project="easeout" role="button" tabindex="0"><div class="mc__icon">Closet Tag</div><h4 class="mc__name">EaseOut</h4><p class="mc__desc">Personal styling and closet organization app.</p><span class="mc__cta">Open case file →</span></div>
+<div class="mc mc--rsg" data-project="readysetgo" role="button" tabindex="0"><div class="mc__icon">Checklist</div><h4 class="mc__name">ReadySetGo</h4><p class="mc__desc">UX/UI planning and launch project.</p><span class="mc__cta">Open case file →</span></div>
+</div>
+</div>
+</section>
 
-        <!-- Doodle arrow -->
-        <div class="h-artifact h-art--arrow">
-          <svg viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 10 C10 10, 20 4, 35 10"/><path d="M30 6 L36 10 L30 14"/></svg>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- HOW I DESIGN -->
+<section class="hid" id="process">
+<div class="hid__in">
+<div class="reveal">
+<div class="tape">how it works</div>
+<h2 class="hid__h">How I Design</h2>
+<p class="hid__sub">A simple way to explain how I move from chaos to clarity.</p>
+</div>
+<div class="hid-grid reveal">
+<div class="hid-card"><div class="hid-card__n">01</div><h3 class="hid-card__h">Sort the mess</h3><p class="hid-card__p">I break complex systems into patterns, priorities, and user needs.</p></div>
+<div class="hid-card"><div class="hid-card__n">02</div><h3 class="hid-card__h">Build the system</h3><p class="hid-card__p">I turn scattered requirements into flows, structures, and clear interfaces.</p></div>
+<div class="hid-card"><div class="hid-card__n">03</div><h3 class="hid-card__h">Make it feel human</h3><p class="hid-card__p">I use language, visuals, and details to make technology feel approachable.</p></div>
+</div>
+</div>
+</section>
 
-  <div class="divider-line"></div>
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="about__in">
+<div class="reveal">
+<div class="tape">about</div>
+<h2 class="about__h">Designer of calm systems, playful visuals, and tiny details.</h2>
+<div class="about__body">
+<p>I'm Niharika Jain, a UX designer with a graphic design background, graduated from SCAD Atlanta in 2026. I'm drawn to messy systems, emotional products, physical-digital experiences, and visual details that make people stop for a second.</p>
+<p>My work sits between structure and feeling: user flows, service systems, interface design, brand language, and the tiny decisions that make something easier to understand and easier to trust.</p>
+</div>
+</div>
+<div class="about__cards reveal">
+<div class="acard"><div class="acard__lbl">Creative Director</div><div class="acard__title">Ginger 🐱</div><div class="acard__body">Orange. Opinionated. Has walked across my keyboard during three final presentations.</div></div>
+<div class="acard"><div class="acard__lbl">Background</div><div class="acard__title">SCAD Atlanta</div><div class="acard__body">UX Design · Graphic Design · Class of 2026</div></div>
+<div class="acard"><div class="acard__lbl">Tools</div><div class="acard__title">What I Work In</div><div class="acard__body">Figma · Miro · React · Illustrator · InDesign · Photoshop</div></div>
+<div class="acard"><div class="acard__lbl">Currently</div><div class="acard__title">Open to Work</div><div class="acard__body">Full-time UX, product, and visual design roles. Atlanta or remote.</div></div>
+</div>
+</div>
+</section>
 
-  <!-- SELECTED WORK -->
-  <section class="sel-work" id="work">
-    <div class="sel-work__in">
-      <div class="reveal">
-        <div class="sel-work__tape">selected work</div>
-        <h2 class="sel-work__h">Selected Work</h2>
-        <p class="sel-work__sub">A small archive of systems, stories, and experiments.</p>
-      </div>
+<!-- PLAY / ARCHIVE -->
+<section class="play" id="play">
+<div class="play__in">
+<div class="reveal">
+<div class="tape">play / archive</div>
+<h2 class="play__h">Play / Archive</h2>
+<p class="play__sub">Things I keep noticing, collecting, and turning into design references.</p>
+</div>
+<div class="play-grid reveal">
+<div class="pc"><div class="pc__title">Indian Print Culture</div><div class="pc__body">Calendar art, matchbox labels, stamps, popular print, packaging typography, textile patterns.</div></div>
+<div class="pc"><div class="pc__title">Packaging I Can't Stop Saving</div><div class="pc__body">Receipts, product labels, grocery stickers, Trader Joe's typography, food packaging with strong art direction.</div></div>
+<div class="pc"><div class="pc__title">Sky Archive</div><div class="pc__body">Everyday color studies. Photographed as palette references. Also just because the sky is free and always different.</div></div>
+<div class="pc"><div class="pc__title">Wayfinding Notes</div><div class="pc__body">Airports, museums, cities, and signs that work beautifully or fail spectacularly.</div></div>
+<div class="pc"><div class="pc__title">Currently Exploring</div><div class="pc__body">Murder mysteries, Bollywood from 2002, Indian homegrown brands, nail colors, songs I haven't placed a genre on.</div></div>
+<div class="pc"><div class="pc__title">Color Scraps</div><div class="pc__body">Matcha green, rust orange, cream, marigold, powder blue, soft pink. Collected from everywhere.</div></div>
+</div>
+</div>
+</section>
 
-      <!-- Main 2×2 grid -->
-      <div class="proj-grid">
-        <!-- PILI — care manual -->
-        <div class="proj-card proj-card--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-          <div class="proj-card__visual">
-            <span class="proj-card__visual-label">pili-device-render.jpg</span>
-          </div><!-- TODO: Add Pili hero visual -->
-          <div class="proj-card__info">
-            <div class="proj-card__year">2026 · Senior Capstone</div>
-            <h3 class="proj-card__name">Pili</h3>
-            <p class="proj-card__desc">A calm connection system for older adults, families, and caregivers.</p>
-            <div class="proj-card__skills">UX Research · Product Design · UI/UX · Physical-Digital System</div>
-            <span class="proj-card__cta">Open case file →</span>
-          </div>
-        </div>
+<!-- AI DIRECTION LOG -->
+<section class="ailog" id="ailog">
+<div class="ailog__in">
+<div class="reveal">
+<div class="tape">build record</div>
+<h2 class="ailog__h">AI Direction Log</h2>
+<p class="ailog__sub">This portfolio is also a build record — designed by me, coded with AI assistance, and shaped through constant creative direction.</p>
+</div>
+<div class="ailog-grid reveal">
+<div class="alc"><div class="alc__file">direction-log.md</div><div class="alc__title">Direction Log</div><div class="alc__body">Every prompt, push-back, and creative direction call documented.</div></div>
+<div class="alc"><div class="alc__file">resistance.txt</div><div class="alc__title">Record of Resistance</div><div class="alc__body">Every version I rejected and why. The soulless ones. The too-corporate ones.</div></div>
+<div class="alc"><div class="alc__file">architecture.md</div><div class="alc__title">System Architecture</div><div class="alc__body">How the single-file build works, what decisions shaped the code structure.</div></div>
+<div class="alc"><div class="alc__file">notes.md</div><div class="alc__title">Build Notes</div><div class="alc__body">The messy, iterative process of building a portfolio when you're also the client.</div></div>
+</div>
+<div class="reveal" style="margin-top:1.5rem">
+<div class="ailog__stamp"><strong>AI proposes.</strong> I decide.</div>
+</div>
+<div class="reveal" style="margin-top:1rem">
+<a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="hero__cta1" style="font-size:var(--fs--1)">View on GitHub →</a>
+</div>
+</div>
+</section>
 
-        <!-- BIOSPHERIX — blueprint -->
-        <div class="proj-card proj-card--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-          <div class="proj-card__visual">
-            <span class="proj-card__visual-label">biospherix-interface.jpg</span>
-          </div><!-- TODO: Add BioSpherix hero visual -->
-          <div class="proj-card__info">
-            <div class="proj-card__year">2026 · Product / Web App</div>
-            <h3 class="proj-card__name">BioSpherix Layout Planner</h3>
-            <p class="proj-card__desc">An AI-assisted layout planning tool for custom environmental chamber systems.</p>
-            <div class="proj-card__skills">AI · UX · Web App · Engineering Workflow</div>
-            <span class="proj-card__cta">Open case file →</span>
-          </div>
-        </div>
-
-        <!-- FIFA — event credential -->
-        <div class="proj-card proj-card--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-          <div class="proj-card__visual">
-            <span class="proj-card__visual-label">fifa-city-pass.jpg</span>
-          </div><!-- TODO: Add FIFA hero visual -->
-          <div class="proj-card__info">
-            <div class="proj-card__year">2026 · SCADpro</div>
-            <h3 class="proj-card__name">FIFA World Cup 2026 Atlanta</h3>
-            <p class="proj-card__desc">A collaborative UX concept for the Atlanta World Cup experience.</p>
-            <div class="proj-card__skills">UX Research · Service Design · Collaboration</div>
-            <span class="proj-card__cta">Open case file →</span>
-          </div>
-        </div>
-
-        <!-- WISDOM — lookbook page -->
-        <div class="proj-card proj-card--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
-          <div class="proj-card__visual">
-            <span class="proj-card__visual-label">wisdom-product-tag.jpg</span>
-          </div><!-- TODO: Add Wisdom hero visual -->
-          <div class="proj-card__info">
-            <div class="proj-card__year">2026 · Collaboration</div>
-            <h3 class="proj-card__name">Wisdom ATL Eyewear</h3>
-            <p class="proj-card__desc">Eyewear product, packaging, and visual merchandising collaboration.</p>
-            <div class="proj-card__skills">Product Design · Packaging · Visual Merchandising</div>
-            <span class="proj-card__cta">Open case file →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- More files — secondary projects -->
-      <div class="more-files reveal">
-        <div class="more-card" data-project="naagin" role="button" tabindex="0" aria-label="Open Naagin Sauce case study">
-          <h4 class="more-card__name">Naagin Sauce</h4>
-          <p class="more-card__desc">Campaign and digital marketing for an Indian hot sauce brand.</p>
-          <span class="more-card__cta">Open case file →</span>
-        </div>
-        <div class="more-card" data-project="kuai" role="button" tabindex="0" aria-label="Open KUAI case study">
-          <h4 class="more-card__name">KUAI</h4>
-          <p class="more-card__desc">AI shopping and planning app concept.</p>
-          <span class="more-card__cta">Open case file →</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider-line"></div>
-
-  <!-- OPEN FILE: NIHARIKA -->
-  <section class="about" id="about">
-    <div class="about__in">
-      <div class="reveal">
-        <div class="eyebrow eyebrow--lt">Open File: Niharika</div>
-        <p class="about__q">"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
-        <div class="about__body">
-          <p>I'm a UX and graphic designer who graduated from SCAD Atlanta in 2026. My work spans digital product design, visual identity, service design, physical-digital systems, and AI-assisted tools. I think in systems. I notice everything. I care about emotion as much as clarity.</p>
-          <p>Outside of work: cooking from memory without a recipe, deep inside a murder mystery or a Bollywood film I've already watched twice, haunting every museum within driving distance, photographing skies, being particular about nails, and having a lot of opinions about Indian homegrown brands.</p>
-          <p>I'm always dressing up for no reason, always collecting things that don't have a category yet, and absolutely always thinking about what comes next.</p>
-        </div>
-      </div>
-      <div class="about__right reveal">
-        <!-- Ginger placeholder -->
-        <div class="acard acard--ginger">
-          <div class="acard__lbl">Emotional Support Creative Director</div>
-          <div class="acard__title">Ginger 🐱</div>
-          <div class="acard__body">Orange. Opinionated. Has walked across my keyboard during three final presentations. Presence fully unearned. Retained anyway.</div>
-        </div>
-        <!-- Sky archive -->
-        <div class="acard acard--sky">
-          <div class="acard__lbl">Ongoing Archive</div>
-          <div class="acard__title">Sky Photographs</div>
-          <div class="sky-film">
-            <div class="sky-frame" style="background:linear-gradient(180deg,#84C4E8,#68A4CE)"></div>
-            <div class="sky-frame" style="background:linear-gradient(180deg,#C4D8E8,#9BBDE0)"></div>
-            <div class="sky-frame" style="background:linear-gradient(180deg,#EEC898,#DDB870)"></div>
-            <div class="sky-frame" style="background:linear-gradient(180deg,#B0C8E0,#88A8C8)"></div>
-            <div class="sky-frame" style="background:linear-gradient(180deg,#F0D8B0,#E0C080)"></div>
-          </div>
-          <div class="acard__body" style="margin-top:.5rem">Collected as color palette references. Also just because the sky is free and always different.</div>
-        </div>
-        <!-- Skills -->
-        <div class="acard">
-          <div class="acard__lbl">What I Work In</div>
-          <div class="acard__title">Tools + Disciplines</div>
-          <div class="acard__body">Figma · Miro · React · HTML/CSS · Illustrator · InDesign · Photoshop<br><br>UX Research · Systems Design · Brand Identity · Packaging · Service Design · AI-Assisted Development</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THINGS I KEEP NOTICING -->
-  <section class="brain pg" id="play">
-    <div class="brain__in">
-      <div class="brain__top reveal">
-        <div>
-          <div class="eyebrow">Things I Keep Noticing</div>
-          <h2 class="brain__intro-h">A designer's brain<br><em>doesn't turn off.</em></h2>
-          <div class="brain__intro-p">
-            <p>I collect skies like color palettes. I notice bad wayfinding the way other people notice traffic. I save interesting buttons, museum labels, packaging that makes me pick something up, and songs I haven't heard the genre of before.</p>
-            <p>This section is where that lives — not as a list of hobbies, but as the actual texture of how I think.</p>
-          </div>
-        </div>
-        <!-- Camera roll -->
-        <div>
-          <div class="eyebrow" style="margin-bottom:.6rem">Sky Archive · ongoing</div>
-          <div class="camroll">
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(180deg,#84C4E8 0%,#A8CCDC 60%,#D0C4B0 100%)"></div>
-              <span class="cr-lbl">6:24am</span>
-            </div>
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(160deg,#EE9850 0%,#E8C870 40%,#88B8D4 100%)"></div>
-              <span class="cr-lbl">sunset</span>
-            </div>
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(180deg,#4490C8 0%,#88B8DC 50%,#C4D8EC 100%)"></div>
-              <span class="cr-lbl">noon-ish</span>
-            </div>
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(180deg,#A0A8C0 0%,#C8C8D4 60%,#E4E0D8 100%)"></div>
-              <span class="cr-lbl">overcast</span>
-            </div>
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(180deg,#D44828 0%,#E88830 40%,#ECC460 100%)"></div>
-              <span class="cr-lbl">golden hr</span>
-            </div>
-            <div class="camroll__frame">
-              <div class="cr-sky" style="background:linear-gradient(180deg,#1C2840 0%,#344870 50%,#6888A8 100%)"></div>
-              <span class="cr-lbl">blue hour</span>
-            </div>
-          </div>
-          <div class="eyebrow" style="margin-top:1.5rem;margin-bottom:.6rem">Current Obsessions</div>
-          <div style="display:flex;flex-direction:column;gap:.5rem">
-            <div style="font-size:var(--fs--1);color:var(--ink-2);display:flex;align-items:center;gap:.5rem">
-              <span style="font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3)">reading:</span>
-              <span>Indian calendar art, vintage Bollywood posters, lithography references</span>
-            </div>
-            <div style="font-size:var(--fs--1);color:var(--ink-2);display:flex;align-items:center;gap:.5rem">
-              <span style="font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3)">watching:</span>
-              <span>Murder mystery films, biopics, Bollywood from 2002 that I've already seen</span>
-            </div>
-            <div style="font-size:var(--fs--1);color:var(--ink-2);display:flex;align-items:center;gap:.5rem">
-              <span style="font-family:var(--ff-hand);font-size:.9rem;color:var(--ink-3)">saving:</span>
-              <span>Packaging with unusually good typography, nail colors, airport signage systems</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Artifact grid -->
-      <div class="artifact-grid reveal">
-        <!-- Currently collecting -->
-        <div class="art-card art-card--collecting">
-          <div class="art-card__lbl">Currently Collecting</div>
-          <div class="art-card__title">What I Save</div>
-          <div class="art-card__list">
-            <div class="art-card__item">Sky photographs (for the colors)</div>
-            <div class="art-card__item">Indian calendar art references</div>
-            <div class="art-card__item">Packaging that makes me pick it up</div>
-            <div class="art-card__item">Museum labels with strong writing</div>
-            <div class="art-card__item">Nail colors, always nail colors</div>
-            <div class="art-card__item">Songs I haven't placed a genre on</div>
-            <div class="art-card__item">Interesting button states &amp; labels</div>
-          </div>
-        </div>
-
-        <!-- Things I keep noticing -->
-        <div class="art-card art-card--notices">
-          <div class="art-card__lbl">Things I Keep Noticing</div>
-          <div class="art-card__title">The Design Around Me</div>
-          <div class="art-card__list">
-            <div class="art-card__item">How people move through airports when the wayfinding lies</div>
-            <div class="art-card__item">When an interface makes you feel stupid for no reason</div>
-            <div class="art-card__item">Packaging that creates trust before you've read anything</div>
-            <div class="art-card__item">How color shifts the perceived weight of an object</div>
-            <div class="art-card__item">Button labels that solve a problem in four words or fewer</div>
-            <div class="art-card__item">How culture shows up in the smallest everyday objects</div>
-          </div>
-        </div>
-
-        <!-- Design beliefs -->
-        <div class="art-card art-card--beliefs">
-          <div class="art-card__lbl">Design Beliefs</div>
-          <div class="art-card__title" style="color:#fff">What I Actually Think</div>
-          <div class="art-card__list">
-            <div class="art-card__item">Clarity can still have feeling.</div>
-            <div class="art-card__item">Systems should feel human.</div>
-            <div class="art-card__item">Details are not decoration.</div>
-            <div class="art-card__item">If it feels generic, it's not done.</div>
-            <div class="art-card__item">AI proposes. I decide.</div>
-            <div class="art-card__item">Culture is not an add-on.</div>
-          </div>
-        </div>
-
-        <!-- Open tabs -->
-        <div class="art-card art-card--open-tabs">
-          <div class="art-card__lbl">Open Tabs Right Now</div>
-          <div class="art-card__title" style="color:var(--cobalt)">What I Have Open</div>
-          <div class="art-card__list">
-            <div class="art-card__item">Pili prototype · Figma</div>
-            <div class="art-card__item">BioSpherix layout logic</div>
-            <div class="art-card__item">Indian lithography archive</div>
-            <div class="art-card__item">Naagin campaign assets</div>
-            <div class="art-card__item">Murder mystery recommendations</div>
-            <div class="art-card__item">Sky photo archive (needs organizing)</div>
-          </div>
-          <div class="art-card__note">+ 27 more tabs I'm not closing</div>
-        </div>
-
-        <!-- Recent searches -->
-        <div class="art-card art-card--searching">
-          <div class="art-card__lbl">Recent Searches</div>
-          <div class="art-card__title">What I Look Up</div>
-          <div class="art-card__list">
-            <div class="art-card__item">"Indian homegrown brand visual identity"</div>
-            <div class="art-card__item">"wayfinding at scale case studies"</div>
-            <div class="art-card__item">"Y2K typography design"</div>
-            <div class="art-card__item">"care design older adults"</div>
-            <div class="art-card__item">"Trader Joe's packaging typography"</div>
-            <div class="art-card__item">"best murder mystery 2024"</div>
-          </div>
-        </div>
-
-        <!-- Annotation card -->
-        <div class="art-card" style="background:var(--paper3);border-color:var(--paper4)">
-          <div class="art-card__lbl">Note to Self</div>
-          <div style="font-family:var(--ff-hand);font-size:1.15rem;color:var(--ink-2);line-height:1.6;margin-bottom:.75rem">
-            "Good design is noticing something that shouldn't need to be noticed — and fixing it so quietly nobody has to notice it again."
-          </div>
-          <div style="font-size:var(--fs--1);color:var(--ink-3)">— written on a sticky note that I have lost three times and rewritten each time</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="band"></div>
-
-  <!-- BEHIND THE BUILD -->
-  <section class="build" id="process">
-    <div class="build__in">
-      <div class="reveal">
-        <div class="eyebrow eyebrow--mg">Behind the Build</div>
-        <h2 class="build__h">This portfolio is also <em>a case study.</em></h2>
-        <p class="build__sub">The site you're looking at was designed and built with AI assistance — every decision documented, every push-back recorded. The creative direction is mine. The code execution was collaborative.</p>
-      </div>
-      <div class="build__board reveal">
-        <div class="bcard">
-          <div class="bcard__file">prompts.md</div>
-          <div class="bcard__title">The Prompt Log</div>
-          <div class="bcard__body">Every prompt I gave Claude — including the ones that went sideways, the ones where I got too specific, and the ones where I had to say "no, warmer, less corporate, more me."</div>
-        </div>
-        <div class="bcard">
-          <div class="bcard__file">decisions.md</div>
-          <div class="bcard__title">Creative Direction Calls</div>
-          <div class="bcard__body">The moments I pushed back: when AI proposed beige and I said maroon, when it made flat cards and I asked for folders, when it wrote portfolio-speak and I asked it to sound like a real person.</div>
-        </div>
-        <div class="bcard">
-          <div class="bcard__file">rejected-versions.txt</div>
-          <div class="bcard__title">The Record of Resistance</div>
-          <div class="bcard__body">Every version I rejected and why. The technically correct but completely soulless iteration. The one that looked like every other UX portfolio. The version Ginger walked across and somehow improved.</div>
-        </div>
-        <div class="bcard">
-          <div class="bcard__file">commits.log</div>
-          <div class="bcard__title">Build History</div>
-          <div class="bcard__body">The real messy, iterative, sometimes circular process of building a portfolio when you're also the designer, the client, the user researcher, and the QA department.</div>
-        </div>
-      </div>
-      <div class="build__stamp reveal"><strong>AI proposes.</strong> I decide.</div>
-      <div class="build__gh reveal">
-        <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-ink">View on GitHub →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact pg" id="contact">
-    <div class="contact__in">
-      <div class="reveal">
-        <div class="eyebrow">Let's Work Together</div>
-        <h2 class="contact__h">Let's make<br>something <em>worth noticing.</em></h2>
-        <p class="contact__body">I'm open to full-time UX and graphic design roles, freelance projects, and collaborations with people who have strong opinions about what they're building. If that sounds like you, let's talk.</p>
-        <div class="contact__links">
-          <!-- TODO: Add real email -->
-          <a href="mailto:" class="btn btn-maroon">Send an Email ↗</a>
-          <!-- TODO: Add real LinkedIn -->
-          <a href="#" class="btn btn-outline">LinkedIn ↗</a>
-          <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-          <!-- TODO: Add resume link -->
-        </div>
-      </div>
-      <div class="stickies reveal">
-        <div class="sticky">p.s. Ginger approves thoughtful emails.</div>
-        <div class="sticky">p.p.s. I will absolutely ask where you got your reference images.</div>
-      </div>
-    </div>
-  </section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="contact__in">
+<div class="reveal">
+<div class="tape">say hello</div>
+<h2 class="contact__h">Let's make something<br><em>worth noticing.</em></h2>
+<p class="contact__body">I'm open to full-time UX, product, and visual design roles, along with collaborations where systems, stories, and details matter.</p>
+<div class="contact__links">
+<!-- TODO: Add real email --><a href="mailto:">Email ↗</a>
+<!-- TODO: Add real LinkedIn --><a href="#">LinkedIn ↗</a>
+<!-- TODO: Add resume link --><a href="#">Resume ↗</a>
+<a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+</div>
+<p class="contact__note">Thanks for visiting my little corner of the internet.</p>
+</div>
+<div class="reveal">
+<div class="contact__sticky">p.s. Ginger approves thoughtful emails.</div>
+<div class="contact__sticky">p.p.s. I will absolutely ask where you got your reference images.</div>
+</div>
+</div>
+</section>
 
 </div><!-- /home-view -->
 
-<!-- ═══════════════ PROJECT VIEW ═══════════════ -->
-<div id="project-view">
-  <!-- injected by JS -->
-</div>
+<div id="project-view"></div>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer">
-  <div class="footer__in">
-    <p class="footer__sig">Made in Atlanta <strong>✦</strong> Powered by <em>Ginger</em></p>
-    <nav class="footer__nav">
-      <a href="#/" class="footer__a" id="footer-home">Home</a>
-      <a href="#work" class="footer__a">Work</a>
-      <a href="#about" class="footer__a">About</a>
-      <a href="#contact" class="footer__a">Contact</a>
-    </nav>
-  </div>
+<div class="footer__in">
+<p class="footer__sig">Made in Atlanta — Powered by <em>Ginger</em></p>
+<nav class="footer__nav">
+<a href="#/" class="footer__a" id="footer-home">Home</a>
+<a href="#work" class="footer__a">Work</a>
+<a href="#about" class="footer__a">About</a>
+<a href="#play" class="footer__a">Play</a>
+<a href="#contact" class="footer__a">Contact</a>
+</nav>
+</div>
 </footer>
 
-<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
 <script>
-/* ── project content data ───────────────────────────────────────────── */
+/* ── helpers ── */
+function ph(label,tall){return `<div class="ph${tall?' ph--'+tall:''}">${label}</div>`}
+function dec(num,title,body,imgLabel){
+return `<div class="dec reveal"><div><div class="dec__n">${num}</div><div class="dec__title">${title}</div><div class="dec__body">${body}</div></div><div>${ph(imgLabel)}</div></div>`}
 
-// Shared SVG icons for clean placeholders (no emoji in visual areas)
-const ICO = {
-  image: `<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
-  layout:`<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>`,
-  mobile:`<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round" stroke-width="3"/></svg>`,
-  device:`<svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`,
-  screen:`<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
-  map:   `<svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,
-  pkg:   `<svg viewBox="0 0 24 24"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
-  brand: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-  flow:  `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/></svg>`,
-  spark: `<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-  app:   `<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>`,
-};
-
-function ph(icon, filename, size='') {
-  return `<div class="ph-clean${size ? ' ph-clean--'+size : ''}">
-    <div class="ph-clean__icon">${ICO[icon] || ICO.image}</div>
-    <div class="ph-clean__name">${filename}</div>
-  </div>`;
-}
-
-function dec(num, title, body, imgIcon, imgFile, reverse=false) {
-  const content = `<div class="dec__content">
-      <div class="dec__num">${num}</div>
-      <div class="dec__title">${title}</div>
-      <div class="dec__body">${body}</div>
-    </div>
-    <div class="dec__img">${ph(imgIcon, imgFile)}</div>`;
-  return `<div class="dec${reverse ? ' dec--reverse' : ''} reveal">${content}</div>`;
-}
-
+/* ── project data ── */
 const PROJECTS = {
 
-  /* ═══════════ PILI ═══════════ */
-  pili: {
-    slug: 'pili',
-    colorClass: 'pv--pili',
-    cat: 'UX / Product + Physical Design · Senior Capstone',
-    title: 'Pili',
-    subtitle: 'A calm connection system for older adults, their families, and caregivers — built across three touchpoints: a physical device, a family app, and a caregiver dashboard.',
-    meta: [
-      {label:'Role',     val:'Lead UX + Visual Designer'},
-      {label:'Context',  val:'Senior Capstone, SCAD Atlanta'},
-      {label:'Platform', val:'Physical Device · iOS App · Web Dashboard'},
-      {label:'Tools',    val:'Figma · Miro · Primary Research'},
-    ],
-    heroImg: {icon:'device', label:'pili-system-overview.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        Pili addresses the connection gap between older adults, their families, and professional caregivers. Most care technology serves one audience at a time — either the older adult or the family. Pili is designed as a shared ecosystem, so care feels like presence rather than surveillance.
-      </div>
+pili:{slug:'pili',fileNum:'01',
+cat:'UX / Product + Physical Design · Senior Capstone',
+title:'Pili',
+subtitle:'A calm connection system for older adults, their families, and caregivers — built across three touchpoints: a physical device, a family app, and a caregiver dashboard.',
+meta:[{label:'Role',val:'Lead UX + Visual Designer'},{label:'Context',val:'Senior Capstone, SCAD Atlanta'},{label:'Platform',val:'Physical Device · iOS · Web Dashboard'},{label:'Tools',val:'Figma · Miro · Primary Research'}],
+heroImg:'pili-system-overview.jpg',
+body:`
+<div class="cs-intro reveal">Pili addresses the connection gap between older adults, their families, and professional caregivers. Most care technology serves one audience at a time. Pili is designed as a shared ecosystem, so care feels like presence rather than surveillance.</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Led end-to-end UX design across three form factors: physical tabletop device, iOS family app, and web caregiver dashboard</div>
+<div class="role-list__item">Conducted primary research with older adults, family members, and caregivers</div>
+<div class="role-list__item">Designed the system architecture — how three surfaces share information without overexposing any audience</div>
+<div class="role-list__item">Developed the visual and interaction language for the device</div>
+<div class="role-list__item">Created prototypes and final deliverables for SCAD capstone presentation</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Designing connection beyond live calls','Real connection between families and older adults doesn\'t require scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle signals (a soft light, a shared photo, a mood indicator) so families feel connected without requiring the older adult to initiate anything.','pili-device-ambient-states.jpg')}
+${dec('Decision 02','Making the device feel domestic, not clinical','Most assistive technology signals "medical" before it signals "home." I designed the physical device as a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall.','pili-device-form-study.jpg')}
+${dec('Decision 03','Building one system across three surfaces','Rather than three separate products, I designed one system with three views. Each surface shows only what its user needs. The older adult is never exposed to what the family or caregiver sees. Trust is built through information architecture.','pili-system-architecture.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Designed and presented a complete three-part system as senior capstone work at SCAD Atlanta</div>
+<div class="outcome__item">Delivered prototypes for all three surfaces: physical device, iOS family app, and web caregiver dashboard</div>
+<div class="outcome__item">Demonstrated how multi-stakeholder UX requires different trust models for each audience</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">${ph('pili-family-app-screens.jpg','tall')}${ph('pili-caregiver-dashboard.jpg','tall')}</div>
+<div class="gallery__grid gallery__grid--3">${ph('pili-device-render.jpg')}${ph('pili-system-flow.jpg')}${ph('pili-research-synthesis.jpg')}</div></div>
+`},
 
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Led end-to-end UX design across three distinct form factors: a physical tabletop device, an iOS family app, and a web caregiver dashboard</div>
-          <div class="role-list__item">Conducted primary research with older adults, family members, and caregivers to understand how "care" is experienced differently by each stakeholder</div>
-          <div class="role-list__item">Designed the system architecture — how the three surfaces share information without any one audience receiving more than they need</div>
-          <div class="role-list__item">Developed the visual and interaction language for the device (which deliberately avoids medical or tech aesthetics)</div>
-          <div class="role-list__item">Created prototypes and final deliverables for the SCAD senior capstone presentation</div>
-        </div>
-      </div>
+biospherix:{slug:'biospherix',fileNum:'02',
+cat:'UX / AI-Assisted Web App',
+title:'BioSpherix Layout Planner',
+subtitle:'An AI-assisted layout planning web app built for Nihar, a mechanical engineer at BioSpherix — turning client requirements into shareable 2D system layouts before CAD development.',
+meta:[{label:'Role',val:'UX Designer + Developer'},{label:'User',val:'Nihar, Mechanical Engineer'},{label:'Type',val:'Working Web Prototype'},{label:'Tools',val:'Figma · React · Claude · GitHub'}],
+heroImg:'biospherix-app-overview.jpg',
+body:`
+<div class="cs-intro reveal">Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. I designed and prototyped a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout faster.</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Researched Nihar's existing workflow — mapped bottlenecks in the requirements-to-layout process</div>
+<div class="role-list__item">Designed the UX: information architecture, input flow, layout canvas, and validation feedback</div>
+<div class="role-list__item">Built the working React prototype with AI-assisted layout generation using Claude</div>
+<div class="role-list__item">Designed around Nihar's domain expertise — a tool that makes an expert faster</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Turning requirements into a visual layout canvas','Clients describe needs in words; engineers think in spatial configurations. I designed an input system that captures requirements in plain language and renders them onto a 2D canvas — giving Nihar and the client a shared spatial language.','biospherix-canvas-view.jpg')}
+${dec('Decision 02','Designing around Nihar\'s real workflow','Nihar is a domain expert — he doesn\'t need tooltips explaining what an OxyCycler is. The UX compresses the slow parts of his workflow without adding friction or re-teaching his own job.','biospherix-workflow-map.jpg')}
+${dec('Decision 03','Using AI to accelerate, not replace, design judgment','The AI suggests layout configurations but always surfaces its reasoning and defers to Nihar\'s override. AI output is a first draft, not a final answer. His judgment determines the output.','biospherix-ai-suggestions.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Built a working React prototype for Nihar's BioSpherix layout planning workflow</div>
+<div class="outcome__item">Designed to reduce the time from client requirements to first reviewable layout draft</div>
+<div class="outcome__item">Demonstrated a real AI-assisted workflow where AI accelerates expert judgment</div>
+</div></div><!-- TODO: Confirm specific outcome metrics with Nihar -->
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2">${ph('biospherix-interface-full.jpg','tall')}${ph('biospherix-layout-output.jpg','tall')}</div></div>
+`},
 
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Three choices that shaped everything</div>
-        ${dec('Decision 01', 'Designing connection beyond live calls',
-          'Real connection between families and older adults doesn\'t require scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle, low-stakes signals (a soft light, a shared photo, a mood indicator) so families feel connected without requiring the older adult to initiate anything.',
-          'device', 'pili-device-ambient-states.jpg')}
-        ${dec('Decision 02', 'Making the device feel domestic, not clinical',
-          'Most assistive technology signals "medical" before it signals "home." I designed the physical device as a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall. Material language, form factor, and interaction all follow this principle.',
-          'image', 'pili-device-form-study.jpg', true)}
-        ${dec('Decision 03', 'Building one system across three surfaces',
-          'Rather than three separate products, I designed one system with three views. Each surface — device, family app, caregiver dashboard — shows only what its user needs. The older adult is never exposed to what the family or caregiver sees. Trust is built through information architecture.',
-          'layout', 'pili-system-architecture.jpg')}
-      </div>
+fifa:{slug:'fifa',fileNum:'03',
+cat:'Service Design · Journey Mapping · SCADpro',
+title:'FIFA World Cup 2026 — Atlanta Fan Experience',
+subtitle:'A SCADpro service design project — mapping and redesigning the fan journey for the 2026 FIFA World Cup matches hosted in Atlanta.',
+meta:[{label:'Context',val:'SCADpro Industry Collaboration'},{label:'Type',val:'Service Design / Experience Strategy'},{label:'Scale',val:'City-wide, multi-match event'},{label:'Tools',val:'Miro · Figma · Journey Mapping'}],
+heroImg:'fifa-journey-map-overview.jpg',
+body:`
+<div class="cs-intro reveal">Atlanta is hosting multiple 2026 FIFA World Cup matches at Mercedes-Benz Stadium. International fans navigating a city whose transit and wayfinding wasn't designed for this scale. I worked on a SCADpro team to map the full fan journey and translate research into service design recommendations.</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Mapped the end-to-end fan journey across five phases: arrival, orientation, approach, match, departure</div>
+<div class="role-list__item">Identified critical friction points through stakeholder research and on-ground observation</div>
+<div class="role-list__item">Developed service design recommendations across wayfinding, transit, and fan zone strategy</div>
+<div class="role-list__item">Contributed to final presentation and visual documentation for SCADpro client handoff</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Mapping the fan journey beyond the stadium','The fan journey starts at the airport, not the stadium gate. I advocated for mapping the full arc, including unofficial spaces. The most critical failure: a half-mile stretch between the MARTA station and the stadium with no signage.','fifa-journey-map-full.jpg')}
+${dec('Decision 02','Designing for crowd movement and uncertainty','An international fan base means you can\'t assume language, local knowledge, or phone signal. I pushed for wayfinding built on visual redundancy — color, symbol, and ground-level markings that work for someone who can\'t read English.','fifa-wayfinding-system.jpg')}
+${dec('Decision 03','Translating research into service recommendations','Journey maps are only useful if they lead to action. I helped translate research into three directions: a ground-level wayfinding language, fan zone anchor points, and a digital-physical bridging layer for transit guidance.','fifa-recommendations-board.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Produced a complete fan journey map and service design recommendation deck for SCADpro client</div>
+<div class="outcome__item">Identified the MARTA-to-stadium corridor as the highest-priority friction point</div>
+<div class="outcome__item">Contributed to a city-scale service design project spanning transit, wayfinding, and event atmosphere</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2">${ph('fifa-journey-map-final.jpg','tall')}${ph('fifa-wayfinding-concepts.jpg','tall')}</div></div>
+`},
 
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Designed and presented a complete three-part system as senior capstone work at SCAD Atlanta</div>
-          <div class="outcome__item">Delivered prototypes for all three surfaces: physical device interaction model, iOS family app, and web caregiver dashboard</div>
-          <div class="outcome__item">Demonstrated how multi-stakeholder UX requires different trust models and information architectures for each audience</div>
-        </div>
-      </div>
+wisdom:{slug:'wisdom',fileNum:'04',
+cat:'Brand Design · Packaging · Retail Experience',
+title:'Wisdom ATL Eyewear',
+subtitle:'Product, packaging, visual merchandising, and buyer-facing retail storytelling for an Atlanta-born independent eyewear brand.',
+meta:[{label:'Role',val:'Brand + Packaging Designer'},{label:'Deliverables',val:'Packaging · Retail Display · Visual Merchandising'},{label:'Market',val:'Independent Eyewear / Atlanta'},{label:'Tools',val:'Figma · Illustrator · InDesign'}],
+heroImg:'wisdom-packaging-hero.jpg',
+body:`
+<div class="cs-intro reveal">Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture. My work focused on the physical and retail-facing side: packaging design, product presentation, visual merchandising direction, and the buyer experience from shelf to unboxing.</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Designed the product packaging system — primary case, retail box, lens cloth, and care card</div>
+<div class="role-list__item">Developed visual merchandising direction for independent retail</div>
+<div class="role-list__item">Created buyer-facing storytelling materials for point-of-decision impact</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Turning eyewear into a retail story','Most independent eyewear packaging either over-minimizes or over-explains. I chose a middle path: enough visual character to be memorable, but clean enough that the product stays the hero.','wisdom-retail-packaging.jpg')}
+${dec('Decision 02','Translating brand personality into physical touchpoints','An Atlanta-rooted brand has to feel like it belongs here. I translated the city\'s visual culture into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.','wisdom-material-details.jpg')}
+${dec('Decision 03','Designing for buyer-facing clarity','Independent retail means the product sells itself without a salesperson. A customer should read the brand\'s personality and price positioning within three seconds of seeing it on a shelf.','wisdom-shelf-display.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Delivered a complete packaging system: primary case, retail box, lens cloth, and care card</div>
+<div class="outcome__item">Produced visual merchandising direction for independent retail environments</div>
+<div class="outcome__item">Created buyer-facing brand storytelling materials for point-of-purchase impact</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--3">${ph('wisdom-packaging-system.jpg')}${ph('wisdom-retail-display.jpg')}${ph('wisdom-care-card.jpg')}</div></div>
+`},
 
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
-          ${ph('mobile', 'pili-family-app-screens.jpg', 'tall')}
-          ${ph('screen', 'pili-caregiver-dashboard.jpg', 'tall')}
-        </div>
-        <div class="gallery__grid gallery__grid--3">
-          ${ph('device', 'pili-device-render.jpg')}
-          ${ph('flow',   'pili-system-flow.jpg')}
-          ${ph('image',  'pili-research-synthesis.jpg')}
-        </div>
-      </div>
-    `
-  },
+naagin:{slug:'naagin',fileNum:'05',
+cat:'Graphic Design · Campaign · Marketing',
+title:'Naagin Sauce',
+subtitle:'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and social contexts.',
+meta:[{label:'Role',val:'Graphic Designer'},{label:'Type',val:'Campaign / Marketing Design'},{label:'Brand',val:'Naagin Sauce'},{label:'Tools',val:'Illustrator · Photoshop · InDesign'}],
+heroImg:'naagin-campaign-hero.jpg',
+body:`
+<div class="cs-intro reveal">Naagin Sauce is Indian hot sauce with a sharp visual identity — bold typography, the Naagin iconography, and the graphic density of Indian poster culture. My role was to extend that identity into campaign and marketing contexts without diluting what makes it unmistakably Naagin.</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Designed digital marketing assets, social content, campaign visuals, and promotional graphics</div>
+<div class="role-list__item">Extended the existing brand identity into new contexts while maintaining visual language integrity</div>
+<div class="role-list__item">Worked within the brand's established color, type, and iconography system</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Extending an existing bold brand voice','Every asset had to pass one test: does this sound like Naagin, or like someone\'s impression of Naagin? Indian poster culture — high contrast, layered typography, saturated color — was the foundation.','naagin-brand-extension.jpg')}
+${dec('Decision 02','Designing for digital campaign impact','Social content for a visually dense brand requires deliberate simplification — knowing which elements to foreground in a 1:1 Instagram frame versus a banner versus a product launch graphic.','naagin-digital-formats.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Delivered digital marketing assets, social content, and campaign visuals for product launch and seasonal promotions</div>
+<div class="outcome__item">Demonstrated the ability to extend a strong pre-existing visual identity</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--3">${ph('naagin-social-campaign.jpg')}${ph('naagin-campaign-visual.jpg')}${ph('naagin-promo-graphic.jpg')}</div></div>
+`},
 
-  /* ═══════════ BIOSPHERIX ═══════════ */
-  biospherix: {
-    slug: 'biospherix',
-    colorClass: 'pv--bio',
-    cat: 'UX / AI-Assisted Web App',
-    title: 'BioSpherix Layout Planner',
-    subtitle: 'An AI-assisted layout planning web app built for Nihar, a mechanical engineer at BioSpherix — turning client requirements into shareable 2D system layouts before CAD development begins.',
-    meta: [
-      {label:'Role',    val:'UX Designer + Developer'},
-      {label:'User',    val:'Nihar, Mechanical Engineer · BioSpherix'},
-      {label:'Type',    val:'Working Web Prototype'},
-      {label:'Tools',   val:'Figma · React · Claude · GitHub'},
-    ],
-    heroImg: {icon:'screen', label:'biospherix-app-overview.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. The process was slow, hard to share, and prone to miscommunication. I designed and prototyped a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout faster and with fewer rounds of revision.
-      </div>
+kuai:{slug:'kuai',fileNum:'06',
+cat:'AI UX · Concept Design',
+title:'KUAI',
+subtitle:'An AI shopping and planning app concept — exploring how an AI assistant could help users organize decisions, compare options, and reduce purchase overwhelm.',
+meta:[{label:'Role',val:'UX Designer / Concept Lead'},{label:'Type',val:'AI UX Concept'},{label:'Platform',val:'iOS Concept App'},{label:'Tools',val:'Figma · Prototyping'}],
+heroImg:'kuai-app-overview.jpg',
+body:`
+<div class="cs-intro reveal">KUAI is a concept AI app exploring one question: how do you build a shopping assistant that genuinely helps people organize decisions and compare options — without becoming something that just picks for them?</div>
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Defined the concept direction and core AI interaction model</div>
+<div class="role-list__item">Designed the app structure, key flows, and information architecture</div>
+<div class="role-list__item">Explored how AI recommendations should build trust without creating dependency</div>
+<div class="role-list__item">Prototyped key screens and interaction moments in Figma</div>
+</div></div>
+<div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
+${dec('Decision 01','Designing AI as a planning assistant, not a chatbot','Most AI shopping tools are a chatbot or a "recommended for you" feed. KUAI explores a third model: AI as a structured planning layer that understands context and helps you prepare rather than react.','kuai-planning-view.jpg')}
+${dec('Decision 02','Reducing decision fatigue through structure','Purchase overwhelm isn\'t caused by too many options — it\'s options without context. KUAI surfaces suggestions within a structured frame: what is this for, when do you need it, what do you already own?','kuai-decision-structure.jpg')}
+</div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Produced a concept prototype exploring a new AI interaction model for shopping assistance</div>
+<div class="outcome__item">Developed a framework for AI recommendation transparency</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2">${ph('kuai-home-screen.jpg','tall')}${ph('kuai-planning-flow.jpg','tall')}</div></div>
+`},
 
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Researched Nihar's existing workflow through direct observation and structured conversation — mapped the bottlenecks in the requirements-to-layout process</div>
-          <div class="role-list__item">Designed the UX: information architecture, input flow, layout canvas, and validation feedback system</div>
-          <div class="role-list__item">Built the working React prototype with AI-assisted layout generation using Claude to interpret requirements and suggest configurations</div>
-          <div class="role-list__item">Designed around Nihar's domain expertise — not a product for novices, but a tool that makes an expert faster</div>
-        </div>
-      </div>
+easeout:{slug:'easeout',fileNum:'07',
+cat:'UX / UI · App Concept',
+title:'EaseOut',
+subtitle:'A personal styling and closet organization app concept — helping users build outfits from what they already own.',
+meta:[{label:'Role',val:'UX Designer'},{label:'Type',val:'App Concept'},{label:'Platform',val:'iOS'},{label:'Tools',val:'Figma'}],
+heroImg:'easeout-app-screens.jpg',
+body:`
+<div class="cs-intro reveal">EaseOut is a concept app that helps users organize their wardrobe, plan outfits, and make better use of what they already own — reducing decision fatigue around getting dressed.</div>
+<!-- TODO: Add detailed EaseOut project content when available -->
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Designed the app concept, information architecture, and key user flows</div>
+<div class="role-list__item">Created UI designs and interactive prototype in Figma</div>
+<div class="role-list__item">Explored how categorization and tagging systems can reduce daily decision fatigue</div>
+</div></div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Produced a concept prototype exploring closet organization and outfit planning</div>
+<div class="outcome__item">Designed a tagging and categorization system for personal wardrobe management</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2">${ph('easeout-app-screens.jpg','tall')}${ph('easeout-outfit-flow.jpg','tall')}</div></div>
+`},
 
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Three choices that shaped the tool</div>
-        ${dec('Decision 01', 'Turning requirements into a visual layout canvas',
-          'Clients describe needs in words; engineers think in spatial configurations. I designed an input system that captures requirements in plain language and renders them onto a 2D canvas — giving Nihar and the client a shared spatial language before any technical spec is written.',
-          'layout', 'biospherix-canvas-view.jpg')}
-        ${dec('Decision 02', 'Designing around Nihar\'s real workflow',
-          'Nihar is a domain expert — he doesn\'t need tooltips explaining what an OxyCycler is. The UX is built around existing knowledge: compressing the slow parts of his workflow without adding friction or re-teaching his own job.',
-          'flow', 'biospherix-workflow-map.jpg', true)}
-        ${dec('Decision 03', 'Using AI to accelerate, not replace, design judgment',
-          'The AI suggests layout configurations based on stated requirements — but it always surfaces its reasoning and defers to Nihar\'s override. AI output is a first draft, not a final answer. Nihar reviews, adjusts, and exports. His judgment determines the output.',
-          'spark', 'biospherix-ai-suggestions.jpg')}
-      </div>
-
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Built a working React prototype for Nihar's BioSpherix layout planning workflow</div>
-          <div class="outcome__item">Designed to reduce the time from client requirements to first reviewable layout draft</div>
-          <div class="outcome__item">Demonstrated a real AI-assisted design workflow where AI accelerates expert judgment rather than replacing it</div>
-        </div>
-      </div><!-- TODO: Confirm specific outcome metrics with Nihar -->
-
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--1-2" style="margin-bottom:1rem">
-          ${ph('screen', 'biospherix-interface-full.jpg', 'tall')}
-          <div style="display:flex;flex-direction:column;gap:1rem">
-            ${ph('layout', 'biospherix-layout-output.jpg')}
-            ${ph('flow',   'biospherix-input-form.jpg')}
-          </div>
-        </div>
-      </div><!-- TODO: Add BioSpherix live URL -->
-    `
-  },
-
-  /* ═══════════ FIFA ═══════════ */
-  fifa: {
-    slug: 'fifa',
-    colorClass: 'pv--fifa',
-    cat: 'Service Design · Journey Mapping · SCADpro',
-    title: 'FIFA World Cup 2026 — Atlanta Fan Experience',
-    subtitle: 'A SCADpro service design project — mapping and redesigning the fan journey for the 2026 FIFA World Cup matches hosted in Atlanta.',
-    meta: [
-      {label:'Context',  val:'SCADpro Industry Collaboration'},
-      {label:'Type',     val:'Service Design / Experience Strategy'},
-      {label:'Scale',    val:'City-wide, multi-match event'},
-      {label:'Tools',    val:'Miro · Figma · Journey Mapping'},
-    ],
-    heroImg: {icon:'map', label:'fifa-journey-map-overview.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        Atlanta is hosting multiple 2026 FIFA World Cup matches at Mercedes-Benz Stadium. The challenge: international fans, most arriving for the first time, navigating a city whose transit and wayfinding infrastructure wasn't designed for this scale of event. I worked on a SCADpro team to map the full fan journey and translate research into actionable service design recommendations.
-      </div>
-
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Mapped the end-to-end fan journey across five phases: airport arrival, city orientation, stadium approach, the match, and departure</div>
-          <div class="role-list__item">Identified critical friction points through stakeholder research and on-ground observation (particularly the MARTA-to-stadium corridor)</div>
-          <div class="role-list__item">Developed service design recommendations across wayfinding, transit, and fan zone strategy</div>
-          <div class="role-list__item">Contributed to the final presentation and visual documentation for the SCADpro client handoff</div>
-        </div>
-      </div>
-
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Three things that shaped the recommendations</div>
-        ${dec('Decision 01', 'Mapping the fan journey beyond the stadium',
-          'The official experience starts at the stadium gate — but the fan journey starts at the airport. I advocated for mapping the full arc, including unofficial spaces where the experience earns or loses goodwill. The most critical failure point: a half-mile stretch between the MARTA station and the stadium with no clear signage.',
-          'map', 'fifa-journey-map-full.jpg')}
-        ${dec('Decision 02', 'Designing for crowd movement and uncertainty',
-          'An international fan base means you can\'t assume language, local knowledge, or phone signal. I pushed for wayfinding built on visual redundancy — color, symbol, and ground-level markings working together — so the system functions for someone who can\'t read English and is moving in a crowd.',
-          'flow', 'fifa-wayfinding-system.jpg', true)}
-        ${dec('Decision 03', 'Translating research into service recommendations',
-          'Journey maps are only useful if they lead to action. I helped translate our research into three prioritized directions: a ground-level wayfinding language, fan zone anchor points across downtown Atlanta, and a digital-physical bridging layer for transit guidance.',
-          'image', 'fifa-recommendations-board.jpg')}
-      </div>
-
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Produced a complete fan journey map and service design recommendation deck for SCADpro client presentation</div>
-          <div class="outcome__item">Identified the MARTA-to-stadium corridor as the highest-priority friction point in the fan experience</div>
-          <div class="outcome__item">Contributed to a city-scale service design project spanning transit, wayfinding, and event atmosphere</div>
-        </div>
-      </div><!-- TODO: Add final SCADpro deliverable details -->
-
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
-          ${ph('map',   'fifa-journey-map-final.jpg', 'tall')}
-          ${ph('image', 'fifa-wayfinding-concepts.jpg', 'tall')}
-        </div>
-        <div class="gallery__grid gallery__grid--2">
-          ${ph('flow',  'fifa-stakeholder-map.jpg')}
-          ${ph('image', 'fifa-fan-zone-concept.jpg')}
-        </div>
-      </div>
-    `
-  },
-
-  /* ═══════════ WISDOM ═══════════ */
-  wisdom: {
-    slug: 'wisdom',
-    colorClass: 'pv--wisdom',
-    cat: 'Brand Design · Packaging · Retail Experience',
-    title: 'Wisdom ATL Eyewear',
-    subtitle: 'Product direction, packaging design, and buyer-facing visual storytelling for an Atlanta-born independent eyewear brand.',
-    meta: [
-      {label:'Role',         val:'Brand + Packaging Designer'},
-      {label:'Deliverables', val:'Packaging · Retail Display · Visual Merchandising'},
-      {label:'Market',       val:'Independent Eyewear / Atlanta'},
-      {label:'Tools',        val:'Figma · Illustrator · InDesign'},
-    ],
-    heroImg: {icon:'pkg', label:'wisdom-packaging-hero.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture. My work focused on the physical and retail-facing side of the brand: packaging design, product presentation, visual merchandising direction, and the buyer experience from shelf to unboxing.
-      </div>
-
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Designed the product packaging system — primary case, secondary retail box, lens cloth, and care card</div>
-          <div class="role-list__item">Developed visual merchandising direction for independent retail: how the brand lives on a shelf, in a display, and in a shop window</div>
-          <div class="role-list__item">Created buyer-facing storytelling materials that communicate the brand's identity at the point of decision</div>
-          <div class="role-list__item">Ensured consistency across physical touchpoints — from the weight of a box to the finish of a printed card</div>
-        </div>
-      </div>
-
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Three choices that shaped the retail experience</div>
-        ${dec('Decision 01', 'Turning eyewear into a retail story',
-          'Most independent eyewear packaging either over-minimizes or over-explains. I chose a middle path: enough visual character to be memorable, but clean enough that the product — not the box — stays the hero.',
-          'pkg', 'wisdom-retail-packaging.jpg')}
-        ${dec('Decision 02', 'Translating brand personality into physical touchpoints',
-          'An Atlanta-rooted brand has to feel like it belongs here. I translated the city\'s visual culture — its architecture, art scene, confident warmth — into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.',
-          'image', 'wisdom-material-details.jpg', true)}
-        ${dec('Decision 03', 'Designing for buyer-facing clarity',
-          'Independent retail means the product often sells itself without a salesperson. The merchandising direction was built around one principle: a customer should read the brand\'s personality and price positioning within three seconds of seeing it on a shelf.',
-          'brand', 'wisdom-shelf-display.jpg')}
-      </div>
-
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Delivered a complete packaging system spanning primary case, retail box, lens cloth, and care card</div>
-          <div class="outcome__item">Produced visual merchandising direction for independent retail environments</div>
-          <div class="outcome__item">Created buyer-facing brand storytelling materials designed for point-of-purchase impact</div>
-        </div>
-      </div><!-- TODO: Add final client feedback or deployment details -->
-
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--2-1" style="margin-bottom:1rem">
-          ${ph('pkg',   'wisdom-packaging-system.jpg', 'tall')}
-          ${ph('image', 'wisdom-case-detail.jpg', 'tall')}
-        </div>
-        <div class="gallery__grid gallery__grid--3">
-          ${ph('brand', 'wisdom-retail-display.jpg')}
-          ${ph('image', 'wisdom-care-card.jpg')}
-          ${ph('image', 'wisdom-unboxing.jpg')}
-        </div>
-      </div>
-    `
-  },
-
-  /* ═══════════ NAAGIN ═══════════ */
-  naagin: {
-    slug: 'naagin',
-    colorClass: 'pv--naagin',
-    cat: 'Graphic Design · Campaign · Marketing',
-    title: 'Naagin Sauce',
-    subtitle: 'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and social contexts.',
-    meta: [
-      {label:'Role',   val:'Graphic Designer'},
-      {label:'Type',   val:'Campaign / Marketing Design'},
-      {label:'Brand',  val:'Naagin Sauce'},
-      {label:'Tools',  val:'Illustrator · Photoshop · InDesign'},
-    ],
-    heroImg: {icon:'image', label:'naagin-campaign-hero.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        Naagin Sauce is Indian hot sauce with a sharp visual identity — bold typography, the Naagin (serpent goddess) iconography, and the graphic density of Indian poster culture baked in. My role was to extend that identity into campaign and marketing contexts without diluting what makes it unmistakably Naagin.
-      </div>
-
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Designed digital marketing assets, social content, campaign visuals, and promotional graphics</div>
-          <div class="role-list__item">Extended the existing brand identity into new contexts while maintaining the visual language's integrity</div>
-          <div class="role-list__item">Worked within the brand's established color, type, and iconography system — extension, not redesign</div>
-        </div>
-      </div>
-
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Two choices that defined the work</div>
-        ${dec('Decision 01', 'Extending an existing bold brand voice',
-          'Working with a brand that already has a strong identity means understanding it deeply enough to extend it convincingly — not reinventing it. Every asset had to pass one test: does this sound like Naagin, or like someone\'s impression of Naagin? Indian poster culture — high contrast, layered typography, saturated color — was the foundation.',
-          'image', 'naagin-brand-extension.jpg')}
-        ${dec('Decision 02', 'Designing for digital campaign impact',
-          'Social content for a visually dense brand requires deliberate simplification — knowing which elements to foreground in a 1:1 Instagram frame versus a banner versus a product launch graphic. I made format-specific decisions for each context while keeping the brand\'s energy consistent.',
-          'brand', 'naagin-digital-formats.jpg', true)}
-      </div>
-
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Delivered digital marketing assets, social content, and campaign visuals for product launch and seasonal promotions</div>
-          <div class="outcome__item">Demonstrated the ability to work inside and extend a strong pre-existing visual identity</div>
-          <div class="outcome__item">Applied Indian visual culture references with specificity, not as surface decoration</div>
-        </div>
-      </div><!-- TODO: Add Naagin campaign screenshots -->
-
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">
-          ${ph('image', 'naagin-social-campaign.jpg')}
-          ${ph('image', 'naagin-campaign-visual.jpg')}
-          ${ph('pkg',   'naagin-promo-graphic.jpg')}
-        </div>
-        <div class="gallery__grid gallery__grid--2">
-          ${ph('image', 'naagin-digital-banner.jpg')}
-          ${ph('brand', 'naagin-brand-system.jpg')}
-        </div>
-      </div>
-    `
-  },
-
-  /* ═══════════ KUAI ═══════════ */
-  kuai: {
-    slug: 'kuai',
-    colorClass: 'pv--kuai',
-    cat: 'AI UX · Concept Design · App Exploration',
-    title: 'KUAI',
-    subtitle: 'An AI shopping and planning app concept — exploring how an AI assistant could help users organize decisions, compare options, and reduce purchase overwhelm without replacing their judgment.',
-    meta: [
-      {label:'Role',     val:'UX Designer / Concept Lead'},
-      {label:'Type',     val:'AI UX Concept / Prototype Exploration'},
-      {label:'Platform', val:'iOS Concept App'},
-      {label:'Tools',    val:'Figma · Prototyping'},
-    ],
-    heroImg: {icon:'app', label:'kuai-app-overview.jpg', size:'hero'},
-    body: `
-      <div class="cs-intro reveal">
-        KUAI is a concept AI app exploring one question: how do you build a shopping assistant that genuinely helps people organize decisions and compare options — without becoming something that just picks for them? The design focuses on AI as a structured planning layer, not a recommendation feed.
-      </div>
-
-      <div class="role-block reveal">
-        <div class="role-block__lbl">My Role</div>
-        <div class="role-block__title">What I Did</div>
-        <div class="role-list">
-          <div class="role-list__item">Defined the concept direction and core AI interaction model</div>
-          <div class="role-list__item">Designed the app structure, key flows, and information architecture</div>
-          <div class="role-list__item">Explored how AI recommendations should be presented to build trust without creating dependency</div>
-          <div class="role-list__item">Prototyped key screens and interaction moments in Figma</div>
-        </div>
-      </div>
-
-      <div class="decisions reveal">
-        <div class="decisions__lbl">Key Design Decisions</div>
-        <div class="decisions__title">Two choices that defined the concept</div>
-        ${dec('Decision 01', 'Designing AI as a planning assistant, not a chatbot',
-          'Most AI shopping tools are either a chatbot or a "recommended for you" feed. KUAI explores a third model: AI as a structured planning layer that understands context — what you need, when you need it, and what you already have — and helps you prepare rather than react.',
-          'app', 'kuai-planning-view.jpg')}
-        ${dec('Decision 02', 'Reducing decision fatigue through structure',
-          'Purchase overwhelm isn\'t caused by too many options — it\'s options without context. KUAI surfaces suggestions within a structured frame: what is this for, when do you need it, and what do you already own? Every AI suggestion shows its reasoning, so the user makes an informed choice rather than responding to a prompt.',
-          'flow', 'kuai-decision-structure.jpg', true)}
-      </div>
-
-      <div class="outcome reveal">
-        <div class="outcome__lbl">Outcome</div>
-        <div class="outcome__list">
-          <div class="outcome__item">Produced a concept prototype exploring a new AI interaction model for planning and shopping assistance</div>
-          <div class="outcome__item">Developed a framework for AI recommendation transparency — how much context a user needs to trust a suggestion</div>
-          <div class="outcome__item">Contributed to an ongoing exploration of where AI adds genuine planning value versus where it creates the illusion of help</div>
-        </div>
-      </div><!-- TODO: Add KUAI app screens when prototype is finalized -->
-
-      <div class="gallery reveal">
-        <div class="gallery__lbl">Final Visuals</div>
-        <div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">
-          ${ph('app',  'kuai-home-screen.jpg', 'tall')}
-          ${ph('flow', 'kuai-planning-flow.jpg', 'tall')}
-        </div>
-        <div class="gallery__grid gallery__grid--3">
-          ${ph('spark', 'kuai-ai-suggestions.jpg')}
-          ${ph('app',   'kuai-detail-view.jpg')}
-          ${ph('image', 'kuai-concept-map.jpg')}
-        </div>
-      </div>
-    `
-  },
+readysetgo:{slug:'readysetgo',fileNum:'08',
+cat:'UX / UI Design',
+title:'ReadySetGo',
+subtitle:'A UX/UI planning and task management project — designing clear flows for complex preparation workflows.',
+meta:[{label:'Role',val:'UX/UI Designer'},{label:'Type',val:'UX/UI Project'},{label:'Platform',val:'Web / Mobile'},{label:'Tools',val:'Figma'}],
+heroImg:'readysetgo-flow.jpg',
+body:`
+<div class="cs-intro reveal">ReadySetGo is a planning and task management project focused on helping users prepare for complex events and workflows — turning scattered to-do lists into structured, sequenced action plans.</div>
+<!-- TODO: Add detailed ReadySetGo project content when available -->
+<div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
+<div class="role-list__item">Designed the UX flow and information architecture for multi-step planning workflows</div>
+<div class="role-list__item">Created the UI design system and interactive prototype</div>
+<div class="role-list__item">Explored how task sequencing and progress visualization reduce planning overwhelm</div>
+</div></div>
+<div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
+<div class="outcome__item">Produced a working prototype for structured planning and task management</div>
+<div class="outcome__item">Designed a sequencing system that turns unstructured preparation into clear steps</div>
+</div></div>
+<div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
+<div class="gallery__grid gallery__grid--2">${ph('readysetgo-flow.jpg','tall')}${ph('readysetgo-dashboard.jpg','tall')}</div></div>
+`},
 
 };
 
-/* ── router ───────────────────────────────────────────────────────────── */
-const homeView    = document.getElementById('home-view');
-const projectView = document.getElementById('project-view');
+/* ── router ── */
+const homeView=document.getElementById('home-view'),projectView=document.getElementById('project-view');
 
-function showHome() {
-  homeView.style.display = 'block';
-  projectView.classList.remove('active');
-  projectView.innerHTML = '';
-  updateNavForHome();
+function showHome(){homeView.style.display='block';projectView.classList.remove('active');projectView.innerHTML=''}
+function showProject(slug){
+const d=PROJECTS[slug];if(!d){showHome();return}
+homeView.style.display='none';projectView.classList.add('active');
+projectView.innerHTML=buildProject(d);
+window.scrollTo({top:0,behavior:'instant'});
+const b=projectView.querySelector('.pv__back-btn');if(b)b.addEventListener('click',()=>navigate('/'));
+setTimeout(initReveal,50);
 }
-
-function showProject(slug) {
-  const data = PROJECTS[slug];
-  if (!data) { showHome(); return; }
-
-  homeView.style.display = 'none';
-  projectView.classList.add('active');
-  projectView.innerHTML = buildProject(data);
-  updateNavForProject();
-
-  window.scrollTo({ top: 0, behavior: 'instant' });
-
-  // bind back button
-  const backBtn = projectView.querySelector('.pv__back-btn');
-  if (backBtn) backBtn.addEventListener('click', () => navigate('/'));
-
-  // re-run reveal on new nodes
-  setTimeout(initReveal, 50);
+function navigate(p){window.location.hash=p==='/'?'/':'/'+p.replace(/^#?\/?/,'');route()}
+function route(){
+const h=window.location.hash.replace(/^#\/?/,'');
+if(!h||h===''||h==='/'){showHome()}
+else if(PROJECTS[h]){showProject(h)}
+else{showHome();const a=document.getElementById(h);if(a)setTimeout(()=>a.scrollIntoView({behavior:'smooth',block:'start'}),80)}
 }
+window.addEventListener('hashchange',route);
+document.addEventListener('DOMContentLoaded',route);
 
-function navigate(path) {
-  window.location.hash = path === '/' ? '/' : '/' + path.replace(/^#?\/?/, '');
-  route();
-}
+/* ── nav logo ── */
+document.getElementById('nav-logo').addEventListener('click',e=>{e.preventDefault();navigate('/')});
+document.getElementById('footer-home').addEventListener('click',e=>{e.preventDefault();navigate('/')});
 
-function route() {
-  const hash = window.location.hash.replace(/^#\/?/, '');
-  if (!hash || hash === '' || hash === '/') {
-    showHome();
-  } else if (PROJECTS[hash]) {
-    showProject(hash);
-  } else {
-    // homepage anchors
-    showHome();
-    const anchor = document.getElementById(hash);
-    if (anchor) setTimeout(() => anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
-  }
-}
+/* ── card clicks ── */
+document.addEventListener('click',e=>{const c=e.target.closest('[data-project]');if(c){e.preventDefault();showProject(c.dataset.project);window.location.hash='/'+c.dataset.project}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){const c=e.target.closest('[data-project]');if(c){showProject(c.dataset.project);window.location.hash='/'+c.dataset.project}}});
 
-window.addEventListener('hashchange', route);
-document.addEventListener('DOMContentLoaded', route);
+/* ── build project ── */
+function buildProject(d){
+const meta=d.meta.map(m=>`<div><div class="cs__mi-lbl">${m.label}</div><div class="cs__mi-val">${m.val}</div></div>`).join('');
+return `<div class="pv">
+<div class="pv__back wrap"><button class="pv__back-btn">← Back to Selected Work</button></div>
+<div class="cs wrap">
+<div class="cs__hdr reveal">
+<div class="cs__file">case file ${d.fileNum}</div>
+<h1 class="cs__h1">${d.title}</h1>
+<p class="cs__sub">${d.subtitle}</p>
+<div class="cs__meta">${meta}</div>
+</div>
+<div style="margin-bottom:2.5rem" class="reveal">${ph(d.heroImg,'hero')}</div>
+${d.body}
+<div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)" class="reveal">
+<button class="pv__back-btn" onclick="navigate('/')">← Back to Selected Work</button>
+</div>
+</div></div>`}
 
-/* ── nav anchor handling ─────────────────────────────────────────────── */
-function updateNavForHome() {
-  document.querySelectorAll('.nav__a[data-anchor]').forEach(a => a.removeAttribute('href'));
-  ['work','about','play','contact'].forEach(id => {
-    const el = document.getElementById('nav-' + id);
-    if (el) el.href = '#' + id;
-  });
-}
-function updateNavForProject() {
-  // nav links go back to home then section
-  ['work','about','play','contact'].forEach(id => {
-    const el = document.getElementById('nav-' + id);
-    if (el) el.href = '#' + id;
-  });
-}
+/* ── sticky nav ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
 
-/* ── nav logo ────────────────────────────────────────────────────────── */
-document.getElementById('nav-logo').addEventListener('click', e => {
-  e.preventDefault();
-  navigate('/');
-});
-document.getElementById('footer-home').addEventListener('click', e => {
-  e.preventDefault();
-  navigate('/');
-});
+/* ── mobile nav ── */
+const tog=document.getElementById('navTog'),mob=document.getElementById('navMob');
+tog.addEventListener('click',()=>{const o=tog.classList.toggle('open');mob.classList.toggle('open',o);tog.setAttribute('aria-expanded',String(o))});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{tog.classList.remove('open');mob.classList.remove('open');tog.setAttribute('aria-expanded','false')}));
 
-/* ── project card clicks ─────────────────────────────────────────────── */
-document.addEventListener('click', e => {
-  const card = e.target.closest('[data-project]');
-  if (card) {
-    e.preventDefault();
-    const slug = card.dataset.project;
-    window.location.hash = '/' + slug;
-    showProject(slug);
-  }
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    const card = e.target.closest('[data-project]');
-    if (card) {
-      const slug = card.dataset.project;
-      window.location.hash = '/' + slug;
-      showProject(slug);
-    }
-  }
-});
-
-/* ── build project HTML ──────────────────────────────────────────────── */
-function buildProject(d) {
-  const meta = d.meta.map(m => `
-    <div>
-      <div class="cs__mi-lbl">${m.label}</div>
-      <div class="cs__mi-val">${m.val}</div>
-    </div>`).join('');
-
-  const heroSize = d.heroImg.size || 'tall';
-
-  return `
-  <div class="pv ${d.colorClass}">
-    <div class="pv__band"></div>
-    <div class="pv__back wrap">
-      <button class="pv__back-btn">← Back to Selected Work</button>
-    </div>
-    <div class="cs wrap">
-      <div class="cs__hdr reveal">
-        <div class="cs__cat">${d.cat}</div>
-        <h1 class="cs__h1">${d.title}</h1>
-        <p class="cs__sub">${d.subtitle}</p>
-        <div class="cs__meta">${meta}</div>
-      </div>
-      <div style="margin-bottom:3rem" class="reveal">
-        ${ph(d.heroImg.icon, d.heroImg.label, heroSize)}
-      </div>
-      ${d.body}
-      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--paper3)" class="reveal">
-        <button class="pv__back-btn" onclick="navigate('/')">← Back to Selected Work</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-/* ── sticky nav ──────────────────────────────────────────────────────── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
-
-/* ── mobile nav ──────────────────────────────────────────────────────── */
-const tog = document.getElementById('navTog');
-const mob = document.getElementById('navMob');
-tog.addEventListener('click', () => {
-  const open = tog.classList.toggle('open');
-  mob.classList.toggle('open', open);
-  tog.setAttribute('aria-expanded', String(open));
-});
-mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  tog.classList.remove('open');
-  mob.classList.remove('open');
-  tog.setAttribute('aria-expanded', 'false');
-}));
-
-/* ── scroll reveal ───────────────────────────────────────────────────── */
-function initReveal() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
-}
+/* ── scroll reveal ── */
+function initReveal(){
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el))}
 initReveal();
 
-/* ── home section anchor links (when already on home) ───────────────── */
-document.querySelectorAll('.nav__a, .footer__a').forEach(a => {
-  a.addEventListener('click', e => {
-    const href = a.getAttribute('href');
-    if (href && href.startsWith('#') && !href.startsWith('#/')) {
-      const id = href.slice(1);
-      const target = document.getElementById(id);
-      if (target && homeView.style.display !== 'none') {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        tog.classList.remove('open');
-        mob.classList.remove('open');
-      } else if (target && homeView.style.display === 'none') {
-        // navigate home first, then scroll
-        e.preventDefault();
-        navigate('/');
-        setTimeout(() => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
-      }
-    }
-  });
-});
+/* ── anchor links ── */
+document.querySelectorAll('.nav__a,.footer__a').forEach(a=>{a.addEventListener('click',e=>{
+const href=a.getAttribute('href');
+if(href&&href.startsWith('#')&&!href.startsWith('#/')){
+const id=href.slice(1),target=document.getElementById(id);
+if(target&&homeView.style.display!=='none'){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});tog.classList.remove('open');mob.classList.remove('open')}
+else if(target&&homeView.style.display==='none'){e.preventDefault();navigate('/');setTimeout(()=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})},150)}
+}})});
 </script>
-
 </body>
 </html>
