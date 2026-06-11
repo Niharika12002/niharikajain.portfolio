@@ -1010,7 +1010,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
             </div><!-- TODO: Add Wisdom packaging photos -->
             <div class="pcard__cat">Brand Identity / Packaging</div>
             <h3 class="pcard__name">Wisdom ATL<br>Eyewear</h3>
-            <p class="pcard__desc">Full brand identity, packaging system, and retail display for an Atlanta-born independent eyewear brand.</p>
+            <p class="pcard__desc">Product, packaging, visual merchandising, and buyer-facing retail storytelling for an Atlanta-born independent eyewear brand.</p>
             <div class="pcard__foot">
               <div class="pcard__tags">
                 <span class="tag">Packaging</span>
@@ -1050,7 +1050,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
             </div><!-- TODO: Add KUAI app screens -->
             <div class="pcard__cat">AI UX / Concept Design</div>
             <h3 class="pcard__name">KUAI</h3>
-            <p class="pcard__desc">An AI shopping and lifestyle planning app concept — what happens when your wardrobe thinks alongside you.</p>
+            <p class="pcard__desc">An AI shopping and planning app concept — organizing decisions, comparing options, and reducing purchase overwhelm.</p>
             <div class="pcard__foot">
               <div class="pcard__tags">
                 <span class="tag">AI UX</span>
@@ -1073,7 +1073,7 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
         <div class="eyebrow eyebrow--lt">Open File: Niharika</div>
         <p class="about__q">"I design the way I collect things — noticing patterns, saving details, building stories, and turning scattered pieces into something people can understand."</p>
         <div class="about__body">
-          <p>I'm a UX and graphic designer graduating from SCAD Atlanta in 2025. My work spans digital product design, visual identity, service design, physical-digital systems, and AI-assisted tools. I think in systems. I notice everything. I care about emotion as much as clarity.</p>
+          <p>I'm a UX and graphic designer who graduated from SCAD Atlanta in 2026. My work spans digital product design, visual identity, service design, physical-digital systems, and AI-assisted tools. I think in systems. I notice everything. I care about emotion as much as clarity.</p>
           <p>Outside of work: cooking from memory without a recipe, deep inside a murder mystery or a Bollywood film I've already watched twice, haunting every museum within driving distance, photographing skies, being particular about nails, and having a lot of opinions about Indian homegrown brands.</p>
           <p>I'm always dressing up for no reason, always collecting things that don't have a category yet, and absolutely always thinking about what comes next.</p>
         </div>
@@ -1300,9 +1300,12 @@ button{cursor:pointer;font-family:var(--ff-body);border:none;background:none}
         <h2 class="contact__h">Let's make<br>something <em>worth noticing.</em></h2>
         <p class="contact__body">I'm open to full-time UX and graphic design roles, freelance projects, and collaborations with people who have strong opinions about what they're building. If that sounds like you, let's talk.</p>
         <div class="contact__links">
-          <a href="mailto:niharika@example.com" class="btn btn-maroon">Send an Email ↗</a>
-          <a href="https://linkedin.com/in/niharikajain" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+          <!-- TODO: Add real email -->
+          <a href="mailto:" class="btn btn-maroon">Send an Email ↗</a>
+          <!-- TODO: Add real LinkedIn -->
+          <a href="#" class="btn btn-outline">LinkedIn ↗</a>
           <a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+          <!-- TODO: Add resume link -->
         </div>
       </div>
       <div class="stickies reveal">
@@ -1405,13 +1408,13 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Three choices that shaped everything</div>
         ${dec('Decision 01', 'Designing connection beyond live calls',
-          'Real connection between families and older adults doesn\'t happen through scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle, low-stakes signals (a soft light, a shared photo update, a mood indicator) so families feel connected without requiring the older adult to initiate or navigate a screen.',
+          'Real connection between families and older adults doesn\'t require scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle, low-stakes signals (a soft light, a shared photo, a mood indicator) so families feel connected without requiring the older adult to initiate anything.',
           'device', 'pili-device-ambient-states.jpg')}
         ${dec('Decision 02', 'Making the device feel domestic, not clinical',
-          'Most assistive technology signals "medical" before it signals "home." I made a deliberate choice to design the physical device like a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall or attached to a body. Material language, form factor, and interaction all follow this principle.',
+          'Most assistive technology signals "medical" before it signals "home." I designed the physical device as a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall. Material language, form factor, and interaction all follow this principle.',
           'image', 'pili-device-form-study.jpg', true)}
         ${dec('Decision 03', 'Building one system across three surfaces',
-          'Rather than designing three separate products that talk to each other, I designed one system with three views. Each surface — device, family app, caregiver dashboard — shows only the information its user needs. The older adult is never aware of what the family or caregiver can see. Trust is built through information architecture, not promises.',
+          'Rather than three separate products, I designed one system with three views. Each surface — device, family app, caregiver dashboard — shows only what its user needs. The older adult is never exposed to what the family or caregiver sees. Trust is built through information architecture.',
           'layout', 'pili-system-architecture.jpg')}
       </div>
 
@@ -1443,19 +1446,19 @@ const PROJECTS = {
   biospherix: {
     slug: 'biospherix',
     colorClass: 'pv--bio',
-    cat: 'UX / Web App · Live Project',
+    cat: 'UX / AI-Assisted Web App',
     title: 'BioSpherix Layout Planner',
     subtitle: 'An AI-assisted layout planning web app built for Nihar, a mechanical engineer at BioSpherix — turning client requirements into shareable 2D system layouts before CAD development begins.',
     meta: [
       {label:'Role',    val:'UX Designer + Developer'},
       {label:'User',    val:'Nihar, Mechanical Engineer · BioSpherix'},
-      {label:'Type',    val:'Live Web Application'},
-      {label:'Tools',   val:'Figma · React · Claude API'},
+      {label:'Type',    val:'Working Web Prototype'},
+      {label:'Tools',   val:'Figma · React · Claude · GitHub'},
     ],
     heroImg: {icon:'screen', label:'biospherix-app-overview.jpg', size:'hero'},
     body: `
       <div class="cs-intro reveal">
-        Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. The process was slow, hard to share, and prone to miscommunication. I designed and built a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout in minutes, not hours.
+        Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. The process was slow, hard to share, and prone to miscommunication. I designed and prototyped a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout faster and with fewer rounds of revision.
       </div>
 
       <div class="role-block reveal">
@@ -1464,7 +1467,7 @@ const PROJECTS = {
         <div class="role-list">
           <div class="role-list__item">Researched Nihar's existing workflow through direct observation and structured conversation — mapped the bottlenecks in the requirements-to-layout process</div>
           <div class="role-list__item">Designed the UX: information architecture, input flow, layout canvas, and validation feedback system</div>
-          <div class="role-list__item">Built the working web application using React, with an AI layer (Claude API) to interpret requirements and suggest layout configurations</div>
+          <div class="role-list__item">Built the working React prototype with AI-assisted layout generation using Claude to interpret requirements and suggest configurations</div>
           <div class="role-list__item">Designed around Nihar's domain expertise — not a product for novices, but a tool that makes an expert faster</div>
         </div>
       </div>
@@ -1473,21 +1476,21 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Three choices that shaped the tool</div>
         ${dec('Decision 01', 'Turning requirements into a visual layout canvas',
-          'The core problem was a translation gap: clients describe space and needs in words, engineers think in spatial configurations. I designed an input system that captures requirements in plain language and immediately renders them onto a constrained 2D canvas — giving Nihar and the client a shared spatial language before any technical specification is written.',
+          'Clients describe needs in words; engineers think in spatial configurations. I designed an input system that captures requirements in plain language and renders them onto a 2D canvas — giving Nihar and the client a shared spatial language before any technical spec is written.',
           'layout', 'biospherix-canvas-view.jpg')}
         ${dec('Decision 02', 'Designing around Nihar\'s real workflow',
-          'Nihar is a domain expert. He doesn\'t need tooltips explaining what an OxyCycler is. The entire UX is built around the assumption of existing knowledge — the tool compresses the slow parts of his workflow without adding friction or re-teaching him his own job. Interface complexity scales with task complexity, not user familiarity.',
+          'Nihar is a domain expert — he doesn\'t need tooltips explaining what an OxyCycler is. The UX is built around existing knowledge: compressing the slow parts of his workflow without adding friction or re-teaching his own job.',
           'flow', 'biospherix-workflow-map.jpg', true)}
         ${dec('Decision 03', 'Using AI to accelerate, not replace, design judgment',
-          'The AI layer suggests layout configurations based on the client\'s stated requirements — but it always surfaces its reasoning and always defers to Nihar\'s override. The tool treats AI output as a first draft, not a final answer. Nihar reviews, adjusts, annotates, and exports. The AI reduces his time-to-first-draft; his judgment determines the final output.',
+          'The AI suggests layout configurations based on stated requirements — but it always surfaces its reasoning and defers to Nihar\'s override. AI output is a first draft, not a final answer. Nihar reviews, adjusts, and exports. His judgment determines the output.',
           'spark', 'biospherix-ai-suggestions.jpg')}
       </div>
 
       <div class="outcome reveal">
         <div class="outcome__lbl">Outcome</div>
         <div class="outcome__list">
-          <div class="outcome__item">Built and shipped a working web application used by Nihar at BioSpherix</div>
-          <div class="outcome__item">Reduced the time from client requirements to first reviewable layout draft</div>
+          <div class="outcome__item">Built a working React prototype for Nihar's BioSpherix layout planning workflow</div>
+          <div class="outcome__item">Designed to reduce the time from client requirements to first reviewable layout draft</div>
           <div class="outcome__item">Demonstrated a real AI-assisted design workflow where AI accelerates expert judgment rather than replacing it</div>
         </div>
       </div><!-- TODO: Confirm specific outcome metrics with Nihar -->
@@ -1539,13 +1542,13 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Three things that shaped the recommendations</div>
         ${dec('Decision 01', 'Mapping the fan journey beyond the stadium',
-          'The official event experience begins and ends at the stadium gate — but the fan journey begins at the airport and ends hours after the final whistle. I advocated for mapping the full arc, including the unofficial spaces (hotel lobbies, MARTA platforms, downtown streets) where the experience either earns goodwill or loses it. The most critical failure point we found was a half-mile stretch between the MARTA station and the stadium with no clear signage.',
+          'The official experience starts at the stadium gate — but the fan journey starts at the airport. I advocated for mapping the full arc, including unofficial spaces where the experience earns or loses goodwill. The most critical failure point: a half-mile stretch between the MARTA station and the stadium with no clear signage.',
           'map', 'fifa-journey-map-full.jpg')}
         ${dec('Decision 02', 'Designing for crowd movement and uncertainty',
-          'An international fan base means you cannot assume language, local knowledge, or phone signal. I pushed for a wayfinding approach built on visual redundancy — color, symbol, and ground-level markings working together — so the system functions for someone who can\'t read English, doesn\'t have data service, and is moving in a crowd of thousands.',
+          'An international fan base means you can\'t assume language, local knowledge, or phone signal. I pushed for wayfinding built on visual redundancy — color, symbol, and ground-level markings working together — so the system functions for someone who can\'t read English and is moving in a crowd.',
           'flow', 'fifa-wayfinding-system.jpg', true)}
         ${dec('Decision 03', 'Translating research into service recommendations',
-          'Journey maps are only useful if they lead to something actionable. I helped translate our research synthesis into three prioritized service design directions: a ground-level wayfinding language, fan zone anchor points across downtown Atlanta, and a digital-physical bridging layer for transit guidance. Each recommendation was scoped for real-world feasibility.',
+          'Journey maps are only useful if they lead to action. I helped translate our research into three prioritized directions: a ground-level wayfinding language, fan zone anchor points across downtown Atlanta, and a digital-physical bridging layer for transit guidance.',
           'image', 'fifa-recommendations-board.jpg')}
       </div>
 
@@ -1606,13 +1609,13 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Three choices that shaped the retail experience</div>
         ${dec('Decision 01', 'Turning eyewear into a retail story',
-          'Most independent eyewear packaging either over-minimizes (plain kraft, no personality) or over-explains (dense text, lifestyle photography). I chose a middle path: give the packaging enough visual character to be memorable and photogenic, but keep the structure clean enough that the product — not the box — is the hero. Every element earns its place.',
+          'Most independent eyewear packaging either over-minimizes or over-explains. I chose a middle path: enough visual character to be memorable, but clean enough that the product — not the box — stays the hero.',
           'pkg', 'wisdom-retail-packaging.jpg')}
         ${dec('Decision 02', 'Translating brand personality into physical touchpoints',
-          'A brand that bills itself as Atlanta-rooted has to feel like it belongs here. I researched Atlanta\'s visual culture — its architecture, its art scene, the specific kind of confident warmth the city has — and translated that into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.',
+          'An Atlanta-rooted brand has to feel like it belongs here. I translated the city\'s visual culture — its architecture, art scene, confident warmth — into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.',
           'image', 'wisdom-material-details.jpg', true)}
         ${dec('Decision 03', 'Designing for buyer-facing clarity',
-          'Independent retail means the product often has to sell itself without a salesperson. The visual merchandising direction was built around one principle: a customer who knows nothing about the brand should be able to read its personality and price positioning within three seconds of seeing it on a shelf. Color, type hierarchy, and display architecture all serve that goal.',
+          'Independent retail means the product often sells itself without a salesperson. The merchandising direction was built around one principle: a customer should read the brand\'s personality and price positioning within three seconds of seeing it on a shelf.',
           'brand', 'wisdom-shelf-display.jpg')}
       </div>
 
@@ -1646,7 +1649,7 @@ const PROJECTS = {
     colorClass: 'pv--naagin',
     cat: 'Graphic Design · Campaign · Marketing',
     title: 'Naagin Sauce',
-    subtitle: 'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and print contexts.',
+    subtitle: 'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and social contexts.',
     meta: [
       {label:'Role',   val:'Graphic Designer'},
       {label:'Type',   val:'Campaign / Marketing Design'},
@@ -1663,7 +1666,7 @@ const PROJECTS = {
         <div class="role-block__lbl">My Role</div>
         <div class="role-block__title">What I Did</div>
         <div class="role-list">
-          <div class="role-list__item">Designed campaign materials across social, print, and digital formats</div>
+          <div class="role-list__item">Designed digital marketing assets, social content, campaign visuals, and promotional graphics</div>
           <div class="role-list__item">Extended the existing brand identity into new contexts while maintaining the visual language's integrity</div>
           <div class="role-list__item">Worked within the brand's established color, type, and iconography system — extension, not redesign</div>
         </div>
@@ -1673,17 +1676,17 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Two choices that defined the work</div>
         ${dec('Decision 01', 'Extending an existing bold brand voice',
-          'Working with a brand that already has a strong identity means your job is understanding it deeply enough to extend it convincingly — not reinventing it. Every campaign asset I made had to pass one test: does this sound like Naagin, or does it sound like someone\'s impression of Naagin? The visual grammar of Indian poster culture — high contrast, layered typography, saturated color — was the foundation, not the inspiration.',
+          'Working with a brand that already has a strong identity means understanding it deeply enough to extend it convincingly — not reinventing it. Every asset had to pass one test: does this sound like Naagin, or like someone\'s impression of Naagin? Indian poster culture — high contrast, layered typography, saturated color — was the foundation.',
           'image', 'naagin-brand-extension.jpg')}
         ${dec('Decision 02', 'Designing for digital campaign impact',
-          'Social content for a brand this visually dense requires deliberate simplification — knowing which elements to foreground in a 1:1 frame versus a static print ad versus a packaging insert. I made format-specific decisions for each context while keeping the brand\'s loudness consistent across all of them.',
+          'Social content for a visually dense brand requires deliberate simplification — knowing which elements to foreground in a 1:1 Instagram frame versus a banner versus a product launch graphic. I made format-specific decisions for each context while keeping the brand\'s energy consistent.',
           'brand', 'naagin-digital-formats.jpg', true)}
       </div>
 
       <div class="outcome reveal">
         <div class="outcome__lbl">Outcome</div>
         <div class="outcome__list">
-          <div class="outcome__item">Delivered campaign materials spanning social media formats, digital ads, and print</div>
+          <div class="outcome__item">Delivered digital marketing assets, social content, and campaign visuals for product launch and seasonal promotions</div>
           <div class="outcome__item">Demonstrated the ability to work inside and extend a strong pre-existing visual identity</div>
           <div class="outcome__item">Applied Indian visual culture references with specificity, not as surface decoration</div>
         </div>
@@ -1693,8 +1696,8 @@ const PROJECTS = {
         <div class="gallery__lbl">Final Visuals</div>
         <div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">
           ${ph('image', 'naagin-social-campaign.jpg')}
-          ${ph('image', 'naagin-print-ad.jpg')}
-          ${ph('pkg',   'naagin-packaging-graphic.jpg')}
+          ${ph('image', 'naagin-campaign-visual.jpg')}
+          ${ph('pkg',   'naagin-promo-graphic.jpg')}
         </div>
         <div class="gallery__grid gallery__grid--2">
           ${ph('image', 'naagin-digital-banner.jpg')}
@@ -1710,7 +1713,7 @@ const PROJECTS = {
     colorClass: 'pv--kuai',
     cat: 'AI UX · Concept Design · App Exploration',
     title: 'KUAI',
-    subtitle: 'A concept AI app for shopping and lifestyle planning — exploring how an AI assistant could reduce decision fatigue without replacing the user\'s judgment.',
+    subtitle: 'An AI shopping and planning app concept — exploring how an AI assistant could help users organize decisions, compare options, and reduce purchase overwhelm without replacing their judgment.',
     meta: [
       {label:'Role',     val:'UX Designer / Concept Lead'},
       {label:'Type',     val:'AI UX Concept / Prototype Exploration'},
@@ -1720,7 +1723,7 @@ const PROJECTS = {
     heroImg: {icon:'app', label:'kuai-app-overview.jpg', size:'hero'},
     body: `
       <div class="cs-intro reveal">
-        KUAI is a concept AI app designed around one question: how do you build an AI assistant that genuinely reduces decision fatigue in planning and shopping — without becoming something that just makes choices for you? The exploration focused on AI as a planning layer, not a recommendation engine.
+        KUAI is a concept AI app exploring one question: how do you build a shopping assistant that genuinely helps people organize decisions and compare options — without becoming something that just picks for them? The design focuses on AI as a structured planning layer, not a recommendation feed.
       </div>
 
       <div class="role-block reveal">
@@ -1738,10 +1741,10 @@ const PROJECTS = {
         <div class="decisions__lbl">Key Design Decisions</div>
         <div class="decisions__title">Two choices that defined the concept</div>
         ${dec('Decision 01', 'Designing AI as a planning assistant, not a chatbot',
-          'Most AI shopping experiences are either a chatbot or a feed of "recommended for you" items. KUAI explores a third model: AI as a structured planning layer that understands context — your schedule, your existing inventory, your stated preferences — and helps you prepare in advance rather than reacting in the moment. The AI acts as a thought partner in a planning view, not a voice in a chat window.',
+          'Most AI shopping tools are either a chatbot or a "recommended for you" feed. KUAI explores a third model: AI as a structured planning layer that understands context — what you need, when you need it, and what you already have — and helps you prepare rather than react.',
           'app', 'kuai-planning-view.jpg')}
         ${dec('Decision 02', 'Reducing decision fatigue through structure',
-          'The root cause of shopping decision fatigue isn\'t too many options — it\'s options without context. KUAI\'s design addresses this by surfacing options within a structured frame: what do you need it for, when, and what do you already have? Every AI suggestion appears in that context, with its reasoning visible, so the user is making an informed choice rather than responding to a prompt.',
+          'Purchase overwhelm isn\'t caused by too many options — it\'s options without context. KUAI surfaces suggestions within a structured frame: what is this for, when do you need it, and what do you already own? Every AI suggestion shows its reasoning, so the user makes an informed choice rather than responding to a prompt.',
           'flow', 'kuai-decision-structure.jpg', true)}
       </div>
 
