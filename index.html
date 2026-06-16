@@ -312,6 +312,20 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 .gallery__grid--2{grid-template-columns:1fr 1fr}
 .gallery__grid--3{grid-template-columns:repeat(3,1fr)}
 @media(max-width:680px){.gallery__grid--2,.gallery__grid--3{grid-template-columns:1fr}}
+
+/* ━━━ RESPONSIVE POLISH ━━━ */
+@media(max-width:1024px){.hero__in{gap:clamp(1.5rem,4vw,3rem)}}
+@media(max-width:740px){.nav__mob .nav__a{padding:.7rem .4rem}}
+@media(max-width:430px){
+.hero{min-height:auto;padding-top:4.5rem}
+.hero__h1{font-size:clamp(2.1rem,7.5vw,2.7rem);line-height:1.1}
+.contact__links a{padding:.62rem 1.1rem}
+.cs__meta{gap:1rem 1.25rem}
+}
+@media(max-width:375px){
+.hero__h1{font-size:2rem}
+.sc__info{padding:1.1rem 1.2rem}
+}
 </style>
 </head>
 <body>
@@ -547,7 +561,7 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 <h2 class="contact__h">Let's make something<br><em>worth noticing.</em></h2>
 <p class="contact__body">I'm open to full-time UX, product, and visual design roles, along with collaborations where systems, stories, and details matter.</p>
 <div class="contact__links">
-<a href="mailto:mailto.1209@gmail.com">Email ↗</a>
+<a href="mailto:niharikajain.1209@gmail.com">Email ↗</a>
 <a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn ↗</a>
 <a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
 <a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener">GitHub ↗</a>
@@ -646,7 +660,7 @@ ${dec('Decision 03','Using AI to accelerate, not replace, design judgment','The 
 <div class="outcome__item">Built a working React prototype for Nihar's BioSpherix layout planning workflow</div>
 <div class="outcome__item">Designed to reduce the time from client requirements to first reviewable layout draft</div>
 <div class="outcome__item">Demonstrated a real AI-assisted workflow where AI accelerates expert judgment</div>
-</div></div><!-- TODO: Confirm specific outcome metrics with Nihar -->
+</div></div>
 <div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
 <div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">${img('biospherix/biospherix-cover.png','BioSpherix cover','contain')}${img('biospherix/biospherix-prototype-review-call.png','BioSpherix prototype review call')}${img('biospherix/biospherix-feedback-notes-02.jpg','BioSpherix feedback notes')}</div>
 <div class="gallery__grid gallery__grid--2">${img('biospherix/biospherix-research-call-01.png','BioSpherix research call one')}${img('biospherix/biospherix-research-call-02.png','BioSpherix research call two')}</div></div>
@@ -767,7 +781,6 @@ meta:[{label:'Role',val:'UX Designer'},{label:'Type',val:'App Concept'},{label:'
 hero:ph('easeout-app-screens.jpg','hero'),
 body:`
 <div class="cs-intro reveal">EaseOut is a concept app that helps users organize their wardrobe, plan outfits, and make better use of what they already own — reducing decision fatigue around getting dressed.</div>
-<!-- TODO: Add detailed EaseOut project content when available -->
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
 <div class="role-list__item">Designed the app concept, information architecture, and key user flows</div>
 <div class="role-list__item">Created UI designs and interactive prototype in Figma</div>
@@ -789,7 +802,6 @@ meta:[{label:'Role',val:'UX/UI Designer'},{label:'Type',val:'UX/UI Project'},{la
 hero:ph('readysetgo-flow.jpg','hero'),
 body:`
 <div class="cs-intro reveal">ReadySetGo is a planning and task management project focused on helping users prepare for complex events and workflows — turning scattered to-do lists into structured, sequenced action plans.</div>
-<!-- TODO: Add detailed ReadySetGo project content when available -->
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
 <div class="role-list__item">Designed the UX flow and information architecture for multi-step planning workflows</div>
 <div class="role-list__item">Created the UI design system and interactive prototype</div>
@@ -813,7 +825,7 @@ function showProject(slug){
 const d=PROJECTS[slug];if(!d){showHome();return}
 homeView.style.display='none';projectView.classList.add('active');
 projectView.innerHTML=buildProject(d);
-window.scrollTo({top:0,behavior:'instant'});
+window.scrollTo({top:0,behavior:'auto'});
 const b=projectView.querySelector('.pv__back-btn');if(b)b.addEventListener('click',()=>navigate('/'));
 setTimeout(initReveal,50);
 }
