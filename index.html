@@ -7,324 +7,235 @@
 <title>Niharika Jain</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
---cream:#FAF8F3;--cream2:#F3EDE0;--cream3:#E8E0D0;--cream4:#DDD4C0;
---esp:#2C1810;--esp2:#4A3428;--esp3:#7A6458;--esp4:#A89888;--esp5:#CCC0B4;
---olive:#6B7C3F;--matcha:#8A9E6A;--olive-l:#F2F4EB;
---rust:#B85C3A;--rust-l:#FAF0E8;
---marigold:#D4960C;--marigold-l:#FDF3D8;
---tomato:#C4533A;--tomato-l:#FAECEA;
---powder:#9CB8D4;--powder-l:#EDF3FA;
---pink:#D4888C;--pink-l:#FAF0F0;
---forest:#2A6045;--forest-l:#E6F2EC;
---cobalt:#1A4A82;--cobalt-l:#E8F0FA;
---sh-xs:0 1px 3px rgba(44,24,16,.06);
---sh-sm:0 2px 8px rgba(44,24,16,.08);
---sh-md:0 4px 16px rgba(44,24,16,.1);
---ff-d:'Fraunces',Georgia,serif;--ff-b:'Hanken Grotesk',system-ui,sans-serif;--ff-h:'Caveat',cursive;
---fs--1:clamp(.75rem,.68rem+.3vw,.875rem);--fs-0:clamp(.875rem,.82rem+.3vw,1rem);
---fs-1:clamp(1.05rem,.95rem+.5vw,1.25rem);--fs-2:clamp(1.25rem,1.05rem+1vw,1.75rem);
---fs-3:clamp(1.6rem,1.3rem+1.5vw,2.4rem);--fs-4:clamp(2rem,1.5rem+2.5vw,3.5rem);
---fs-5:clamp(2.5rem,1.55rem+4.6vw,5rem);
---gut:clamp(1.25rem,5vw,2.75rem);--sec:clamp(3.5rem,8vw,7rem);
+--cream:#FAF7F1;--cream2:#F2ECE1;--cream3:#E7DECF;--cream4:#D9CFBD;--card:#FFFFFF;
+--esp:#2B1A12;--esp2:#574434;--esp3:#857263;--esp4:#B2A492;--esp5:#CDC2B2;
+--olive:#6B7C3F;--rust:#B85C3A;--marigold:#BF8410;--powder:#5E86B0;--pink:#C2787E;--forest:#2A6045;--cobalt:#1A4A82;--tomato:#C0492F;
+--ff-d:'Fraunces',Georgia,serif;--ff-b:'Hanken Grotesk',system-ui,sans-serif;
+--fs--1:clamp(.78rem,.74rem+.2vw,.85rem);--fs-0:clamp(.92rem,.88rem+.2vw,1rem);
+--fs-1:clamp(1.05rem,.98rem+.4vw,1.2rem);--fs-2:clamp(1.3rem,1.1rem+.95vw,1.7rem);
+--fs-3:clamp(1.7rem,1.35rem+1.6vw,2.5rem);--fs-4:clamp(2.1rem,1.55rem+2.6vw,3.4rem);
+--fs-5:clamp(2.6rem,1.7rem+4.4vw,4.6rem);
+--gut:clamp(1.25rem,4.5vw,2.5rem);--sec:clamp(4rem,9vw,8rem);--maxw:1180px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-body{font-family:var(--ff-b);background:var(--cream);color:var(--esp);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden}
+body{font-family:var(--ff-b);background:var(--cream);color:var(--esp);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul,ol{list-style:none}
 button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
-
-/* focus-visible */
-a:focus-visible,button:focus-visible,.sc:focus-visible,.mc:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:6px}
-
-/* paper texture */
-.paper{position:relative}
-.paper::before{content:'';position:absolute;inset:0;opacity:.35;pointer-events:none;
-background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E")}
-
-/* tape label */
-.tape{display:inline-block;font-family:var(--ff-h);font-size:.82rem;color:var(--esp3);background:var(--marigold-l);padding:.12rem .6rem;border-radius:2px;transform:rotate(-1.5deg);border:1px solid rgba(212,150,12,.15)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:6px}
+.pcard:focus-visible,.mcard:focus-visible{outline:2px solid var(--esp);outline-offset:4px}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* routing */
-#home-view{display:block}
-#project-view{display:none}
-#project-view.active{display:block}
+#home-view{display:block}#project-view{display:none}#project-view.active{display:block}
 
-/* placeholder */
-.ph{width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:8px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--esp4);font-size:var(--fs--1);font-weight:500;letter-spacing:.03em;text-align:center;padding:1rem;word-break:break-word}
-.ph--tall{min-height:360px}
-.ph--hero{min-height:440px}
-.ph--contain{min-height:240px}
-.ph--thumb{min-height:220px}
-.ph--default{min-height:220px}
+/* editorial label + section head */
+.eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--esp3);margin-bottom:1.1rem}
+.eyebrow::before{content:'';width:1.9rem;height:1.5px;background:var(--esp4)}
+.s-head{max-width:660px;margin-bottom:clamp(2.2rem,4vw,3.4rem)}
+.s-head__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:600;letter-spacing:-.02em;line-height:1.08;color:var(--esp)}
+.s-head__p{font-size:var(--fs-0);color:var(--esp3);margin-top:.9rem;max-width:500px;line-height:1.6}
 
-/* case images */
-.case-img{width:100%;border-radius:8px;border:1px solid var(--cream3);background:var(--cream2);object-fit:cover;display:block}
-.case-img--hero{width:100%;max-height:520px;border-radius:12px;object-fit:cover}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-size:.92rem;font-weight:600;padding:.82rem 1.5rem;border-radius:9px;transition:transform .18s,background .18s,border-color .18s,color .18s;letter-spacing:.01em}
+.btn--solid{background:var(--esp);color:var(--cream)}
+.btn--solid:hover{background:#3d2618;transform:translateY(-2px)}
+.btn--ghost{border:1.5px solid var(--cream4);color:var(--esp2)}
+.btn--ghost:hover{border-color:var(--esp2);transform:translateY(-2px)}
+
+/* placeholders + case images */
+.ph{width:100%;background:var(--cream2);border:1px dashed var(--cream4);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--esp4);font-size:.8rem;font-weight:500;text-align:center;padding:1rem;word-break:break-word}
+.ph--tall{min-height:340px}.ph--hero{min-height:420px}.ph--contain{min-height:240px}.ph--thumb{min-height:220px}.ph--default{min-height:220px}
+.case-img{width:100%;border-radius:12px;border:1px solid var(--cream3);background:var(--cream2);object-fit:cover;display:block}
+.case-img--hero{width:100%;max-height:560px;border-radius:16px;object-fit:cover}
 .case-img--tall{height:100%;aspect-ratio:4/5}
-.case-img--contain{object-fit:contain;background:var(--cream2);aspect-ratio:4/3;padding:12px}
-.case-img--thumb{aspect-ratio:4/3}
+.case-img--contain{object-fit:contain;background:var(--cream2);aspect-ratio:4/3;padding:14px}
 .dec__media .case-img{aspect-ratio:4/3}
 
-/* decorative accents */
-.decor{position:absolute;pointer-events:none;z-index:0}
-@media(max-width:760px){.decor{display:none}}
-
-/* ━━━ NAV ━━━ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s}
-.nav.scrolled{background:rgba(250,248,243,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(44,24,16,.06)}
-.nav__in{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gut);max-width:1200px;margin:0 auto}
-.nav__logo{font-family:var(--ff-d);font-weight:600;font-size:1.05rem;color:var(--esp)}
-.nav__links{display:flex;gap:.2rem}
-.nav__a{font-size:var(--fs--1);font-weight:500;color:var(--esp3);padding:.28rem .55rem;border-radius:4px;transition:color .15s}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s,border-color .25s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(250,247,241,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--cream3)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;padding:1.05rem var(--gut);max-width:var(--maxw);margin:0 auto}
+.nav__logo{font-family:var(--ff-d);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;color:var(--esp)}
+.nav__links{display:flex;gap:.15rem;align-items:center}
+.nav__a{font-size:.85rem;font-weight:500;color:var(--esp3);padding:.4rem .7rem;border-radius:6px;transition:color .15s}
 .nav__a:hover{color:var(--esp)}
 .nav__tog{display:none;padding:.4rem;color:var(--esp);flex-direction:column;gap:5px}
 .nav__tog span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
 .nav__tog.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav__tog.open span:nth-child(2){opacity:0}
 .nav__tog.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav__mob{display:none;flex-direction:column;background:var(--cream);border-top:1px solid var(--cream3);padding:1rem var(--gut) 1.5rem;gap:.15rem}
+.nav__mob{display:none;flex-direction:column;background:var(--cream);border-top:1px solid var(--cream3);padding:1rem var(--gut) 1.4rem;gap:.1rem}
 .nav__mob.open{display:flex}
-.nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
-@media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
+.nav__mob .nav__a{padding:.7rem .4rem;font-size:1rem}
 
-/* ━━━ HERO ━━━ */
-.hero{min-height:92vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden}
-.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:clamp(3rem,8vw,6rem) var(--gut) clamp(4rem,9vw,6rem);display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,5vw,4rem);align-items:center;z-index:2}
-@media(max-width:900px){.hero__in{grid-template-columns:1fr;gap:2rem}}
-.hero__content{max-width:600px;position:relative;z-index:2}
-.hero__hi{font-family:var(--ff-h);font-size:clamp(1.1rem,1rem+.4vw,1.3rem);color:var(--esp3);margin-bottom:.5rem}
-.hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:700;line-height:1.06;letter-spacing:-.03em;margin-bottom:1.4rem;text-wrap:balance}
-.hero__h1 .hl-olive{color:var(--olive);font-style:italic;font-weight:400}
-.hero__h1 .hl-rust{color:var(--rust);font-style:italic;font-weight:400}
-.hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:500px;margin-bottom:2rem;text-wrap:pretty}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:.85rem 1.1rem;align-items:center}
-.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.5rem;font-size:var(--fs--1);font-weight:600;background:var(--olive);color:#fff;border-radius:6px;border:none;transition:all .15s;letter-spacing:.02em}
-.hero__cta1:hover{background:#5A6B32;transform:translateY(-2px);box-shadow:var(--sh-md)}
-.hero__cta2{font-size:var(--fs--1);font-weight:500;color:var(--esp3);border-bottom:1px solid var(--esp5);padding-bottom:1px;transition:color .15s}
-.hero__cta2:hover{color:var(--esp);border-color:var(--esp3)}
-.hero__annot{font-family:var(--ff-h);font-size:.95rem;color:var(--rust);margin-top:1.3rem;display:flex;align-items:center;gap:.4rem}
-.hero__annot svg{width:30px;height:20px;stroke:var(--forest);fill:none;stroke-width:1.5;flex-shrink:0}
-/* hero visual cluster */
-.hero__visual{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center}
-@media(max-width:900px){.hero__visual{display:none}}
-.hero__folder{width:100%;max-width:430px;margin:0 auto;display:block;filter:drop-shadow(0 14px 30px rgba(44,24,16,.14))}
-.hero__accent{position:absolute}
-.hero__accent--ginger{width:88px;top:2%;right:4%;transform:rotate(7deg)}
-.hero__accent--file{width:118px;bottom:0;left:0;transform:rotate(-5deg)}
-.hero__accent--tape{width:150px;top:-2%;left:16%;transform:rotate(-4deg)}
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:7rem var(--gut) clamp(3.5rem,7vw,5.5rem)}
+.hero__in{max-width:var(--maxw);margin:0 auto;width:100%}
+.hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:600;line-height:1.04;letter-spacing:-.03em;max-width:18ch;margin-bottom:1.5rem;text-wrap:balance}
+.hero__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
+.hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.6;max-width:540px;margin-bottom:2.1rem;text-wrap:pretty}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.85rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:2.4rem;padding-top:1.5rem;border-top:1px solid var(--cream3)}
+.hero__meta li{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--esp3)}
 
-/* ━━━ SELECTED WORK ━━━ */
-.sw{padding:var(--sec) 0;position:relative}
-.sw__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
-.decor--sw{top:clamp(2.5rem,6vw,4.5rem);right:1.2rem;width:118px;transform:rotate(3deg)}
-.sw__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;margin-top:.5rem}
-.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:420px;margin-bottom:3rem}
+/* SELECTED WORK */
+.work{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.4rem)}
+.pcard{--accent:var(--olive);background:var(--card);border:1px solid var(--cream3);border-top:3px solid var(--accent);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(43,26,18,.1)}
+.pcard__media{aspect-ratio:16/10;overflow:hidden;background:var(--cream2);border-bottom:1px solid var(--cream3)}
+.pcard__media img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.pcard:hover .pcard__media img{transform:scale(1.045)}
+.pcard__cover{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--cream2);background:color-mix(in srgb,var(--accent) 12%,#fff);font-family:var(--ff-d);font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:var(--accent);letter-spacing:-.01em}
+.pcard__body{padding:clamp(1.3rem,2.2vw,1.7rem);display:flex;flex-direction:column;gap:.5rem;flex:1}
+.pcard__meta{display:flex;align-items:center;gap:.7rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp3)}
+.pcard__no{font-family:var(--ff-d);font-style:italic;font-size:.95rem;letter-spacing:0;color:var(--accent)}
+.pcard__title{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:600;letter-spacing:-.015em;line-height:1.1}
+.pcard__desc{font-size:var(--fs-0);color:var(--esp2);line-height:1.55}
+.pcard__tags{font-size:.74rem;letter-spacing:.02em;color:var(--esp4)}
+.pcard__cta{margin-top:auto;padding-top:.7rem;font-size:.86rem;font-weight:600;color:var(--accent);display:inline-flex;gap:.35rem;transition:gap .18s}
+.pcard:hover .pcard__cta{gap:.6rem}
+.pcard--pili{--accent:var(--olive)}.pcard--bio{--accent:var(--cobalt)}.pcard--fifa{--accent:var(--forest)}.pcard--wisdom{--accent:var(--rust)}
 
-.sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
-@media(max-width:800px){.sw-grid{grid-template-columns:1fr}}
+.more{margin-top:clamp(2.2rem,4vw,3.2rem)}
+.more__lbl{margin-bottom:1.2rem}
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--cream3);border:1px solid var(--cream3);border-radius:14px;overflow:hidden}
+.mcard{--accent:var(--marigold);background:var(--card);padding:1.4rem 1.4rem 1.5rem;cursor:pointer;display:flex;flex-direction:column;gap:.45rem;transition:background .2s}
+.mcard:hover{background:#FFFDF8}
+.mcard__no{font-family:var(--ff-d);font-style:italic;font-size:.9rem;color:var(--esp4)}
+.mcard__cat{display:flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4)}
+.mcard__cat::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.mcard__title{font-family:var(--ff-d);font-size:1.1rem;font-weight:600;line-height:1.15}
+.mcard__desc{font-size:.82rem;color:var(--esp3);line-height:1.5;flex:1}
+.mcard__cta{font-size:.78rem;font-weight:600;color:var(--esp3)}
+.mcard:hover .mcard__cta{color:var(--esp)}
+.mcard--naagin{--accent:var(--tomato)}.mcard--kuai{--accent:var(--powder)}.mcard--easeout{--accent:var(--pink)}.mcard--rsg{--accent:var(--marigold)}
 
-/* card base — side-by-side layout */
-.sc{border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:grid;grid-template-columns:.5fr .5fr;position:relative;min-height:320px;background:var(--cream);border:1.5px solid var(--cream3)}
-.sc:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(44,24,16,.12);z-index:2}
-@media(max-width:550px){.sc{grid-template-columns:1fr;min-height:auto}.sc__vis{min-height:240px}}
-.sc__vis{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:1.2rem}
-.sc__vis--img{padding:0;min-height:300px;background:var(--cream2)}
-.sc__thumb{width:100%;height:100%;object-fit:cover;display:block}
-.sc__tab{position:absolute;top:.85rem;left:.85rem;z-index:2;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:.28rem .6rem;border-radius:5px;box-shadow:var(--sh-xs)}
-.sc--pili .sc__tab{background:var(--olive)}
-.sc--bio .sc__tab{background:var(--cobalt)}
-.sc--fifa .sc__tab{background:var(--forest)}
-.sc--wisdom .sc__tab{background:var(--rust)}
-.sc__info{padding:1.4rem 1.5rem;display:flex;flex-direction:column;justify-content:center}
-.sc__yr{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
-.sc__name{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;letter-spacing:-.015em;margin-bottom:.4rem;line-height:1.1}
-.sc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.55;margin-bottom:.75rem}
-.sc__skills{font-size:10px;color:var(--esp4);letter-spacing:.03em;line-height:1.7;margin-bottom:.85rem}
-.sc__cta{font-size:var(--fs--1);font-weight:600;color:var(--esp2);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s,color .15s}
-.sc:hover .sc__cta{gap:.5rem;color:var(--esp)}
-.sc--pili .sc__name,.sc--pili .sc__yr,.sc--pili .sc__cta{color:var(--olive)}
-.sc--bio .sc__name,.sc--bio .sc__yr,.sc--bio .sc__cta{color:var(--cobalt)}
-.sc--fifa .sc__name,.sc--fifa .sc__yr,.sc--fifa .sc__cta{color:var(--forest)}
-.sc--wisdom .sc__name,.sc--wisdom .sc__yr,.sc--wisdom .sc__cta{color:var(--rust)}
+/* PROCESS */
+.process{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.6rem)}
+.proc{border-top:2px solid var(--cream4);padding-top:1.3rem}
+.proc__n{font-family:var(--ff-d);font-size:1.6rem;font-weight:600;color:var(--esp4);margin-bottom:.5rem}
+.proc__h{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:600;margin-bottom:.5rem}
+.proc__p{font-size:var(--fs-0);color:var(--esp3);line-height:1.6}
 
-/* ── Wisdom — kept artifact tag ── */
-.sc--wisdom .sc__vis{background:linear-gradient(160deg,#ECD8C8,#F8F0E6,#E8D4C0);position:relative}
-.wisdom-tag{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.4rem}
-.wisdom-tag__brand{font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--esp2);text-align:center;padding-bottom:.3rem;border-bottom:1px solid var(--cream4)}
-.wisdom-tag__img{flex:1;display:flex;align-items:center;justify-content:center;min-height:60px}
-.wisdom-tag__glasses{width:80px;height:30px;position:relative}
-.wisdom-tag__glasses::before,.wisdom-tag__glasses::after{content:'';position:absolute;top:0;width:32px;height:24px;border:2px solid var(--esp3);border-radius:50%}
-.wisdom-tag__glasses::before{left:0}.wisdom-tag__glasses::after{right:0}
-.wisdom-tag__bridge{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:14px;height:6px;border-top:2px solid var(--esp3);border-radius:50% 50% 0 0}
-.wisdom-tag__specs{display:grid;grid-template-columns:auto 1fr;gap:.15rem .5rem;font-size:.4rem;letter-spacing:.06em;border-top:1px solid var(--cream4);padding-top:.3rem}
-.wisdom-tag__specs dt{font-weight:700;text-transform:uppercase;color:var(--esp3)}
-.wisdom-tag__specs dd{color:var(--esp2)}
-.wisdom-tag__edition{font-size:.38rem;letter-spacing:.08em;text-transform:uppercase;color:var(--esp4);text-align:center;margin-top:.1rem}
-.sc--wisdom .sc__vis::before{content:'';position:absolute;top:0;left:50%;width:1px;height:14px;background:var(--cream4);z-index:1}
-.sc--wisdom .sc__vis::after{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;border:1.5px solid var(--cream4)}
-
-/* secondary cards */
-.more{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.5rem}
-@media(max-width:900px){.more{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.more{grid-template-columns:1fr}}
-.mc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:10px;padding:1rem 1.1rem;cursor:pointer;transition:transform .2s,box-shadow .15s,border-color .15s}
-.mc:hover{transform:translateY(-3px);box-shadow:var(--sh-sm);border-color:var(--esp5)}
-.mc__icon{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem;display:flex;align-items:center;gap:.3rem}
-.mc--naagin .mc__icon{color:var(--tomato)}.mc--naagin .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--tomato)}
-.mc--kuai .mc__icon{color:var(--powder)}.mc--kuai .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--powder)}
-.mc--easeout .mc__icon{color:var(--pink)}.mc--easeout .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--pink)}
-.mc--rsg .mc__icon{color:var(--marigold)}.mc--rsg .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--marigold)}
-.mc__name{font-family:var(--ff-d);font-size:var(--fs-0);font-weight:700;margin-bottom:.2rem;letter-spacing:-.01em}
-.mc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.5;margin-bottom:.4rem}
-.mc__cta{font-size:10px;font-weight:600;color:var(--esp4)}
-.mc:hover .mc__cta{color:var(--esp)}
-
-/* ━━━ HOW I DESIGN ━━━ */
-.hid{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
-.hid__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
-.hid__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
-.hid__sub{font-size:var(--fs-0);color:var(--esp3);margin-bottom:2.5rem;max-width:460px}
-.hid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media(max-width:700px){.hid-grid{grid-template-columns:1fr}}
-.hid-card{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.4rem 1.3rem}
-.hid-card__n{font-family:var(--ff-h);font-size:1.15rem;color:var(--esp4);margin-bottom:.4rem}
-.hid-card__h{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem}
-.hid-card__p{font-size:var(--fs--1);color:var(--esp3);line-height:1.6}
-
-/* ━━━ ABOUT ━━━ */
-.about{padding:var(--sec) 0;background:var(--cream2);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3);position:relative}
-.about__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start;position:relative;z-index:1}
-@media(max-width:800px){.about__in{grid-template-columns:1fr;gap:2rem}}
-.decor--about{top:clamp(2rem,5vw,3.5rem);right:1.4rem;width:78px;transform:rotate(-7deg)}
-.about__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1;margin-top:.5rem}
+/* ABOUT */
+.about{padding:var(--sec) 0;background:var(--cream2);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3)}
+.about__in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:start}
+.about__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:600;letter-spacing:-.02em;line-height:1.14;margin-bottom:1.2rem}
 .about__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.78;max-width:520px}
-.about__body p+p{margin-top:.7rem}
-.about__cards{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
-@media(max-width:500px){.about__cards{grid-template-columns:1fr}}
-.acard{background:var(--cream);border:1px solid var(--cream3);border-radius:8px;padding:.9rem 1rem}
-.acard__lbl{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.4rem}
-.acard__title{font-family:var(--ff-d);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
-.acard__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.5}
+.about__body p+p{margin-top:.8rem}
+.about__facts{border-top:1px solid var(--cream3)}
+.fact{display:grid;grid-template-columns:.85fr 2fr;gap:1.2rem;padding:1rem 0;border-bottom:1px solid var(--cream3)}
+.fact dt{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4)}
+.fact dd{font-size:var(--fs-0);color:var(--esp2);line-height:1.5}
 
-/* ━━━ PLAY / ARCHIVE ━━━ */
-.play{padding:var(--sec) 0;border-bottom:1px solid var(--cream3)}
-.play__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
-.play__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
-.play__sub{font-size:var(--fs-0);color:var(--esp3);max-width:440px;margin-bottom:2rem}
-.play-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-@media(max-width:700px){.play-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:450px){.play-grid{grid-template-columns:1fr}}
-.pc{background:var(--cream2);border:1px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem;position:relative}
-.pc:nth-child(1){border-left:3px solid var(--rust)}
-.pc:nth-child(2){border-left:3px solid var(--marigold)}
-.pc:nth-child(3){border-left:3px solid var(--powder)}
-.pc:nth-child(4){border-left:3px solid var(--forest)}
-.pc:nth-child(5){border-left:3px solid var(--olive)}
-.pc:nth-child(6){border-left:3px solid var(--pink)}
-.pc__title{font-family:var(--ff-d);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
-.pc__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.55}
+/* NOTES */
+.notes{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.2rem)}
+.note{--accent:var(--rust)}
+.note__k{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
+.note__k::before{content:'';width:18px;height:2px;background:var(--accent)}
+.note__t{font-family:var(--ff-d);font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
+.note__p{font-size:.85rem;color:var(--esp3);line-height:1.55}
+.note:nth-child(1){--accent:var(--rust)}.note:nth-child(2){--accent:var(--marigold)}.note:nth-child(3){--accent:var(--powder)}
+.note:nth-child(4){--accent:var(--forest)}.note:nth-child(5){--accent:var(--olive)}.note:nth-child(6){--accent:var(--pink)}
 
-/* ━━━ AI DIRECTION LOG ━━━ */
-.ailog{padding:var(--sec) 0;border-bottom:1px solid var(--cream3);position:relative}
-.ailog__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
-.decor--ailog{top:clamp(2rem,5vw,3.5rem);right:1.4rem;width:94px;transform:rotate(5deg)}
-.ailog__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
-.ailog__sub{font-size:var(--fs-0);color:var(--esp3);max-width:520px;margin-bottom:2rem}
-.ailog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
-@media(max-width:800px){.ailog-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:450px){.ailog-grid{grid-template-columns:1fr}}
-.alc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem}
-.alc:nth-child(1){transform:rotate(-.8deg)}.alc:nth-child(2){transform:rotate(.6deg)}
-.alc:nth-child(3){transform:rotate(-.4deg)}.alc:nth-child(4){transform:rotate(1deg)}
-.alc__file{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
-.alc__title{font-family:var(--ff-d);font-size:.95rem;font-weight:700;margin-bottom:.35rem}
-.alc__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.55}
-.ailog__stamp{display:inline-flex;align-items:center;gap:.5rem;background:var(--esp);color:var(--cream);padding:.6rem 1.2rem;border-radius:999px;font-family:var(--ff-d);font-style:italic;font-size:var(--fs-1)}
-.ailog__stamp strong{font-style:normal;font-weight:700}
+/* BUILT WITH AI */
+.built{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.built__in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.built__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:600;letter-spacing:-.02em;line-height:1.12;margin-bottom:1rem}
+.built__p{font-size:var(--fs-0);color:var(--esp2);line-height:1.7;max-width:520px;margin-bottom:1.6rem}
+.built__quote{font-family:var(--ff-d);font-style:italic;font-size:var(--fs-3);line-height:1.05;color:var(--esp);margin-bottom:1.3rem}
+.built__list{border-top:1px solid var(--cream3)}
+.built__list li{font-size:var(--fs-0);color:var(--esp2);padding:.8rem 0;border-bottom:1px solid var(--cream3);line-height:1.5}
 
-/* ━━━ CONTACT ━━━ */
-.contact{padding:var(--sec) 0;position:relative}
-.contact__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.2fr .8fr;gap:3.5rem;align-items:start;position:relative;z-index:1}
-@media(max-width:800px){.contact__in{grid-template-columns:1fr;gap:2rem}}
-.decor--contact{top:clamp(1.5rem,4vw,3rem);right:2rem;width:62px}
-.contact__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:.7rem}
-.contact__h em{font-style:italic;font-weight:400;color:var(--olive)}
-.contact__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7;max-width:480px;margin-bottom:1.5rem}
-.contact__links{display:flex;flex-wrap:wrap;gap:.6rem}
-.contact__links a{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem 1.1rem;font-size:var(--fs--1);font-weight:600;border:1.5px solid var(--cream3);border-radius:999px;transition:all .15s}
-.contact__links a:hover{border-color:var(--esp3);transform:translateY(-2px);box-shadow:var(--sh-sm)}
-.contact__note{font-family:var(--ff-h);font-size:.95rem;color:var(--esp4);margin-top:2rem}
-.contact__sticky{background:var(--marigold-l);border:1px solid rgba(212,150,12,.15);border-radius:8px;padding:1.1rem;font-family:var(--ff-h);font-size:1.05rem;color:var(--esp2);line-height:1.5;transform:rotate(1deg)}
+/* CONTACT */
+.contact{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
+.contact__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-bottom:.9rem;max-width:16ch}
+.contact__h em{font-style:italic;font-weight:400;color:var(--rust)}
+.contact__p{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:520px;margin-bottom:1.8rem}
+.contact__links{display:flex;flex-wrap:wrap;gap:.85rem}
+.contact__avail{font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--esp4);margin-top:2rem}
 
-/* ━━━ FOOTER ━━━ */
-.footer{background:var(--cream2);border-top:1px solid var(--cream3);padding:2rem var(--gut)}
-.footer__in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.footer__sig{font-family:var(--ff-d);font-style:italic;font-size:var(--fs-0);color:var(--esp3)}
-.footer__nav{display:flex;flex-wrap:wrap;gap:1rem}
-.footer__a{font-size:var(--fs--1);font-weight:500;color:var(--esp4);transition:color .15s}
+/* FOOTER */
+.footer{background:var(--cream2);border-top:1px solid var(--cream3);padding:2.2rem var(--gut)}
+.footer__in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.9rem}
+.footer__sig{font-family:var(--ff-d);font-weight:600;font-size:1rem;color:var(--esp2)}
+.footer__nav{display:flex;flex-wrap:wrap;gap:1.1rem}
+.footer__a{font-size:.82rem;font-weight:500;color:var(--esp3);transition:color .15s}
 .footer__a:hover{color:var(--esp)}
+.footer__meta{font-size:.74rem;color:var(--esp4);letter-spacing:.04em;width:100%}
 
-/* ━━━ PROJECT VIEW ━━━ */
-.pv{padding-top:4rem}
-.pv__back{padding:1.2rem var(--gut);max-width:1200px;margin:0 auto}
-.pv__back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs--1);font-weight:600;color:var(--esp3);transition:color .15s}
+/* PROJECT VIEW */
+.pv{padding-top:5rem}
+.pv__back{max-width:var(--maxw);margin:0 auto;padding:1.5rem var(--gut) 0}
+.pv__back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:600;color:var(--esp3);transition:color .15s}
 .pv__back-btn:hover{color:var(--esp)}
-.cs{padding:2rem var(--gut) var(--sec);max-width:1200px;margin:0 auto}
-.cs__hdr{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
-.cs__file{font-family:var(--ff-h);font-size:.95rem;color:var(--esp4);margin-bottom:.5rem}
-.cs__h1{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem}
-.cs__sub{font-size:var(--fs-1);color:var(--esp2);max-width:640px;line-height:1.6;margin-bottom:1.2rem}
-.cs__meta{display:flex;flex-wrap:wrap;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cream3)}
-.cs__mi-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.2rem}
-.cs__mi-val{font-size:var(--fs--1);font-weight:600;color:var(--esp2)}
-.cs-intro{max-width:640px;font-size:var(--fs-1);color:var(--esp2);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
-.role-block{margin-bottom:2rem}
-.role-block__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;margin-bottom:.8rem}
-.role-list{display:flex;flex-direction:column;gap:.35rem;max-width:600px}
-.role-list__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.6;display:flex;align-items:baseline;gap:.5rem}
-.role-list__item::before{content:'·';color:var(--esp4);font-weight:700}
-.decisions{margin-bottom:2rem}
-.decisions__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;margin-bottom:1.5rem}
-.dec{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3);align-items:start}
+.cs{max-width:var(--maxw);margin:0 auto;padding:1.5rem var(--gut) var(--sec)}
+.cs__hdr{margin-bottom:clamp(2rem,4vw,3rem);padding-bottom:1.6rem;border-bottom:1px solid var(--cream3)}
+.cs__file{font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--esp3);margin-bottom:.9rem}
+.cs__h1{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-bottom:.7rem}
+.cs__sub{font-size:var(--fs-1);color:var(--esp2);max-width:660px;line-height:1.55;margin-bottom:1.5rem}
+.cs__meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding-top:1.3rem;border-top:1px solid var(--cream3)}
+.cs__mi-lbl{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.25rem}
+.cs__mi-val{font-size:.88rem;font-weight:500;color:var(--esp2);line-height:1.4}
+.cs-intro{max-width:680px;font-size:var(--fs-1);color:var(--esp2);line-height:1.65;margin-bottom:clamp(2rem,4vw,3rem);padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
+.role-block{margin-bottom:clamp(2rem,4vw,3rem)}
+.role-block__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:600;margin-bottom:1rem}
+.role-list{display:flex;flex-direction:column;gap:.55rem;max-width:680px}
+.role-list__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.55;padding-left:1.25rem;position:relative}
+.role-list__item::before{content:'';position:absolute;left:0;top:.62em;width:.55rem;height:1.5px;background:var(--esp4)}
+.decisions{margin-bottom:clamp(2rem,4vw,3rem)}
+.decisions__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:600;margin-bottom:1.6rem}
+.dec{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.7rem;padding-bottom:1.7rem;border-bottom:1px solid var(--cream3);align-items:center}
 .dec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-@media(max-width:680px){.dec{grid-template-columns:1fr}}
-.dec__n{font-family:var(--ff-h);font-size:1.1rem;color:var(--esp4);margin-bottom:.3rem}
-.dec__title{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem;line-height:1.15}
-.dec__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7}
+.dec__n{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
+.dec__title{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:600;margin-bottom:.6rem;line-height:1.2}
+.dec__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.6}
 .dec__media{min-width:0}
-.outcome{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.5rem 1.6rem;margin-bottom:2rem}
-.outcome__h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
-.outcome__list{display:flex;flex-direction:column;gap:.35rem}
-.outcome__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.6;display:flex;align-items:baseline;gap:.5rem}
-.outcome__item::before{content:'↳';color:var(--esp4);font-size:.8rem}
+.outcome{background:var(--cream2);border:1px solid var(--cream3);border-radius:14px;padding:clamp(1.4rem,3vw,2rem);margin-bottom:clamp(2rem,4vw,3rem)}
+.outcome__h{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--esp4);margin-bottom:.85rem}
+.outcome__list{display:flex;flex-direction:column;gap:.55rem}
+.outcome__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.55;padding-left:1.35rem;position:relative}
+.outcome__item::before{content:'\2192';position:absolute;left:0;color:var(--esp4)}
 .gallery{margin-bottom:2rem}
-.gallery__h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.8rem}
+.gallery__h{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--esp4);margin-bottom:1rem}
 .gallery__grid{display:grid;gap:1rem}
 .gallery__grid--2{grid-template-columns:1fr 1fr}
 .gallery__grid--3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:680px){.gallery__grid--2,.gallery__grid--3{grid-template-columns:1fr}}
 
-/* ━━━ RESPONSIVE POLISH ━━━ */
-@media(max-width:1024px){.hero__in{gap:clamp(1.5rem,4vw,3rem)}}
-@media(max-width:740px){.nav__mob .nav__a{padding:.7rem .4rem}}
-@media(max-width:430px){
-.hero{min-height:auto;padding-top:4.5rem}
-.hero__h1{font-size:clamp(2.1rem,7.5vw,2.7rem);line-height:1.1}
-.contact__links a{padding:.62rem 1.1rem}
-.cs__meta{gap:1rem 1.25rem}
+/* RESPONSIVE */
+@media(max-width:1024px){.more-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:880px){
+.work-grid{grid-template-columns:1fr}
+.about__in,.built__in{grid-template-columns:1fr;gap:2.2rem}
+.notes-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:375px){
-.hero__h1{font-size:2rem}
-.sc__info{padding:1.1rem 1.2rem}
+@media(max-width:740px){
+.nav__links{display:none}.nav__tog{display:flex}
+.proc-grid{grid-template-columns:1fr}
+.dec{grid-template-columns:1fr;gap:1.2rem}
+.cs__meta{grid-template-columns:1fr 1fr}
+.gallery__grid--2,.gallery__grid--3{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+.more-grid{grid-template-columns:1fr}
+.notes-grid{grid-template-columns:1fr}
+.fact{grid-template-columns:1fr;gap:.25rem}
+}
+@media(max-width:480px){
+.hero{min-height:auto;padding-top:5.5rem}
+.hero__ctas .btn,.contact__links .btn{width:100%}
 }
 </style>
 </head>
@@ -337,8 +248,8 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 <ul class="nav__links">
 <li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
 <li><a href="#about" class="nav__a" id="nav-about">About</a></li>
-<li><a href="#play" class="nav__a" id="nav-play">Play</a></li>
-<li><a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a" id="nav-resume">Resume</a></li>
+<li><a href="#play" class="nav__a" id="nav-play">Notes</a></li>
+<li><a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a" id="nav-resume">Résumé</a></li>
 <li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
 </ul>
 <button class="nav__tog" id="navTog" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -346,248 +257,226 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 <div class="nav__mob" id="navMob">
 <a href="#work" class="nav__a">Work</a>
 <a href="#about" class="nav__a">About</a>
-<a href="#play" class="nav__a">Play</a>
-<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a">Resume</a>
+<a href="#play" class="nav__a">Notes</a>
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a">Résumé</a>
 <a href="#contact" class="nav__a">Contact</a>
 </div>
 </nav>
 
 <!-- HOME VIEW -->
 <div id="home-view">
-
 <!-- HERO -->
-<section class="hero paper" id="top">
-<div class="hero__in">
-<div class="hero__content reveal">
-<p class="hero__hi">Hi, I'm Niharika —</p>
-<h1 class="hero__h1">a <span class="hl-olive">UX designer</span> who turns messy systems into calm, <span class="hl-rust">playful</span> experiences.</h1>
+<section class="hero" id="top">
+<div class="hero__in reveal">
+<p class="eyebrow">Niharika Jain &mdash; UX &amp; Graphic Designer</p>
+<h1 class="hero__h1">I turn messy systems into <em>calm, playful</em> experiences.</h1>
 <p class="hero__sub">I design digital products, physical-digital systems, and visual stories that make complex things easier to use and easier to understand.</p>
 <div class="hero__ctas">
-<a href="#work" class="hero__cta1">View my work ↗</a>
-<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="hero__cta2">Download resume ↗</a>
+<a href="#work" class="btn btn--solid">View selected work</a>
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="btn btn--ghost">Résumé ↗</a>
 </div>
-<div class="hero__annot">
-<span style="font-family:var(--ff-h);color:var(--rust)">selected work inside</span>
-<svg viewBox="0 0 30 20"><path d="M2 10C8 10 16 5 25 12" stroke-linecap="round"/><path d="M20 8L26 12L22 16" stroke-linecap="round"/></svg>
-</div>
-</div>
-<div class="hero__visual" aria-hidden="true">
-<img class="hero__folder" src="assets/decor/folders/folder-creative-desk.png" alt="" loading="eager" decoding="async" onerror="this.style.display='none'">
-<img class="hero__accent hero__accent--tape" src="assets/decor/tape/tape-layered-blush-beige.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<img class="hero__accent hero__accent--ginger" src="assets/decor/stamps/stamp-ginger.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<img class="hero__accent hero__accent--file" src="assets/decor/stickers/sticker-open-file.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
-</div>
+<ul class="hero__meta">
+<li>SCAD Atlanta ’26</li>
+<li>UX · Product · Brand · Visual</li>
+<li>Available for full-time &amp; freelance</li>
+<li>Atlanta / Remote</li>
+</ul>
 </div>
 </section>
 
 <!-- SELECTED WORK -->
-<section class="sw" id="work">
-<img class="decor decor--sw" src="assets/decor/tape/tape-cream-clean-01.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<div class="sw__in">
-<div class="reveal">
-<div class="tape">selected work</div>
-<h2 class="sw__h">Selected Work</h2>
-<p class="sw__sub">A small archive of systems, stories, and experiments.</p>
+<section class="work" id="work">
+<div class="wrap">
+<div class="s-head reveal">
+<p class="eyebrow">Selected Work</p>
+<h2 class="s-head__h">Projects, end to end.</h2>
+<p class="s-head__p">A focused archive of systems, products, and brand work — from research through final design.</p>
 </div>
+<div class="work-grid">
 
-<div class="sw-grid">
-<!-- PILI -->
-<div class="sc sc--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-<div class="sc__vis sc__vis--img">
-<span class="sc__tab">Case File 01</span>
-<img class="sc__thumb" src="pili/pili-three-sided-system.jpg" alt="Pili three-sided care system" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
+<article class="pcard pcard--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
+<div class="pcard__media"><img src="pili/pili-three-sided-system.jpg" alt="Pili three-sided care system overview" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>Pili</span></div>'"></div>
+<div class="pcard__body">
+<div class="pcard__meta"><span class="pcard__no">01</span>Senior Capstone &middot; 2026</div>
+<h3 class="pcard__title">Pili</h3>
+<p class="pcard__desc">A calm connection system for older adults, families, and caregivers — across a device, a family app, and a caregiver dashboard.</p>
+<p class="pcard__tags">UX Research &middot; Product &middot; Physical-Digital System</p>
+<span class="pcard__cta">View case study →</span>
 </div>
-<div class="sc__info">
-<div class="sc__yr">2026 · Senior Capstone</div>
-<h3 class="sc__name">Pili</h3>
-<p class="sc__desc">A calm connection system for older adults, families, and caregivers.</p>
-<div class="sc__skills">UX Research · Product Design · UI/UX · Physical-Digital System</div>
-<span class="sc__cta">Open case file →</span>
-</div>
-</div>
+</article>
 
-<!-- BIOSPHERIX -->
-<div class="sc sc--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-<div class="sc__vis sc__vis--img">
-<span class="sc__tab">Case File 02</span>
-<img class="sc__thumb" src="biospherix/biospherix-cover.png" alt="BioSpherix Layout Planner cover" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
+<article class="pcard pcard--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
+<div class="pcard__media"><img src="biospherix/biospherix-cover.png" alt="BioSpherix Layout Planner interface" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>BioSpherix</span></div>'"></div>
+<div class="pcard__body">
+<div class="pcard__meta"><span class="pcard__no">02</span>Product / Web App &middot; 2026</div>
+<h3 class="pcard__title">BioSpherix Layout Planner</h3>
+<p class="pcard__desc">An AI-assisted planning tool that turns engineering requirements into reviewable 2D system layouts before CAD.</p>
+<p class="pcard__tags">AI UX &middot; Web App &middot; React</p>
+<span class="pcard__cta">View case study →</span>
 </div>
-<div class="sc__info">
-<div class="sc__yr">2026 · Product / Web App</div>
-<h3 class="sc__name">BioSpherix Layout Planner</h3>
-<p class="sc__desc">An AI-assisted layout planning tool for custom environmental chamber systems.</p>
-<div class="sc__skills">AI · UX · Web App · Engineering Workflow</div>
-<span class="sc__cta">Open case file →</span>
-</div>
-</div>
+</article>
 
-<!-- FIFA -->
-<div class="sc sc--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-<div class="sc__vis sc__vis--img">
-<span class="sc__tab">Case File 03</span>
-<img class="sc__thumb" src="fifa/fifa-app-screens.png" alt="FIFA World Cup 2026 Atlanta fan experience app screens" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
+<article class="pcard pcard--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
+<div class="pcard__media"><img src="fifa/fifa-app-screens.png" alt="FIFA World Cup 2026 Atlanta fan experience app screens" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>FIFA 2026</span></div>'"></div>
+<div class="pcard__body">
+<div class="pcard__meta"><span class="pcard__no">03</span>SCADpro &middot; 2026</div>
+<h3 class="pcard__title">FIFA World Cup 2026 Atlanta</h3>
+<p class="pcard__desc">Service design and journey mapping for the Atlanta World Cup fan experience, from arrival to departure.</p>
+<p class="pcard__tags">Service Design &middot; Research &middot; Collaboration</p>
+<span class="pcard__cta">View case study →</span>
 </div>
-<div class="sc__info">
-<div class="sc__yr">2026 · SCADpro</div>
-<h3 class="sc__name">FIFA World Cup 2026 Atlanta</h3>
-<p class="sc__desc">A collaborative service design concept for the Atlanta World Cup fan experience.</p>
-<div class="sc__skills">UX Research · Service Design · Collaboration</div>
-<span class="sc__cta">Open case file →</span>
-</div>
-</div>
+</article>
 
-<!-- WISDOM — kept artifact -->
-<div class="sc sc--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
-<div class="sc__vis">
-<span class="sc__tab">Case File 04</span>
-<div class="wisdom-tag">
-<div class="wisdom-tag__brand">Wisdom ATL Eyewear</div>
-<div class="wisdom-tag__img">
-<div class="wisdom-tag__glasses"><div class="wisdom-tag__bridge"></div></div>
+<article class="pcard pcard--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL Eyewear case study">
+<div class="pcard__media"><div class="pcard__cover"><span>Wisdom ATL</span></div></div>
+<div class="pcard__body">
+<div class="pcard__meta"><span class="pcard__no">04</span>Collaboration &middot; 2026</div>
+<h3 class="pcard__title">Wisdom ATL Eyewear</h3>
+<p class="pcard__desc">Product, packaging, and visual merchandising for an independent Atlanta-born eyewear brand.</p>
+<p class="pcard__tags">Brand &middot; Packaging &middot; Retail</p>
+<span class="pcard__cta">View case study →</span>
 </div>
-<dl class="wisdom-tag__specs">
-<dt>Model</dt><dd>Riverside</dd>
-<dt>Color</dt><dd>Honey Tort</dd>
-<dt>Width</dt><dd>51 □ 20 145</dd>
-</dl>
-<div class="wisdom-tag__edition">Limited Edition · Made in Atlanta</div>
-</div>
-</div>
-<div class="sc__info">
-<div class="sc__yr">2026 · Collaboration</div>
-<h3 class="sc__name">Wisdom ATL Eyewear</h3>
-<p class="sc__desc">Eyewear product, packaging, and visual merchandising collaboration.</p>
-<div class="sc__skills">Product Design · Packaging · Visual Merchandising</div>
-<span class="sc__cta">Open case file →</span>
-</div>
-</div>
+</article>
+
 </div>
 
 <div class="more reveal">
-<div class="mc mc--naagin" data-project="naagin" role="button" tabindex="0"><div class="mc__icon">Spice Label</div><h4 class="mc__name">Naagin Sauce</h4><p class="mc__desc">Campaign and digital marketing for an Indian hot sauce brand.</p><span class="mc__cta">Open case file →</span></div>
-<div class="mc mc--kuai" data-project="kuai" role="button" tabindex="0"><div class="mc__icon">AI Receipt</div><h4 class="mc__name">KUAI</h4><p class="mc__desc">AI shopping and planning app concept.</p><span class="mc__cta">Open case file →</span></div>
-<div class="mc mc--easeout" data-project="easeout" role="button" tabindex="0"><div class="mc__icon">Closet Tag</div><h4 class="mc__name">EaseOut</h4><p class="mc__desc">Personal styling and closet organization app.</p><span class="mc__cta">Open case file →</span></div>
-<div class="mc mc--rsg" data-project="readysetgo" role="button" tabindex="0"><div class="mc__icon">Checklist</div><h4 class="mc__name">ReadySetGo</h4><p class="mc__desc">UX/UI planning and launch project.</p><span class="mc__cta">Open case file →</span></div>
+<p class="eyebrow more__lbl">More Work</p>
+<div class="more-grid">
+<article class="mcard mcard--naagin" data-project="naagin" role="button" tabindex="0" aria-label="Open Naagin Sauce case study">
+<div class="mcard__no">05</div><div class="mcard__cat">Graphic Design</div>
+<h4 class="mcard__title">Naagin Sauce</h4>
+<p class="mcard__desc">Campaign and marketing design extending a bold Indian hot-sauce identity across digital.</p>
+<span class="mcard__cta">View →</span>
+</article>
+<article class="mcard mcard--kuai" data-project="kuai" role="button" tabindex="0" aria-label="Open KUAI case study">
+<div class="mcard__no">06</div><div class="mcard__cat">AI UX Concept</div>
+<h4 class="mcard__title">KUAI</h4>
+<p class="mcard__desc">A concept for an AI assistant that helps organize decisions without deciding for you.</p>
+<span class="mcard__cta">View →</span>
+</article>
+<article class="mcard mcard--easeout" data-project="easeout" role="button" tabindex="0" aria-label="Open EaseOut case study">
+<div class="mcard__no">07</div><div class="mcard__cat">App Concept</div>
+<h4 class="mcard__title">EaseOut</h4>
+<p class="mcard__desc">A styling and closet app for building outfits from what you already own.</p>
+<span class="mcard__cta">View →</span>
+</article>
+<article class="mcard mcard--rsg" data-project="readysetgo" role="button" tabindex="0" aria-label="Open ReadySetGo case study">
+<div class="mcard__no">08</div><div class="mcard__cat">UX / UI</div>
+<h4 class="mcard__title">ReadySetGo</h4>
+<p class="mcard__desc">Planning and task flows that turn scattered prep into clear, sequenced steps.</p>
+<span class="mcard__cta">View →</span>
+</article>
+</div>
 </div>
 </div>
 </section>
 
-<!-- HOW I DESIGN -->
-<section class="hid" id="process">
-<div class="hid__in">
-<div class="reveal">
-<div class="tape">how it works</div>
-<h2 class="hid__h">How I Design</h2>
-<p class="hid__sub">A simple way to explain how I move from chaos to clarity.</p>
+<!-- PROCESS -->
+<section class="process" id="process">
+<div class="wrap">
+<div class="s-head reveal">
+<p class="eyebrow">How I Work</p>
+<h2 class="s-head__h">From chaos to clarity.</h2>
 </div>
-<div class="hid-grid reveal">
-<div class="hid-card"><div class="hid-card__n">01</div><h3 class="hid-card__h">Sort the mess</h3><p class="hid-card__p">I turn scattered needs, constraints, and research into clear patterns.</p></div>
-<div class="hid-card"><div class="hid-card__n">02</div><h3 class="hid-card__h">Build the system</h3><p class="hid-card__p">I design flows, structures, and interfaces that make complex experiences easier to use.</p></div>
-<div class="hid-card"><div class="hid-card__n">03</div><h3 class="hid-card__h">Make it feel human</h3><p class="hid-card__p">I use visual language, interaction details, and tone to make technology feel approachable.</p></div>
+<div class="proc-grid reveal">
+<div class="proc"><div class="proc__n">01</div><h3 class="proc__h">Sort the mess</h3><p class="proc__p">I turn scattered needs, constraints, and research into clear patterns.</p></div>
+<div class="proc"><div class="proc__n">02</div><h3 class="proc__h">Build the system</h3><p class="proc__p">I design flows, structures, and interfaces that make complex experiences easier to use.</p></div>
+<div class="proc"><div class="proc__n">03</div><h3 class="proc__h">Make it feel human</h3><p class="proc__p">I use visual language, interaction details, and tone to make technology feel approachable.</p></div>
 </div>
 </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-<img class="decor decor--about" src="assets/decor/stamps/stamp-ginger.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<div class="about__in">
+<div class="wrap about__in">
 <div class="reveal">
-<div class="tape">about</div>
-<h2 class="about__h">Designer of calm systems, playful visuals, and tiny details.</h2>
+<p class="eyebrow">About</p>
+<h2 class="about__h">A designer of calm systems, graphic detail, and the small decisions in between.</h2>
 <div class="about__body">
-<p>I'm Niharika Jain, a UX designer with a graphic design background and a 2026 graduate of SCAD Atlanta. I'm drawn to messy systems, emotional products, physical-digital experiences, and visual details that make complex things easier to understand.</p>
+<p>I&rsquo;m Niharika Jain, a UX designer with a graphic design background and a 2026 graduate of SCAD Atlanta. I&rsquo;m drawn to messy systems, emotional products, physical-digital experiences, and visual details that make complex things easier to understand.</p>
 <p>My work sits between structure and feeling: user flows, service systems, interface design, brand language, and the tiny decisions that make something easier to use, easier to trust, and more memorable.</p>
 </div>
 </div>
-<div class="about__cards reveal">
-<div class="acard"><div class="acard__lbl">Creative Director</div><div class="acard__title">Ginger 🐱</div><div class="acard__body">Orange. Opinionated. Has walked across my keyboard during three final presentations.</div></div>
-<div class="acard"><div class="acard__lbl">Background</div><div class="acard__title">SCAD Atlanta</div><div class="acard__body">UX Design · Graphic Design · Class of 2026</div></div>
-<div class="acard"><div class="acard__lbl">Tools</div><div class="acard__title">What I Work In</div><div class="acard__body">Figma · Miro · React · Illustrator · InDesign · Photoshop</div></div>
-<div class="acard"><div class="acard__lbl">Currently</div><div class="acard__title">Open to Work</div><div class="acard__body">Full-time UX, product, and visual design roles. Atlanta or remote.</div></div>
+<dl class="about__facts reveal">
+<div class="fact"><dt>Education</dt><dd>SCAD Atlanta &mdash; UX &amp; Graphic Design, Class of 2026</dd></div>
+<div class="fact"><dt>Focus</dt><dd>UX &middot; Product &middot; Service Design &middot; Brand &amp; Packaging &middot; Visual</dd></div>
+<div class="fact"><dt>Tools</dt><dd>Figma &middot; Miro &middot; React &middot; Illustrator &middot; InDesign &middot; Photoshop</dd></div>
+<div class="fact"><dt>Currently</dt><dd>Open to full-time and freelance roles &mdash; Atlanta or remote</dd></div>
+<div class="fact"><dt>Off the clock</dt><dd>Indian print culture, sky photography, murder mysteries, and Ginger &mdash; my cat and reliable late-night studio company.</dd></div>
+</dl>
+</div>
+</section>
+
+<!-- NOTES & REFERENCES -->
+<section class="notes" id="play">
+<div class="wrap">
+<div class="s-head reveal">
+<p class="eyebrow">Notes &amp; References</p>
+<h2 class="s-head__h">What I keep collecting.</h2>
+<p class="s-head__p">The visual culture I return to &mdash; filed, photographed, and reused as design fuel.</p>
+</div>
+<div class="notes-grid reveal">
+<div class="note"><div class="note__k">Visual Culture</div><div class="note__t">Indian Print Culture</div><p class="note__p">Calendar art, matchbox labels, stamps, popular print, and packaging typography.</p></div>
+<div class="note"><div class="note__k">Packaging</div><div class="note__t">Packaging I Save</div><p class="note__p">Receipts, product labels, grocery stickers, and food packaging with strong art direction.</p></div>
+<div class="note"><div class="note__k">Color</div><div class="note__t">Sky Archive</div><p class="note__p">Everyday color studies, photographed as palette references &mdash; the sky is free and always different.</p></div>
+<div class="note"><div class="note__k">Systems</div><div class="note__t">Wayfinding Notes</div><p class="note__p">Airports, museums, and cities &mdash; signage that works beautifully or fails spectacularly.</p></div>
+<div class="note"><div class="note__k">Currently</div><div class="note__t">In Rotation</div><p class="note__p">Murder mysteries, early-2000s Bollywood, Indian homegrown brands, and a long list of nail colors.</p></div>
+<div class="note"><div class="note__k">Palette</div><div class="note__t">Color Scraps</div><p class="note__p">Matcha green, rust, cream, marigold, powder blue, soft pink &mdash; collected from everywhere.</p></div>
 </div>
 </div>
 </section>
 
-<!-- PLAY / ARCHIVE -->
-<section class="play" id="play">
-<div class="play__in">
+<!-- BUILT WITH AI -->
+<section class="built" id="ailog">
+<div class="wrap built__in">
 <div class="reveal">
-<div class="tape">play / archive</div>
-<h2 class="play__h">Play / Archive</h2>
-<p class="play__sub">Things I keep noticing, collecting, and turning into design references.</p>
+<p class="eyebrow">Process</p>
+<h2 class="built__h">Designed by me, built with AI.</h2>
+<p class="built__p">This site is a small case study in itself. I directed the design and used AI as a build partner &mdash; it proposed implementations while I made the creative calls, rejected what felt generic, and kept a record of the decisions along the way.</p>
+<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn--ghost">View the build on GitHub ↗</a>
 </div>
-<div class="play-grid reveal">
-<div class="pc"><div class="pc__title">Indian Print Culture</div><div class="pc__body">Calendar art, matchbox labels, stamps, popular print, packaging typography, textile patterns.</div></div>
-<div class="pc"><div class="pc__title">Packaging I Can't Stop Saving</div><div class="pc__body">Receipts, product labels, grocery stickers, Trader Joe's typography, food packaging with strong art direction.</div></div>
-<div class="pc"><div class="pc__title">Sky Archive</div><div class="pc__body">Everyday color studies. Photographed as palette references. Also just because the sky is free and always different.</div></div>
-<div class="pc"><div class="pc__title">Wayfinding Notes</div><div class="pc__body">Airports, museums, cities, and signs that work beautifully or fail spectacularly.</div></div>
-<div class="pc"><div class="pc__title">Currently Exploring</div><div class="pc__body">Murder mysteries, Bollywood from 2002, Indian homegrown brands, nail colors, songs I haven't placed a genre on.</div></div>
-<div class="pc"><div class="pc__title">Color Scraps</div><div class="pc__body">Matcha green, rust orange, cream, marigold, powder blue, soft pink. Collected from everywhere.</div></div>
-</div>
-</div>
-</section>
-
-<!-- AI DIRECTION LOG -->
-<section class="ailog" id="ailog">
-<img class="decor decor--ailog" src="assets/decor/stickers/sticker-work-in-progress.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<div class="ailog__in">
 <div class="reveal">
-<div class="tape">build record</div>
-<h2 class="ailog__h">AI Direction Log</h2>
-<p class="ailog__sub">This portfolio is also a build record — designed by me, coded with AI assistance, and shaped through constant creative direction.</p>
-</div>
-<div class="ailog-grid reveal">
-<div class="alc"><div class="alc__file">direction-log.md</div><div class="alc__title">Direction Log</div><div class="alc__body">Every prompt, push-back, and creative direction call documented.</div></div>
-<div class="alc"><div class="alc__file">resistance.txt</div><div class="alc__title">Record of Resistance</div><div class="alc__body">Every version I rejected and why. The soulless ones. The too-corporate ones.</div></div>
-<div class="alc"><div class="alc__file">architecture.md</div><div class="alc__title">System Architecture</div><div class="alc__body">How the single-file build works, what decisions shaped the code structure.</div></div>
-<div class="alc"><div class="alc__file">notes.md</div><div class="alc__title">Build Notes</div><div class="alc__body">The messy, iterative process of building a portfolio when you're also the client.</div></div>
-</div>
-<div class="reveal" style="margin-top:1.5rem">
-<div class="ailog__stamp"><strong>AI proposes.</strong> I decide.</div>
-</div>
-<div class="reveal" style="margin-top:1rem">
-<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="hero__cta1" style="font-size:var(--fs--1)">View on GitHub →</a>
+<p class="built__quote">&ldquo;AI proposes.<br>I decide.&rdquo;</p>
+<ul class="built__list">
+<li>Direction log &mdash; prompts and creative calls</li>
+<li>Record of resistance &mdash; versions I rejected, and why</li>
+<li>System notes &mdash; how the single-file build holds together</li>
+</ul>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-<img class="decor decor--contact" src="assets/decor/stickers/sticker-sparkle.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
-<div class="contact__in">
-<div class="reveal">
-<div class="tape">say hello</div>
-<h2 class="contact__h">Let's make something<br><em>worth noticing.</em></h2>
-<p class="contact__body">I'm open to full-time UX, product, and visual design roles, along with collaborations where systems, stories, and details matter.</p>
+<div class="wrap reveal">
+<p class="eyebrow">Contact</p>
+<h2 class="contact__h">Let&rsquo;s make something <em>worth noticing.</em></h2>
+<p class="contact__p">I&rsquo;m open to full-time UX, product, and visual design roles, along with collaborations where systems, stories, and details matter.</p>
 <div class="contact__links">
-<a href="mailto:niharikajain.1209@gmail.com">Email ↗</a>
-<a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn ↗</a>
-<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
-<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+<a href="mailto:niharikajain.1209@gmail.com" class="btn btn--solid">Email me</a>
+<a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn ↗</a>
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="btn btn--ghost">Résumé ↗</a>
+<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
 </div>
-<p class="contact__note">Thanks for visiting my little corner of the internet.</p>
-</div>
-<div class="reveal">
-<div class="contact__sticky">p.s. Ginger approves thoughtful emails.</div>
-</div>
+<p class="contact__avail">Based in Atlanta &middot; Available June 2026</p>
 </div>
 </section>
-
 </div><!-- /home-view -->
 
 <div id="project-view"></div>
 
 <footer class="footer">
 <div class="footer__in">
-<p class="footer__sig">Made in Atlanta — Powered by <em>Ginger</em></p>
+<p class="footer__sig">Niharika Jain &mdash; UX &amp; Graphic Designer</p>
 <nav class="footer__nav">
 <a href="#/" class="footer__a" id="footer-home">Home</a>
 <a href="#work" class="footer__a">Work</a>
 <a href="#about" class="footer__a">About</a>
-<a href="#play" class="footer__a">Play</a>
+<a href="#play" class="footer__a">Notes</a>
 <a href="#contact" class="footer__a">Contact</a>
 </nav>
+<p class="footer__meta">Designed &amp; built in Atlanta &middot; 2026</p>
 </div>
 </footer>
 
@@ -854,7 +743,7 @@ return `<div class="pv">
 <div class="pv__back wrap"><button class="pv__back-btn">← Back to Selected Work</button></div>
 <div class="cs wrap">
 <div class="cs__hdr reveal">
-<div class="cs__file">case file ${d.fileNum}</div>
+<div class="cs__file">${d.cat} · No. ${d.fileNum}</div>
 <h1 class="cs__h1">${d.title}</h1>
 <p class="cs__sub">${d.subtitle}</p>
 <div class="cs__meta">${meta}</div>
