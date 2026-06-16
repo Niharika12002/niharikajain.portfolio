@@ -23,7 +23,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-body{font-family:var(--ff-b);background:var(--cream);color:var(--esp);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--ff-b);background-color:var(--cream);background-image:linear-gradient(rgba(43,26,18,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(43,26,18,.022) 1px,transparent 1px);background-size:26px 26px;background-position:-1px -1px;color:var(--esp);line-height:1.6;font-size:var(--fs-0);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul,ol{list-style:none}
 button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
@@ -79,7 +80,8 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 
 /* HERO */
 .hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:7rem var(--gut) clamp(3.5rem,7vw,5.5rem)}
-.hero__in{max-width:var(--maxw);margin:0 auto;width:100%}
+.hero__in{max-width:var(--maxw);margin:0 auto;width:100%;display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero__lead{min-width:0}
 .hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:600;line-height:1.04;letter-spacing:-.03em;max-width:18ch;margin-bottom:1.5rem;text-wrap:balance}
 .hero__h1 em{font-style:italic;font-weight:400;color:var(--olive)}
 .hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.6;max-width:540px;margin-bottom:2.1rem;text-wrap:pretty}
@@ -92,7 +94,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.4rem)}
 .pcard{--accent:var(--olive);background:var(--card);border:1px solid var(--cream3);border-top:3px solid var(--accent);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
 .pcard:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(43,26,18,.1)}
-.pcard__media{aspect-ratio:16/10;overflow:hidden;background:var(--cream2);border-bottom:1px solid var(--cream3)}
+.pcard__media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--cream2);border-bottom:1px solid var(--cream3)}
 .pcard__media img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
 .pcard:hover .pcard__media img{transform:scale(1.045)}
 .pcard__cover{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--cream2);background:color-mix(in srgb,var(--accent) 12%,#fff);font-family:var(--ff-d);font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:var(--accent);letter-spacing:-.01em}
@@ -142,7 +144,11 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 /* NOTES */
 .notes{padding:var(--sec) 0;border-top:1px solid var(--cream3)}
 .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.2rem)}
-.note{--accent:var(--rust)}
+.note{--accent:var(--rust);position:relative;background:var(--card);border:1px solid var(--cream3);border-radius:10px;padding:1.5rem 1.3rem 1.3rem;transition:transform .25s ease,box-shadow .25s ease}
+.note:nth-child(odd){transform:rotate(-.5deg)}
+.note:nth-child(even){transform:rotate(.5deg)}
+.note:hover{transform:rotate(0) translateY(-3px);box-shadow:0 8px 22px rgba(43,26,18,.08)}
+.note__pin{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:13px;height:13px;border-radius:50%;background:var(--accent);border:2px solid var(--card);box-shadow:0 1px 2px rgba(43,26,18,.2)}
 .note__k{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
 .note__k::before{content:'';width:18px;height:2px;background:var(--accent)}
 .note__t{font-family:var(--ff-d);font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
@@ -237,6 +243,40 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 .hero{min-height:auto;padding-top:5.5rem}
 .hero__ctas .btn,.contact__links .btn{width:100%}
 }
+
+/* ---- creative-desktop artifact layer ---- */
+.hero__index{position:relative;background:var(--card);border:1px solid var(--cream3);border-radius:12px;padding:1.5rem 1.4rem 1.2rem}
+.hero__index::before{content:'INDEX';position:absolute;top:-.7rem;left:1.2rem;background:var(--esp);color:var(--cream);font-size:.58rem;font-weight:700;letter-spacing:.18em;padding:.22rem .55rem;border-radius:3px}
+.hero__index-h{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--esp4);margin-bottom:.7rem}
+.hidx{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-top:1px solid var(--cream3);cursor:pointer;transition:color .15s}
+.hidx:first-of-type{border-top:none}
+.hidx__no{font-family:var(--ff-d);font-style:italic;font-size:.85rem;color:var(--esp4);width:1.5rem;flex:none}
+.hidx__dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.hidx__name{font-size:.86rem;font-weight:600;color:var(--esp2)}
+.hidx:hover .hidx__name{color:var(--esp)}
+.hidx--pili{--accent:var(--olive)}.hidx--bio{--accent:var(--cobalt)}.hidx--fifa{--accent:var(--forest)}.hidx--wisdom{--accent:var(--rust)}
+.hero__index-foot{margin-top:.75rem;padding-top:.7rem;border-top:1px solid var(--cream3);font-size:.7rem;color:var(--esp4)}
+
+.pcard__tab{position:absolute;top:.8rem;left:.8rem;z-index:3;display:inline-flex;align-items:center;background:rgba(250,247,241,.94);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);border:1px solid var(--cream3);border-left:3px solid var(--accent);color:var(--esp2);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.32rem .55rem;border-radius:4px}
+.pcard__status{position:absolute;bottom:.75rem;left:.75rem;z-index:2;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);background:rgba(250,247,241,.92);border:1px solid var(--cream3);border-radius:999px;padding:.26rem .6rem}
+.pcard__route{position:absolute;bottom:.7rem;left:.7rem;z-index:2;width:76px;height:36px;color:var(--forest);background:rgba(250,247,241,.92);border:1px solid var(--cream3);border-radius:7px;padding:5px}
+.pcard__route circle{fill:currentColor}
+.pcard--bio .pcard__media::before,.pcard--bio .pcard__media::after{content:'';position:absolute;width:13px;height:13px;border:1.5px solid rgba(26,74,130,.55);z-index:2;pointer-events:none}
+.pcard--bio .pcard__media::before{top:.8rem;right:.8rem;border-left:none;border-bottom:none}
+.pcard--bio .pcard__media::after{bottom:.8rem;right:.8rem;border-left:none;border-top:none}
+.pcard__cover--lookbook{background:var(--cream2);background:color-mix(in srgb,var(--rust) 9%,#fff)}
+.pcard__cover-frame{position:relative;display:flex;flex-direction:column;align-items:center;gap:.35rem;border:1px solid var(--rust);border-radius:6px;padding:1.1rem 1.7rem;color:var(--rust)}
+.pcard__cover-frame::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;border:1.5px solid var(--rust);background:#FCEEE7}
+.pcard__cover-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.pcard__cover-word{font-family:var(--ff-d);font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:600}
+.pcard__cover-sub{font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+.mcard--naagin{clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%)}
+.mcard--naagin .mcard__no{display:inline-block;background:var(--tomato);color:#fff;font-style:normal;font-size:.72rem;padding:.06rem .42rem;border-radius:3px}
+.mcard--kuai{position:relative;padding-top:1.95rem}
+.mcard--kuai::before{content:'AI';position:absolute;top:0;left:1.4rem;background:var(--powder);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.14em;padding:.2rem .5rem;border-radius:0 0 5px 5px}
+
+@media(max-width:860px){.hero__in{grid-template-columns:1fr}.hero__index{display:none}}
 </style>
 </head>
 <body>
@@ -248,7 +288,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <ul class="nav__links">
 <li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
 <li><a href="#about" class="nav__a" id="nav-about">About</a></li>
-<li><a href="#play" class="nav__a" id="nav-play">Notes</a></li>
+<li><a href="#ailog" class="nav__a" id="nav-build">Behind the Build</a></li>
 <li><a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a" id="nav-resume">Résumé</a></li>
 <li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
 </ul>
@@ -257,7 +297,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <div class="nav__mob" id="navMob">
 <a href="#work" class="nav__a">Work</a>
 <a href="#about" class="nav__a">About</a>
-<a href="#play" class="nav__a">Notes</a>
+<a href="#ailog" class="nav__a">Behind the Build</a>
 <a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a">Résumé</a>
 <a href="#contact" class="nav__a">Contact</a>
 </div>
@@ -267,7 +307,8 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <div id="home-view">
 <!-- HERO -->
 <section class="hero" id="top">
-<div class="hero__in reveal">
+<div class="hero__in">
+<div class="hero__lead reveal">
 <p class="eyebrow">Niharika Jain &mdash; UX &amp; Graphic Designer</p>
 <h1 class="hero__h1">I turn messy systems into <em>calm, playful</em> experiences.</h1>
 <p class="hero__sub">I design digital products, physical-digital systems, and visual stories that make complex things easier to use and easier to understand.</p>
@@ -282,6 +323,14 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <li>Atlanta / Remote</li>
 </ul>
 </div>
+<aside class="hero__index reveal" aria-label="Selected work index">
+<p class="hero__index-h">Selected files</p>
+<div class="hidx hidx--pili" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study"><span class="hidx__no">01</span><span class="hidx__dot"></span><span class="hidx__name">Pili</span></div>
+<div class="hidx hidx--bio" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study"><span class="hidx__no">02</span><span class="hidx__dot"></span><span class="hidx__name">BioSpherix Planner</span></div>
+<div class="hidx hidx--fifa" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study"><span class="hidx__no">03</span><span class="hidx__dot"></span><span class="hidx__name">FIFA World Cup 2026</span></div>
+<div class="hidx hidx--wisdom" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study"><span class="hidx__no">04</span><span class="hidx__dot"></span><span class="hidx__name">Wisdom ATL Eyewear</span></div>
+<p class="hero__index-foot">+ 4 more in Selected Work</p>
+</aside>
 </section>
 
 <!-- SELECTED WORK -->
@@ -295,7 +344,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <div class="work-grid">
 
 <article class="pcard pcard--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-<div class="pcard__media"><img src="pili/pili-three-sided-system.jpg" alt="Pili three-sided care system overview" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>Pili</span></div>'"></div>
+<div class="pcard__media"><span class="pcard__tab">Care System</span><img src="pili/pili-three-sided-system.jpg" alt="Pili three-sided care system overview" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>Pili</span></div>'"><span class="pcard__status" aria-hidden="true">● Ambient</span></div>
 <div class="pcard__body">
 <div class="pcard__meta"><span class="pcard__no">01</span>Senior Capstone &middot; 2026</div>
 <h3 class="pcard__title">Pili</h3>
@@ -306,7 +355,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 </article>
 
 <article class="pcard pcard--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-<div class="pcard__media"><img src="biospherix/biospherix-cover.png" alt="BioSpherix Layout Planner interface" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>BioSpherix</span></div>'"></div>
+<div class="pcard__media"><span class="pcard__tab">Layout Plan</span><img src="biospherix/biospherix-cover.png" alt="BioSpherix Layout Planner interface" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>BioSpherix</span></div>'"></div>
 <div class="pcard__body">
 <div class="pcard__meta"><span class="pcard__no">02</span>Product / Web App &middot; 2026</div>
 <h3 class="pcard__title">BioSpherix Layout Planner</h3>
@@ -317,7 +366,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 </article>
 
 <article class="pcard pcard--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-<div class="pcard__media"><img src="fifa/fifa-app-screens.png" alt="FIFA World Cup 2026 Atlanta fan experience app screens" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>FIFA 2026</span></div>'"></div>
+<div class="pcard__media"><span class="pcard__tab">Journey Board</span><img src="fifa/fifa-app-screens.png" alt="FIFA World Cup 2026 Atlanta fan experience app screens" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;pcard__cover&quot;><span>FIFA 2026</span></div>'"><svg class="pcard__route" viewBox="0 0 80 40" aria-hidden="true"><path d="M8 30 L30 14 L52 27 L72 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="8" cy="30" r="2.6"/><circle cx="52" cy="27" r="2.6"/><circle cx="72" cy="10" r="2.6"/></svg></div>
 <div class="pcard__body">
 <div class="pcard__meta"><span class="pcard__no">03</span>SCADpro &middot; 2026</div>
 <h3 class="pcard__title">FIFA World Cup 2026 Atlanta</h3>
@@ -328,7 +377,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 </article>
 
 <article class="pcard pcard--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL Eyewear case study">
-<div class="pcard__media"><div class="pcard__cover"><span>Wisdom ATL</span></div></div>
+<div class="pcard__media"><span class="pcard__tab">Lookbook</span><div class="pcard__cover pcard__cover--lookbook"><span class="pcard__cover-frame"><span class="pcard__cover-eyebrow">Lookbook</span><span class="pcard__cover-word">Wisdom ATL</span><span class="pcard__cover-sub">Eyewear · Made in Atlanta</span></span></div></div>
 <div class="pcard__body">
 <div class="pcard__meta"><span class="pcard__no">04</span>Collaboration &middot; 2026</div>
 <h3 class="pcard__title">Wisdom ATL Eyewear</h3>
@@ -417,12 +466,12 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <p class="s-head__p">The visual culture I return to &mdash; filed, photographed, and reused as design fuel.</p>
 </div>
 <div class="notes-grid reveal">
-<div class="note"><div class="note__k">Visual Culture</div><div class="note__t">Indian Print Culture</div><p class="note__p">Calendar art, matchbox labels, stamps, popular print, and packaging typography.</p></div>
-<div class="note"><div class="note__k">Packaging</div><div class="note__t">Packaging I Save</div><p class="note__p">Receipts, product labels, grocery stickers, and food packaging with strong art direction.</p></div>
-<div class="note"><div class="note__k">Color</div><div class="note__t">Sky Archive</div><p class="note__p">Everyday color studies, photographed as palette references &mdash; the sky is free and always different.</p></div>
-<div class="note"><div class="note__k">Systems</div><div class="note__t">Wayfinding Notes</div><p class="note__p">Airports, museums, and cities &mdash; signage that works beautifully or fails spectacularly.</p></div>
-<div class="note"><div class="note__k">Currently</div><div class="note__t">In Rotation</div><p class="note__p">Murder mysteries, early-2000s Bollywood, Indian homegrown brands, and a long list of nail colors.</p></div>
-<div class="note"><div class="note__k">Palette</div><div class="note__t">Color Scraps</div><p class="note__p">Matcha green, rust, cream, marigold, powder blue, soft pink &mdash; collected from everywhere.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Visual Culture</div><div class="note__t">Indian Print Culture</div><p class="note__p">Calendar art, matchbox labels, stamps, popular print, and packaging typography.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Packaging</div><div class="note__t">Packaging I Save</div><p class="note__p">Receipts, product labels, grocery stickers, and food packaging with strong art direction.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Color</div><div class="note__t">Sky Archive</div><p class="note__p">Everyday color studies, photographed as palette references &mdash; the sky is free and always different.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Systems</div><div class="note__t">Wayfinding Notes</div><p class="note__p">Airports, museums, and cities &mdash; signage that works beautifully or fails spectacularly.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Currently</div><div class="note__t">In Rotation</div><p class="note__p">Murder mysteries, early-2000s Bollywood, Indian homegrown brands, and a long list of nail colors.</p></div>
+<div class="note"><span class="note__pin"></span><div class="note__k">Palette</div><div class="note__t">Color Scraps</div><p class="note__p">Matcha green, rust, cream, marigold, powder blue, soft pink &mdash; collected from everywhere.</p></div>
 </div>
 </div>
 </section>
@@ -432,7 +481,7 @@ button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 <div class="wrap built__in">
 <div class="reveal">
 <p class="eyebrow">Process</p>
-<h2 class="built__h">Designed by me, built with AI.</h2>
+<h2 class="built__h">Behind the Build.</h2>
 <p class="built__p">This site is a small case study in itself. I directed the design and used AI as a build partner &mdash; it proposed implementations while I made the creative calls, rejected what felt generic, and kept a record of the decisions along the way.</p>
 <a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="btn btn--ghost">View the build on GitHub ↗</a>
 </div>
@@ -715,7 +764,7 @@ const d=PROJECTS[slug];if(!d){showHome();return}
 homeView.style.display='none';projectView.classList.add('active');
 projectView.innerHTML=buildProject(d);
 window.scrollTo({top:0,behavior:'auto'});
-const b=projectView.querySelector('.pv__back-btn');if(b)b.addEventListener('click',()=>navigate('/'));
+const b=projectView.querySelector('.pv__back-btn');if(b)b.addEventListener('click',()=>navigate('work'));
 setTimeout(initReveal,50);
 }
 function navigate(p){window.location.hash=p==='/'?'/':'/'+p.replace(/^#?\/?/,'');route()}
@@ -751,7 +800,7 @@ return `<div class="pv">
 <div style="margin-bottom:2.5rem" class="reveal">${d.hero}</div>
 ${d.body}
 <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)" class="reveal">
-<button class="pv__back-btn" onclick="navigate('/')">← Back to Selected Work</button>
+<button class="pv__back-btn" onclick="navigate('work')">← Back to Selected Work</button>
 </div>
 </div></div>`}
 
