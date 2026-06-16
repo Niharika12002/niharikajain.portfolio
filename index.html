@@ -27,7 +27,7 @@
 --fs--1:clamp(.75rem,.68rem+.3vw,.875rem);--fs-0:clamp(.875rem,.82rem+.3vw,1rem);
 --fs-1:clamp(1.05rem,.95rem+.5vw,1.25rem);--fs-2:clamp(1.25rem,1.05rem+1vw,1.75rem);
 --fs-3:clamp(1.6rem,1.3rem+1.5vw,2.4rem);--fs-4:clamp(2rem,1.5rem+2.5vw,3.5rem);
---fs-5:clamp(2.6rem,1.6rem+5vw,5.5rem);
+--fs-5:clamp(2.5rem,1.55rem+4.6vw,5rem);
 --gut:clamp(1.25rem,5vw,2.75rem);--sec:clamp(3.5rem,8vw,7rem);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -38,6 +38,9 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul,ol{list
 button{cursor:pointer;font-family:var(--ff-b);border:none;background:none}
 .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
 
+/* focus-visible */
+a:focus-visible,button:focus-visible,.sc:focus-visible,.mc:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:6px}
+
 /* paper texture */
 .paper{position:relative}
 .paper::before{content:'';position:absolute;inset:0;opacity:.35;pointer-events:none;
@@ -45,9 +48,6 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 
 /* tape label */
 .tape{display:inline-block;font-family:var(--ff-h);font-size:.82rem;color:var(--esp3);background:var(--marigold-l);padding:.12rem .6rem;border-radius:2px;transform:rotate(-1.5deg);border:1px solid rgba(212,150,12,.15)}
-
-/* stamp label */
-.stamp{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--rust);border-radius:3px;padding:.2rem .5rem;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);transform:rotate(-4deg);opacity:.6}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
@@ -59,9 +59,24 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 #project-view.active{display:block}
 
 /* placeholder */
-.ph{width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:8px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--esp4);font-size:var(--fs--1);font-weight:500;letter-spacing:.03em}
+.ph{width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:8px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--esp4);font-size:var(--fs--1);font-weight:500;letter-spacing:.03em;text-align:center;padding:1rem;word-break:break-word}
 .ph--tall{min-height:360px}
 .ph--hero{min-height:440px}
+.ph--contain{min-height:240px}
+.ph--thumb{min-height:220px}
+.ph--default{min-height:220px}
+
+/* case images */
+.case-img{width:100%;border-radius:8px;border:1px solid var(--cream3);background:var(--cream2);object-fit:cover;display:block}
+.case-img--hero{width:100%;max-height:520px;border-radius:12px;object-fit:cover}
+.case-img--tall{height:100%;aspect-ratio:4/5}
+.case-img--contain{object-fit:contain;background:var(--cream2);aspect-ratio:4/3;padding:12px}
+.case-img--thumb{aspect-ratio:4/3}
+.dec__media .case-img{aspect-ratio:4/3}
+
+/* decorative accents */
+.decor{position:absolute;pointer-events:none;z-index:0}
+@media(max-width:760px){.decor{display:none}}
 
 /* ━━━ NAV ━━━ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .25s,box-shadow .25s}
@@ -81,225 +96,87 @@ background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='
 .nav__mob .nav__a{padding:.5rem .4rem;font-size:var(--fs-0)}
 @media(max-width:740px){.nav__links{display:none}.nav__tog{display:flex}}
 
-
 /* ━━━ HERO ━━━ */
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:4rem;position:relative;overflow:hidden}
-.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:clamp(4rem,10vw,7rem) var(--gut) clamp(5rem,12vw,8rem)}
+.hero{min-height:92vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden}
+.hero__in{position:relative;max-width:1200px;margin:0 auto;width:100%;padding:clamp(3rem,8vw,6rem) var(--gut) clamp(4rem,9vw,6rem);display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,5vw,4rem);align-items:center;z-index:2}
+@media(max-width:900px){.hero__in{grid-template-columns:1fr;gap:2rem}}
 .hero__content{max-width:600px;position:relative;z-index:2}
 .hero__hi{font-family:var(--ff-h);font-size:clamp(1.1rem,1rem+.4vw,1.3rem);color:var(--esp3);margin-bottom:.5rem}
-.hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero__h1{font-family:var(--ff-d);font-size:var(--fs-5);font-weight:700;line-height:1.06;letter-spacing:-.03em;margin-bottom:1.4rem;text-wrap:balance}
 .hero__h1 .hl-olive{color:var(--olive);font-style:italic;font-weight:400}
 .hero__h1 .hl-rust{color:var(--rust);font-style:italic;font-weight:400}
-.hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:480px;margin-bottom:2rem}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;font-size:var(--fs--1);font-weight:600;background:var(--olive);color:#fff;border-radius:6px;border:none;transition:all .15s;letter-spacing:.02em}
+.hero__sub{font-size:var(--fs-1);color:var(--esp2);line-height:1.65;max-width:500px;margin-bottom:2rem;text-wrap:pretty}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.85rem 1.1rem;align-items:center}
+.hero__cta1{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.5rem;font-size:var(--fs--1);font-weight:600;background:var(--olive);color:#fff;border-radius:6px;border:none;transition:all .15s;letter-spacing:.02em}
 .hero__cta1:hover{background:#5A6B32;transform:translateY(-2px);box-shadow:var(--sh-md)}
 .hero__cta2{font-size:var(--fs--1);font-weight:500;color:var(--esp3);border-bottom:1px solid var(--esp5);padding-bottom:1px;transition:color .15s}
 .hero__cta2:hover{color:var(--esp);border-color:var(--esp3)}
-.hero__annot{font-family:var(--ff-h);font-size:.95rem;color:var(--rust);margin-top:1.2rem;display:flex;align-items:center;gap:.4rem}
+.hero__annot{font-family:var(--ff-h);font-size:.95rem;color:var(--rust);margin-top:1.3rem;display:flex;align-items:center;gap:.4rem}
 .hero__annot svg{width:30px;height:20px;stroke:var(--forest);fill:none;stroke-width:1.5;flex-shrink:0}
-
-/* hero artifacts — richer, more specific */
-.hero__art{position:absolute;inset:0;pointer-events:none;z-index:1}
-.hart{position:absolute}
-
-/* envelope with tape */
-.hart--env{top:6%;left:3%;width:180px;transform:rotate(-2deg)}
-.hart--env-body{width:100%;height:90px;background:linear-gradient(160deg,#C8B898,#D4C4A8);border-radius:2px;position:relative;box-shadow:var(--sh-sm)}
-.hart--env-flap{width:100%;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-top:50px solid #BCA888;position:absolute;top:0;left:0}
-.hart--env-tape{position:absolute;top:-8px;left:20px;background:rgba(240,230,200,.85);border:1px solid rgba(200,180,140,.3);padding:.15rem .5rem;font-family:var(--ff-h);font-size:.72rem;color:var(--esp2);transform:rotate(-1deg);border-radius:2px}
-.hart--env-cards{position:absolute;top:-15px;left:15px;right:15px;height:30px}
-.hart--env-card{position:absolute;background:var(--cream);border:1px solid var(--cream3);border-radius:2px;width:70px;height:35px;font-size:.45rem;color:var(--esp4);display:flex;align-items:flex-end;padding:3px 4px;font-weight:600;letter-spacing:.05em}
-.hart--env-card:nth-child(1){left:0;top:0;transform:rotate(-2deg)}
-.hart--env-card:nth-child(2){left:35px;top:-5px;transform:rotate(1deg)}
-.hart--env-card:nth-child(3){left:70px;top:-2px;transform:rotate(-1deg)}
-
-/* irani cafe receipt */
-.hart--receipt{bottom:8%;left:4%;width:165px;background:var(--cream);border:1px solid var(--cream3);padding:0;transform:rotate(2deg);box-shadow:var(--sh-sm);overflow:hidden;font-family:var(--ff-b)}
-.hart--receipt-top{background:var(--cream);padding:.6rem .7rem .4rem;border-bottom:1px dashed var(--cream4)}
-.hart--receipt-top .r-title{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--esp);margin-bottom:.1rem}
-.hart--receipt-top .r-loc{font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-align:center;color:var(--esp3)}
-.hart--receipt-body{padding:.4rem .7rem}
-.hart--receipt-body .r-line{display:flex;justify-content:space-between;font-size:.55rem;color:var(--esp2);line-height:1.8}
-.hart--receipt-body .r-dash{border-bottom:1px dashed var(--cream4);margin:.15rem 0}
-.hart--receipt-foot{padding:.3rem .7rem .5rem;border-top:1px dashed var(--cream4);text-align:center}
-.hart--receipt-foot .r-thanks{font-size:.55rem;font-weight:600;color:var(--esp2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.1rem}
-.hart--receipt-foot .r-hindi{font-size:.6rem;color:var(--esp3)}
-.hart--receipt-foot .r-date{font-size:.48rem;color:var(--esp4);margin-top:.2rem;letter-spacing:.04em}
-/* zigzag bottom edge */
-.hart--receipt::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;
-background:repeating-linear-gradient(90deg,var(--cream) 0,var(--cream) 4px,transparent 4px,transparent 8px);
-}
-
-/* Indian postal stamp */
-.hart--stamp{top:8%;right:28%;width:72px;height:82px;border:2px solid #8B4513;padding:3px;transform:rotate(-5deg);background:var(--cream)}
-.hart--stamp-inner{width:100%;height:100%;border:1px solid #8B4513;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.2rem;gap:.1rem;background:linear-gradient(180deg,#F8F4EC,#F0E8D8)}
-.hart--stamp-hindi{font-size:.5rem;color:#8B4513;font-weight:700;letter-spacing:.05em}
-.hart--stamp-eng{font-size:.4rem;color:#8B4513;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.hart--stamp-val{position:absolute;top:5px;right:8px;font-size:.55rem;font-weight:800;color:#8B4513}
-.hart--stamp-flower{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle,#C85C3A 20%,#D4885C 40%,transparent 42%),conic-gradient(from 0deg,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A,#3A7A3A,#6B9E4A);border:1px solid rgba(139,69,19,.3);margin:.1rem 0}
-/* perforated edge */
-.hart--stamp::before{content:'';position:absolute;inset:-6px;border:3px dotted rgba(139,69,19,.2);border-radius:2px;pointer-events:none}
-
-/* photo frame */
-.hart--photo{top:12%;right:4%;width:170px;height:200px;background:var(--cream);border:1px solid var(--cream3);border-radius:4px;box-shadow:var(--sh-md);padding:8px 8px 28px;transform:rotate(2.5deg)}
-.hart--photo-img{width:100%;height:100%;background:linear-gradient(140deg,#4A5838 0%,#5A6848 30%,#6A7858 60%,#8A9478 100%);border-radius:2px;position:relative;overflow:hidden}
-.hart--photo-img::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(200,160,80,.2),transparent 40%,rgba(0,0,0,.1))}
-.hart--photo-lbl{position:absolute;bottom:6px;right:10px;font-family:var(--ff-h);font-size:.55rem;color:var(--esp4)}
-
-/* matchbox */
-.hart--matchbox{bottom:10%;right:6%;width:130px;height:85px;background:linear-gradient(140deg,#D4C4A0,#C8B890);border:2px solid #A89870;border-radius:4px;transform:rotate(3deg);box-shadow:var(--sh-md);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem}
-.hart--matchbox-title{font-size:.5rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8B3A1A;text-align:center;margin-bottom:.15rem}
-.hart--matchbox-brand{font-size:.85rem;font-weight:800;color:#8B3A1A;font-family:var(--ff-d);text-align:center;line-height:1}
-.hart--matchbox-hindi{font-size:.7rem;color:#8B3A1A;font-weight:700;text-align:center}
-.hart--matchbox-reg{font-size:.35rem;color:#8B3A1A;letter-spacing:.06em;text-align:center;margin-top:.15rem}
-.hart--matchbox-border{position:absolute;inset:4px;border:1.5px solid rgba(139,58,26,.3);border-radius:2px;pointer-events:none}
-
-/* handwritten annotation */
-.hart--annot{display:none}
-
-/* textile strip at bottom */
-.hero__textile{position:absolute;bottom:0;left:0;right:0;height:48px;z-index:3;overflow:hidden;opacity:.7}
-.hero__textile-inner{width:100%;height:100%;background:
-  repeating-linear-gradient(90deg,#C8A060 0,#C8A060 2px,transparent 2px,transparent 12px),
-  repeating-linear-gradient(0deg,rgba(60,80,40,.15) 0,rgba(60,80,40,.15) 1px,transparent 1px,transparent 6px),
-  linear-gradient(0deg,#E8D8C0,#DDD0B8);
-background-size:12px 100%,100% 6px,100% 100%;
-border-top:1px solid var(--cream4)}
-
-@media(max-width:900px){.hero__art{display:none}.hero__textile{display:none}.hero__annot{display:none}}
+/* hero visual cluster */
+.hero__visual{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center}
+@media(max-width:900px){.hero__visual{display:none}}
+.hero__folder{width:100%;max-width:430px;margin:0 auto;display:block;filter:drop-shadow(0 14px 30px rgba(44,24,16,.14))}
+.hero__accent{position:absolute}
+.hero__accent--ginger{width:88px;top:2%;right:4%;transform:rotate(7deg)}
+.hero__accent--file{width:118px;bottom:0;left:0;transform:rotate(-5deg)}
+.hero__accent--tape{width:150px;top:-2%;left:16%;transform:rotate(-4deg)}
 
 /* ━━━ SELECTED WORK ━━━ */
-.sw{padding:var(--sec) 0}
-.sw__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
-.sw__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
-.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:400px;margin-bottom:3rem}
+.sw{padding:var(--sec) 0;position:relative}
+.sw__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.decor--sw{top:clamp(2.5rem,6vw,4.5rem);right:1.2rem;width:118px;transform:rotate(3deg)}
+.sw__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;margin-top:.5rem}
+.sw__sub{font-size:var(--fs-0);color:var(--esp3);max-width:420px;margin-bottom:3rem}
 
 .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
 @media(max-width:800px){.sw-grid{grid-template-columns:1fr}}
 
 /* card base — side-by-side layout */
-.sc{border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:grid;grid-template-columns:.48fr .52fr;position:relative;min-height:320px}
+.sc{border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:grid;grid-template-columns:.5fr .5fr;position:relative;min-height:320px;background:var(--cream);border:1.5px solid var(--cream3)}
 .sc:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(44,24,16,.12);z-index:2}
-@media(max-width:550px){.sc{grid-template-columns:1fr;min-height:auto}.sc__vis{min-height:260px}}
+@media(max-width:550px){.sc{grid-template-columns:1fr;min-height:auto}.sc__vis{min-height:240px}}
 .sc__vis{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:1.2rem}
-.sc__info{padding:1.3rem 1.4rem;display:flex;flex-direction:column;justify-content:center}
+.sc__vis--img{padding:0;min-height:300px;background:var(--cream2)}
+.sc__thumb{width:100%;height:100%;object-fit:cover;display:block}
+.sc__tab{position:absolute;top:.85rem;left:.85rem;z-index:2;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:.28rem .6rem;border-radius:5px;box-shadow:var(--sh-xs)}
+.sc--pili .sc__tab{background:var(--olive)}
+.sc--bio .sc__tab{background:var(--cobalt)}
+.sc--fifa .sc__tab{background:var(--forest)}
+.sc--wisdom .sc__tab{background:var(--rust)}
+.sc__info{padding:1.4rem 1.5rem;display:flex;flex-direction:column;justify-content:center}
 .sc__yr{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
 .sc__name{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;letter-spacing:-.015em;margin-bottom:.4rem;line-height:1.1}
 .sc__desc{font-size:var(--fs--1);color:var(--esp3);line-height:1.55;margin-bottom:.75rem}
 .sc__skills{font-size:10px;color:var(--esp4);letter-spacing:.03em;line-height:1.7;margin-bottom:.85rem}
 .sc__cta{font-size:var(--fs--1);font-weight:600;color:var(--esp2);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s,color .15s}
 .sc:hover .sc__cta{gap:.5rem;color:var(--esp)}
+.sc--pili .sc__name,.sc--pili .sc__yr,.sc--pili .sc__cta{color:var(--olive)}
+.sc--bio .sc__name,.sc--bio .sc__yr,.sc--bio .sc__cta{color:var(--cobalt)}
+.sc--fifa .sc__name,.sc--fifa .sc__yr,.sc--fifa .sc__cta{color:var(--forest)}
+.sc--wisdom .sc__name,.sc--wisdom .sc__yr,.sc--wisdom .sc__cta{color:var(--rust)}
 
-/* ── Pili — care guide card ── */
-.sc--pili{background:var(--cream);border:1.5px solid var(--cream3)}
-.sc--pili .sc__vis{background:linear-gradient(155deg,#E8ECDC,#F0F4E8,#E4EAD4)}
-.sc--pili .sc__name{color:var(--olive)}
-.sc--pili .sc__yr{color:var(--olive)}
-.sc--pili .sc__cta{color:var(--olive)}
-/* care guide internal layout */
-.pili-guide{width:100%;height:100%;display:flex;flex-direction:column;gap:.5rem;font-family:var(--ff-b)}
-.pili-guide__hdr{display:flex;justify-content:space-between;align-items:flex-start}
-.pili-guide__logo{font-family:var(--ff-d);font-size:1.1rem;font-weight:700;color:var(--olive);line-height:1}
-.pili-guide__sub{font-size:.5rem;color:var(--olive);font-weight:500;letter-spacing:.06em}
-/* device placeholder */
-.pili-guide__device{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:100px}
-.pili-device{width:72px;height:72px;border-radius:50%;background:linear-gradient(140deg,var(--matcha),var(--olive));box-shadow:inset 0 -3px 8px rgba(0,0,0,.15),var(--sh-sm);position:relative}
-.pili-device::after{content:'';position:absolute;top:12px;left:12px;right:12px;bottom:12px;border-radius:50%;background:repeating-conic-gradient(rgba(255,255,255,.1) 0 9deg,transparent 9deg 18deg)}
-/* annotation lines */
-.pili-annot{position:absolute;font-size:.45rem;color:var(--esp3);letter-spacing:.03em;white-space:nowrap}
-.pili-annot::before{content:'';position:absolute;background:var(--esp4);height:1px}
-.pili-annot--1{top:15%;right:0}.pili-annot--1::before{width:20px;right:100%;top:50%;margin-right:3px}
-.pili-annot--2{bottom:25%;right:0}.pili-annot--2::before{width:15px;right:100%;top:50%;margin-right:3px}
-.pili-annot--3{bottom:10%;left:0}.pili-annot--3::before{width:18px;left:100%;top:50%;margin-left:3px}
-/* getting started bar */
-.pili-guide__bar{background:var(--cream);border-radius:6px;padding:.35rem .5rem}
-.pili-guide__bar-title{font-size:.45rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--esp2);margin-bottom:.25rem}
-.pili-guide__icons{display:flex;gap:.4rem;justify-content:center}
-.pili-guide__icon{display:flex;flex-direction:column;align-items:center;gap:.15rem}
-.pili-guide__icon-circle{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cream3);display:flex;align-items:center;justify-content:center}
-.pili-guide__icon-circle svg{width:10px;height:10px;stroke:var(--esp3);fill:none;stroke-width:2}
-.pili-guide__icon span{font-size:.35rem;color:var(--esp4);text-align:center;max-width:40px;line-height:1.2}
-
-/* ── BioSpherix — blueprint ── */
-.sc--bio{background:var(--cream);border:1.5px solid rgba(26,74,130,.08)}
-.sc--bio .sc__vis{
-  background:#E2EBF6;
-  background-image:linear-gradient(rgba(26,74,130,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,74,130,.06) 1px,transparent 1px);
-  background-size:18px 18px;position:relative;
-}
-.sc--bio .sc__name{color:var(--cobalt)}
-.sc--bio .sc__yr{color:var(--cobalt)}
-.sc--bio .sc__cta{color:var(--cobalt)}
-/* folder tab */
-.bio-tab{position:absolute;top:-1px;left:12px;background:var(--cobalt);color:#fff;font-size:7px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:0 0 4px 4px;z-index:1}
-/* blueprint internal */
-.bio-plan{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.4rem}
-.bio-plan__title{font-size:.45rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt)}
-.bio-plan__drawing{flex:1;position:relative;border:1px solid rgba(26,74,130,.12);border-radius:4px;min-height:80px}
-.bio-plan__room{position:absolute;border:1.5px solid rgba(26,74,130,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.35rem;color:rgba(26,74,130,.5);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.bio-plan__room--1{top:8%;left:5%;width:40%;height:45%}
-.bio-plan__room--2{top:8%;right:5%;width:45%;height:35%}
-.bio-plan__room--3{bottom:8%;left:15%;width:60%;height:30%}
-.bio-plan__annot{position:absolute;font-size:.38rem;color:var(--cobalt);font-style:italic;font-family:var(--ff-h)}
-.bio-plan__annot--1{top:58%;right:8%}
-.bio-plan__annot--2{bottom:45%;left:8%}
-.bio-plan__specs{font-size:.38rem;color:rgba(26,74,130,.5);letter-spacing:.04em;line-height:1.6;border-top:1px solid rgba(26,74,130,.08);padding-top:.3rem}
-.bio-plan__tagline{font-family:var(--ff-d);font-size:.55rem;font-weight:700;color:var(--cobalt);font-style:italic;margin-top:.1rem}
-
-/* ── FIFA — event credential ── */
-.sc--fifa{background:var(--cream);border:1.5px solid rgba(42,96,69,.08)}
-.sc--fifa .sc__vis{background:var(--forest);color:#fff;position:relative}
-.sc--fifa .sc__name{color:var(--forest)}
-.sc--fifa .sc__yr{color:var(--forest)}
-.sc--fifa .sc__cta{color:var(--forest)}
-/* credential internal */
-.fifa-pass{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.3rem;color:rgba(255,255,255,.85)}
-.fifa-pass__header{font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4;color:rgba(255,255,255,.6)}
-.fifa-pass__city{font-family:var(--ff-d);font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:.04em;line-height:1}
-.fifa-pass__date{font-size:.42rem;color:rgba(255,255,255,.5);letter-spacing:.06em;margin-bottom:.1rem}
-/* venue dots */
-.fifa-pass__map{flex:1;position:relative;min-height:50px}
-.fifa-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8)}
-.fifa-dot--1{top:20%;left:20%}.fifa-dot--2{top:40%;left:60%}.fifa-dot--3{top:70%;left:35%}.fifa-dot--4{bottom:10%;right:20%}
-.fifa-line{position:absolute;top:0;left:0;width:100%;height:100%}
-.fifa-line svg{width:100%;height:100%}
-.fifa-pass__cred{display:grid;grid-template-columns:1fr 1fr;gap:.2rem;font-size:.38rem;letter-spacing:.06em}
-.fifa-pass__cred dt{color:rgba(255,255,255,.4);text-transform:uppercase;font-weight:700}
-.fifa-pass__cred dd{color:rgba(255,255,255,.8);font-weight:500}
-.fifa-pass__badge{background:var(--tomato);color:#fff;padding:.2rem .5rem;border-radius:3px;font-size:.42rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;margin-top:.15rem}
-/* barcode at top */
-.sc--fifa .sc__vis::before{content:'';position:absolute;top:0;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 2px,transparent 2px,transparent 5px)}
-
-/* ── Wisdom — product tag ── */
-.sc--wisdom{background:var(--cream);border:1.5px solid rgba(184,92,58,.06)}
+/* ── Wisdom — kept artifact tag ── */
 .sc--wisdom .sc__vis{background:linear-gradient(160deg,#ECD8C8,#F8F0E6,#E8D4C0);position:relative}
-.sc--wisdom .sc__name{color:var(--rust)}
-.sc--wisdom .sc__yr{color:var(--rust)}
-.sc--wisdom .sc__cta{color:var(--rust)}
-/* tag internal */
 .wisdom-tag{font-family:var(--ff-b);height:100%;display:flex;flex-direction:column;gap:.4rem}
 .wisdom-tag__brand{font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--esp2);text-align:center;padding-bottom:.3rem;border-bottom:1px solid var(--cream4)}
-/* eyewear placeholder */
 .wisdom-tag__img{flex:1;display:flex;align-items:center;justify-content:center;min-height:60px}
 .wisdom-tag__glasses{width:80px;height:30px;position:relative}
 .wisdom-tag__glasses::before,.wisdom-tag__glasses::after{content:'';position:absolute;top:0;width:32px;height:24px;border:2px solid var(--esp3);border-radius:50%}
 .wisdom-tag__glasses::before{left:0}.wisdom-tag__glasses::after{right:0}
 .wisdom-tag__bridge{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:14px;height:6px;border-top:2px solid var(--esp3);border-radius:50% 50% 0 0}
-/* spec fields */
 .wisdom-tag__specs{display:grid;grid-template-columns:auto 1fr;gap:.15rem .5rem;font-size:.4rem;letter-spacing:.06em;border-top:1px solid var(--cream4);padding-top:.3rem}
 .wisdom-tag__specs dt{font-weight:700;text-transform:uppercase;color:var(--esp3)}
 .wisdom-tag__specs dd{color:var(--esp2)}
 .wisdom-tag__edition{font-size:.38rem;letter-spacing:.08em;text-transform:uppercase;color:var(--esp4);text-align:center;margin-top:.1rem}
-/* string detail at top */
 .sc--wisdom .sc__vis::before{content:'';position:absolute;top:0;left:50%;width:1px;height:14px;background:var(--cream4);z-index:1}
 .sc--wisdom .sc__vis::after{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;border:1.5px solid var(--cream4)}
 
-/* secondary cards — keep existing */
+/* secondary cards */
 .more{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.5rem}
 @media(max-width:900px){.more{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.more{grid-template-columns:1fr}}
-.mc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:.9rem 1rem;cursor:pointer;transition:transform .2s,box-shadow .15s,border-color .15s}
+.mc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:10px;padding:1rem 1.1rem;cursor:pointer;transition:transform .2s,box-shadow .15s,border-color .15s}
 .mc:hover{transform:translateY(-3px);box-shadow:var(--sh-sm);border-color:var(--esp5)}
 .mc__icon{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem;display:flex;align-items:center;gap:.3rem}
 .mc--naagin .mc__icon{color:var(--tomato)}.mc--naagin .mc__icon::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--tomato)}
@@ -319,15 +196,16 @@ border-top:1px solid var(--cream4)}
 .hid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 @media(max-width:700px){.hid-grid{grid-template-columns:1fr}}
 .hid-card{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.4rem 1.3rem}
-.hid-card__n{font-family:var(--ff-h);font-size:1rem;color:var(--esp4);margin-bottom:.4rem}
+.hid-card__n{font-family:var(--ff-h);font-size:1.15rem;color:var(--esp4);margin-bottom:.4rem}
 .hid-card__h{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem}
 .hid-card__p{font-size:var(--fs--1);color:var(--esp3);line-height:1.6}
 
 /* ━━━ ABOUT ━━━ */
-.about{padding:var(--sec) 0;background:var(--cream2);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3)}
-.about__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start}
+.about{padding:var(--sec) 0;background:var(--cream2);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3);position:relative}
+.about__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start;position:relative;z-index:1}
 @media(max-width:800px){.about__in{grid-template-columns:1fr;gap:2rem}}
-.about__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1}
+.decor--about{top:clamp(2rem,5vw,3.5rem);right:1.4rem;width:78px;transform:rotate(-7deg)}
+.about__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1;margin-top:.5rem}
 .about__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.78;max-width:520px}
 .about__body p+p{margin-top:.7rem}
 .about__cards{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
@@ -356,14 +234,15 @@ border-top:1px solid var(--cream4)}
 .pc__body{font-size:var(--fs--1);color:var(--esp3);line-height:1.55}
 
 /* ━━━ AI DIRECTION LOG ━━━ */
-.ailog{padding:var(--sec) 0;border-bottom:1px solid var(--cream3)}
-.ailog__in{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.ailog{padding:var(--sec) 0;border-bottom:1px solid var(--cream3);position:relative}
+.ailog__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.decor--ailog{top:clamp(2rem,5vw,3.5rem);right:1.4rem;width:94px;transform:rotate(5deg)}
 .ailog__h{font-family:var(--ff-d);font-size:var(--fs-3);font-weight:700;margin-bottom:.4rem}
 .ailog__sub{font-size:var(--fs-0);color:var(--esp3);max-width:520px;margin-bottom:2rem}
 .ailog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
 @media(max-width:800px){.ailog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:450px){.ailog-grid{grid-template-columns:1fr}}
-.alc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem;transform:rotate(0deg)}
+.alc{background:var(--cream);border:1.5px solid var(--cream3);border-radius:8px;padding:1rem 1.1rem}
 .alc:nth-child(1){transform:rotate(-.8deg)}.alc:nth-child(2){transform:rotate(.6deg)}
 .alc:nth-child(3){transform:rotate(-.4deg)}.alc:nth-child(4){transform:rotate(1deg)}
 .alc__file{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
@@ -373,9 +252,10 @@ border-top:1px solid var(--cream4)}
 .ailog__stamp strong{font-style:normal;font-weight:700}
 
 /* ━━━ CONTACT ━━━ */
-.contact{padding:var(--sec) 0}
-.contact__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.2fr .8fr;gap:3.5rem;align-items:start}
+.contact{padding:var(--sec) 0;position:relative}
+.contact__in{max-width:1200px;margin:0 auto;padding:0 var(--gut);display:grid;grid-template-columns:1.2fr .8fr;gap:3.5rem;align-items:start;position:relative;z-index:1}
 @media(max-width:800px){.contact__in{grid-template-columns:1fr;gap:2rem}}
+.decor--contact{top:clamp(1.5rem,4vw,3rem);right:2rem;width:62px}
 .contact__h{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:.7rem}
 .contact__h em{font-style:italic;font-weight:400;color:var(--olive)}
 .contact__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7;max-width:480px;margin-bottom:1.5rem}
@@ -383,8 +263,7 @@ border-top:1px solid var(--cream4)}
 .contact__links a{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem 1.1rem;font-size:var(--fs--1);font-weight:600;border:1.5px solid var(--cream3);border-radius:999px;transition:all .15s}
 .contact__links a:hover{border-color:var(--esp3);transform:translateY(-2px);box-shadow:var(--sh-sm)}
 .contact__note{font-family:var(--ff-h);font-size:.95rem;color:var(--esp4);margin-top:2rem}
-.contact__sticky{background:var(--marigold-l);border:1px solid rgba(212,150,12,.15);border-radius:8px;padding:1.1rem;font-family:var(--ff-h);font-size:1rem;color:var(--esp2);line-height:1.5;transform:rotate(1deg)}
-.contact__sticky:nth-child(2){transform:rotate(-1.2deg);margin-top:.75rem;background:var(--olive-l);border-color:rgba(107,124,63,.12)}
+.contact__sticky{background:var(--marigold-l);border:1px solid rgba(212,150,12,.15);border-radius:8px;padding:1.1rem;font-family:var(--ff-h);font-size:1.05rem;color:var(--esp2);line-height:1.5;transform:rotate(1deg)}
 
 /* ━━━ FOOTER ━━━ */
 .footer{background:var(--cream2);border-top:1px solid var(--cream3);padding:2rem var(--gut)}
@@ -401,7 +280,7 @@ border-top:1px solid var(--cream4)}
 .pv__back-btn:hover{color:var(--esp)}
 .cs{padding:2rem var(--gut) var(--sec);max-width:1200px;margin:0 auto}
 .cs__hdr{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
-.cs__file{font-family:var(--ff-h);font-size:.85rem;color:var(--esp4);margin-bottom:.5rem}
+.cs__file{font-family:var(--ff-h);font-size:.95rem;color:var(--esp4);margin-bottom:.5rem}
 .cs__h1{font-family:var(--ff-d);font-size:var(--fs-4);font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem}
 .cs__sub{font-size:var(--fs-1);color:var(--esp2);max-width:640px;line-height:1.6;margin-bottom:1.2rem}
 .cs__meta{display:flex;flex-wrap:wrap;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cream3)}
@@ -410,7 +289,7 @@ border-top:1px solid var(--cream4)}
 .cs-intro{max-width:640px;font-size:var(--fs-1);color:var(--esp2);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3)}
 .role-block{margin-bottom:2rem}
 .role-block__h{font-family:var(--ff-d);font-size:var(--fs-2);font-weight:700;margin-bottom:.8rem}
-.role-list{display:flex;flex-direction:column;gap:.35rem;max-width:580px}
+.role-list{display:flex;flex-direction:column;gap:.35rem;max-width:600px}
 .role-list__item{font-size:var(--fs-0);color:var(--esp2);line-height:1.6;display:flex;align-items:baseline;gap:.5rem}
 .role-list__item::before{content:'·';color:var(--esp4);font-weight:700}
 .decisions{margin-bottom:2rem}
@@ -418,9 +297,10 @@ border-top:1px solid var(--cream4)}
 .dec{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cream3);align-items:start}
 .dec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 @media(max-width:680px){.dec{grid-template-columns:1fr}}
-.dec__n{font-family:var(--ff-h);font-size:1rem;color:var(--esp4);margin-bottom:.3rem}
+.dec__n{font-family:var(--ff-h);font-size:1.1rem;color:var(--esp4);margin-bottom:.3rem}
 .dec__title{font-family:var(--ff-d);font-size:var(--fs-1);font-weight:700;margin-bottom:.5rem;line-height:1.15}
 .dec__body{font-size:var(--fs-0);color:var(--esp2);line-height:1.7}
+.dec__media{min-width:0}
 .outcome{background:var(--cream2);border:1px solid var(--cream3);border-radius:10px;padding:1.5rem 1.6rem;margin-bottom:2rem}
 .outcome__h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--esp4);margin-bottom:.5rem}
 .outcome__list{display:flex;flex-direction:column;gap:.35rem}
@@ -444,7 +324,7 @@ border-top:1px solid var(--cream4)}
 <li><a href="#work" class="nav__a" id="nav-work">Work</a></li>
 <li><a href="#about" class="nav__a" id="nav-about">About</a></li>
 <li><a href="#play" class="nav__a" id="nav-play">Play</a></li>
-<li><a href="#" class="nav__a" id="nav-resume">Resume</a></li><!-- TODO: Add resume link -->
+<li><a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a" id="nav-resume">Resume</a></li>
 <li><a href="#contact" class="nav__a" id="nav-contact">Contact</a></li>
 </ul>
 <button class="nav__tog" id="navTog" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -453,7 +333,7 @@ border-top:1px solid var(--cream4)}
 <a href="#work" class="nav__a">Work</a>
 <a href="#about" class="nav__a">About</a>
 <a href="#play" class="nav__a">Play</a>
-<a href="#" class="nav__a">Resume</a>
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="nav__a">Resume</a>
 <a href="#contact" class="nav__a">Contact</a>
 </div>
 </nav>
@@ -466,83 +346,29 @@ border-top:1px solid var(--cream4)}
 <div class="hero__in">
 <div class="hero__content reveal">
 <p class="hero__hi">Hi, I'm Niharika —</p>
-<h1 class="hero__h1">a <span class="hl-olive">UX designer</span> who turns<br>messy systems into calm,<br><span class="hl-rust">playful</span> experiences.</h1>
-<p class="hero__sub">Digital products, physical-digital systems, and visual stories for human-centered experiences.</p>
+<h1 class="hero__h1">a <span class="hl-olive">UX designer</span> who turns messy systems into calm, <span class="hl-rust">playful</span> experiences.</h1>
+<p class="hero__sub">I design digital products, physical-digital systems, and visual stories that make complex things easier to use and easier to understand.</p>
 <div class="hero__ctas">
 <a href="#work" class="hero__cta1">View my work ↗</a>
-<a href="#" class="hero__cta2">Download resume</a><!-- TODO: Add resume link -->
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener" class="hero__cta2">Download resume ↗</a>
 </div>
 <div class="hero__annot">
 <span style="font-family:var(--ff-h);color:var(--rust)">selected work inside</span>
 <svg viewBox="0 0 30 20"><path d="M2 10C8 10 16 5 25 12" stroke-linecap="round"/><path d="M20 8L26 12L22 16" stroke-linecap="round"/></svg>
 </div>
 </div>
-<div class="hero__art" aria-hidden="true">
-<!-- Envelope with tape label and file cards -->
-<div class="hart hart--env">
-<div class="hart--env-cards">
-<div class="hart--env-card">pili.fig</div>
-<div class="hart--env-card">biospherix</div>
-<div class="hart--env-card">fifa-atl</div>
+<div class="hero__visual" aria-hidden="true">
+<img class="hero__folder" src="assets/decor/folders/folder-creative-desk.png" alt="" loading="eager" decoding="async" onerror="this.style.display='none'">
+<img class="hero__accent hero__accent--tape" src="assets/decor/tape/tape-layered-blush-beige.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<img class="hero__accent hero__accent--ginger" src="assets/decor/stamps/stamp-ginger.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<img class="hero__accent hero__accent--file" src="assets/decor/stickers/sticker-open-file.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
 </div>
-<div class="hart--env-body">
-<div class="hart--env-flap"></div>
-</div>
-<div class="hart--env-tape">ideas in progress</div>
-</div>
-
-<!-- Irani Cafe receipt -->
-<div class="hart hart--receipt">
-<div class="hart--receipt-top">
-<div class="r-title">Irani Cafe</div>
-<div class="r-loc">Churchgate</div>
-</div>
-<div class="hart--receipt-body">
-<div class="r-line"><span>1 Cutting Chai</span><span>18.00</span></div>
-<div class="r-line"><span>1 Bun Maska</span><span>25.00</span></div>
-<div class="r-dash"></div>
-<div class="r-line"><span>Total</span><span>43.00</span></div>
-</div>
-<div class="hart--receipt-foot">
-<div class="r-thanks">Thank you!</div>
-<div class="r-hindi">धन्यवाद!</div>
-<div class="r-date">21/04/24 &nbsp; 09:37 AM</div>
-</div>
-</div>
-
-<!-- Indian postal stamp -->
-<div class="hart hart--stamp">
-<div class="hart--stamp-val">500</div>
-<div class="hart--stamp-inner">
-<span class="hart--stamp-hindi">भारत</span>
-<div class="hart--stamp-flower"></div>
-<span class="hart--stamp-eng">India</span>
-</div>
-</div>
-
-<!-- Photo frame -->
-<div class="hart hart--photo">
-<div class="hart--photo-img"></div>
-<span class="hart--photo-lbl">niharika-photo.jpg</span>
-</div>
-
-<!-- Safety Matches box -->
-<div class="hart hart--matchbox">
-<div class="hart--matchbox-border"></div>
-<div class="hart--matchbox-title">Safety Matches</div>
-<div class="hart--matchbox-brand">बाघ</div>
-<div class="hart--matchbox-hindi">BAAGH</div>
-<div class="hart--matchbox-reg">REGD. No. 247365</div>
-</div>
-</div>
-
-<!-- Textile strip at bottom -->
-<div class="hero__textile"><div class="hero__textile-inner"></div></div>
 </div>
 </section>
 
 <!-- SELECTED WORK -->
 <section class="sw" id="work">
+<img class="decor decor--sw" src="assets/decor/tape/tape-cream-clean-01.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
 <div class="sw__in">
 <div class="reveal">
 <div class="tape">selected work</div>
@@ -551,28 +377,11 @@ border-top:1px solid var(--cream4)}
 </div>
 
 <div class="sw-grid">
-<!-- PILI — care guide card -->
+<!-- PILI -->
 <div class="sc sc--pili reveal" data-project="pili" role="button" tabindex="0" aria-label="Open Pili case study">
-<div class="sc__vis">
-<div class="pili-guide">
-<div class="pili-guide__hdr">
-<div><div class="pili-guide__logo">pili</div><div class="pili-guide__sub">Care Guide</div></div>
-</div>
-<div class="pili-guide__device">
-<div class="pili-device"></div>
-<span class="pili-annot pili-annot--1">Press to connect</span>
-<span class="pili-annot pili-annot--2">Soft touch fabric</span>
-<span class="pili-annot pili-annot--3">LED status light</span>
-</div>
-<div class="pili-guide__bar">
-<div class="pili-guide__bar-title">Getting Started</div>
-<div class="pili-guide__icons">
-<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5"/></svg></div><span>Press &amp; hold</span></div>
-<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><path d="M8 3C5 3 3 5 3 8s2 5 5 5 5-2 5-5-2-5-5-5z"/><path d="M8 6v4"/></svg></div><span>Place near loved one</span></div>
-<div class="pili-guide__icon"><div class="pili-guide__icon-circle"><svg viewBox="0 0 16 16"><path d="M4 8h8M8 4v8"/></svg></div><span>Stay connected</span></div>
-</div>
-</div>
-</div>
+<div class="sc__vis sc__vis--img">
+<span class="sc__tab">Case File 01</span>
+<img class="sc__thumb" src="pili/pili-three-sided-system.jpg" alt="Pili three-sided care system" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
 </div>
 <div class="sc__info">
 <div class="sc__yr">2026 · Senior Capstone</div>
@@ -583,22 +392,11 @@ border-top:1px solid var(--cream4)}
 </div>
 </div>
 
-<!-- BIOSPHERIX — blueprint -->
+<!-- BIOSPHERIX -->
 <div class="sc sc--bio reveal" data-project="biospherix" role="button" tabindex="0" aria-label="Open BioSpherix case study">
-<div class="sc__vis">
-<div class="bio-tab">BioSpherix</div>
-<div class="bio-plan">
-<div class="bio-plan__title">Plan View · Scale 1:150</div>
-<div class="bio-plan__drawing">
-<div class="bio-plan__room bio-plan__room--1">BSL-2400</div>
-<div class="bio-plan__room bio-plan__room--2">Service</div>
-<div class="bio-plan__room bio-plan__room--3">Clearance Zone</div>
-<span class="bio-plan__annot bio-plan__annot--1">Airflow optimized</span>
-<span class="bio-plan__annot bio-plan__annot--2">Access clearance</span>
-</div>
-<div class="bio-plan__specs">Chamber BSL-2400 · Temp: -20° to 60°C · Humidity: 10-98% RH</div>
-<div class="bio-plan__tagline">Modular. Scalable. Sustainable.</div>
-</div>
+<div class="sc__vis sc__vis--img">
+<span class="sc__tab">Case File 02</span>
+<img class="sc__thumb" src="biospherix/biospherix-cover.png" alt="BioSpherix Layout Planner cover" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
 </div>
 <div class="sc__info">
 <div class="sc__yr">2026 · Product / Web App</div>
@@ -609,46 +407,29 @@ border-top:1px solid var(--cream4)}
 </div>
 </div>
 
-<!-- FIFA — event credential -->
+<!-- FIFA -->
 <div class="sc sc--fifa reveal" data-project="fifa" role="button" tabindex="0" aria-label="Open FIFA case study">
-<div class="sc__vis">
-<div class="fifa-pass">
-<div class="fifa-pass__header">FIFA World Cup 26™</div>
-<div class="fifa-pass__city">ATLANTA</div>
-<div class="fifa-pass__date">June 11 – July 19, 2026</div>
-<div class="fifa-pass__map">
-<div class="fifa-dot fifa-dot--1"></div>
-<div class="fifa-dot fifa-dot--2"></div>
-<div class="fifa-dot fifa-dot--3"></div>
-<div class="fifa-dot fifa-dot--4"></div>
-<div class="fifa-line"><svg viewBox="0 0 100 80"><path d="M20 16 L60 32 L35 56 L80 70" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-dasharray="3,3"/></svg></div>
-</div>
-<dl class="fifa-pass__cred">
-<dt>Name</dt><dd>Niharika Jain</dd>
-<dt>Role</dt><dd>Design Team</dd>
-<dt>Access</dt><dd>All Venues</dd>
-</dl>
-<div class="fifa-pass__badge">WE ARE ATL</div>
-</div>
+<div class="sc__vis sc__vis--img">
+<span class="sc__tab">Case File 03</span>
+<img class="sc__thumb" src="fifa/fifa-app-screens.png" alt="FIFA World Cup 2026 Atlanta fan experience app screens" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;ph&quot; style=&quot;height:100%;border:none;border-radius:0&quot;>'+this.getAttribute('src')+'</div>'">
 </div>
 <div class="sc__info">
 <div class="sc__yr">2026 · SCADpro</div>
 <h3 class="sc__name">FIFA World Cup 2026 Atlanta</h3>
-<p class="sc__desc">A collaborative UX concept for the Atlanta World Cup experience.</p>
+<p class="sc__desc">A collaborative service design concept for the Atlanta World Cup fan experience.</p>
 <div class="sc__skills">UX Research · Service Design · Collaboration</div>
 <span class="sc__cta">Open case file →</span>
 </div>
 </div>
 
-<!-- WISDOM — product tag -->
+<!-- WISDOM — kept artifact -->
 <div class="sc sc--wisdom reveal" data-project="wisdom" role="button" tabindex="0" aria-label="Open Wisdom ATL case study">
 <div class="sc__vis">
+<span class="sc__tab">Case File 04</span>
 <div class="wisdom-tag">
 <div class="wisdom-tag__brand">Wisdom ATL Eyewear</div>
 <div class="wisdom-tag__img">
-<div class="wisdom-tag__glasses">
-<div class="wisdom-tag__bridge"></div>
-</div>
+<div class="wisdom-tag__glasses"><div class="wisdom-tag__bridge"></div></div>
 </div>
 <dl class="wisdom-tag__specs">
 <dt>Model</dt><dd>Riverside</dd>
@@ -686,22 +467,23 @@ border-top:1px solid var(--cream4)}
 <p class="hid__sub">A simple way to explain how I move from chaos to clarity.</p>
 </div>
 <div class="hid-grid reveal">
-<div class="hid-card"><div class="hid-card__n">01</div><h3 class="hid-card__h">Sort the mess</h3><p class="hid-card__p">I break complex systems into patterns, priorities, and user needs.</p></div>
-<div class="hid-card"><div class="hid-card__n">02</div><h3 class="hid-card__h">Build the system</h3><p class="hid-card__p">I turn scattered requirements into flows, structures, and clear interfaces.</p></div>
-<div class="hid-card"><div class="hid-card__n">03</div><h3 class="hid-card__h">Make it feel human</h3><p class="hid-card__p">I use language, visuals, and details to make technology feel approachable.</p></div>
+<div class="hid-card"><div class="hid-card__n">01</div><h3 class="hid-card__h">Sort the mess</h3><p class="hid-card__p">I turn scattered needs, constraints, and research into clear patterns.</p></div>
+<div class="hid-card"><div class="hid-card__n">02</div><h3 class="hid-card__h">Build the system</h3><p class="hid-card__p">I design flows, structures, and interfaces that make complex experiences easier to use.</p></div>
+<div class="hid-card"><div class="hid-card__n">03</div><h3 class="hid-card__h">Make it feel human</h3><p class="hid-card__p">I use visual language, interaction details, and tone to make technology feel approachable.</p></div>
 </div>
 </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
+<img class="decor decor--about" src="assets/decor/stamps/stamp-ginger.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
 <div class="about__in">
 <div class="reveal">
 <div class="tape">about</div>
 <h2 class="about__h">Designer of calm systems, playful visuals, and tiny details.</h2>
 <div class="about__body">
-<p>I'm Niharika Jain, a UX designer with a graphic design background, graduated from SCAD Atlanta in 2026. I'm drawn to messy systems, emotional products, physical-digital experiences, and visual details that make people stop for a second.</p>
-<p>My work sits between structure and feeling: user flows, service systems, interface design, brand language, and the tiny decisions that make something easier to understand and easier to trust.</p>
+<p>I'm Niharika Jain, a UX designer with a graphic design background and a 2026 graduate of SCAD Atlanta. I'm drawn to messy systems, emotional products, physical-digital experiences, and visual details that make complex things easier to understand.</p>
+<p>My work sits between structure and feeling: user flows, service systems, interface design, brand language, and the tiny decisions that make something easier to use, easier to trust, and more memorable.</p>
 </div>
 </div>
 <div class="about__cards reveal">
@@ -734,6 +516,7 @@ border-top:1px solid var(--cream4)}
 
 <!-- AI DIRECTION LOG -->
 <section class="ailog" id="ailog">
+<img class="decor decor--ailog" src="assets/decor/stickers/sticker-work-in-progress.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
 <div class="ailog__in">
 <div class="reveal">
 <div class="tape">build record</div>
@@ -750,29 +533,29 @@ border-top:1px solid var(--cream4)}
 <div class="ailog__stamp"><strong>AI proposes.</strong> I decide.</div>
 </div>
 <div class="reveal" style="margin-top:1rem">
-<a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="hero__cta1" style="font-size:var(--fs--1)">View on GitHub →</a>
+<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener" class="hero__cta1" style="font-size:var(--fs--1)">View on GitHub →</a>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
+<img class="decor decor--contact" src="assets/decor/stickers/sticker-sparkle.png" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'">
 <div class="contact__in">
 <div class="reveal">
 <div class="tape">say hello</div>
 <h2 class="contact__h">Let's make something<br><em>worth noticing.</em></h2>
 <p class="contact__body">I'm open to full-time UX, product, and visual design roles, along with collaborations where systems, stories, and details matter.</p>
 <div class="contact__links">
-<!-- TODO: Add real email --><a href="mailto:">Email ↗</a>
-<!-- TODO: Add real LinkedIn --><a href="#">LinkedIn ↗</a>
-<!-- TODO: Add resume link --><a href="#">Resume ↗</a>
-<a href="https://github.com/niharika12002/niharikajain.portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+<a href="mailto:mailto.1209@gmail.com">Email ↗</a>
+<a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn ↗</a>
+<a href="assets/global/niharika-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+<a href="https://github.com/Niharika12002/niharikajain.portfolio" target="_blank" rel="noopener">GitHub ↗</a>
 </div>
 <p class="contact__note">Thanks for visiting my little corner of the internet.</p>
 </div>
 <div class="reveal">
 <div class="contact__sticky">p.s. Ginger approves thoughtful emails.</div>
-<div class="contact__sticky">p.p.s. I will absolutely ask where you got your reference images.</div>
 </div>
 </div>
 </section>
@@ -796,9 +579,15 @@ border-top:1px solid var(--cream4)}
 
 <script>
 /* ── helpers ── */
-function ph(label,tall){return `<div class="ph${tall?' ph--'+tall:''}">${label}</div>`}
-function dec(num,title,body,imgLabel){
-return `<div class="dec reveal"><div><div class="dec__n">${num}</div><div class="dec__title">${title}</div><div class="dec__body">${body}</div></div><div>${ph(imgLabel)}</div></div>`}
+function ph(label,variant){return `<div class="ph${variant?' ph--'+variant:''}">${label}</div>`}
+function img(src,alt,variant){
+alt=alt||'';variant=variant||'';
+const cls='case-img'+(variant?' case-img--'+variant:'');
+const loading=variant==='hero'?'eager':'lazy';
+return `<img class="${cls}" src="${src}" alt="${alt}" loading="${loading}" decoding="async" onerror="this.outerHTML='<div class=&quot;ph ph--${variant||'default'}&quot;>'+this.getAttribute('src')+'</div>'">`;
+}
+function dec(num,title,body,media){
+return `<div class="dec reveal"><div><div class="dec__n">${num}</div><div class="dec__title">${title}</div><div class="dec__body">${body}</div></div><div class="dec__media">${media}</div></div>`}
 
 /* ── project data ── */
 const PROJECTS = {
@@ -808,7 +597,7 @@ cat:'UX / Product + Physical Design · Senior Capstone',
 title:'Pili',
 subtitle:'A calm connection system for older adults, their families, and caregivers — built across three touchpoints: a physical device, a family app, and a caregiver dashboard.',
 meta:[{label:'Role',val:'Lead UX + Visual Designer'},{label:'Context',val:'Senior Capstone, SCAD Atlanta'},{label:'Platform',val:'Physical Device · iOS · Web Dashboard'},{label:'Tools',val:'Figma · Miro · Primary Research'}],
-heroImg:'pili-system-overview.jpg',
+hero:img('pili/pili-process-cover.jpg','Pili process cover','hero'),
 body:`
 <div class="cs-intro reveal">Pili addresses the connection gap between older adults, their families, and professional caregivers. Most care technology serves one audience at a time. Pili is designed as a shared ecosystem, so care feels like presence rather than surveillance.</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -819,9 +608,9 @@ body:`
 <div class="role-list__item">Created prototypes and final deliverables for SCAD capstone presentation</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Designing connection beyond live calls','Real connection between families and older adults doesn\'t require scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle signals (a soft light, a shared photo, a mood indicator) so families feel connected without requiring the older adult to initiate anything.','pili-device-ambient-states.jpg')}
-${dec('Decision 02','Making the device feel domestic, not clinical','Most assistive technology signals "medical" before it signals "home." I designed the physical device as a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall.','pili-device-form-study.jpg')}
-${dec('Decision 03','Building one system across three surfaces','Rather than three separate products, I designed one system with three views. Each surface shows only what its user needs. The older adult is never exposed to what the family or caregiver sees. Trust is built through information architecture.','pili-system-architecture.jpg')}
+${dec('Decision 01','Designing connection beyond live calls','Real connection between families and older adults doesn\'t require scheduled check-ins — it happens through ambient presence. I designed the device to communicate gentle signals (a soft light, a shared photo, a mood indicator) so families feel connected without requiring the older adult to initiate anything.',img('pili/pili-experience-loop.jpg','Pili experience loop diagram'))}
+${dec('Decision 02','Making the device feel domestic, not clinical','Most assistive technology signals "medical" before it signals "home." I designed the physical device as a domestic object — something that belongs on a side table next to a lamp and a book, not mounted on a wall.',img('pili/pili-product-anatomy.jpg','Pili device product anatomy'))}
+${dec('Decision 03','Building one system across three surfaces','Rather than three separate products, I designed one system with three views. Each surface shows only what its user needs. The older adult is never exposed to what the family or caregiver sees. Trust is built through information architecture.',img('pili/pili-three-sided-system.jpg','Pili three-sided system: device, family app, caregiver dashboard'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Designed and presented a complete three-part system as senior capstone work at SCAD Atlanta</div>
@@ -829,8 +618,9 @@ ${dec('Decision 03','Building one system across three surfaces','Rather than thr
 <div class="outcome__item">Demonstrated how multi-stakeholder UX requires different trust models for each audience</div>
 </div></div>
 <div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
-<div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">${ph('pili-family-app-screens.jpg','tall')}${ph('pili-caregiver-dashboard.jpg','tall')}</div>
-<div class="gallery__grid gallery__grid--3">${ph('pili-device-render.jpg')}${ph('pili-system-flow.jpg')}${ph('pili-research-synthesis.jpg')}</div></div>
+<div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">${img('pili/pili-family-app-screens.jpg','Pili family app screens','tall')}${img('pili/pili-caregiver-dashboard-screens.jpg','Pili caregiver dashboard screens','tall')}</div>
+<div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">${img('pili/pili-information-architecture.jpg','Pili information architecture')}${img('pili/pili-testing-feedback.jpg','Pili testing and feedback')}${img('pili/pili-research-synthesis.jpg','Pili research synthesis')}</div>
+<div class="gallery__grid gallery__grid--3">${img('pili/pili-final-device-view-front.png','Pili device front view','contain')}${img('pili/pili-final-device-view-side.png','Pili device side view','contain')}${img('pili/pili-final-device-view-back.png','Pili device back view','contain')}</div></div>
 `},
 
 biospherix:{slug:'biospherix',fileNum:'02',
@@ -838,7 +628,7 @@ cat:'UX / AI-Assisted Web App',
 title:'BioSpherix Layout Planner',
 subtitle:'An AI-assisted layout planning web app built for Nihar, a mechanical engineer at BioSpherix — turning client requirements into shareable 2D system layouts before CAD development.',
 meta:[{label:'Role',val:'UX Designer + Developer'},{label:'User',val:'Nihar, Mechanical Engineer'},{label:'Type',val:'Working Web Prototype'},{label:'Tools',val:'Figma · React · Claude · GitHub'}],
-heroImg:'biospherix-app-overview.jpg',
+hero:img('biospherix/biospherix-layout-planner-working-interface.png','BioSpherix Layout Planner working interface','hero'),
 body:`
 <div class="cs-intro reveal">Nihar receives client requirements for precision lab enclosure systems, then manually translates them into layout sketches before CAD begins. I designed and prototyped a web app that automates the translation layer — so Nihar can go from client brief to reviewable 2D layout faster.</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -848,9 +638,9 @@ body:`
 <div class="role-list__item">Designed around Nihar's domain expertise — a tool that makes an expert faster</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Turning requirements into a visual layout canvas','Clients describe needs in words; engineers think in spatial configurations. I designed an input system that captures requirements in plain language and renders them onto a 2D canvas — giving Nihar and the client a shared spatial language.','biospherix-canvas-view.jpg')}
-${dec('Decision 02','Designing around Nihar\'s real workflow','Nihar is a domain expert — he doesn\'t need tooltips explaining what an OxyCycler is. The UX compresses the slow parts of his workflow without adding friction or re-teaching his own job.','biospherix-workflow-map.jpg')}
-${dec('Decision 03','Using AI to accelerate, not replace, design judgment','The AI suggests layout configurations but always surfaces its reasoning and defers to Nihar\'s override. AI output is a first draft, not a final answer. His judgment determines the output.','biospherix-ai-suggestions.jpg')}
+${dec('Decision 01','Turning requirements into a visual layout canvas','Clients describe needs in words; engineers think in spatial configurations. I designed an input system that captures requirements in plain language and renders them onto a 2D canvas — giving Nihar and the client a shared spatial language.',img('biospherix/biospherix-layout-planner-working-interface.png','BioSpherix layout canvas'))}
+${dec('Decision 02','Designing around Nihar\'s real workflow','Nihar is a domain expert — he doesn\'t need tooltips explaining what an OxyCycler is. The UX compresses the slow parts of his workflow without adding friction or re-teaching his own job.',img('biospherix/biospherix-feedback-notes-01.jpg','Feedback notes from Nihar'))}
+${dec('Decision 03','Using AI to accelerate, not replace, design judgment','The AI suggests layout configurations but always surfaces its reasoning and defers to Nihar\'s override. AI output is a first draft, not a final answer. His judgment determines the output.',img('biospherix/biospherix-layout-planner-print-proposal.png','BioSpherix print-ready layout proposal'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Built a working React prototype for Nihar's BioSpherix layout planning workflow</div>
@@ -858,7 +648,8 @@ ${dec('Decision 03','Using AI to accelerate, not replace, design judgment','The 
 <div class="outcome__item">Demonstrated a real AI-assisted workflow where AI accelerates expert judgment</div>
 </div></div><!-- TODO: Confirm specific outcome metrics with Nihar -->
 <div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
-<div class="gallery__grid gallery__grid--2">${ph('biospherix-interface-full.jpg','tall')}${ph('biospherix-layout-output.jpg','tall')}</div></div>
+<div class="gallery__grid gallery__grid--3" style="margin-bottom:1rem">${img('biospherix/biospherix-cover.png','BioSpherix cover','contain')}${img('biospherix/biospherix-prototype-review-call.png','BioSpherix prototype review call')}${img('biospherix/biospherix-feedback-notes-02.jpg','BioSpherix feedback notes')}</div>
+<div class="gallery__grid gallery__grid--2">${img('biospherix/biospherix-research-call-01.png','BioSpherix research call one')}${img('biospherix/biospherix-research-call-02.png','BioSpherix research call two')}</div></div>
 `},
 
 fifa:{slug:'fifa',fileNum:'03',
@@ -866,7 +657,7 @@ cat:'Service Design · Journey Mapping · SCADpro',
 title:'FIFA World Cup 2026 — Atlanta Fan Experience',
 subtitle:'A SCADpro service design project — mapping and redesigning the fan journey for the 2026 FIFA World Cup matches hosted in Atlanta.',
 meta:[{label:'Context',val:'SCADpro Industry Collaboration'},{label:'Type',val:'Service Design / Experience Strategy'},{label:'Scale',val:'City-wide, multi-match event'},{label:'Tools',val:'Miro · Figma · Journey Mapping'}],
-heroImg:'fifa-journey-map-overview.jpg',
+hero:img('fifa/fifa-final-presentation-overview.png','FIFA World Cup 2026 Atlanta final presentation overview','hero'),
 body:`
 <div class="cs-intro reveal">Atlanta is hosting multiple 2026 FIFA World Cup matches at Mercedes-Benz Stadium. International fans navigating a city whose transit and wayfinding wasn't designed for this scale. I worked on a SCADpro team to map the full fan journey and translate research into service design recommendations.</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -876,9 +667,9 @@ body:`
 <div class="role-list__item">Contributed to final presentation and visual documentation for SCADpro client handoff</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Mapping the fan journey beyond the stadium','The fan journey starts at the airport, not the stadium gate. I advocated for mapping the full arc, including unofficial spaces. The most critical failure: a half-mile stretch between the MARTA station and the stadium with no signage.','fifa-journey-map-full.jpg')}
-${dec('Decision 02','Designing for crowd movement and uncertainty','An international fan base means you can\'t assume language, local knowledge, or phone signal. I pushed for wayfinding built on visual redundancy — color, symbol, and ground-level markings that work for someone who can\'t read English.','fifa-wayfinding-system.jpg')}
-${dec('Decision 03','Translating research into service recommendations','Journey maps are only useful if they lead to action. I helped translate research into three directions: a ground-level wayfinding language, fan zone anchor points, and a digital-physical bridging layer for transit guidance.','fifa-recommendations-board.jpg')}
+${dec('Decision 01','Mapping the fan journey beyond the stadium','The fan journey starts at the airport, not the stadium gate. I advocated for mapping the full arc, including unofficial spaces. The most critical failure: a half-mile stretch between the MARTA station and the stadium with no signage.',img('fifa/fifa-research-presentation-overview.png','FIFA research presentation overview'))}
+${dec('Decision 02','Designing for crowd movement and uncertainty','An international fan base means you can\'t assume language, local knowledge, or phone signal. I pushed for wayfinding built on visual redundancy — color, symbol, and ground-level markings that work for someone who can\'t read English.',img('fifa/fifa-design-concept-presentation-overview.png','FIFA design concept presentation overview'))}
+${dec('Decision 03','Translating research into service recommendations','Journey maps are only useful if they lead to action. I helped translate research into three directions: a ground-level wayfinding language, fan zone anchor points, and a digital-physical bridging layer for transit guidance.',img('fifa/fifa-app-screens.png','FIFA fan experience app screens'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Produced a complete fan journey map and service design recommendation deck for SCADpro client</div>
@@ -886,7 +677,8 @@ ${dec('Decision 03','Translating research into service recommendations','Journey
 <div class="outcome__item">Contributed to a city-scale service design project spanning transit, wayfinding, and event atmosphere</div>
 </div></div>
 <div class="gallery reveal"><div class="gallery__h">Final Visuals</div>
-<div class="gallery__grid gallery__grid--2">${ph('fifa-journey-map-final.jpg','tall')}${ph('fifa-wayfinding-concepts.jpg','tall')}</div></div>
+<div class="gallery__grid gallery__grid--2" style="margin-bottom:1rem">${img('fifa/fifa-final-presentation-overview.png','FIFA final presentation overview')}${img('fifa/fifa-app-screens.png','FIFA app screens')}</div>
+<div class="gallery__grid gallery__grid--2">${img('fifa/fifa-research-presentation-overview.png','FIFA research presentation overview')}${img('fifa/fifa-design-concept-presentation-overview.png','FIFA design concept presentation overview')}</div></div>
 `},
 
 wisdom:{slug:'wisdom',fileNum:'04',
@@ -894,7 +686,7 @@ cat:'Brand Design · Packaging · Retail Experience',
 title:'Wisdom ATL Eyewear',
 subtitle:'Product, packaging, visual merchandising, and buyer-facing retail storytelling for an Atlanta-born independent eyewear brand.',
 meta:[{label:'Role',val:'Brand + Packaging Designer'},{label:'Deliverables',val:'Packaging · Retail Display · Visual Merchandising'},{label:'Market',val:'Independent Eyewear / Atlanta'},{label:'Tools',val:'Figma · Illustrator · InDesign'}],
-heroImg:'wisdom-packaging-hero.jpg',
+hero:ph('wisdom-packaging-hero.jpg','hero'),
 body:`
 <div class="cs-intro reveal">Wisdom ATL is an independent eyewear brand rooted in Atlanta's creative culture. My work focused on the physical and retail-facing side: packaging design, product presentation, visual merchandising direction, and the buyer experience from shelf to unboxing.</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -903,9 +695,9 @@ body:`
 <div class="role-list__item">Created buyer-facing storytelling materials for point-of-decision impact</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Turning eyewear into a retail story','Most independent eyewear packaging either over-minimizes or over-explains. I chose a middle path: enough visual character to be memorable, but clean enough that the product stays the hero.','wisdom-retail-packaging.jpg')}
-${dec('Decision 02','Translating brand personality into physical touchpoints','An Atlanta-rooted brand has to feel like it belongs here. I translated the city\'s visual culture into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.','wisdom-material-details.jpg')}
-${dec('Decision 03','Designing for buyer-facing clarity','Independent retail means the product sells itself without a salesperson. A customer should read the brand\'s personality and price positioning within three seconds of seeing it on a shelf.','wisdom-shelf-display.jpg')}
+${dec('Decision 01','Turning eyewear into a retail story','Most independent eyewear packaging either over-minimizes or over-explains. I chose a middle path: enough visual character to be memorable, but clean enough that the product stays the hero.',ph('wisdom-retail-packaging.jpg'))}
+${dec('Decision 02','Translating brand personality into physical touchpoints','An Atlanta-rooted brand has to feel like it belongs here. I translated the city\'s visual culture into material choices: finishes, color, weight, texture. The goal was packaging you keep, not packaging you recycle.',ph('wisdom-material-details.jpg'))}
+${dec('Decision 03','Designing for buyer-facing clarity','Independent retail means the product sells itself without a salesperson. A customer should read the brand\'s personality and price positioning within three seconds of seeing it on a shelf.',ph('wisdom-shelf-display.jpg'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Delivered a complete packaging system: primary case, retail box, lens cloth, and care card</div>
@@ -921,7 +713,7 @@ cat:'Graphic Design · Campaign · Marketing',
 title:'Naagin Sauce',
 subtitle:'Campaign and marketing design for an unapologetically Indian hot sauce brand — extending a bold visual identity across digital and social contexts.',
 meta:[{label:'Role',val:'Graphic Designer'},{label:'Type',val:'Campaign / Marketing Design'},{label:'Brand',val:'Naagin Sauce'},{label:'Tools',val:'Illustrator · Photoshop · InDesign'}],
-heroImg:'naagin-campaign-hero.jpg',
+hero:ph('naagin-campaign-hero.jpg','hero'),
 body:`
 <div class="cs-intro reveal">Naagin Sauce is Indian hot sauce with a sharp visual identity — bold typography, the Naagin iconography, and the graphic density of Indian poster culture. My role was to extend that identity into campaign and marketing contexts without diluting what makes it unmistakably Naagin.</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -930,8 +722,8 @@ body:`
 <div class="role-list__item">Worked within the brand's established color, type, and iconography system</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Extending an existing bold brand voice','Every asset had to pass one test: does this sound like Naagin, or like someone\'s impression of Naagin? Indian poster culture — high contrast, layered typography, saturated color — was the foundation.','naagin-brand-extension.jpg')}
-${dec('Decision 02','Designing for digital campaign impact','Social content for a visually dense brand requires deliberate simplification — knowing which elements to foreground in a 1:1 Instagram frame versus a banner versus a product launch graphic.','naagin-digital-formats.jpg')}
+${dec('Decision 01','Extending an existing bold brand voice','Every asset had to pass one test: does this sound like Naagin, or like someone\'s impression of Naagin? Indian poster culture — high contrast, layered typography, saturated color — was the foundation.',ph('naagin-brand-extension.jpg'))}
+${dec('Decision 02','Designing for digital campaign impact','Social content for a visually dense brand requires deliberate simplification — knowing which elements to foreground in a 1:1 Instagram frame versus a banner versus a product launch graphic.',ph('naagin-digital-formats.jpg'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Delivered digital marketing assets, social content, and campaign visuals for product launch and seasonal promotions</div>
@@ -946,7 +738,7 @@ cat:'AI UX · Concept Design',
 title:'KUAI',
 subtitle:'An AI shopping and planning app concept — exploring how an AI assistant could help users organize decisions, compare options, and reduce purchase overwhelm.',
 meta:[{label:'Role',val:'UX Designer / Concept Lead'},{label:'Type',val:'AI UX Concept'},{label:'Platform',val:'iOS Concept App'},{label:'Tools',val:'Figma · Prototyping'}],
-heroImg:'kuai-app-overview.jpg',
+hero:ph('kuai-app-overview.jpg','hero'),
 body:`
 <div class="cs-intro reveal">KUAI is a concept AI app exploring one question: how do you build a shopping assistant that genuinely helps people organize decisions and compare options — without becoming something that just picks for them?</div>
 <div class="role-block reveal"><div class="role-block__h">My Role</div><div class="role-list">
@@ -956,8 +748,8 @@ body:`
 <div class="role-list__item">Prototyped key screens and interaction moments in Figma</div>
 </div></div>
 <div class="decisions reveal"><div class="decisions__h">Key Design Decisions</div>
-${dec('Decision 01','Designing AI as a planning assistant, not a chatbot','Most AI shopping tools are a chatbot or a "recommended for you" feed. KUAI explores a third model: AI as a structured planning layer that understands context and helps you prepare rather than react.','kuai-planning-view.jpg')}
-${dec('Decision 02','Reducing decision fatigue through structure','Purchase overwhelm isn\'t caused by too many options — it\'s options without context. KUAI surfaces suggestions within a structured frame: what is this for, when do you need it, what do you already own?','kuai-decision-structure.jpg')}
+${dec('Decision 01','Designing AI as a planning assistant, not a chatbot','Most AI shopping tools are a chatbot or a "recommended for you" feed. KUAI explores a third model: AI as a structured planning layer that understands context and helps you prepare rather than react.',ph('kuai-planning-view.jpg'))}
+${dec('Decision 02','Reducing decision fatigue through structure','Purchase overwhelm isn\'t caused by too many options — it\'s options without context. KUAI surfaces suggestions within a structured frame: what is this for, when do you need it, what do you already own?',ph('kuai-decision-structure.jpg'))}
 </div>
 <div class="outcome reveal"><div class="outcome__h">Outcome</div><div class="outcome__list">
 <div class="outcome__item">Produced a concept prototype exploring a new AI interaction model for shopping assistance</div>
@@ -972,7 +764,7 @@ cat:'UX / UI · App Concept',
 title:'EaseOut',
 subtitle:'A personal styling and closet organization app concept — helping users build outfits from what they already own.',
 meta:[{label:'Role',val:'UX Designer'},{label:'Type',val:'App Concept'},{label:'Platform',val:'iOS'},{label:'Tools',val:'Figma'}],
-heroImg:'easeout-app-screens.jpg',
+hero:ph('easeout-app-screens.jpg','hero'),
 body:`
 <div class="cs-intro reveal">EaseOut is a concept app that helps users organize their wardrobe, plan outfits, and make better use of what they already own — reducing decision fatigue around getting dressed.</div>
 <!-- TODO: Add detailed EaseOut project content when available -->
@@ -994,7 +786,7 @@ cat:'UX / UI Design',
 title:'ReadySetGo',
 subtitle:'A UX/UI planning and task management project — designing clear flows for complex preparation workflows.',
 meta:[{label:'Role',val:'UX/UI Designer'},{label:'Type',val:'UX/UI Project'},{label:'Platform',val:'Web / Mobile'},{label:'Tools',val:'Figma'}],
-heroImg:'readysetgo-flow.jpg',
+hero:ph('readysetgo-flow.jpg','hero'),
 body:`
 <div class="cs-intro reveal">ReadySetGo is a planning and task management project focused on helping users prepare for complex events and workflows — turning scattered to-do lists into structured, sequenced action plans.</div>
 <!-- TODO: Add detailed ReadySetGo project content when available -->
@@ -1055,7 +847,7 @@ return `<div class="pv">
 <p class="cs__sub">${d.subtitle}</p>
 <div class="cs__meta">${meta}</div>
 </div>
-<div style="margin-bottom:2.5rem" class="reveal">${ph(d.heroImg,'hero')}</div>
+<div style="margin-bottom:2.5rem" class="reveal">${d.hero}</div>
 ${d.body}
 <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)" class="reveal">
 <button class="pv__back-btn" onclick="navigate('/')">← Back to Selected Work</button>
