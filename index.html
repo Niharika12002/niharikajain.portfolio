@@ -395,56 +395,47 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
    PROJECT VIEW — PILI
    ============================================================ */
 .project-hero{
-  position:relative;
-  min-height:calc(100vh - 82px);
-  background:
-    linear-gradient(90deg, rgba(1,15,18,.42) 0%, rgba(1,15,18,.36) 42%, rgba(1,15,18,.76) 100%),
-    url("assets/pili-hero-desk.png");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  background:var(--ink);
   color:var(--paper);
-  display:flex;
-  align-items:center;
-  padding-block:clamp(4rem,8vw,7rem);
+  padding-block:clamp(3.5rem,7vw,6rem);
   overflow:hidden;
 }
-.project-hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(1,15,18,.18);
-  pointer-events:none;
-}
-.project-hero .wrap{
-  position:relative;
-  z-index:2;
+.project-hero-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
 }
 .project-hero-content{
-  width:min(48%, 560px);
-  margin-left:auto;
+  width:100%;
+  max-width:520px;
+  margin-left:0;
 }
 .project-back{
   display:inline-flex;align-items:center;gap:.4em;
-  font-size:var(--step--1);font-weight:600;color:rgba(255,247,239,.78);
+  font-size:var(--step--1);font-weight:600;color:rgba(255,247,239,.72);
   margin-bottom:clamp(2rem,4vw,3rem);
   border-bottom:1.5px solid transparent;transition:border-color .2s ease, color .2s ease;
 }
 .project-back:hover{color:var(--paper);border-color:var(--paper)}
-.project-hero .eyebrow{color:rgba(255,247,239,.58)}
+.project-hero .eyebrow{color:var(--marigold)}
 .project-hero h1{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:clamp(4rem,8vw,7.5rem);font-weight:500;line-height:.9;
+  font-size:clamp(4rem,8vw,7.25rem);font-weight:500;line-height:.92;
   letter-spacing:-.02em;margin-bottom:1.2rem;
 }
 .project-hero .subtitle{
-  font-size:clamp(1.15rem,1.4vw,1.45rem);color:var(--marigold);max-width:38ch;
-  margin-bottom:clamp(2rem,4vw,3rem);line-height:1.45;
+  font-size:clamp(1.15rem,1.5vw,1.45rem);color:rgba(255,247,239,.88);max-width:34ch;
+  margin-bottom:1.4rem;line-height:1.45;
 }
-.project-hero .desc{display:none}
+.project-hero .desc{
+  display:block;
+  font-size:var(--step-0);color:rgba(255,247,239,.62);max-width:44ch;
+  line-height:1.6;margin-bottom:clamp(2rem,4vw,2.8rem);
+}
 .pili-meta{
-  display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.4rem);
-  list-style:none;border-top:none;padding-top:0;margin-bottom:clamp(1.8rem,3vw,2.5rem);
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2rem);
+  list-style:none;border-top:1px solid rgba(255,247,239,.16);padding-top:1.5rem;margin-bottom:0;
 }
 .pili-meta dt{
   font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
@@ -452,31 +443,31 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 }
 .pili-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.86);line-height:1.45}
 .pili-hero-tags{
-  display:flex;flex-wrap:wrap;gap:.7rem;margin-top:clamp(1.4rem,3vw,2rem);
+  display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;
 }
 .pili-hero-tags span{
   font-size:.72rem;color:rgba(255,247,239,.86);
-  border:1px solid rgba(255,247,239,.22);background:rgba(255,247,239,.08);
-  backdrop-filter:blur(8px);border-radius:var(--radius-pill);padding:.5rem .9rem;
+  border:1px solid rgba(255,247,239,.22);background:rgba(255,247,239,.06);
+  border-radius:var(--radius-pill);padding:.45rem .85rem;
+}
+.project-hero-visual{
+  position:relative;border-radius:var(--radius-md);overflow:hidden;
+  background:var(--paper);min-height:clamp(420px,46vw,620px);
+}
+.project-hero-visual img{
+  width:100%;height:100%;min-height:clamp(420px,46vw,620px);
+  object-fit:cover;object-position:center;
 }
 @media (max-width:900px){
-  .project-hero{
-    min-height:auto;
-    background:
-      linear-gradient(180deg, rgba(1,15,18,.45) 0%, rgba(1,15,18,.84) 70%, rgba(1,15,18,.92) 100%),
-      url("assets/pili-hero-desk.png");
-    background-size:cover;background-position:center left;background-repeat:no-repeat;
-    align-items:flex-end;
-    padding-block:clamp(5rem,14vw,8rem) clamp(3rem,8vw,5rem);
-  }
-  .project-hero-content{width:100%;margin-left:0}
-  .pili-meta{grid-template-columns:1fr 1fr}
+  .project-hero-grid{grid-template-columns:1fr}
+  .project-hero-content{max-width:680px}
+  .project-hero-visual{min-height:auto}
+  .project-hero-visual img{min-height:auto;aspect-ratio:4/3}
 }
 @media (max-width:560px){
-  .project-hero{background-position:center left}
+  .project-hero{padding-block:clamp(2.5rem,8vw,4rem)}
   .project-hero h1{font-size:clamp(3.4rem,18vw,5rem)}
   .pili-meta{grid-template-columns:1fr}
-  .pili-hero-tags{gap:.5rem}
 }
 
 /* shared project section rhythm */
@@ -783,7 +774,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 
   <!-- SECTION 1 — Project hero -->
   <section class="project-hero">
-    <div class="wrap">
+    <div class="wrap project-hero-grid">
       <div class="project-hero-content">
         <a href="#work" class="project-back">&larr; Back to Selected Work</a>
 
@@ -821,6 +812,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
           <span>Physical Prototyping</span>
         </div>
       </div>
+
+      <figure class="project-hero-visual">
+        <img src="assets/pili-hero-desk.png" alt="Pili tabletop device in a warm home setting" loading="eager" decoding="async">
+      </figure>
     </div>
   </section>
 
