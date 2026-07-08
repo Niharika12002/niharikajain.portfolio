@@ -130,7 +130,7 @@ header{
 }
 .logo{display:inline-flex;align-items:center}
 .logo-img{
-  height:clamp(30px,4vw,38px);width:auto;
+  height:clamp(40px,4.5vw,52px);width:auto;
   transition:transform .25s ease;
 }
 .logo:hover .logo-img{transform:rotate(-4deg)}
@@ -551,9 +551,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
     <nav aria-label="Primary">
       <ul>
         <li><a href="#work">Work</a></li>
-        <li><a href="#about-preview">About</a></li>
         <li><a href="#behind-the-build">Behind the Build</a></li>
-        <li><a href="resume.html" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="assets/resume.pdf" id="resume-link" download>Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -583,8 +582,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
         <p class="hero-meta">SCAD B.F.A. User Experience Design &middot; Minor in Graphic Design &middot; Atlanta, GA</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-fill">View selected work</a>
-          <!-- Resume page -->
-          <a href="resume.html" class="btn btn-ghost" target="_blank" rel="noopener">Download resume</a>
+          <!-- Resume file -->
+          <a href="assets/resume.pdf" class="btn btn-ghost" download>Download resume</a>
         </div>
       </div>
 
@@ -703,21 +702,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
     </div>
   </section>
 
-  <!-- ============================ ABOUT PREVIEW ============================ -->
-  <section class="about-preview" id="about-preview">
-    <div class="wrap about-grid">
-      <div class="reveal">
-        <span class="eyebrow">A little about me</span>
-        <h2>Organized chaos, carefully arranged.</h2>
-      </div>
-      <div class="bio reveal">
-        <p>I&rsquo;m Niharika, a multidisciplinary designer from SCAD who likes turning complicated, chaotic, half-formed ideas into clear visual systems. My work usually sits somewhere between useful and delightful &mdash; structured enough to make sense, playful enough to feel human.</p>
-        <p class="muted">Outside of design, I&rsquo;m probably taking sky photos, finding new music, cooking, browsing Indian homegrown fashion brands, or hanging out with Ginger.</p>
-        <a href="#about-preview" class="more-link">Read more about me &rarr;</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================ FINAL CTA ============================ -->
   <section class="final-cta" id="contact">
     <div class="wrap">
@@ -725,8 +709,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design opportunities.</p>
       <div class="cta-row reveal">
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
-        <!-- Resume page -->
-        <a href="resume.html" class="btn btn-ghost-cream" target="_blank" rel="noopener">View resume</a>
+        <!-- Resume file -->
+        <a href="assets/resume.pdf" class="btn btn-ghost-cream" download>Download resume</a>
         <a href="https://www.linkedin.com/in/niharikajain12002" class="btn btn-ghost-cream" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
