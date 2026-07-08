@@ -100,11 +100,14 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
 .wrap{
-  width:100%;max-width:var(--container);margin-inline:auto;
-  padding-inline:var(--page-margin);position:relative;z-index:1;
+  width:min(calc(100% - 128px), var(--container));
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:0;
+  position:relative;z-index:1;
 }
-@media (max-width:900px){ .wrap{padding-inline:40px} }
-@media (max-width:560px){ .wrap{padding-inline:24px} }
+@media (max-width:900px){ .wrap{width:min(calc(100% - 80px), var(--container))} }
+@media (max-width:560px){ .wrap{width:min(calc(100% - 48px), var(--container))} }
 
 .eyebrow{
   font-family:var(--body);font-weight:600;font-size:var(--step--1);
@@ -276,13 +279,15 @@ nav a:hover::after{width:100%}
 .poster--olive{background:var(--olive);color:var(--paper)}
 .poster--teal{background:var(--teal);color:var(--paper)}
 
-.poster .shot{
-  margin-top:auto;align-self:flex-start;
-  width:78%;aspect-ratio:4/3;border-radius:var(--radius-sm);
-  border:1.5px dashed currentColor;opacity:.55;
-  display:grid;place-items:center;text-align:center;padding:.6rem;
-  font-size:.68rem;line-height:1.3;
+.poster-img{
+  position:relative;z-index:2;
+  margin-top:auto;max-width:90%;
+  object-fit:contain;
 }
+.pili-img{width:82%;margin-left:-10%;margin-bottom:-8%}
+.biospherix-img{width:95%;margin-bottom:10%}
+.wisdom-img{width:95%;margin-bottom:4%}
+.fifa-img{width:88%;margin-inline:auto;margin-bottom:-6%}
 .poster .num{
   position:absolute;right:-.08em;bottom:-.22em;z-index:-1;
   font-family:var(--display);font-optical-sizing:auto;
@@ -404,8 +409,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <ul>
         <li><a href="#work">Work</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="behind-the-build.html">Behind the Build</a></li>
-        <li><a href="#" id="resume-link">Resume</a></li>
+        <li><a href="#behind-the-build">Behind the Build</a></li>
+        <li><a href="assets/Niharika-Jain-Resume.pdf" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -435,8 +440,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
         <p class="hero-meta">SCAD B.F.A. User Experience Design &middot; Minor in Graphic Design &middot; Atlanta, GA</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-fill">View selected work</a>
-          <!-- TODO: link Resume to real file — resume.pdf -->
-          <a href="#" class="btn btn-ghost">Download resume</a>
+          <!-- TODO: confirm assets/Niharika-Jain-Resume.pdf matches the actual filename in the repo -->
+          <a href="assets/Niharika-Jain-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download resume</a>
         </div>
       </div>
 
@@ -459,35 +464,38 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <a class="poster poster--marigold reveal" href="pili.html">
         <h3>Pili</h3>
         <p>A calm connection system that helps older adults, families, and caregivers stay connected.</p>
-        <!-- TODO: replace with exported Pili device cutout — pili-device.png -->
-        <div class="shot" aria-hidden="true">pili-device.png</div>
+        <!-- Requires assets/pili-device.png (transparent device cutout) -->
+        <img class="poster-img pili-img" src="assets/pili-device.png" alt="Pili tabletop device showing a family photo and a 'thinking of you today' message">
         <span class="num" aria-hidden="true">1</span>
       </a>
 
       <!-- 02 — BioSpherix Layout Planner -->
-      <a class="poster poster--terracotta reveal" href="biospherix.html">
+      <!-- TODO: swap to biospherix.html once that case study page exists -->
+      <a class="poster poster--terracotta reveal" href="#contact">
         <h3>Design your Lab</h3>
         <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
-        <!-- TODO: replace with exported interface screenshot — biospherix-ui.png -->
-        <div class="shot" aria-hidden="true">biospherix-ui.png</div>
+        <!-- Requires assets/biospherix-ui.png (interface screenshot) -->
+        <img class="poster-img biospherix-img" src="assets/biospherix-ui.png" alt="BioSpherix Layout Planner interface showing lab layout tools">
         <span class="num" aria-hidden="true">2</span>
       </a>
 
       <!-- 03 — SCAD x Wisdom ATL Eyewear -->
-      <a class="poster poster--olive reveal" href="wisdom-eyewear.html">
+      <!-- TODO: swap to wisdom-eyewear.html once that case study page exists -->
+      <a class="poster poster--olive reveal" href="#contact">
         <h3>SCAD x Wisdom ATL Eyewear</h3>
         <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
-        <!-- TODO: replace with exported eyewear render — wisdom-eyewear.png -->
-        <div class="shot" aria-hidden="true">wisdom-eyewear.png</div>
+        <!-- Requires assets/wisdom-eyewear.png (eyewear render/sketch) -->
+        <img class="poster-img wisdom-img" src="assets/wisdom-eyewear.png" alt="Wisdom ATL eyewear concept renders">
         <span class="num" aria-hidden="true">3</span>
       </a>
 
       <!-- 04 — SCADpro x FIFA World Cup 2026 Atlanta -->
-      <a class="poster poster--teal reveal" href="fifa-2026.html">
+      <!-- TODO: swap to fifa-2026.html once that case study page exists -->
+      <a class="poster poster--teal reveal" href="#contact">
         <h3>SCADpro x FIFA World Cup 2026 Atlanta</h3>
         <p>A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
-        <!-- TODO: replace with exported app screen mockups — fifa-app.png -->
-        <div class="shot" aria-hidden="true">fifa-app.png</div>
+        <!-- Requires assets/fifa-app.png (app screen mockups) -->
+        <img class="poster-img fifa-img" src="assets/fifa-app.png" alt="FIFA World Cup 2026 Atlanta app screen mockups">
         <span class="num" aria-hidden="true">4</span>
       </a>
 
@@ -573,9 +581,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <h2 class="reveal">Let&rsquo;s make something clear, useful, and a little unexpected.</h2>
       <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design opportunities.</p>
       <div class="cta-row reveal">
-        <!-- TODO: confirm contact email + resume file + LinkedIn URL -->
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
-        <a href="#" class="btn btn-ghost-cream">View resume</a>
+        <!-- TODO: confirm assets/Niharika-Jain-Resume.pdf matches the actual filename in the repo -->
+        <a href="assets/Niharika-Jain-Resume.pdf" class="btn btn-ghost-cream" target="_blank" rel="noopener">View resume</a>
+        <!-- TODO: add real LinkedIn profile URL -->
         <a href="#" class="btn btn-ghost-cream">LinkedIn</a>
       </div>
     </div>
