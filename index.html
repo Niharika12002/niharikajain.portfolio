@@ -9,8 +9,9 @@
 <meta name="theme-color" content="#FFF7EF">
 <meta property="og:title" content="Niharika Jain — Designer, Storyteller, Systems Thinker">
 <meta property="og:description" content="Niharika Jain is a multidisciplinary UX/UI and graphic designer creating digital products, brand systems, and physical experiences.">
-<meta property="og:image" content="assets/niharika-portrait.png">
+<meta property="og:image" content="https://niharika12002.github.io/niharikajain.portfolio/assets/niharika-portrait.png">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://niharika12002.github.io/niharikajain.portfolio/">
 
 <!-- Fonts: Fraunces (display) + Hanken Grotesk (body/UI) + Caveat (annotation, used elsewhere on site). Loaded via Google Fonts CDN for deploy reliability. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -336,6 +337,7 @@ nav a:hover::after{width:100%}
 }
 .build-card h4{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem}
 .build-card p{font-size:var(--step-0);color:var(--ink-60);line-height:1.45}
+.build-note{font-size:var(--step--1);color:var(--ink-45);max-width:64ch;line-height:1.5}
 
 /* ============================================================
    WHAT I DESIGN
@@ -626,7 +628,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 }
 .project-lite-subtitle{
   font-size:var(--step-1);color:rgba(255,247,239,.85);max-width:56ch;
-  line-height:1.5;margin-bottom:2rem;
+  line-height:1.5;margin-bottom:.9rem;
+}
+.project-lite-status{
+  font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,247,239,.45);margin-bottom:2rem;
 }
 .project-lite-meta{
   display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem);
@@ -660,6 +666,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 @media (max-width:600px){ .project-lite-gallery-grid{grid-template-columns:1fr} }
 .project-lite-gallery-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
 .project-lite-gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
+.project-lite-gallery-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
 
 .project-lite-outcome{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
 .project-lite-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem}
@@ -810,6 +817,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <p>How the site structure, project pages, and visual language came together.</p>
       </div>
     </div>
+    <p class="build-note">This site was built as a living design system, using AI for iteration while keeping art direction, structure, and final decisions human-led.</p>
   </section>
 
   <!-- ============================ WHAT I DESIGN ============================ -->
@@ -843,7 +851,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <section class="final-cta" id="contact">
     <div class="wrap">
       <h2 class="reveal">Let&rsquo;s make something clear, useful, and a little unexpected.</h2>
-      <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design opportunities.</p>
+      <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design roles where research, storytelling, and systems thinking matter.</p>
       <div class="cta-row reveal">
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
         <!-- Resume file -->
@@ -1083,6 +1091,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <span class="eyebrow">AI / UX Web App</span>
       <h1>Design your Lab</h1>
       <p class="project-lite-subtitle">An AI-assisted layout planning tool for translating client requirements into clearer lab system layouts.</p>
+      <p class="project-lite-status">Concise case study &middot; Full process available on request</p>
       <dl class="project-lite-meta">
         <div><dt>Project Type</dt><dd>AI / UX Web App</dd></div>
         <div><dt>Timeline</dt><dd>2026</dd></div>
@@ -1096,12 +1105,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <div class="project-lite-split">
       <div>
         <span class="eyebrow">Overview</span>
-        <h2>What it does</h2>
+        <h2>Planning before production</h2>
         <p>BioSpherix Layout Planner is a web-based planning tool designed to help engineers translate early client requirements into clearer 2D lab system layouts before moving into CAD or Blender.</p>
       </div>
       <div>
         <span class="eyebrow">The Problem</span>
-        <h2>Why it was needed</h2>
+        <h2>Where the workflow slowed down</h2>
         <p>The existing process relied on repeated manual interpretation, scattered component references, and time-consuming layout revisions. The goal was to create a faster early-stage planning workflow without replacing the engineer&rsquo;s expertise.</p>
       </div>
     </div>
@@ -1109,7 +1118,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-section wrap">
     <span class="eyebrow">Key Design Decisions</span>
-    <h2>How it came together</h2>
+    <h2>Designing for engineering clarity</h2>
     <ul class="project-lite-list">
       <li>Turn client requirements into a structured planning flow</li>
       <li>Create a visual layout space before high-effort rendering</li>
@@ -1120,10 +1129,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-gallery wrap">
     <span class="eyebrow">Visuals</span>
-    <h2>Interface</h2>
+    <h2>Layout planning interface</h2>
     <div class="project-lite-gallery-grid">
-      <figure><img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface, view one" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/biospherix-card-2.png" alt="BioSpherix Layout Planner interface, view two" loading="lazy" decoding="async"></figure>
+      <figure>
+        <img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface, view one" loading="lazy" decoding="async">
+        <figcaption>Layout planning interface</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/biospherix-card-2.png" alt="BioSpherix Layout Planner interface, view two" loading="lazy" decoding="async">
+        <figcaption>Component and planning workflow</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1149,6 +1164,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <span class="eyebrow">Product, Packaging &amp; Visual Merchandising</span>
       <h1>SCAD x Wisdom ATL Eyewear</h1>
       <p class="project-lite-subtitle">A product and brand experience collaboration exploring eyewear, packaging, visual merchandising, and retail storytelling.</p>
+      <p class="project-lite-status">Concise case study &middot; Product, packaging, and retail system</p>
       <dl class="project-lite-meta">
         <div><dt>Project Type</dt><dd>Product, Packaging &amp; Visual Merchandising</dd></div>
         <div><dt>Timeline</dt><dd>2026</dd></div>
@@ -1162,12 +1178,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <div class="project-lite-split">
       <div>
         <span class="eyebrow">Overview</span>
-        <h2>What it explores</h2>
+        <h2>Extending the brand into retail</h2>
         <p>This collaboration with Wisdom ATL explored how the brand&rsquo;s playful, whimsical, and stoic personality could extend into eyewear products, packaging systems, and retail display moments.</p>
       </div>
       <div>
         <span class="eyebrow">The Problem</span>
-        <h2>The challenge</h2>
+        <h2>Balancing playful and premium</h2>
         <p>The challenge was to create product and retail concepts that felt expressive and memorable while still aligning with a premium eyewear brand.</p>
       </div>
     </div>
@@ -1175,7 +1191,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-section wrap">
     <span class="eyebrow">Key Design Decisions</span>
-    <h2>How it came together</h2>
+    <h2>Designing the retail story</h2>
     <ul class="project-lite-list c-olive">
       <li>Balance Wisdom&rsquo;s playful side with a more refined retail presence</li>
       <li>Explore eyewear as both product and brand object</li>
@@ -1186,11 +1202,20 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-gallery wrap">
     <span class="eyebrow">Visuals</span>
-    <h2>Product &amp; Retail</h2>
+    <h2>Eyewear, packaging, and display</h2>
     <div class="project-lite-gallery-grid">
-      <figure><img src="assets/wisdom-card-1.png" alt="Wisdom ATL eyewear concept, view one" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/wisdom-card-2.png" alt="Wisdom ATL eyewear concept, view two" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/wisdom-card-3.png" alt="Wisdom ATL eyewear concept, view three" loading="lazy" decoding="async"></figure>
+      <figure>
+        <img src="assets/wisdom-card-1.png" alt="Wisdom ATL eyewear concept, view one" loading="lazy" decoding="async">
+        <figcaption>Eyewear concept direction</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/wisdom-card-2.png" alt="Wisdom ATL eyewear concept, view two" loading="lazy" decoding="async">
+        <figcaption>Packaging and product exploration</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/wisdom-card-3.png" alt="Wisdom ATL eyewear concept, view three" loading="lazy" decoding="async">
+        <figcaption>Retail display storytelling</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1216,6 +1241,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <span class="eyebrow">UX Research / Service Design</span>
       <h1>SCADpro x FIFA World Cup 2026 Atlanta</h1>
       <p class="project-lite-subtitle">A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
+      <p class="project-lite-status">Concise case study &middot; Research and service design collaboration</p>
       <dl class="project-lite-meta">
         <div><dt>Project Type</dt><dd>UX Research / Service Design</dd></div>
         <div><dt>Timeline</dt><dd>2026</dd></div>
@@ -1229,12 +1255,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <div class="project-lite-split">
       <div>
         <span class="eyebrow">Overview</span>
-        <h2>What it explores</h2>
+        <h2>Designing for a city-scale event</h2>
         <p>This SCADpro collaboration explored how visitors and fans might move through Atlanta during FIFA World Cup 2026, with attention to wayfinding, accessibility, crowd flow, and service touchpoints.</p>
       </div>
       <div>
         <span class="eyebrow">The Problem</span>
-        <h2>The challenge</h2>
+        <h2>Reducing friction for visitors</h2>
         <p>Large-scale event experiences can become confusing quickly. The project focused on identifying friction points and designing clearer moments of guidance, support, and orientation for visitors.</p>
       </div>
     </div>
@@ -1242,7 +1268,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-section wrap">
     <span class="eyebrow">Key Design Decisions</span>
-    <h2>How it came together</h2>
+    <h2>Mapping the fan journey</h2>
     <ul class="project-lite-list c-teal">
       <li>Map the fan journey across arrival, movement, event moments, and departure</li>
       <li>Identify service gaps across physical and digital touchpoints</li>
@@ -1253,10 +1279,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <section class="project-lite-gallery wrap">
     <span class="eyebrow">Visuals</span>
-    <h2>Research &amp; Journey Mapping</h2>
+    <h2>Research artifacts and journey thinking</h2>
     <div class="project-lite-gallery-grid">
-      <figure><img src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta research artifact, view one" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/fifa-card-2.png" alt="FIFA World Cup 2026 Atlanta research artifact, view two" loading="lazy" decoding="async"></figure>
+      <figure>
+        <img src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta research artifact, view one" loading="lazy" decoding="async">
+        <figcaption>Fan experience interface direction</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/fifa-card-2.png" alt="FIFA World Cup 2026 Atlanta research artifact, view two" loading="lazy" decoding="async">
+        <figcaption>Journey and service touchpoint thinking</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1281,7 +1313,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <p>Designed and built by Niharika Jain.</p>
       </div>
       <div class="foot-links">
-        <a href="mailto:niharikajain.1209@gmail.com">Email</a>
+        <a href="mailto:niharikajain.1209@gmail.com">niharikajain.1209@gmail.com</a>
         <a href="assets/NiharikaJain_Resume.pdf" download="NiharikaJain_Resume.pdf">Resume</a>
         <a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn</a>
       </div>
