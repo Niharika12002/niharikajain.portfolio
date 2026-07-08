@@ -279,8 +279,14 @@ nav a:hover::after{width:100%}
 .poster--olive{background:var(--olive);color:var(--paper)}
 .poster--teal{background:var(--teal);color:var(--paper)}
 
+.poster h3,
+.poster p,
 .poster-img{
-  position:relative;z-index:2;
+  position:relative;
+  z-index:2;
+}
+
+.poster-img{
   margin-top:auto;max-width:90%;
   object-fit:contain;
 }
@@ -289,7 +295,7 @@ nav a:hover::after{width:100%}
 .wisdom-img{width:95%;margin-bottom:4%}
 .fifa-img{width:88%;margin-inline:auto;margin-bottom:-6%}
 .poster .num{
-  position:absolute;right:-.08em;bottom:-.22em;z-index:-1;
+  position:absolute;right:-.08em;bottom:-.22em;z-index:1;
   font-family:var(--display);font-optical-sizing:auto;
   font-size:clamp(7rem,13vw,10.5rem);font-weight:300;line-height:1;
   color:currentColor;opacity:.22;pointer-events:none;
@@ -408,7 +414,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
     <nav aria-label="Primary">
       <ul>
         <li><a href="#work">Work</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="#about-preview">About</a></li>
         <li><a href="#behind-the-build">Behind the Build</a></li>
         <li><a href="assets/Niharika-Jain-Resume.pdf" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -452,7 +458,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
   <section class="work wrap" id="work">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Selected work</span>
+        <span class="eyebrow">The archive</span>
         <h2>Selected Work</h2>
       </div>
       <span class="count">4 projects</span>
@@ -530,7 +536,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       </div>
     </div>
 
-    <a href="behind-the-build.html" class="btn btn-ghost">See the build process &rarr;</a>
+    <a href="#behind-the-build" class="btn btn-ghost">See the build process &rarr;</a>
   </section>
 
   <!-- ============================ WHAT I DESIGN ============================ -->
@@ -561,7 +567,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
   </section>
 
   <!-- ============================ ABOUT PREVIEW ============================ -->
-  <section class="about-preview">
+  <section class="about-preview" id="about-preview">
     <div class="wrap about-grid">
       <div class="reveal">
         <span class="eyebrow">A little about me</span>
@@ -570,7 +576,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <div class="bio reveal">
         <p>I&rsquo;m Niharika, a multidisciplinary designer from SCAD who likes turning complicated, chaotic, half-formed ideas into clear visual systems. My work usually sits somewhere between useful and delightful &mdash; structured enough to make sense, playful enough to feel human.</p>
         <p class="muted">Outside of design, I&rsquo;m probably taking sky photos, finding new music, cooking, browsing Indian homegrown fashion brands, or hanging out with Ginger.</p>
-        <a href="about.html" class="more-link">Read more about me &rarr;</a>
+        <a href="#about-preview" class="more-link">Read more about me &rarr;</a>
       </div>
     </div>
   </section>
@@ -584,8 +590,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
         <!-- TODO: confirm assets/Niharika-Jain-Resume.pdf matches the actual filename in the repo -->
         <a href="assets/Niharika-Jain-Resume.pdf" class="btn btn-ghost-cream" target="_blank" rel="noopener">View resume</a>
-        <!-- TODO: add real LinkedIn profile URL -->
-        <a href="#" class="btn btn-ghost-cream">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/niharikajain12002" class="btn btn-ghost-cream" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
