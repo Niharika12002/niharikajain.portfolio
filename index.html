@@ -6,7 +6,7 @@
 <title>Niharika Jain — Designer, Storyteller, Systems Thinker</title>
 <meta name="description" content="Niharika Jain is a multidisciplinary UX/UI and graphic designer creating digital products, brand systems, and physical experiences.">
 
-<!-- Fonts: Fraunces (display) + Hanken Grotesk (body/UI) + Caveat (annotation). Loaded via Google Fonts CDN for deploy reliability. -->
+<!-- Fonts: Fraunces (display) + Hanken Grotesk (body/UI) + Caveat (annotation, used elsewhere on site). Loaded via Google Fonts CDN for deploy reliability. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Hanken+Grotesk:ital,wght@0,300..800;1,400..600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,38 +16,59 @@
    DESIGN TOKENS
    ============================================================ */
 :root{
-  /* Color — from Niharika's palette uploads */
-  --paper:      #FFF7EF;  /* cream ground (reconciled to FFF7EF) */
+  /* Color */
+  --paper:      #FFF7EF;  /* cream ground — main background everywhere */
   --paper-2:    #FFFCF7;  /* slightly cooler cream — cards/artifacts */
-  --ink:        #0A2D33;  /* deep teal — used as text + an accent */
+  --ink:        #010F12;  /* primary text, borders, outlines, dark base */
+  --teal:       #0A2D33;  /* deep teal — premium dark accent, NOT the main ink */
   --olive:      #4B5B34;
   --terracotta: #A44936;
   --marigold:   #E78916;
   --white:      #FFFFFF;
 
   /* Ink tints for body text on paper */
-  --ink-80: rgba(10,45,51,.80);
-  --ink-60: rgba(10,45,51,.60);
-  --ink-12: rgba(10,45,51,.12);
+  --ink-80: rgba(1,15,18,.80);
+  --ink-60: rgba(1,15,18,.60);
+  --ink-45: rgba(1,15,18,.45);
+  --ink-12: rgba(1,15,18,.12);
 
   /* Type */
   --display: "Fraunces", Georgia, serif;
   --body:    "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --hand:    "Caveat", cursive;
 
-  /* Fluid scale */
-  --step--1: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem);
-  --step-0:  clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
-  --step-1:  clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
-  --step-2:  clamp(1.7rem, 1.4rem + 1.5vw, 2.6rem);
-  --step-3:  clamp(2.4rem, 1.8rem + 3vw, 4rem);
-  --step-4:  clamp(3.4rem, 2rem + 7vw, 7.5rem);
+  /* Fluid type scale */
+  --step--1: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem);   /* small / meta */
+  --step-0:  clamp(1rem, 0.95rem + 0.25vw, 1.125rem);     /* body */
+  --step-1:  clamp(1.25rem, 1.1rem + 0.7vw, 1.4rem);      /* body large */
+  --step-2:  clamp(1.75rem, 1.4rem + 1.8vw, 2.25rem);     /* project title */
+  --step-3:  clamp(2.5rem, 1.8rem + 3.2vw, 4rem);         /* page / section title */
+  --step-4:  clamp(2.75rem, 2rem + 4vw, 4.75rem);         /* hero xl */
 
-  /* Space + rhythm */
-  --gutter: clamp(1.25rem, 0.8rem + 3vw, 4rem);
-  --section-y: clamp(4rem, 2rem + 8vw, 9rem);
-  --maxw: 1240px;
-  --radius: 18px;
+  /* Space (8px system) */
+  --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px;
+  --space-5: 40px; --space-6: 48px; --space-8: 64px; --space-10: 80px;
+  --space-12: 96px; --space-16: 128px;
+
+  /* Layout — 1280px MacBook Air screen, 64px margins → 1152px container */
+  --container:    1152px;
+  --page-margin:  64px;
+  --grid-gutter:  24px;
+  --maxw: var(--container);
+  --section-y: clamp(3.5rem, 2rem + 7vw, 7rem);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Borders + shadows — graphic, not blurry */
+  --border-ink: 1.5px solid var(--ink);
+  --border-soft: 1px solid rgba(1,15,18,.14);
+  --shadow-graphic: 6px 6px 0 var(--ink);
+  --shadow-graphic-sm: 4px 4px 0 var(--ink);
+  --shadow-graphic-lg: 8px 8px 0 var(--ink);
 }
 
 /* ============================================================
@@ -75,18 +96,29 @@ body::before{
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2.5px solid var(--terracotta);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--marigold);outline-offset:4px;border-radius:4px}
+button{font:inherit;cursor:pointer}
 
-.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);position:relative;z-index:1}
+.wrap{
+  width:100%;max-width:var(--container);margin-inline:auto;
+  padding-inline:var(--page-margin);position:relative;z-index:1;
+}
+@media (max-width:900px){ .wrap{padding-inline:40px} }
+@media (max-width:560px){ .wrap{padding-inline:24px} }
+
+.eyebrow{
+  font-family:var(--body);font-weight:600;font-size:var(--step--1);
+  text-transform:uppercase;letter-spacing:.16em;color:var(--terracotta);
+  display:block;margin-bottom:.6rem;
+}
 
 /* ============================================================
-   HEADER
+   HEADER — flat cream, thin border, no glass
    ============================================================ */
 header{
   position:sticky;top:0;z-index:50;
-  background:color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--ink-12);
+  background:var(--paper);
+  border-bottom:var(--border-soft);
 }
 .nav{
   display:flex;align-items:center;justify-content:space-between;
@@ -94,7 +126,7 @@ header{
 }
 .logo{display:inline-flex;align-items:center}
 .logo-img{
-  height:clamp(34px,4.5vw,44px);width:auto;
+  height:clamp(30px,4vw,38px);width:auto;
   transition:transform .25s ease;
 }
 .logo:hover .logo-img{transform:rotate(-4deg)}
@@ -105,7 +137,7 @@ nav a{
 }
 nav a::after{
   content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
-  background:var(--terracotta);transition:width .25s ease;
+  background:var(--marigold);transition:width .25s ease;
 }
 nav a:hover{color:var(--ink)}
 nav a:hover::after{width:100%}
@@ -113,171 +145,242 @@ nav a:hover::after{width:100%}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{padding-block:clamp(2.5rem,1rem+6vw,6rem) var(--section-y)}
-.name-lockup{
-  font-family:var(--display);
-  font-optical-sizing:auto;
-  font-size:var(--step-2);
-  font-weight:400;
-  text-align:center;
-  display:block;
-  margin-bottom:clamp(1.5rem,3vw,2.5rem);
-  transform:rotate(-2.2deg);
-}
-.name-lockup .greet{font-style:italic;color:var(--ink)}
-.name-lockup .me{color:var(--terracotta);font-weight:500}
-
+.hero{padding-block:clamp(2.5rem,1rem+5vw,5rem) var(--section-y)}
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:clamp(1.5rem,4vw,4.5rem);
+  grid-template-columns:.92fr 1.15fr;
+  gap:clamp(2rem,4vw,4.5rem);
   align-items:center;
 }
-@media (max-width:760px){
+@media (max-width:820px){
   .hero-grid{grid-template-columns:1fr;text-align:center}
 }
 
-/* portrait (transparent cut-out) */
+.hero-visual{position:relative}
+.name-lockup{
+  font-family:var(--display);font-optical-sizing:auto;font-style:italic;
+  font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:400;
+  margin-bottom:1rem;transform:rotate(-2deg);transform-origin:left center;
+}
+@media (max-width:820px){ .name-lockup{transform:none;text-align:center} }
+.name-lockup .me{color:var(--terracotta);font-style:normal;font-weight:500}
+
+.portrait-frame{position:relative;display:flex;justify-content:center}
 .portrait{
   display:block;width:auto;
-  height:clamp(360px,46vw,580px);
-  margin-inline:auto;
-  filter:drop-shadow(0 24px 30px rgba(10,45,51,.18));
+  height:clamp(320px,38vw,460px);
+  filter:drop-shadow(0 20px 26px rgba(1,15,18,.14));
 }
+.floating-tag{
+  position:absolute;font-family:var(--body);font-weight:600;
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+  padding:.5em 1em;border-radius:var(--radius-pill);
+  white-space:nowrap;box-shadow:none;
+}
+.floating-tag.fill-terracotta{background:var(--terracotta);color:var(--paper)}
+.floating-tag.fill-olive{background:var(--olive);color:var(--paper)}
+.floating-tag.outline{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
+.tag-1{top:6%;left:-4%;transform:rotate(-6deg)}
+.tag-2{top:38%;right:-8%;transform:rotate(4deg)}
+.tag-3{bottom:16%;left:-8%;transform:rotate(-4deg)}
+.tag-4{bottom:2%;right:-4%;transform:rotate(3deg)}
+@media (max-width:820px){ .floating-tag{position:static;display:inline-flex;margin:.25rem .3rem;transform:none!important} }
+
+.hero-copy{padding-top:.5rem}
+.availability{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-size:var(--step--1);font-weight:600;color:var(--ink-80);
+  margin-bottom:1.4rem;
+}
+@media (max-width:820px){ .availability{justify-content:center} }
+.availability .dot{width:8px;height:8px;border-radius:50%;background:var(--olive);display:inline-block}
 
 .hero-copy h1{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-3);font-weight:500;line-height:1.04;
-  letter-spacing:-.01em;margin-bottom:1.1rem;
+  font-size:var(--step-4);font-weight:500;line-height:1.06;
+  letter-spacing:-.01em;margin-bottom:1.2rem;
 }
+.hero-copy h1 .c-marigold{color:var(--marigold)}
+.hero-copy h1 .c-terracotta{color:var(--terracotta)}
+
 .hero-copy p.lede{
-  font-size:var(--step-1);color:var(--ink-80);line-height:1.45;
-  max-width:38ch;margin-bottom:2rem;
+  font-size:var(--step-1);color:var(--ink-80);line-height:1.5;
+  max-width:46ch;margin-bottom:1.1rem;
 }
-@media (max-width:760px){.hero-copy p.lede{margin-inline:auto}}
+.hero-meta{
+  font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-45);margin-bottom:2rem;
+}
+@media (max-width:820px){ .hero-copy p.lede, .hero-meta{margin-inline:auto} }
 
 .cta-row{display:flex;gap:1rem;flex-wrap:wrap}
-@media (max-width:760px){.cta-row{justify-content:center}}
+@media (max-width:820px){ .cta-row{justify-content:center} }
 .btn{
   font-family:var(--body);font-weight:600;font-size:var(--step-0);
-  padding:.85em 1.7em;border-radius:100px;cursor:pointer;
-  border:1.5px solid var(--ink);transition:transform .18s ease, background .2s ease, color .2s ease;
+  padding:.85em 1.7em;border-radius:var(--radius-pill);cursor:pointer;
+  border:var(--border-ink);
+  transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease;
   display:inline-block;
 }
-.btn:hover{transform:translateY(-2px)}
+.btn:hover{transform:translate(-2px,-2px)}
 .btn-fill{background:var(--ink);color:var(--paper)}
-.btn-fill:hover{background:var(--olive);border-color:var(--olive)}
+.btn-fill:hover{box-shadow:var(--shadow-graphic-sm)}
+.btn-marigold{background:var(--marigold);color:var(--ink)}
+.btn-marigold:hover{box-shadow:var(--shadow-graphic-sm)}
 .btn-ghost{background:transparent;color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost-cream{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn-ghost-cream:hover{background:var(--paper);color:var(--teal)}
+.btn-white{background:var(--paper);color:var(--teal);border-color:var(--paper)}
+.btn-white:hover{box-shadow:6px 6px 0 rgba(255,247,239,.3)}
 
 /* ============================================================
-   SELECTED WORK
+   SELECTED WORK — four tall editorial poster cards
    ============================================================ */
 .work{padding-block:var(--section-y)}
 .section-head{
   display:flex;align-items:flex-end;justify-content:space-between;
-  gap:1rem;flex-wrap:wrap;margin-bottom:clamp(2rem,4vw,3.5rem);
-}
-.eyebrow{
-  font-family:var(--body);font-weight:600;font-size:var(--step--1);
-  text-transform:uppercase;letter-spacing:.18em;color:var(--terracotta);
-  display:block;margin-bottom:.5rem;
+  gap:1rem;flex-wrap:wrap;margin-bottom:clamp(2rem,4vw,3rem);
 }
 .section-head h2{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-4);font-weight:400;line-height:.95;letter-spacing:-.02em;
+  font-size:var(--step-3);font-weight:400;line-height:1;letter-spacing:-.02em;
 }
-.section-head .note{font-family:var(--hand);font-size:clamp(1.3rem,2.5vw,1.9rem);color:var(--olive);transform:rotate(-3deg)}
+.section-head .count{font-size:var(--step--1);color:var(--ink-60);font-weight:500}
 
-.cards{
+.posters{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-  gap:clamp(1rem,2vw,1.6rem);
+  grid-template-columns:repeat(4, 1fr);
+  gap:var(--grid-gutter);
 }
-.card{
-  position:relative;overflow:hidden;border-radius:var(--radius);
-  min-height:clamp(300px,38vw,420px);
-  padding:clamp(1.4rem,2.5vw,2rem);
+@media (max-width:980px){ .posters{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .posters{grid-template-columns:1fr} }
+
+.poster{
+  position:relative;overflow:hidden;border-radius:var(--radius-sm);
+  min-height:clamp(440px,44vw,560px);
+  padding:clamp(1.4rem,2vw,1.8rem);
   display:flex;flex-direction:column;
-  color:var(--paper);
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:transform .22s ease, box-shadow .22s ease;
   isolation:isolate;
 }
-.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -20px rgba(10,45,51,.45)}
-.card .cat{
-  font-family:var(--body);font-weight:600;font-size:var(--step--1);
-  text-transform:uppercase;letter-spacing:.14em;opacity:.85;margin-bottom:.7rem;
-}
-.card h3{
+.poster:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-graphic-lg)}
+.poster h3{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-2);font-weight:500;line-height:1;margin-bottom:.5rem;
+  font-size:var(--step-2);font-weight:500;line-height:1.05;margin-bottom:.6rem;
 }
-.card p{font-size:var(--step-0);line-height:1.45;opacity:.92;max-width:30ch}
-.card .num{
-  position:absolute;right:-.06em;bottom:-.28em;z-index:-1;
+.poster p{font-size:var(--step-0);line-height:1.4;max-width:28ch}
+
+.poster--marigold{background:var(--marigold);color:var(--ink)}
+.poster--terracotta{background:var(--terracotta);color:var(--paper)}
+.poster--olive{background:var(--olive);color:var(--paper)}
+.poster--teal{background:var(--teal);color:var(--paper)}
+
+.poster .shot{
+  margin-top:auto;align-self:flex-start;
+  width:78%;aspect-ratio:4/3;border-radius:var(--radius-sm);
+  border:1.5px dashed currentColor;opacity:.55;
+  display:grid;place-items:center;text-align:center;padding:.6rem;
+  font-size:.68rem;line-height:1.3;
+}
+.poster .num{
+  position:absolute;right:-.08em;bottom:-.22em;z-index:-1;
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:clamp(9rem,18vw,15rem);font-weight:300;line-height:1;
-  opacity:.16;transition:transform .3s ease, opacity .3s ease;
-  pointer-events:none;
+  font-size:clamp(7rem,13vw,10.5rem);font-weight:300;line-height:1;
+  color:currentColor;opacity:.22;pointer-events:none;
 }
-.card:hover .num{transform:translate(-6px,-4px);opacity:.24}
-
-/* accent assignment — palette cycles across six projects */
-.card--marigold  {background:var(--marigold);color:var(--ink)}      /* ink text for contrast on yellow */
-.card--terracotta{background:var(--terracotta)}
-.card--olive     {background:var(--olive)}
-.card--teal      {background:var(--ink)}
-.card--marigold .cat{opacity:.7}
-.card--marigold .num{color:var(--ink)}
-
-/* card with a bleeding product image (Pili) */
-.card .product-ph{
-  position:absolute;left:-12%;bottom:-6%;width:62%;max-width:240px;
-  aspect-ratio:1/1;border-radius:14px;
-  border:1.5px dashed rgba(10,45,51,.35);
-  background:rgba(255,247,239,.55);
-  display:grid;place-items:center;text-align:center;padding:.6rem;z-index:1;
-}
-.card .product-ph span{font-family:var(--body);font-size:.7rem;color:var(--ink);line-height:1.3}
+.poster--marigold .num{opacity:.16}
 
 /* ============================================================
-   POSITIONING STRIP
+   BEHIND THE BUILD
    ============================================================ */
-.about-strip{
-  padding-block:var(--section-y);
-  border-top:1px solid var(--ink-12);
+.behind{padding-block:var(--section-y);border-top:var(--border-soft)}
+.split-head{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3rem);
+  align-items:end;margin-bottom:clamp(2.5rem,4vw,3.5rem);
 }
-.about-strip .big{
+@media (max-width:760px){ .split-head{grid-template-columns:1fr} }
+.split-head h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:400;line-height:1;letter-spacing:-.02em;
+}
+.split-head p{font-size:var(--step-0);color:var(--ink-80);max-width:44ch}
+
+.build-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter);
+  margin-bottom:clamp(2rem,3vw,2.5rem);
+}
+@media (max-width:760px){ .build-cards{grid-template-columns:1fr} }
+.build-card{
+  background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);
+  padding:clamp(1.4rem,2vw,1.8rem);
+}
+.build-card .idx{
+  font-family:var(--body);font-weight:700;font-size:var(--step--1);
+  color:var(--terracotta);margin-bottom:.8rem;display:block;
+}
+.build-card h4{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem}
+.build-card p{font-size:var(--step-0);color:var(--ink-60);line-height:1.45}
+
+/* ============================================================
+   WHAT I DESIGN
+   ============================================================ */
+.discipline{padding-block:var(--section-y);border-top:var(--border-soft)}
+.discipline-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter);
+}
+@media (max-width:760px){ .discipline-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:480px){ .discipline-grid{grid-template-columns:1fr} }
+.discipline-col{padding-top:1.1rem;border-top:3px solid var(--ink)}
+.discipline-col.c-marigold{border-color:var(--marigold)}
+.discipline-col.c-terracotta{border-color:var(--terracotta)}
+.discipline-col.c-olive{border-color:var(--olive)}
+.discipline-col.c-teal{border-color:var(--teal)}
+.discipline-col h4{font-size:var(--step-0);font-weight:700;margin-bottom:.5rem}
+.discipline-col p{font-size:var(--step--1);color:var(--ink-60);line-height:1.45}
+
+/* ============================================================
+   ABOUT PREVIEW — dark editorial block
+   ============================================================ */
+.about-preview{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.about-grid{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,4vw,4rem);align-items:start;
+}
+@media (max-width:760px){ .about-grid{grid-template-columns:1fr} }
+.about-grid .eyebrow{color:var(--marigold)}
+.about-grid h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:400;line-height:1.08;letter-spacing:-.01em;
+}
+.about-grid .bio p{font-size:var(--step-1);line-height:1.55;margin-bottom:1.2rem}
+.about-grid .bio p.muted{color:rgba(255,247,239,.65)}
+.about-grid .more-link{
+  color:var(--marigold);font-weight:600;font-size:var(--step-0);
+  display:inline-flex;align-items:center;gap:.4em;
+  border-bottom:1.5px solid transparent;transition:border-color .2s;
+}
+.about-grid .more-link:hover{border-color:var(--marigold)}
+
+/* ============================================================
+   FINAL CTA — deep teal
+   ============================================================ */
+.final-cta{background:var(--teal);color:var(--paper);padding-block:clamp(4rem,7vw,7rem);text-align:center}
+.final-cta h2{
   font-family:var(--display);font-optical-sizing:auto;
   font-size:var(--step-3);font-weight:400;line-height:1.12;letter-spacing:-.01em;
-  max-width:18ch;
+  max-width:20ch;margin-inline:auto;margin-bottom:1.1rem;
 }
-.about-strip .big em{font-style:italic;color:var(--terracotta)}
-.about-strip .hand-note{
-  font-family:var(--hand);font-size:clamp(1.4rem,3vw,2.2rem);
-  color:var(--olive);transform:rotate(-2deg);display:inline-block;margin-top:1.5rem;
+.final-cta .sub{
+  font-size:var(--step-1);color:rgba(255,247,239,.75);
+  max-width:48ch;margin-inline:auto;margin-bottom:2.4rem;
 }
+.final-cta .cta-row{justify-content:center}
 
 /* ============================================================
-   FOOTER
+   FOOTER — minimal
    ============================================================ */
-footer{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem)}
-.foot-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-end}
-footer h2{
-  font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-3);font-weight:400;line-height:1;margin-bottom:.4rem;
-}
-footer .sub{color:rgba(255,247,239,.7);font-size:var(--step-0)}
-.foot-links{display:flex;gap:clamp(1.2rem,3vw,2.4rem);flex-wrap:wrap}
-.foot-links a{font-weight:500;border-bottom:1.5px solid transparent;padding-bottom:2px;transition:border-color .2s}
-.foot-links a:hover{border-color:var(--marigold)}
-.tagline{
-  width:100%;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.5rem;
-  border-top:1px solid rgba(255,247,239,.18);
-  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  font-size:var(--step--1);color:rgba(255,247,239,.7);
-}
-.tagline .made{font-family:var(--hand);font-size:1.3rem;color:var(--marigold)}
+footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;border-top:1px solid rgba(255,247,239,.16)}
+.foot-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:var(--step--1)}
 
 /* ============================================================
    MOTION
@@ -287,7 +390,7 @@ footer .sub{color:rgba(255,247,239,.7);font-size:var(--step-0)}
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;transition:none}
-  .btn:hover,.card:hover{transform:none}
+  .btn:hover,.poster:hover{transform:none}
 }
 </style>
 </head>
@@ -312,22 +415,31 @@ footer .sub{color:rgba(255,247,239,.7);font-size:var(--step-0)}
 <main>
   <!-- ============================ HERO ============================ -->
   <section class="hero wrap">
-    <span class="name-lockup">
-      <span class="greet">Hi! I&rsquo;m</span> <span class="me">Niharika Jain</span>
-    </span>
-
     <div class="hero-grid">
-      <img class="portrait reveal" src="assets/niharika-portrait.png" alt="Illustrated portrait of Niharika Jain, smiling and waving">
+
+      <div class="hero-visual reveal">
+        <p class="name-lockup">Hi! I&rsquo;m <span class="me">Niharika Jain</span></p>
+        <div class="portrait-frame">
+          <img class="portrait" src="assets/niharika-portrait.png" alt="Illustrated portrait of Niharika Jain, smiling and waving">
+          <span class="floating-tag fill-terracotta tag-1">AI Workflows</span>
+          <span class="floating-tag outline tag-2">UX/UI</span>
+          <span class="floating-tag fill-olive tag-3">Physical Experiences</span>
+          <span class="floating-tag fill-terracotta tag-4">Brand Systems</span>
+        </div>
+      </div>
 
       <div class="hero-copy reveal">
-        <h1>Part designer, part storyteller, part systems thinker</h1>
+        <p class="availability"><span class="dot" aria-hidden="true"></span> Available for work &middot; Class of 2026</p>
+        <h1>Part <span class="c-marigold">designer</span>, part storyteller &amp; part <span class="c-terracotta">systems thinker</span></h1>
         <p class="lede">A multidisciplinary UX/UI designer creating digital products, brand systems, and physical experiences that make complicated things feel clear, calm, and a little more delightful.</p>
+        <p class="hero-meta">SCAD B.F.A. User Experience Design &middot; Minor in Graphic Design &middot; Atlanta, GA</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-fill">View selected work</a>
           <!-- TODO: link Resume to real file — resume.pdf -->
           <a href="#" class="btn btn-ghost">Download resume</a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -335,95 +447,146 @@ footer .sub{color:rgba(255,247,239,.7);font-size:var(--step-0)}
   <section class="work wrap" id="work">
     <div class="section-head">
       <div>
-        <span class="eyebrow">The archive</span>
-        <h2>Selected work</h2>
+        <span class="eyebrow">Selected work</span>
+        <h2>Selected Work</h2>
       </div>
-      <span class="note reveal">six things I&rsquo;m proud of &darr;</span>
+      <span class="count">4 projects</span>
     </div>
 
-    <div class="cards">
+    <div class="posters">
 
-      <!-- 01 — Pili (hero project) -->
-      <a class="card card--marigold reveal" href="pili.html">
-        <span class="cat">Senior Capstone</span>
+      <!-- 01 — Pili -->
+      <a class="poster poster--marigold reveal" href="pili.html">
         <h3>Pili</h3>
-        <!-- TODO: confirm Pili one-line summary (capstone subject) -->
-        <p>[ One-line project summary &mdash; to confirm ]</p>
-        <!-- TODO: replace with device cut-out — pili-device.png -->
-        <div class="product-ph" aria-hidden="true"><span>pili-device.png</span></div>
+        <p>A calm connection system that helps older adults, families, and caregivers stay connected.</p>
+        <!-- TODO: replace with exported Pili device cutout — pili-device.png -->
+        <div class="shot" aria-hidden="true">pili-device.png</div>
         <span class="num" aria-hidden="true">1</span>
       </a>
 
       <!-- 02 — BioSpherix Layout Planner -->
-      <a class="card card--terracotta reveal" href="biospherix.html">
-        <span class="cat">Web App &middot; AI</span>
-        <h3>BioSpherix Layout Planner</h3>
-        <p>An AI-assisted React tool for planning lab environments.</p>
+      <a class="poster poster--terracotta reveal" href="biospherix.html">
+        <h3>Design your Lab</h3>
+        <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
+        <!-- TODO: replace with exported interface screenshot — biospherix-ui.png -->
+        <div class="shot" aria-hidden="true">biospherix-ui.png</div>
         <span class="num" aria-hidden="true">2</span>
       </a>
 
-      <!-- 03 — FIFA World Cup 2026 Atlanta -->
-      <a class="card card--olive reveal" href="fifa-2026.html">
-        <span class="cat">Service Design &middot; SCADpro</span>
-        <h3>FIFA World Cup 2026 Atlanta</h3>
-        <p>Service design and journey mapping, built as a SCADpro collaboration.</p>
+      <!-- 03 — SCAD x Wisdom ATL Eyewear -->
+      <a class="poster poster--olive reveal" href="wisdom-eyewear.html">
+        <h3>SCAD x Wisdom ATL Eyewear</h3>
+        <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
+        <!-- TODO: replace with exported eyewear render — wisdom-eyewear.png -->
+        <div class="shot" aria-hidden="true">wisdom-eyewear.png</div>
         <span class="num" aria-hidden="true">3</span>
       </a>
 
-      <!-- 04 — Wisdom ATL Eyewear -->
-      <a class="card card--teal reveal" href="wisdom-eyewear.html">
-        <span class="cat">Branding &middot; Packaging</span>
-        <h3>Wisdom ATL Eyewear</h3>
-        <p>Brand identity, product, packaging, and merchandising for an eyewear label.</p>
+      <!-- 04 — SCADpro x FIFA World Cup 2026 Atlanta -->
+      <a class="poster poster--teal reveal" href="fifa-2026.html">
+        <h3>SCADpro x FIFA World Cup 2026 Atlanta</h3>
+        <p>A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
+        <!-- TODO: replace with exported app screen mockups — fifa-app.png -->
+        <div class="shot" aria-hidden="true">fifa-app.png</div>
         <span class="num" aria-hidden="true">4</span>
-      </a>
-
-      <!-- 05 — Naagin Sauce -->
-      <a class="card card--terracotta reveal" href="naagin-sauce.html">
-        <span class="cat">Campaign &middot; Marketing</span>
-        <h3>Naagin Sauce</h3>
-        <p>Campaign and marketing design for an Indian hot sauce brand.</p>
-        <span class="num" aria-hidden="true">5</span>
-      </a>
-
-      <!-- 06 — KUAI -->
-      <a class="card card--marigold reveal" href="kuai.html">
-        <span class="cat">Concept &middot; AI</span>
-        <h3>KUAI</h3>
-        <p>An AI fashion and lifestyle planning concept app.</p>
-        <span class="num" aria-hidden="true">6</span>
       </a>
 
     </div>
   </section>
 
-  <!-- ============================ POSITIONING STRIP ============================ -->
-  <section class="about-strip wrap">
-    <p class="big reveal">I design across <em>screens, brands, and objects</em> &mdash; and I like to leave a record of how it got made.</p>
-    <span class="hand-note reveal">organized chaos, mostly</span>
+  <!-- ============================ BEHIND THE BUILD ============================ -->
+  <section class="behind wrap" id="behind-the-build">
+    <div class="split-head">
+      <div>
+        <span class="eyebrow">Process</span>
+        <h2 class="reveal">Behind the Build</h2>
+      </div>
+      <p class="reveal">This portfolio is also a record of how it was made &mdash; the prompts, revisions, AI direction logs, resistance notes, and design choices behind the final site.</p>
+    </div>
+
+    <div class="build-cards">
+      <div class="build-card reveal">
+        <span class="idx">01</span>
+        <h4>AI Direction Log</h4>
+        <p>How I used AI as a design partner, not a shortcut.</p>
+      </div>
+      <div class="build-card reveal">
+        <span class="idx">02</span>
+        <h4>Records of Resistance</h4>
+        <p>Moments where I rejected generic outputs and redirected the system.</p>
+      </div>
+      <div class="build-card reveal">
+        <span class="idx">03</span>
+        <h4>System Architecture</h4>
+        <p>How the site structure, project pages, and visual language came together.</p>
+      </div>
+    </div>
+
+    <a href="behind-the-build.html" class="btn btn-ghost">See the build process &rarr;</a>
+  </section>
+
+  <!-- ============================ WHAT I DESIGN ============================ -->
+  <section class="discipline wrap">
+    <div class="split-head">
+      <h2 class="reveal">What I design</h2>
+      <p class="reveal">I work across screens, systems, brands, and physical touch points, usually where things are a little messy and need to become easier to understand.</p>
+    </div>
+
+    <div class="discipline-grid">
+      <div class="discipline-col c-marigold reveal">
+        <h4>AI Workflows</h4>
+        <p>Prompting, prototyping, coded experiments, process documentation</p>
+      </div>
+      <div class="discipline-col c-terracotta reveal">
+        <h4>Digital Products</h4>
+        <p>UX/UI, flows, wireframes, prototypes, interface systems</p>
+      </div>
+      <div class="discipline-col c-olive reveal">
+        <h4>Brand Systems</h4>
+        <p>Visual identity, typography, campaigns, storytelling</p>
+      </div>
+      <div class="discipline-col c-teal reveal">
+        <h4>Physical Experiences</h4>
+        <p>Packaging, retail moments, environmental graphics, product touchpoints</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT PREVIEW ============================ -->
+  <section class="about-preview">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">A little about me</span>
+        <h2>Organized chaos, carefully arranged.</h2>
+      </div>
+      <div class="bio reveal">
+        <p>I&rsquo;m Niharika, a multidisciplinary designer from SCAD who likes turning complicated, chaotic, half-formed ideas into clear visual systems. My work usually sits somewhere between useful and delightful &mdash; structured enough to make sense, playful enough to feel human.</p>
+        <p class="muted">Outside of design, I&rsquo;m probably taking sky photos, finding new music, cooking, browsing Indian homegrown fashion brands, or hanging out with Ginger.</p>
+        <a href="about.html" class="more-link">Read more about me &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FINAL CTA ============================ -->
+  <section class="final-cta" id="contact">
+    <div class="wrap">
+      <h2 class="reveal">Let&rsquo;s make something clear, useful, and a little unexpected.</h2>
+      <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design opportunities.</p>
+      <div class="cta-row reveal">
+        <!-- TODO: confirm contact email + resume file + LinkedIn URL -->
+        <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
+        <a href="#" class="btn btn-ghost-cream">View resume</a>
+        <a href="#" class="btn btn-ghost-cream">LinkedIn</a>
+      </div>
+    </div>
   </section>
 </main>
 
 <!-- ============================ FOOTER ============================ -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h2>Let&rsquo;s make something.</h2>
-        <p class="sub">Open to full-time UX &amp; graphic design roles and freelance work.</p>
-      </div>
-      <div class="foot-links">
-        <!-- TODO: add real contact + profile links -->
-        <a href="#">Email</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Behance</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
-    <div class="tagline">
-      <span class="made">Made in Atlanta &#10022; Powered by Ginger</span>
-      <span>&copy; <span id="yr"></span> Niharika Jain</span>
-    </div>
+<footer>
+  <div class="wrap foot-row">
+    <span>&copy; <span id="yr"></span> Niharika Jain</span>
+    <span>Designed and built by Niharika Jain.</span>
   </div>
 </footer>
 
