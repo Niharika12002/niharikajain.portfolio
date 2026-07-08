@@ -98,6 +98,7 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--marigold);outline-offset:4px;border-radius:4px}
 button{font:inherit;cursor:pointer}
+[hidden]{display:none !important}
 
 .wrap{
   width:min(calc(100% - 128px), var(--container));
@@ -280,7 +281,6 @@ nav a:hover::after{width:100%}
 .poster--teal{background:var(--teal);color:var(--paper)}
 
 .poster-img{
-  position:relative;z-index:2;
   margin-top:auto;max-width:90%;
   object-fit:contain;
 }
@@ -289,7 +289,8 @@ nav a:hover::after{width:100%}
 .wisdom-img{width:95%;margin-bottom:4%}
 .fifa-img{width:88%;margin-inline:auto;margin-bottom:-6%}
 .poster h3,
-.poster p{position:relative;z-index:2}
+.poster p,
+.poster-img{position:relative;z-index:2}
 
 .poster .num{
   position:absolute;right:-.08em;bottom:-.22em;z-index:1;
@@ -391,6 +392,145 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 .foot-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:var(--step--1)}
 
 /* ============================================================
+   PROJECT VIEW — PILI
+   ============================================================ */
+.project-hero{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) clamp(3rem,6vw,4.5rem)}
+.project-back{
+  display:inline-flex;align-items:center;gap:.4em;
+  font-size:var(--step--1);font-weight:600;color:rgba(255,247,239,.7);
+  margin-bottom:clamp(2rem,4vw,3rem);
+  border-bottom:1.5px solid transparent;transition:border-color .2s ease, color .2s ease;
+}
+.project-back:hover{color:var(--paper);border-color:var(--paper)}
+.project-hero .eyebrow{color:var(--marigold)}
+.project-hero h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(3.2rem,7vw,6.5rem);font-weight:500;line-height:.98;
+  letter-spacing:-.01em;margin-bottom:1.2rem;
+}
+.project-hero .subtitle{
+  font-size:var(--step-1);color:rgba(255,247,239,.88);max-width:52ch;
+  margin-bottom:1.6rem;line-height:1.4;
+}
+.project-hero .desc{
+  font-size:var(--step-0);color:rgba(255,247,239,.62);max-width:62ch;
+  line-height:1.6;margin-bottom:clamp(2.5rem,5vw,3.5rem);
+}
+.pili-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem);
+  list-style:none;border-top:1px solid rgba(255,247,239,.16);padding-top:1.6rem;
+}
+@media (max-width:760px){ .pili-meta{grid-template-columns:1fr 1fr} }
+.pili-meta dt{
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,247,239,.5);margin-bottom:.4rem;
+}
+.pili-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.9);line-height:1.4}
+
+/* shared project section rhythm */
+.project-section{padding-block:var(--section-y)}
+.project-section h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:400;line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:1.2rem;
+}
+.pili-overview h2{color:var(--marigold)}
+.pili-intro{max-width:64ch;margin-bottom:2.4rem}
+.pili-intro p{font-size:var(--step-1);color:var(--ink-80);line-height:1.55;margin-bottom:1rem}
+
+.pili-touchpoints{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter)}
+@media (max-width:760px){ .pili-touchpoints{grid-template-columns:1fr} }
+.pili-touchpoint{background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
+.pili-touchpoint img{width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:var(--border-soft)}
+.pili-touchpoint-body{padding:clamp(1.2rem,2vw,1.6rem)}
+.pili-touchpoint h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem}
+.pili-touchpoint p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
+
+/* Problem / Why — two-column split block, full bleed */
+.pili-split{display:grid;grid-template-columns:1fr 1fr}
+@media (max-width:760px){ .pili-split{grid-template-columns:1fr} }
+.pili-split-block{padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,var(--page-margin))}
+.pili-split-block.marigold{background:var(--marigold);color:var(--ink)}
+.pili-split-block.terracotta{background:var(--terracotta);color:var(--paper)}
+.pili-split-block.marigold .eyebrow{color:var(--ink);opacity:.7}
+.pili-split-block.terracotta .eyebrow{color:var(--paper);opacity:.85}
+.pili-split-block h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:500;line-height:1.05;margin-bottom:1rem;
+}
+.pili-split-block p{font-size:var(--step-1);max-width:38ch;line-height:1.5}
+.pili-split-block.marigold p{color:rgba(1,15,18,.75)}
+.pili-split-block.terracotta p{color:rgba(255,247,239,.88)}
+
+/* User Needs — dark, split heading + numbered list */
+.pili-needs{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.pili-needs-grid{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,4vw,4rem);align-items:start;
+}
+@media (max-width:760px){ .pili-needs-grid{grid-template-columns:1fr} }
+.pili-needs-grid .eyebrow{color:var(--marigold)}
+.pili-needs-grid h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:400;line-height:1.02;
+}
+.pili-needs-list{list-style:none;display:flex;flex-direction:column;gap:1.4rem}
+.pili-needs-list li{display:flex;gap:1.2rem;border-top:1px solid rgba(255,247,239,.14);padding-top:1.4rem}
+.pili-needs-list li:first-child{border-top:none;padding-top:0}
+.pili-needs-list .n{font-family:var(--display);font-size:var(--step-1);color:var(--marigold);min-width:2.4ch}
+.pili-needs-list p{font-size:var(--step-0);color:rgba(255,247,239,.85);line-height:1.5}
+
+/* Digital touchpoints — detail cards with feature pills */
+.pili-touchpoints-detail{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:1rem}
+@media (max-width:760px){ .pili-touchpoints-detail{grid-template-columns:1fr} }
+.pili-detail-card{background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);padding:clamp(1.6rem,2.5vw,2.2rem)}
+.pili-detail-card h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.6rem}
+.pili-detail-card p.desc{font-size:var(--step-0);color:var(--ink-60);line-height:1.5;margin-bottom:1.2rem}
+.pili-detail-card .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.pili-detail-card .pill-row span{
+  font-size:.72rem;font-weight:600;padding:.4em .9em;border-radius:var(--radius-pill);
+  background:var(--paper);border:1px solid var(--ink-12);color:var(--ink-80);
+}
+.pili-detail-card img{width:100%;border-radius:var(--radius-sm);border:var(--border-soft);aspect-ratio:4/3;object-fit:cover}
+
+/* Form Exploration — deep teal, richest process section */
+.pili-form{background:var(--teal);color:var(--paper);padding-block:var(--section-y)}
+.pili-form .eyebrow{color:var(--marigold)}
+.pili-form > .wrap > h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;margin-bottom:1rem}
+.pili-form .intro{font-size:var(--step-1);color:rgba(255,247,239,.9);max-width:56ch;margin-bottom:.7rem;line-height:1.5}
+.pili-form .supporting{font-size:var(--step-0);color:rgba(255,247,239,.62);max-width:64ch;margin-bottom:1rem;line-height:1.6}
+
+.pili-version{margin-top:clamp(2.5rem,5vw,3.5rem)}
+.pili-version h3{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.5rem}
+.pili-version .version-copy{font-size:var(--step-0);color:rgba(255,247,239,.7);max-width:56ch;margin-bottom:1.4rem;line-height:1.5}
+.pili-version-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter)}
+@media (max-width:900px){ .pili-version-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:480px){ .pili-version-grid{grid-template-columns:1fr 1fr} }
+.pili-version-grid figure{margin:0}
+.pili-version-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-sm);border:1px solid rgba(255,247,239,.16)}
+.pili-version-grid figcaption{font-size:.72rem;color:rgba(255,247,239,.55);margin-top:.5rem}
+
+/* Exhibition — near-black */
+.pili-exhibit{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.pili-exhibit .eyebrow{color:var(--marigold)}
+.pili-exhibit h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;max-width:16ch;margin-bottom:1.1rem}
+.pili-exhibit > .wrap > p{font-size:var(--step-1);color:rgba(255,247,239,.75);max-width:56ch;margin-bottom:2.5rem;line-height:1.5}
+.pili-exhibit-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter)}
+@media (max-width:760px){ .pili-exhibit-grid{grid-template-columns:1fr} }
+.pili-exhibit-grid figure{margin:0}
+.pili-exhibit-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm)}
+.pili-exhibit-grid figcaption{font-size:.78rem;color:rgba(255,247,239,.55);margin-top:.6rem}
+
+/* Outcome — muted tan, derived from marigold + paper (no new raw hex) */
+.pili-outcome{background:color-mix(in srgb, var(--marigold) 32%, var(--paper) 68%);color:var(--ink);padding-block:var(--section-y)}
+.pili-outcome h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;margin-bottom:1.2rem}
+.pili-outcome p{font-size:var(--step-1);color:var(--ink-80);max-width:64ch;line-height:1.55;margin-bottom:1.1rem}
+.pili-final-nav{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
+}
+.pili-final-nav .next{color:var(--ink-45);font-weight:600;font-size:var(--step--1)}
+
+/* ============================================================
    MOTION
    ============================================================ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
@@ -420,7 +560,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
   </div>
 </header>
 
-<main>
+<main id="home-view">
   <!-- ============================ HERO ============================ -->
   <section class="hero wrap">
     <div class="hero-grid">
@@ -443,7 +583,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
         <p class="hero-meta">SCAD B.F.A. User Experience Design &middot; Minor in Graphic Design &middot; Atlanta, GA</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-fill">View selected work</a>
-          <!-- TODO: confirm resume.html exists in the repo -->
+          <!-- Resume page -->
           <a href="resume.html" class="btn btn-ghost" target="_blank" rel="noopener">Download resume</a>
         </div>
       </div>
@@ -464,41 +604,41 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
     <div class="posters">
 
       <!-- 01 — Pili -->
-      <a class="poster poster--marigold reveal" href="pili.html">
+      <a class="poster poster--marigold reveal" href="#pili">
         <h3>Pili</h3>
         <p>A calm connection system that helps older adults, families, and caregivers stay connected.</p>
         <!-- Requires assets/pili-device.png (transparent device cutout) -->
-        <img class="poster-img pili-img" src="assets/pili-device.png" alt="Pili tabletop device showing a family photo and a 'thinking of you today' message">
+        <img class="poster-img pili-img" src="assets/pili-device.png" alt="Pili tabletop device showing a family photo and a 'thinking of you today' message" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">1</span>
       </a>
 
       <!-- 02 — BioSpherix Layout Planner -->
-      <!-- TODO: swap to biospherix.html once that case study page exists -->
+      <!-- Temporary MVP link until full case study is added -->
       <a class="poster poster--terracotta reveal" href="#contact">
         <h3>Design your Lab</h3>
         <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
-        <!-- Requires assets/biospherix-ui.png (interface screenshot) -->
-        <img class="poster-img biospherix-img" src="assets/biospherix-ui.png" alt="BioSpherix Layout Planner interface showing lab layout tools">
+        <!-- Requires assets/biospherix-card-1.png (interface screenshot) -->
+        <img class="poster-img biospherix-img" src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface showing lab layout tools" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">2</span>
       </a>
 
       <!-- 03 — SCAD x Wisdom ATL Eyewear -->
-      <!-- TODO: swap to wisdom-eyewear.html once that case study page exists -->
+      <!-- Temporary MVP link until full case study is added -->
       <a class="poster poster--olive reveal" href="#contact">
         <h3>SCAD x Wisdom ATL Eyewear</h3>
         <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
-        <!-- Requires assets/wisdom-eyewear.png (eyewear render/sketch) -->
-        <img class="poster-img wisdom-img" src="assets/wisdom-eyewear.png" alt="Wisdom ATL eyewear concept renders">
+        <!-- Requires assets/wisdom-card-1.png (eyewear render/sketch) -->
+        <img class="poster-img wisdom-img" src="assets/wisdom-card-1.png" alt="Wisdom ATL eyewear concept renders" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">3</span>
       </a>
 
       <!-- 04 — SCADpro x FIFA World Cup 2026 Atlanta -->
-      <!-- TODO: swap to fifa-2026.html once that case study page exists -->
+      <!-- Temporary MVP link until full case study is added -->
       <a class="poster poster--teal reveal" href="#contact">
         <h3>SCADpro x FIFA World Cup 2026 Atlanta</h3>
         <p>A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
-        <!-- Requires assets/fifa-app.png (app screen mockups) -->
-        <img class="poster-img fifa-img" src="assets/fifa-app.png" alt="FIFA World Cup 2026 Atlanta app screen mockups">
+        <!-- Requires assets/fifa-card-1.png (app screen mockups) -->
+        <img class="poster-img fifa-img" src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta app screen mockups" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">4</span>
       </a>
 
@@ -585,12 +725,199 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design opportunities.</p>
       <div class="cta-row reveal">
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
-        <!-- TODO: confirm resume.html exists in the repo -->
+        <!-- Resume page -->
         <a href="resume.html" class="btn btn-ghost-cream" target="_blank" rel="noopener">View resume</a>
         <a href="https://www.linkedin.com/in/niharikajain12002" class="btn btn-ghost-cream" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
+</main>
+
+<!-- ============================ PILI — PROJECT VIEW ============================ -->
+<main id="pili-view" hidden>
+
+  <!-- SECTION 1 — Project hero -->
+  <section class="project-hero">
+    <div class="wrap">
+      <a href="#work" class="project-back">&larr; Back to Selected Work</a>
+      <span class="eyebrow">Senior Capstone Project</span>
+      <h1>Pili</h1>
+      <p class="subtitle">A calm connection system for older adults, families, and caregivers.</p>
+      <p class="desc">Pili helps older adults stay connected through simple everyday moments &mdash; photos, voice notes, quick replies, reminders, and reassurance &mdash; without requiring them to manage a complex device.</p>
+      <dl class="pili-meta">
+        <div><dt>Project Type</dt><dd>Senior Capstone</dd></div>
+        <div><dt>Timeline</dt><dd>Jan&ndash;May 2026</dd></div>
+        <div><dt>Role</dt><dd>UX Research, Product Design, UI Design, Form Exploration, Prototyping</dd></div>
+        <div><dt>Tools</dt><dd>Figma, Rhino / 3D Modeling, Physical Prototyping, AI-assisted visualization</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — What is Pili? -->
+  <section class="project-section pili-overview wrap">
+    <span class="eyebrow">Overview</span>
+    <h2>What is Pili?</h2>
+    <div class="pili-intro">
+      <p>Pili is a calm connection system designed for older adults living apart from family, especially in care environments such as assisted living, nursing homes, and hospitals.</p>
+      <p>Pili combines three touchpoints: a tabletop device for older adults, a family app for sending moments, and a caregiver dashboard for care environments.</p>
+    </div>
+
+    <div class="pili-touchpoints">
+      <div class="pili-touchpoint">
+        <img src="assets/pili-device.png" alt="Pili tabletop device for older adults" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-body">
+          <h3>Pili Device</h3>
+          <p>A tabletop device for older adults &mdash; simple physical buttons, calm messaging, and visible reassurance.</p>
+        </div>
+      </div>
+      <div class="pili-touchpoint">
+        <img src="assets/pili-family-app.png" alt="Pili family app on a phone screen" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-body">
+          <h3>Family App</h3>
+          <p>Lets family members send photos, notes, and quick check-ins without making the older adult manage another app.</p>
+        </div>
+      </div>
+      <div class="pili-touchpoint">
+        <img src="assets/pili-caregiver-dashboard.png" alt="Pili caregiver dashboard on a tablet screen" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-body">
+          <h3>Caregiver Dashboard</h3>
+          <p>Helps care staff understand resident status, support requests, and room-level information.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Problem / Why it matters -->
+  <section class="pili-split">
+    <div class="pili-split-block marigold">
+      <span class="eyebrow">The Challenge</span>
+      <h2>The Problem</h2>
+      <p>Regular contact does not always mean emotional closeness. For many older adults, communication tools can feel overwhelming, and asking for support can feel difficult or disruptive.</p>
+    </div>
+    <div class="pili-split-block terracotta">
+      <span class="eyebrow">The Why</span>
+      <h2>Why it Matters</h2>
+      <p>The issue is not only loneliness. It is the gap between wanting to feel connected and having tools that feel simple, calm, and appropriate for older adults, families, and caregivers.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — User Needs -->
+  <section class="pili-needs">
+    <div class="wrap pili-needs-grid">
+      <div>
+        <span class="eyebrow">Research Findings</span>
+        <h2>User Needs</h2>
+      </div>
+      <ol class="pili-needs-list">
+        <li><span class="n">01</span><p>Feel remembered without having to ask for attention</p></li>
+        <li><span class="n">02</span><p>Receive family updates without navigating complex apps</p></li>
+        <li><span class="n">03</span><p>Ask for support without feeling watched or monitored</p></li>
+        <li><span class="n">04</span><p>Trust the device through simple, familiar interaction</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Designing the digital touchpoints -->
+  <section class="project-section wrap">
+    <span class="eyebrow">Digital Interfaces</span>
+    <h2>Designing the Digital Touchpoints</h2>
+    <div class="pili-intro">
+      <p>While the physical device reduces interaction complexity for the older adult, the supporting apps help family members and caregivers send care, monitor updates, and respond when needed.</p>
+    </div>
+
+    <div class="pili-touchpoints-detail">
+      <div class="pili-detail-card">
+        <h3>Family App</h3>
+        <p class="desc">The family app helps relatives send photos, short messages, and quick emotional check-ins to the older adult&rsquo;s Pili device.</p>
+        <div class="pill-row">
+          <span>Send Photo</span><span>Send Message</span><span>Send &ldquo;Thinking of You&rdquo;</span><span>Message History</span>
+        </div>
+        <img src="assets/pili-family-app.png" alt="Pili family app screen showing send photo and send message options" loading="lazy" decoding="async">
+      </div>
+      <div class="pili-detail-card">
+        <h3>Caregiver Dashboard</h3>
+        <p class="desc">The caregiver dashboard helps staff view resident profiles, care requests, and room-level information without turning the system into a surveillance tool.</p>
+        <div class="pill-row">
+          <span>Resident Overview</span><span>Care Requests</span><span>Room Info</span><span>Quick Access</span>
+        </div>
+        <img src="assets/pili-caregiver-dashboard.png" alt="Pili caregiver dashboard screen showing resident room overview" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — Form exploration -->
+  <section class="pili-form">
+    <div class="wrap">
+      <span class="eyebrow">Physical Making</span>
+      <h2>Form Exploration</h2>
+      <p class="intro">I explored multiple physical directions before arriving at a calm, visible, approachable tabletop device.</p>
+      <p class="supporting">The final form needed to feel stable, familiar, and easy to understand. I tested circular companion objects, softer rounded forms, and finally a sloped tabletop direction with a screen, physical buttons, and a grounded base.</p>
+
+      <div class="pili-version">
+        <span class="eyebrow">Version 1</span>
+        <h3>Circular companion form</h3>
+        <p class="version-copy">A soft, familiar object language inspired by clocks, speakers, and tabletop objects.</p>
+        <div class="pili-version-grid">
+          <figure><img src="assets/pili-form-v1-01.jpg" alt="Circular companion form prototype, front view" loading="lazy" decoding="async"><figcaption>Front view</figcaption></figure>
+          <figure><img src="assets/pili-form-v1-02.jpg" alt="Circular companion form prototype, side angle" loading="lazy" decoding="async"><figcaption>Side angle</figcaption></figure>
+          <figure><img src="assets/pili-form-v1-03.jpg" alt="Circular companion form prototype, back and stand view" loading="lazy" decoding="async"><figcaption>Back / stand view</figcaption></figure>
+          <figure><img src="assets/pili-form-v1-04.jpg" alt="Circular companion form prototype, alternate angle" loading="lazy" decoding="async"><figcaption>Alternate angle</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="pili-version">
+        <span class="eyebrow">Version 2</span>
+        <h3>Softer rounded object</h3>
+        <p class="version-copy">A more minimal form with fewer visual cues and a calmer silhouette.</p>
+        <div class="pili-version-grid">
+          <figure><img src="assets/pili-form-v2-01.jpg" alt="Softer rounded form prototype, front refinement" loading="lazy" decoding="async"><figcaption>Front refinement</figcaption></figure>
+          <figure><img src="assets/pili-form-v2-02.jpg" alt="Softer rounded form prototype, side exploration" loading="lazy" decoding="async"><figcaption>Side exploration</figcaption></figure>
+          <figure><img src="assets/pili-form-v2-03.jpg" alt="Softer rounded form prototype, back surface" loading="lazy" decoding="async"><figcaption>Back surface</figcaption></figure>
+          <figure><img src="assets/pili-form-v2-04.jpg" alt="Softer rounded form prototype, low profile view" loading="lazy" decoding="async"><figcaption>Low profile view</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="pili-version">
+        <span class="eyebrow">Version 3</span>
+        <h3>Final direction</h3>
+        <p class="version-copy">A sloped tabletop form with a clear screen angle, large physical buttons, and a stable base.</p>
+        <div class="pili-version-grid">
+          <figure><img src="assets/pili-form-v3-01.jpg" alt="Final tabletop form prototype, front view" loading="lazy" decoding="async"><figcaption>Front prototype</figcaption></figure>
+          <figure><img src="assets/pili-form-v3-02.jpg" alt="Final tabletop form prototype, angled view" loading="lazy" decoding="async"><figcaption>Angled prototype</figcaption></figure>
+          <figure><img src="assets/pili-form-v3-03.jpg" alt="Final tabletop form prototype, back view" loading="lazy" decoding="async"><figcaption>Back view</figcaption></figure>
+          <figure><img src="assets/pili-form-v3-04.jpg" alt="Final tabletop form prototype, side profile" loading="lazy" decoding="async"><figcaption>Side profile</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — Exhibited at the SCAD Senior Show -->
+  <section class="pili-exhibit">
+    <div class="wrap">
+      <span class="eyebrow">SCAD Senior Showcase &middot; 2026</span>
+      <h2>Exhibited at the SCAD Senior Show</h2>
+      <p>Pili was presented at the SCAD senior showcase as a complete product and experience system. The exhibit included the physical prototype, interaction cards, app touchpoints, and process documentation.</p>
+      <div class="pili-exhibit-grid">
+        <figure><img src="assets/pili-senior-show-01.jpg" alt="Pili senior showcase booth setup" loading="lazy" decoding="async"><figcaption>Senior showcase setup</figcaption></figure>
+        <figure><img src="assets/pili-senior-show-02.jpg" alt="Pili physical prototype and touchpoints on display" loading="lazy" decoding="async"><figcaption>Physical prototype and touchpoints</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8 — Outcome -->
+  <section class="pili-outcome">
+    <div class="wrap">
+      <span class="eyebrow">Outcome</span>
+      <h2>Outcome</h2>
+      <p>Pili became a complete connection system spanning physical product design, mobile UI, caregiver tools, prototyping, and exhibition storytelling.</p>
+      <p>The project helped me practice designing across emotional needs, accessibility, physical interaction, and service ecosystems.</p>
+      <div class="pili-final-nav">
+        <a href="#work" class="btn btn-ghost">&larr; Back to Selected Work</a>
+        <span class="next">Next project coming soon</span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============================ FOOTER ============================ -->
@@ -615,6 +942,35 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
   } else {
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
   }
+
+  // view routing — Home and Pili live in this same index.html, switched by hash
+  const homeView = document.getElementById('home-view');
+  const piliView = document.getElementById('pili-view');
+  const siteTitle = 'Niharika Jain — Designer, Storyteller, Systems Thinker';
+
+  function renderRoute(){
+    const hash = window.location.hash;
+    const isPili = hash === '#pili';
+
+    homeView.hidden = isPili;
+    piliView.hidden = !isPili;
+
+    if(isPili){
+      document.title = 'Pili — Niharika Jain';
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } else {
+      document.title = siteTitle;
+      if(hash && hash !== '#'){
+        requestAnimationFrame(()=>{
+          const target = document.querySelector(hash);
+          if(target) target.scrollIntoView({ behavior: 'auto' });
+        });
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', renderRoute);
+  renderRoute();
 </script>
 
 </body>
