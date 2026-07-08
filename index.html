@@ -441,7 +441,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 .pili-touchpoints{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter)}
 @media (max-width:760px){ .pili-touchpoints{grid-template-columns:1fr} }
 .pili-touchpoint{background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
-.pili-touchpoint img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1.2rem;background:var(--paper);border-bottom:var(--border-soft)}
+.pili-touchpoint-media{
+  height:clamp(260px, 26vw, 360px);
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(1.25rem, 2vw, 2rem);
+  background:var(--paper);border-bottom:var(--border-soft);
+}
+.pili-touchpoint-img{width:100%;height:100%;object-fit:contain;object-position:center}
+.pili-touchpoint-img--device{max-width:82%;max-height:92%}
+.pili-touchpoint-img--phone{max-width:48%;max-height:96%}
+.pili-touchpoint-img--dashboard{max-width:94%;max-height:82%}
 .pili-touchpoint-body{padding:clamp(1.2rem,2vw,1.6rem)}
 .pili-touchpoint h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem}
 .pili-touchpoint p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
@@ -748,21 +757,27 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 
     <div class="pili-touchpoints">
       <div class="pili-touchpoint">
-        <img src="assets/pili-device.png" alt="Pili tabletop device for older adults" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-media">
+          <img class="pili-touchpoint-img pili-touchpoint-img--device" src="assets/pili-device.png" alt="Pili tabletop device for older adults" loading="lazy" decoding="async">
+        </div>
         <div class="pili-touchpoint-body">
           <h3>Pili Device</h3>
           <p>A tabletop device for older adults &mdash; simple physical buttons, calm messaging, and visible reassurance.</p>
         </div>
       </div>
       <div class="pili-touchpoint">
-        <img src="assets/pili-family-app.png" alt="Pili family app on a phone screen" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-media">
+          <img class="pili-touchpoint-img pili-touchpoint-img--phone" src="assets/pili-family-app.png" alt="Pili family app on a phone screen" loading="lazy" decoding="async">
+        </div>
         <div class="pili-touchpoint-body">
           <h3>Family App</h3>
           <p>Lets family members send photos, notes, and quick check-ins without making the older adult manage another app.</p>
         </div>
       </div>
       <div class="pili-touchpoint">
-        <img src="assets/pili-caregiver-dashboard.png" alt="Pili caregiver dashboard on a tablet screen" loading="lazy" decoding="async">
+        <div class="pili-touchpoint-media">
+          <img class="pili-touchpoint-img pili-touchpoint-img--dashboard" src="assets/pili-caregiver-dashboard.png" alt="Pili caregiver dashboard on a tablet screen" loading="lazy" decoding="async">
+        </div>
         <div class="pili-touchpoint-body">
           <h3>Caregiver Dashboard</h3>
           <p>Helps care staff understand resident status, support requests, and room-level information.</p>
