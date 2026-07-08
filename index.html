@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Niharika Jain — Designer, Storyteller, Systems Thinker</title>
 <meta name="description" content="Niharika Jain is a multidisciplinary UX/UI and graphic designer creating digital products, brand systems, and physical experiences.">
+<link rel="icon" href="assets/primary-logo.png">
+<meta name="theme-color" content="#FFF7EF">
+<meta property="og:title" content="Niharika Jain — Designer, Storyteller, Systems Thinker">
+<meta property="og:description" content="Niharika Jain is a multidisciplinary UX/UI and graphic designer creating digital products, brand systems, and physical experiences.">
+<meta property="og:image" content="assets/niharika-portrait.png">
+<meta property="og:type" content="website">
 
 <!-- Fonts: Fraunces (display) + Hanken Grotesk (body/UI) + Caveat (annotation, used elsewhere on site). Loaded via Google Fonts CDN for deploy reliability. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -349,28 +355,6 @@ nav a:hover::after{width:100%}
 .discipline-col p{font-size:var(--step--1);color:var(--ink-60);line-height:1.45}
 
 /* ============================================================
-   ABOUT PREVIEW — dark editorial block
-   ============================================================ */
-.about-preview{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
-.about-grid{
-  display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,4vw,4rem);align-items:start;
-}
-@media (max-width:760px){ .about-grid{grid-template-columns:1fr} }
-.about-grid .eyebrow{color:var(--marigold)}
-.about-grid h2{
-  font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-3);font-weight:400;line-height:1.08;letter-spacing:-.01em;
-}
-.about-grid .bio p{font-size:var(--step-1);line-height:1.55;margin-bottom:1.2rem}
-.about-grid .bio p.muted{color:rgba(255,247,239,.65)}
-.about-grid .more-link{
-  color:var(--marigold);font-weight:600;font-size:var(--step-0);
-  display:inline-flex;align-items:center;gap:.4em;
-  border-bottom:1.5px solid transparent;transition:border-color .2s;
-}
-.about-grid .more-link:hover{border-color:var(--marigold)}
-
-/* ============================================================
    FINAL CTA — deep teal
    ============================================================ */
 .final-cta{background:var(--teal);color:var(--paper);padding-block:clamp(4rem,7vw,7rem);text-align:center}
@@ -386,10 +370,22 @@ nav a:hover::after{width:100%}
 .final-cta .cta-row{justify-content:center}
 
 /* ============================================================
-   FOOTER — minimal
+   FOOTER — complete but compact
    ============================================================ */
-footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;border-top:1px solid rgba(255,247,239,.16)}
-.foot-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:var(--step--1)}
+footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.2rem,4vw,3rem);border-top:1px solid rgba(255,247,239,.16)}
+.foot-grid{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;
+  margin-bottom:1.6rem;
+}
+.foot-brand p{font-size:var(--step--1);color:rgba(255,247,239,.6);margin-top:.3rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:clamp(1.2rem,3vw,2.2rem)}
+.foot-links a{font-size:var(--step--1);font-weight:600;color:rgba(255,247,239,.85);border-bottom:1.5px solid transparent;transition:border-color .2s ease,color .2s ease}
+.foot-links a:hover{color:var(--paper);border-color:var(--marigold)}
+.foot-row{
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-size:var(--step--1);color:rgba(255,247,239,.55);
+  padding-top:1.4rem;border-top:1px solid rgba(255,247,239,.14);
+}
 
 /* ============================================================
    PROJECT VIEW — PILI
@@ -611,7 +607,70 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
   display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
   margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
 }
-.pili-final-nav .next{color:var(--ink-45);font-weight:600;font-size:var(--step--1)}
+.pili-final-nav .next{color:var(--ink-60);font-weight:600;font-size:var(--step--1);transition:color .2s ease}
+.pili-final-nav .next:hover{color:var(--ink)}
+
+/* ============================================================
+   PROJECT-LITE — shared system for BioSpherix, Wisdom, FIFA
+   ============================================================ */
+.project-lite-hero{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem)}
+.project-lite-hero .eyebrow{color:var(--marigold)}
+.project-lite-accent-bar{width:52px;height:4px;border-radius:2px;margin:0 0 1.4rem;background:var(--marigold)}
+.project-lite-hero.accent-terracotta .project-lite-accent-bar{background:var(--terracotta)}
+.project-lite-hero.accent-olive .project-lite-accent-bar{background:var(--olive)}
+.project-lite-hero.accent-teal .project-lite-accent-bar{background:var(--teal)}
+.project-lite-hero h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(2.75rem,5vw,4.5rem);font-weight:500;line-height:1.02;
+  letter-spacing:-.01em;margin-bottom:1rem;
+}
+.project-lite-subtitle{
+  font-size:var(--step-1);color:rgba(255,247,239,.85);max-width:56ch;
+  line-height:1.5;margin-bottom:2rem;
+}
+.project-lite-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem);
+  list-style:none;border-top:1px solid rgba(255,247,239,.16);padding-top:1.5rem;
+}
+@media (max-width:760px){ .project-lite-meta{grid-template-columns:1fr 1fr} }
+.project-lite-meta dt{
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:rgba(255,247,239,.45);margin-bottom:.4rem;
+}
+.project-lite-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.88);line-height:1.4}
+
+.project-lite-section{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
+.project-lite-section .eyebrow{margin-bottom:.5rem}
+.project-lite-section h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem}
+.project-lite-section > p{font-size:var(--step-0);color:var(--ink-80);max-width:64ch;line-height:1.55}
+
+.project-lite-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem)}
+@media (max-width:760px){ .project-lite-split{grid-template-columns:1fr;row-gap:2.5rem} }
+.project-lite-split p{font-size:var(--step-0);color:var(--ink-80);line-height:1.55}
+
+.project-lite-list{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:1.2rem;max-width:64ch}
+.project-lite-list li{position:relative;padding-left:1.4rem;font-size:var(--step-0);color:var(--ink-80);line-height:1.5}
+.project-lite-list li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
+.project-lite-list.c-olive li::before{background:var(--olive)}
+.project-lite-list.c-teal li::before{background:var(--teal)}
+
+.project-lite-gallery{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
+.project-lite-gallery h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:1.6rem}
+.project-lite-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--grid-gutter)}
+@media (max-width:600px){ .project-lite-gallery-grid{grid-template-columns:1fr} }
+.project-lite-gallery-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.project-lite-gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
+
+.project-lite-outcome{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
+.project-lite-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem}
+.project-lite-outcome > p{font-size:var(--step-0);color:var(--ink-80);max-width:64ch;line-height:1.55;margin-bottom:.8rem}
+
+.project-lite-nav{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
+}
+.project-lite-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
+.project-lite-nav a:hover{color:var(--ink)}
 
 /* ============================================================
    MOTION
@@ -630,7 +689,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 <!-- ============================ HEADER ============================ -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo" aria-label="Niharika Jain — home"><img class="logo-img" src="assets/primary-logo.png" alt="Niharika Jain"></a>
+    <a href="#top" class="logo" aria-label="Niharika Jain — home"><img class="logo-img" src="assets/primary-logo.png" alt="Niharika Jain"></a>
     <nav aria-label="Primary">
       <ul>
         <li><a href="#work">Work</a></li>
@@ -644,7 +703,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
 
 <main id="home-view">
   <!-- ============================ HERO ============================ -->
-  <section class="hero wrap">
+  <section class="hero wrap" id="top">
     <div class="hero-grid">
 
       <div class="hero-visual reveal">
@@ -695,8 +754,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       </a>
 
       <!-- 02 — BioSpherix Layout Planner -->
-      <!-- Temporary MVP link until full case study is added -->
-      <a class="poster poster--terracotta reveal" href="#contact">
+      <a class="poster poster--terracotta reveal" href="#biospherix">
         <h3>Design your Lab</h3>
         <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
         <!-- Requires assets/biospherix-card-1.png (interface screenshot) -->
@@ -705,8 +763,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       </a>
 
       <!-- 03 — SCAD x Wisdom ATL Eyewear -->
-      <!-- Temporary MVP link until full case study is added -->
-      <a class="poster poster--olive reveal" href="#contact">
+      <a class="poster poster--olive reveal" href="#wisdom">
         <h3>SCAD x Wisdom ATL Eyewear</h3>
         <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
         <!-- Requires assets/wisdom-card-1.png (eyewear render/sketch) -->
@@ -715,8 +772,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       </a>
 
       <!-- 04 — SCADpro x FIFA World Cup 2026 Atlanta -->
-      <!-- Temporary MVP link until full case study is added -->
-      <a class="poster poster--teal reveal" href="#contact">
+      <a class="poster poster--teal reveal" href="#fifa">
         <h3>SCADpro x FIFA World Cup 2026 Atlanta</h3>
         <p>A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
         <!-- Requires assets/fifa-card-1.png (app screen mockups) -->
@@ -754,8 +810,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
         <p>How the site structure, project pages, and visual language came together.</p>
       </div>
     </div>
-
-    <a href="#behind-the-build" class="btn btn-ghost">See the build process &rarr;</a>
   </section>
 
   <!-- ============================ WHAT I DESIGN ============================ -->
@@ -1012,18 +1066,229 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
       <p>The project helped me practice designing across emotional needs, accessibility, physical interaction, and service ecosystems.</p>
       <div class="pili-final-nav">
         <a href="#work" class="btn btn-ghost">&larr; Back to Selected Work</a>
-        <span class="next">Next project coming soon</span>
+        <a href="#biospherix" class="next">Next: Design your Lab &rarr;</a>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- ============================ FOOTER ============================ -->
+<!-- ============================ BIOSPHERIX — PROJECT-LITE VIEW ============================ -->
+<main id="biospherix-view" hidden class="project-lite-view">
+
+  <section class="project-lite-hero accent-terracotta">
+    <div class="wrap">
+      <a href="#work" class="project-back">&larr; Back to Selected Work</a>
+      <div class="project-lite-accent-bar" aria-hidden="true"></div>
+      <span class="eyebrow">AI / UX Web App</span>
+      <h1>Design your Lab</h1>
+      <p class="project-lite-subtitle">An AI-assisted layout planning tool for translating client requirements into clearer lab system layouts.</p>
+      <dl class="project-lite-meta">
+        <div><dt>Project Type</dt><dd>AI / UX Web App</dd></div>
+        <div><dt>Timeline</dt><dd>2026</dd></div>
+        <div><dt>Role</dt><dd>UX Research, Product Strategy, Interface Design, AI-assisted Prototyping</dd></div>
+        <div><dt>Tools</dt><dd>Figma, React basics, Claude, GitHub</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <div class="project-lite-split">
+      <div>
+        <span class="eyebrow">Overview</span>
+        <h2>What it does</h2>
+        <p>BioSpherix Layout Planner is a web-based planning tool designed to help engineers translate early client requirements into clearer 2D lab system layouts before moving into CAD or Blender.</p>
+      </div>
+      <div>
+        <span class="eyebrow">The Problem</span>
+        <h2>Why it was needed</h2>
+        <p>The existing process relied on repeated manual interpretation, scattered component references, and time-consuming layout revisions. The goal was to create a faster early-stage planning workflow without replacing the engineer&rsquo;s expertise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <span class="eyebrow">Key Design Decisions</span>
+    <h2>How it came together</h2>
+    <ul class="project-lite-list">
+      <li>Turn client requirements into a structured planning flow</li>
+      <li>Create a visual layout space before high-effort rendering</li>
+      <li>Keep the interface technical, calm, and easy to scan</li>
+      <li>Use AI as a planning assistant, not as the final decision-maker</li>
+    </ul>
+  </section>
+
+  <section class="project-lite-gallery wrap">
+    <span class="eyebrow">Visuals</span>
+    <h2>Interface</h2>
+    <div class="project-lite-gallery-grid">
+      <figure><img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface, view one" loading="lazy" decoding="async"></figure>
+      <figure><img src="assets/biospherix-card-2.png" alt="BioSpherix Layout Planner interface, view two" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section class="project-lite-outcome wrap">
+    <span class="eyebrow">Outcome</span>
+    <h2>Outcome</h2>
+    <p>The project became a functional AI-assisted planning prototype that helped clarify how early layout decisions could be structured before production-level modeling.</p>
+    <div class="project-lite-nav">
+      <a href="#pili">&larr; Previous: Pili</a>
+      <a href="#wisdom">Next: SCAD x Wisdom ATL Eyewear &rarr;</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ WISDOM — PROJECT-LITE VIEW ============================ -->
+<main id="wisdom-view" hidden class="project-lite-view">
+
+  <section class="project-lite-hero accent-olive">
+    <div class="wrap">
+      <a href="#work" class="project-back">&larr; Back to Selected Work</a>
+      <div class="project-lite-accent-bar" aria-hidden="true"></div>
+      <span class="eyebrow">Product, Packaging &amp; Visual Merchandising</span>
+      <h1>SCAD x Wisdom ATL Eyewear</h1>
+      <p class="project-lite-subtitle">A product and brand experience collaboration exploring eyewear, packaging, visual merchandising, and retail storytelling.</p>
+      <dl class="project-lite-meta">
+        <div><dt>Project Type</dt><dd>Product, Packaging &amp; Visual Merchandising</dd></div>
+        <div><dt>Timeline</dt><dd>2026</dd></div>
+        <div><dt>Role</dt><dd>Product Concepting, Packaging Design, Visual Merchandising, Retail Pitch</dd></div>
+        <div><dt>Tools</dt><dd>Figma, Adobe Suite, 3D Visualization, Physical Prototyping</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <div class="project-lite-split">
+      <div>
+        <span class="eyebrow">Overview</span>
+        <h2>What it explores</h2>
+        <p>This collaboration with Wisdom ATL explored how the brand&rsquo;s playful, whimsical, and stoic personality could extend into eyewear products, packaging systems, and retail display moments.</p>
+      </div>
+      <div>
+        <span class="eyebrow">The Problem</span>
+        <h2>The challenge</h2>
+        <p>The challenge was to create product and retail concepts that felt expressive and memorable while still aligning with a premium eyewear brand.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <span class="eyebrow">Key Design Decisions</span>
+    <h2>How it came together</h2>
+    <ul class="project-lite-list c-olive">
+      <li>Balance Wisdom&rsquo;s playful side with a more refined retail presence</li>
+      <li>Explore eyewear as both product and brand object</li>
+      <li>Design packaging and display systems that could work in a retail buyer pitch</li>
+      <li>Use visual merchandising to create a stronger in-store brand moment</li>
+    </ul>
+  </section>
+
+  <section class="project-lite-gallery wrap">
+    <span class="eyebrow">Visuals</span>
+    <h2>Product &amp; Retail</h2>
+    <div class="project-lite-gallery-grid">
+      <figure><img src="assets/wisdom-card-1.png" alt="Wisdom ATL eyewear concept, view one" loading="lazy" decoding="async"></figure>
+      <figure><img src="assets/wisdom-card-2.png" alt="Wisdom ATL eyewear concept, view two" loading="lazy" decoding="async"></figure>
+      <figure><img src="assets/wisdom-card-3.png" alt="Wisdom ATL eyewear concept, view three" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section class="project-lite-outcome wrap">
+    <span class="eyebrow">Outcome</span>
+    <h2>Outcome</h2>
+    <p>The project resulted in eyewear concepts, packaging directions, visual merchandising displays, a lookbook, and a retail buyer pitch system.</p>
+    <div class="project-lite-nav">
+      <a href="#biospherix">&larr; Previous: Design your Lab</a>
+      <a href="#fifa">Next: SCADpro x FIFA World Cup 2026 Atlanta &rarr;</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FIFA — PROJECT-LITE VIEW ============================ -->
+<main id="fifa-view" hidden class="project-lite-view">
+
+  <section class="project-lite-hero accent-teal">
+    <div class="wrap">
+      <a href="#work" class="project-back">&larr; Back to Selected Work</a>
+      <div class="project-lite-accent-bar" aria-hidden="true"></div>
+      <span class="eyebrow">UX Research / Service Design</span>
+      <h1>SCADpro x FIFA World Cup 2026 Atlanta</h1>
+      <p class="project-lite-subtitle">A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
+      <dl class="project-lite-meta">
+        <div><dt>Project Type</dt><dd>UX Research / Service Design</dd></div>
+        <div><dt>Timeline</dt><dd>2026</dd></div>
+        <div><dt>Role</dt><dd>UX Research, Journey Mapping, Service Design, Team Collaboration</dd></div>
+        <div><dt>Tools</dt><dd>Figma, Miro, Research Synthesis, Presentation Design</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <div class="project-lite-split">
+      <div>
+        <span class="eyebrow">Overview</span>
+        <h2>What it explores</h2>
+        <p>This SCADpro collaboration explored how visitors and fans might move through Atlanta during FIFA World Cup 2026, with attention to wayfinding, accessibility, crowd flow, and service touchpoints.</p>
+      </div>
+      <div>
+        <span class="eyebrow">The Problem</span>
+        <h2>The challenge</h2>
+        <p>Large-scale event experiences can become confusing quickly. The project focused on identifying friction points and designing clearer moments of guidance, support, and orientation for visitors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <span class="eyebrow">Key Design Decisions</span>
+    <h2>How it came together</h2>
+    <ul class="project-lite-list c-teal">
+      <li>Map the fan journey across arrival, movement, event moments, and departure</li>
+      <li>Identify service gaps across physical and digital touchpoints</li>
+      <li>Design with crowd flow, accessibility, and visitor confidence in mind</li>
+      <li>Communicate research insights clearly for stakeholders</li>
+    </ul>
+  </section>
+
+  <section class="project-lite-gallery wrap">
+    <span class="eyebrow">Visuals</span>
+    <h2>Research &amp; Journey Mapping</h2>
+    <div class="project-lite-gallery-grid">
+      <figure><img src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta research artifact, view one" loading="lazy" decoding="async"></figure>
+      <figure><img src="assets/fifa-card-2.png" alt="FIFA World Cup 2026 Atlanta research artifact, view two" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section class="project-lite-outcome wrap">
+    <span class="eyebrow">Outcome</span>
+    <h2>Outcome</h2>
+    <p>The project produced research insights, journey maps, opportunity areas, and experience recommendations for improving the FIFA World Cup 2026 Atlanta visitor experience.</p>
+    <div class="project-lite-nav">
+      <a href="#wisdom">&larr; Previous: SCAD x Wisdom ATL Eyewear</a>
+      <a href="#work">Back to Selected Work</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
 <footer>
-  <div class="wrap foot-row">
-    <span>&copy; <span id="yr"></span> Niharika Jain</span>
-    <span>Designed and built by Niharika Jain.</span>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span>&copy; <span id="yr"></span> Niharika Jain</span>
+        <p>Designed and built by Niharika Jain.</p>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:niharikajain.1209@gmail.com">Email</a>
+        <a href="assets/NiharikaJain_Resume.pdf" download="NiharikaJain_Resume.pdf">Resume</a>
+        <a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-row">
+      <span>Atlanta, GA &middot; Mumbai, IN</span>
+    </div>
   </div>
 </footer>
 
@@ -1042,24 +1307,32 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:1.8rem;b
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
   }
 
-  // view routing — Home and Pili live in this same index.html, switched by hash
+  // view routing — Home + all project case studies live in this same index.html, switched by hash
   const homeView = document.getElementById('home-view');
-  const piliView = document.getElementById('pili-view');
   const siteTitle = 'Niharika Jain — Designer, Storyteller, Systems Thinker';
+
+  const projectViews = {
+    '#pili':       { el: document.getElementById('pili-view'),       title: 'Pili — Niharika Jain' },
+    '#biospherix': { el: document.getElementById('biospherix-view'), title: 'BioSpherix Layout Planner — Niharika Jain' },
+    '#wisdom':     { el: document.getElementById('wisdom-view'),     title: 'SCAD x Wisdom ATL Eyewear — Niharika Jain' },
+    '#fifa':       { el: document.getElementById('fifa-view'),       title: 'SCADpro x FIFA World Cup 2026 Atlanta — Niharika Jain' }
+  };
 
   function renderRoute(){
     const hash = window.location.hash;
-    const isPili = hash === '#pili';
+    const activeProject = projectViews[hash];
 
-    homeView.hidden = isPili;
-    piliView.hidden = !isPili;
+    homeView.hidden = !!activeProject;
+    Object.values(projectViews).forEach(({el})=>{ el.hidden = (el !== (activeProject && activeProject.el)); });
 
-    if(isPili){
-      document.title = 'Pili — Niharika Jain';
+    if(activeProject){
+      document.title = activeProject.title;
       window.scrollTo({ top: 0, behavior: 'auto' });
     } else {
       document.title = siteTitle;
-      if(hash && hash !== '#'){
+      if(hash === '#top' || !hash || hash === '#'){
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else {
         requestAnimationFrame(()=>{
           const target = document.querySelector(hash);
           if(target) target.scrollIntoView({ behavior: 'auto' });
