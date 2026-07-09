@@ -182,8 +182,13 @@ nav a:hover::after{width:100%}
 .name-lockup .me{color:var(--terracotta);font-style:normal;font-weight:500}
 
 .portrait-frame{position:relative;display:flex;justify-content:center}
+.floating-tags{display:contents}
+@media (max-width:820px){
+  .portrait-frame{flex-direction:column;align-items:center;gap:1rem}
+  .floating-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+}
 .portrait{
-  display:block;width:auto;
+  display:block;width:auto;flex:0 0 auto;
   height:clamp(320px,38vw,460px);
   filter:drop-shadow(0 20px 26px rgba(1,15,18,.14));
 }
@@ -200,7 +205,7 @@ nav a:hover::after{width:100%}
 .tag-2{top:38%;right:-8%;transform:rotate(4deg)}
 .tag-3{bottom:16%;left:-8%;transform:rotate(-4deg)}
 .tag-4{bottom:2%;right:-4%;transform:rotate(3deg)}
-@media (max-width:820px){ .floating-tag{position:static;display:inline-flex;margin:.25rem .3rem;transform:none!important} }
+@media (max-width:820px){ .floating-tag{position:static;display:inline-flex;transform:none!important} }
 
 .hero-copy{padding-top:.5rem}
 .availability{
@@ -766,10 +771,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <p class="name-lockup">Hi! I&rsquo;m <span class="me">Niharika Jain</span></p>
         <div class="portrait-frame">
           <img class="portrait" src="assets/niharika-portrait.png" alt="Illustrated portrait of Niharika Jain, smiling and waving">
-          <span class="floating-tag fill-terracotta tag-1">AI Workflows</span>
-          <span class="floating-tag outline tag-2">UX/UI</span>
-          <span class="floating-tag fill-olive tag-3">Physical Experiences</span>
-          <span class="floating-tag fill-terracotta tag-4">Brand Systems</span>
+          <div class="floating-tags">
+            <span class="floating-tag fill-terracotta tag-1">AI Workflows</span>
+            <span class="floating-tag outline tag-2">UX/UI</span>
+            <span class="floating-tag fill-olive tag-3">Physical Experiences</span>
+            <span class="floating-tag fill-terracotta tag-4">Brand Systems</span>
+          </div>
         </div>
       </div>
 
