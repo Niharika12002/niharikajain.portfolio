@@ -1691,8 +1691,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <a class="wisdom-campaign-cta" href="assets/wisdom-lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
       </div>
       <div class="wisdom-campaign-visual">
-        <!-- Graceful fallback: if assets/wisdom-lookbook-cover.png doesn't exist yet, onerror hides the broken image and reveals the WISDOM mark instead -->
-        <img src="assets/wisdom-lookbook-cover.png" alt="Wisdom ATL lookbook cover" loading="lazy" decoding="async"
+        <!-- Confirmed real filename: assets/wisdom-lookbook-cover.jpg. Fallback below is kept as a safety net regardless. -->
+        <img src="assets/wisdom-lookbook-cover.jpg" alt="Wisdom ATL lookbook cover" loading="lazy" decoding="async"
              onerror="this.style.display='none';this.parentElement.classList.add('img-error')">
         <span class="fallback-mark" aria-hidden="true">WISDOM</span>
       </div>
