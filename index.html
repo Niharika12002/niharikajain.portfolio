@@ -739,6 +739,165 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .project-lite-nav a:hover{color:var(--ink)}
 
 /* ============================================================
+   WISDOM — LOOKBOOK-INSPIRED CASE STUDY (fully custom, scoped)
+   ============================================================ */
+#wisdom-view{--wred:#E23F1C}
+#wisdom-view .eyebrow{color:var(--wred)}
+
+.wisdom-back{
+  display:inline-flex;align-items:center;gap:.4em;
+  font-size:var(--step--1);font-weight:600;color:var(--ink-60);
+  margin-bottom:clamp(1.5rem,3vw,2.5rem);
+  border-bottom:1.5px solid transparent;transition:border-color .2s ease, color .2s ease;
+}
+.wisdom-back:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ---- Hero ---- */
+.wisdom-hero{background:var(--paper);padding-block:clamp(3rem,6vw,5.5rem);overflow:hidden}
+.wisdom-hero-grid{display:grid;grid-template-columns:1fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (max-width:900px){ .wisdom-hero-grid{grid-template-columns:1fr} }
+.wisdom-hero h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(3rem,7vw,6rem);font-weight:500;line-height:.98;
+  letter-spacing:-.02em;color:var(--ink);margin-bottom:1.1rem;
+}
+.wisdom-hero .subtitle{font-size:clamp(1.1rem,1.6vw,1.4rem);color:var(--ink-80);max-width:42ch;line-height:1.45;margin-bottom:1.2rem}
+.wisdom-hero .desc{font-size:var(--step-0);color:var(--ink-60);max-width:56ch;line-height:1.6;margin-bottom:1.8rem}
+.wisdom-editorial-meta{
+  display:flex;flex-wrap:wrap;gap:clamp(1.2rem,3vw,2.4rem);
+  padding-top:1.2rem;border-top:1px solid var(--ink-12);margin-bottom:1.8rem;
+}
+.wisdom-editorial-meta div dt{
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--ink-45);margin-bottom:.3rem;
+}
+.wisdom-editorial-meta div dd{font-size:var(--step--1);color:var(--ink-80);line-height:1.4}
+.wisdom-hero-visual img{width:100%;max-width:480px;display:block;margin-inline:auto;object-fit:contain}
+.wisdom-lookbook-cta{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  background:var(--ink);color:var(--paper);
+  border-radius:var(--radius-md);padding:1.2rem 1.6rem;margin-top:.5rem;
+}
+.wisdom-lookbook-cta .cta-icon{
+  width:44px;height:44px;border-radius:50%;background:var(--wred);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  font-family:var(--display);font-size:1.3rem;color:var(--paper);
+}
+.wisdom-lookbook-cta .cta-text strong{display:block;font-size:var(--step-0);font-weight:700}
+.wisdom-lookbook-cta .cta-text span{display:block;font-size:var(--step--1);color:rgba(255,247,239,.65)}
+.wisdom-lookbook-cta:hover{box-shadow:var(--shadow-graphic-sm);transform:translate(-2px,-2px);transition:transform .18s ease, box-shadow .18s ease}
+
+/* ---- Overview ---- */
+.wisdom-overview{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-overview h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1.1rem;color:var(--ink)}
+.wisdom-overview > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-overview-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter)}
+@media (max-width:700px){ .wisdom-overview-cards{grid-template-columns:1fr} }
+.wisdom-overview-cards .card{background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);padding:clamp(1.6rem,2.5vw,2.2rem)}
+.wisdom-overview-cards .card:last-child{transform:translateY(clamp(0px,1vw,14px))}
+@media (max-width:700px){ .wisdom-overview-cards .card:last-child{transform:none} }
+.wisdom-overview-cards .tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--wred);margin-bottom:.7rem;display:block}
+.wisdom-overview-cards h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem;color:var(--ink)}
+.wisdom-overview-cards p{font-size:var(--step-0);color:var(--ink-60);line-height:1.5}
+
+/* ---- Three Frame Families ---- */
+.wisdom-chapters{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-chapters > .wrap > .head{max-width:64ch;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.wisdom-chapters h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
+.wisdom-chapters .head p{font-size:var(--step-1);color:var(--ink-80);line-height:1.5}
+.wisdom-chapter-grid{display:flex;flex-direction:column;gap:clamp(3rem,6vw,5rem)}
+.wisdom-frame-card{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.wisdom-frame-card:nth-child(even){grid-template-columns:1.1fr 1fr}
+.wisdom-frame-card:nth-child(even) .wisdom-frame-visual{order:2}
+.wisdom-frame-card:nth-child(even) .wisdom-frame-text{order:1}
+@media (max-width:820px){
+  .wisdom-frame-card,
+  .wisdom-frame-card:nth-child(even){grid-template-columns:1fr}
+  .wisdom-frame-card .wisdom-frame-visual,
+  .wisdom-frame-card:nth-child(even) .wisdom-frame-visual{order:1}
+  .wisdom-frame-card .wisdom-frame-text,
+  .wisdom-frame-card:nth-child(even) .wisdom-frame-text{order:2}
+}
+.wisdom-frame-num{
+  position:absolute;top:-1.4rem;left:0;z-index:0;
+  font-family:var(--display);font-size:clamp(5rem,10vw,8.5rem);font-weight:300;
+  color:var(--ink);opacity:.06;line-height:1;pointer-events:none;
+}
+.wisdom-frame-card:nth-child(even) .wisdom-frame-num{left:auto;right:0}
+.wisdom-frame-visual{position:relative;z-index:1}
+.wisdom-frame-visual img{width:100%;max-height:420px;object-fit:contain}
+.wisdom-frame-text{position:relative;z-index:1}
+.wisdom-frame-role{
+  display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--wred);border:1px solid var(--wred);border-radius:var(--radius-pill);
+  padding:.35em .9em;margin-bottom:1rem;
+}
+.wisdom-frame-text h3{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.7rem;color:var(--ink)}
+.wisdom-frame-text p{font-size:var(--step-0);color:var(--ink-60);line-height:1.55;max-width:48ch}
+
+/* ---- Brand Strategy ---- */
+.wisdom-strategy{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-strategy h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
+.wisdom-strategy > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2.2rem}
+.wisdom-artifact{margin-top:1.6rem;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.wisdom-artifact img{width:100%;max-height:560px;object-fit:contain;padding:1.6rem;background:var(--paper);display:block}
+.wisdom-artifact figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.6rem 1.4rem;text-align:center}
+
+/* ---- Frame Development ---- */
+.wisdom-development{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-development h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
+.wisdom-development > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2.2rem}
+.wisdom-process-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:var(--grid-gutter);margin-bottom:var(--grid-gutter)}
+@media (max-width:760px){ .wisdom-process-grid{grid-template-columns:1fr;grid-template-rows:none} }
+.wisdom-process-grid .lead{grid-row:1/3}
+@media (max-width:760px){ .wisdom-process-grid .lead{grid-row:auto} }
+.wisdom-process-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
+.wisdom-process-grid .lead img{width:100%;height:100%;min-height:340px;object-fit:contain;padding:1.4rem;background:var(--paper)}
+.wisdom-process-grid .support img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
+.wisdom-process-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.2rem 1.1rem;text-align:center;margin-top:auto}
+.wisdom-fit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter)}
+@media (max-width:760px){ .wisdom-fit-grid{grid-template-columns:repeat(2,1fr)} }
+.wisdom-fit-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.wisdom-fit-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.wisdom-fit-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:.7rem 1rem;text-align:center}
+
+/* ---- Retail System ---- */
+.wisdom-retail{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-retail h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
+.wisdom-retail > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-bottom:var(--grid-gutter)}
+@media (max-width:700px){ .wisdom-retail-grid{grid-template-columns:1fr} }
+.wisdom-retail-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.wisdom-retail-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
+.wisdom-retail-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
+.wisdom-retail-climax{margin-top:1.6rem;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.wisdom-retail-climax img{width:100%;max-height:760px;object-fit:cover;display:block}
+.wisdom-retail-climax figcaption{font-size:var(--step--1);color:var(--ink-60);padding:1.2rem 1.6rem;text-align:center}
+
+/* ---- Lookbook / Campaign ---- */
+.wisdom-campaign{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.wisdom-campaign h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;max-width:20ch}
+.wisdom-campaign p{font-size:var(--step-1);color:rgba(255,247,239,.75);max-width:60ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-campaign-cta{
+  display:inline-flex;align-items:center;gap:.6em;
+  background:var(--wred);color:var(--paper);font-weight:700;font-size:var(--step-0);
+  padding:.9em 1.8em;border-radius:var(--radius-pill);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.wisdom-campaign-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(255,247,239,.25)}
+
+/* ---- Outcome ---- */
+.wisdom-outcome{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem;color:var(--ink)}
+.wisdom-outcome > .wrap > p{font-size:var(--step-0);color:var(--ink-80);max-width:64ch;line-height:1.55;margin-bottom:.8rem}
+.wisdom-final-nav{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
+}
+.wisdom-final-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
+.wisdom-final-nav a:hover{color:var(--ink)}
+
+/* ============================================================
    MOTION
    ============================================================ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
@@ -1242,177 +1401,226 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 </main>
 
 <!-- ============================ WISDOM — PROJECT-LITE VIEW ============================ -->
-<main id="wisdom-view" hidden class="project-lite-view">
+<!-- ============================ WISDOM — LOOKBOOK-INSPIRED CASE STUDY ============================ -->
+<main id="wisdom-view" hidden>
 
-  <section class="project-lite-hero accent-olive">
-    <div class="wrap project-lite-hero-grid">
-      <div class="project-lite-hero-content">
-        <a href="#work" class="project-back">&larr; Back to Selected Work</a>
-        <div class="project-lite-accent-bar" aria-hidden="true"></div>
-        <span class="eyebrow">Product, Packaging &amp; Visual Merchandising</span>
-        <h1>SCAD x Wisdom ATL Eyewear</h1>
-        <p class="project-lite-subtitle">A product and brand experience collaboration exploring eyewear concepts, packaging systems, visual merchandising, and buyer-facing retail storytelling.</p>
-        <p class="project-lite-status">Concise case study &middot; Product, packaging, and retail system</p>
-        <dl class="project-lite-meta">
+  <!-- HERO -->
+  <section class="wisdom-hero">
+    <div class="wrap wisdom-hero-grid">
+      <div class="wisdom-hero-text">
+        <a href="#work" class="wisdom-back">&larr; Back to Selected Work</a>
+        <span class="eyebrow">SCAD x Wisdom ATL</span>
+        <h1>Wisdom ATL Eyewear</h1>
+        <p class="subtitle">A three-frame eyewear, packaging, visual merchandising, and retail storytelling system.</p>
+        <p class="desc">This collaboration translated Wisdom ATL&rsquo;s surreal, playful, and premium brand language into a buyer-facing eyewear system spanning frame families, physical prototyping, packaging, campaign thinking, merchandising, and lookbook direction.</p>
+
+        <dl class="wisdom-editorial-meta">
           <div><dt>Project Type</dt><dd>Product, Packaging &amp; Visual Merchandising</dd></div>
           <div><dt>Timeline</dt><dd>2026</dd></div>
           <div><dt>Role</dt><dd>Product Concepting, Packaging Design, Visual Merchandising, Retail Pitch</dd></div>
           <div><dt>Tools</dt><dd>Figma, Adobe Suite, 3D Visualization, Physical Prototyping</dd></div>
         </dl>
-      </div>
-      <figure class="project-lite-hero-visual">
-        <img src="assets/wisdom-wsdm-one-hero.png" alt="Wisdom ATL WSDM ONE eyewear hero render" loading="lazy" decoding="async">
-      </figure>
-    </div>
-  </section>
 
-  <section class="project-lite-section wrap">
-    <div class="project-lite-split">
-      <div>
-        <span class="eyebrow">Overview</span>
-        <h2>Extending the brand into retail</h2>
-        <p>This collaboration with Wisdom ATL explored how the brand&rsquo;s playful, whimsical, and premium personality could extend into eyewear products, packaging systems, retail displays, and buyer-facing presentation materials.</p>
+        <!-- TODO: confirm exact lookbook PDF filename in the repo (assumed from uploaded reference file) -->
+        <a class="wisdom-lookbook-cta" href="assets/Wisdom_Lookbook.pdf" target="_blank" rel="noopener">
+          <span class="cta-icon" aria-hidden="true">&rarr;</span>
+          <span class="cta-text">
+            <strong>Flip through the lookbook</strong>
+            <span>Open the full product, packaging, campaign, and merchandising system.</span>
+          </span>
+        </a>
       </div>
-      <div>
-        <span class="eyebrow">The Problem</span>
-        <h2>Balancing playful and premium</h2>
-        <p>The challenge was to create product and retail concepts that felt expressive and memorable without losing the clarity, polish, and restraint expected from a premium eyewear brand.</p>
+
+      <div class="wisdom-hero-visual">
+        <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear hero render" loading="eager" decoding="async">
       </div>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">My Role</span>
-    <h2>What I contributed</h2>
-    <p>I developed product and packaging directions, explored visual merchandising concepts, and helped shape the retail presentation system through lookbook, display, and buyer pitch materials.</p>
+  <!-- OVERVIEW -->
+  <section class="wisdom-overview">
+    <div class="wrap">
+      <span class="eyebrow">Overview</span>
+      <h2>The collaboration</h2>
+      <p>Wisdom ATL is an Atlanta-based artwear brand known for surreal design, cultural nuance, and a balance between stoic identity and childlike attitude. The project asked us to extend that world into eyewear, packaging, merchandising, and retail storytelling.</p>
+      <div class="wisdom-overview-cards">
+        <div class="card">
+          <span class="tag">Challenge</span>
+          <h3>Bold, but retail-ready</h3>
+          <p>Create eyewear concepts that felt bold enough to stand apart, but polished enough to exist in a premium retail setting.</p>
+        </div>
+        <div class="card">
+          <span class="tag">My Contribution</span>
+          <h3>Product to buyer pitch</h3>
+          <p>I contributed to product concepting, packaging directions, physical prototyping, visual merchandising, and the buyer-facing lookbook system.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Strategy</span>
-    <h2>Brand strategy foundation</h2>
-    <p>The project began with a brand and market read: Wisdom had an opportunity to sit between expressive fashion eyewear and restrained premium frames. I translated that position into a three-part design strategy: playful enough to invite attention, whimsical enough to feel ownable, and restrained enough to feel premium.</p>
-    <figure class="project-lite-feature project-lite-feature--standard">
-      <img src="assets/wisdom-brand-strategy-board.png" alt="Wisdom ATL brand strategy board: playful, whimsical, restrained positioning" loading="lazy" decoding="async">
-      <figcaption>Brand strategy: playful enough to invite attention, whimsical enough to feel ownable, and restrained enough to feel premium.</figcaption>
-    </figure>
-    <figure class="project-lite-feature project-lite-feature--support">
-      <img src="assets/wisdom-competitor-landscape.png" alt="Wisdom ATL competitor landscape map relative to eyewear competitors" loading="lazy" decoding="async">
-      <figcaption>Market positioning map identifying a space between expressive fashion eyewear and restrained premium frames.</figcaption>
-    </figure>
+  <!-- THREE FRAME FAMILIES -->
+  <section class="wisdom-chapters">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Product System</span>
+        <h2>Three frame families</h2>
+        <p>The final system organized Wisdom&rsquo;s eyewear into three retail roles: a flagship statement frame, a sport-driven guard frame, and a more refined everyday frame.</p>
+      </div>
+
+      <div class="wisdom-chapter-grid">
+        <div class="wisdom-frame-card">
+          <span class="wisdom-frame-num" aria-hidden="true">01</span>
+          <div class="wisdom-frame-visual">
+            <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear render" loading="lazy" decoding="async">
+          </div>
+          <div class="wisdom-frame-text">
+            <span class="wisdom-frame-role">Statement / Face Jewelry</span>
+            <h3>WSDM ONE</h3>
+            <p>A flagship shield frame where the Wisdom wordmark becomes part of the structure. Designed as a statement piece that reads closer to wearable art than traditional eyewear.</p>
+          </div>
+        </div>
+
+        <div class="wisdom-frame-card">
+          <span class="wisdom-frame-num" aria-hidden="true">02</span>
+          <div class="wisdom-frame-visual">
+            <img src="assets/wisdom-arq-sports-hero.png" alt="ARQ Sports eyewear render" loading="lazy" decoding="async">
+          </div>
+          <div class="wisdom-frame-text">
+            <span class="wisdom-frame-role">Sport / Guard Structure</span>
+            <h3>ARQ Sports</h3>
+            <p>A sport-driven frame inspired by football helmet language, protective rails, wraparound coverage, and bold colorway energy.</p>
+          </div>
+        </div>
+
+        <div class="wisdom-frame-card">
+          <span class="wisdom-frame-num" aria-hidden="true">03</span>
+          <div class="wisdom-frame-visual">
+            <img src="assets/wisdom-arq-daily-hero.png" alt="ARQ Daily eyewear render" loading="lazy" decoding="async">
+          </div>
+          <div class="wisdom-frame-text">
+            <span class="wisdom-frame-role">Everyday / Premium</span>
+            <h3>ARQ Daily</h3>
+            <p>A more restrained frame family that translates the same helmet-inspired DNA into a softer everyday silhouette.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Exploration</span>
-    <h2>Frame and form exploration</h2>
-    <p>I explored multiple eyewear directions before narrowing the system toward shield forms, visible structure, metallic guard details, and colorways that could carry both sport energy and premium restraint.</p>
-    <figure class="project-lite-feature project-lite-feature--standard">
-      <img src="assets/wisdom-arq-sports-sketches.png" alt="Wisdom ATL ARQ Sports shield frame sketch exploring material, lens, hinge, and temple details" loading="lazy" decoding="async">
-      <figcaption>Early shield frame sketch exploring material, lens, hinge, and temple details.</figcaption>
-    </figure>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/wisdom-wsdm-one-sketches.png" alt="Wisdom ATL WSDM ONE logo-as-structure frame sketch using the wordmark" loading="lazy" decoding="async">
-        <figcaption>Logo-as-structure exploration using Wisdom&rsquo;s wordmark as part of the frame language.</figcaption>
+  <!-- BRAND STRATEGY -->
+  <section class="wisdom-strategy">
+    <div class="wrap">
+      <span class="eyebrow">Strategy</span>
+      <h2>Finding Wisdom&rsquo;s retail position</h2>
+      <p>The brand strategy explored how Wisdom could sit between expressive fashion eyewear and restrained premium frames. That position shaped the form language, material cues, colorways, packaging, and merchandising system.</p>
+      <figure class="wisdom-artifact">
+        <img src="assets/wisdom-brand-strategy-board.png" alt="Wisdom ATL brand strategy board: playful, whimsical, restrained positioning" loading="lazy" decoding="async">
+        <figcaption>Brand strategy: playful, whimsical, restrained.</figcaption>
       </figure>
-      <figure>
-        <img src="assets/wisdom-arq-sports-colorways.png" alt="Wisdom ATL ARQ Sports colorway and 3D model exploration for the shield frame" loading="lazy" decoding="async">
-        <figcaption>Colorway and 3D model exploration for the shield frame direction.</figcaption>
+      <figure class="wisdom-artifact">
+        <img src="assets/wisdom-competitor-landscape.png" alt="Wisdom ATL competitor landscape map" loading="lazy" decoding="async">
+        <figcaption>Competitor landscape: expressive fashion eyewear vs. restrained premium frames.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Physical Making</span>
-    <h2>Physical prototype and fit testing</h2>
-    <p>To move beyond sketches and renders, I tested the eyewear through physical frame prototyping, part assembly, surface detailing, and fit checks. These process moments helped translate the visual direction into a tangible object with scale, face coverage, and wearable presence.</p>
-    <figure class="project-lite-feature project-lite-feature--standard">
-      <img class="is-photo" src="assets/wisdom-prototype-parts.jpeg" alt="Wisdom ATL prototype parts, clear lens pieces, frame pieces, and red temple arms" loading="lazy" decoding="async">
-      <figcaption>Prototype parts and lens pieces used to test assembly, proportion, and frame construction.</figcaption>
-    </figure>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img class="is-photo" src="assets/wisdom-fit-test-front.jpeg" alt="Wisdom ATL physical eyewear prototype front fit test" loading="lazy" decoding="async">
-        <figcaption>Front fit test to check face coverage, scale, and frame presence.</figcaption>
-      </figure>
-      <figure>
-        <img class="is-photo" src="assets/wisdom-fit-test-side.jpeg" alt="Wisdom ATL physical eyewear prototype side fit test" loading="lazy" decoding="async">
-        <figcaption>Side fit test to understand profile, temple direction, and wearability.</figcaption>
-      </figure>
-      <figure>
-        <img class="is-photo" src="assets/wisdom-fit-test-solid-prototype.jpeg" alt="Wisdom ATL early solid frame prototype fit test" loading="lazy" decoding="async">
-        <figcaption>Early solid frame prototype used to test silhouette and visual impact.</figcaption>
+  <!-- FRAME DEVELOPMENT -->
+  <section class="wisdom-development">
+    <div class="wrap">
+      <span class="eyebrow">Process</span>
+      <h2>From visual language to wearable form</h2>
+      <p>The frame development moved between logo-as-structure, shield silhouettes, helmet-inspired guard details, and physical tests. The goal was to make the frames feel like brand objects, not generic sunglasses.</p>
+
+      <div class="wisdom-process-grid">
+        <figure class="lead">
+          <img src="assets/wisdom-wsdm-one-sketches.png" alt="WSDM ONE logo-as-structure frame sketch" loading="lazy" decoding="async">
+          <figcaption>Logo-as-structure exploration using Wisdom&rsquo;s wordmark as part of the frame language.</figcaption>
+        </figure>
+        <figure class="support">
+          <img src="assets/wisdom-arq-sports-sketches.png" alt="ARQ Sports shield frame sketch" loading="lazy" decoding="async">
+          <figcaption>ARQ Sports sketch exploring material, lens, hinge, and temple details.</figcaption>
+        </figure>
+        <figure class="support">
+          <img src="assets/wisdom-arq-sports-colorways.png" alt="ARQ Sports colorway and 3D model exploration" loading="lazy" decoding="async">
+          <figcaption>Colorway and 3D model exploration for the shield frame direction.</figcaption>
+        </figure>
+      </div>
+
+      <div class="wisdom-fit-grid">
+        <figure>
+          <img class="is-photo" src="assets/wisdom-prototype-parts.jpeg" alt="Wisdom prototype parts, lens and frame pieces" loading="lazy" decoding="async">
+          <figcaption>Prototype parts</figcaption>
+        </figure>
+        <figure>
+          <img class="is-photo" src="assets/wisdom-fit-test-front.jpeg" alt="Physical eyewear prototype front fit test" loading="lazy" decoding="async">
+          <figcaption>Front fit test</figcaption>
+        </figure>
+        <figure>
+          <img class="is-photo" src="assets/wisdom-fit-test-side.jpeg" alt="Physical eyewear prototype side fit test" loading="lazy" decoding="async">
+          <figcaption>Side fit test</figcaption>
+        </figure>
+        <figure>
+          <img class="is-photo" src="assets/wisdom-fit-test-solid-prototype.jpeg" alt="Early solid frame prototype fit test" loading="lazy" decoding="async">
+          <figcaption>Early silhouette test</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- RETAIL SYSTEM -->
+  <section class="wisdom-retail">
+    <div class="wrap">
+      <span class="eyebrow">Retail System</span>
+      <h2>Packaging and retail world</h2>
+      <p>The eyewear system expanded into packaging, collector-style cases, social moments, and display concepts that could support a buyer-facing pitch.</p>
+
+      <div class="wisdom-retail-grid">
+        <figure>
+          <img src="assets/wisdom-arq-sports-packaging-sketches.png" alt="ARQ Sports helmet-inspired packaging sketches" loading="lazy" decoding="async">
+          <figcaption>ARQ Sports packaging sketches exploring cases, pouches, and collector formats.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/wisdom-wsdm-one-packaging-sketches.png" alt="WSDM ONE packaging sketches" loading="lazy" decoding="async">
+          <figcaption>WSDM ONE packaging sketches exploring box, pouch, tag, and case systems.</figcaption>
+        </figure>
+      </div>
+      <div class="wisdom-retail-grid">
+        <figure>
+          <img src="assets/wisdom-arq-sports-packaging-system.png" alt="ARQ Sports helmet-inspired packaging concept" loading="lazy" decoding="async">
+          <figcaption>Helmet-inspired packaging concept.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/wisdom-wsdm-one-bag-packaging.png" alt="WSDM ONE statement packaging concept with chain and eyewear detail" loading="lazy" decoding="async">
+          <figcaption>Statement packaging concept with chain and eyewear detail.</figcaption>
+        </figure>
+      </div>
+      <figure class="wisdom-retail-climax">
+        <img src="assets/wisdom-hands-retail-display.png" alt="Visual merchandising display concept held in hands" loading="lazy" decoding="async">
+        <figcaption>Visual merchandising display concept &mdash; the eyewear as a stronger in-store brand moment.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Retail System</span>
-    <h2>Packaging and retail system</h2>
-    <p>The final direction extended the eyewear into a retail system through packaging, collector-style cases, helmet-inspired forms, and display concepts that could support a buyer-facing pitch.</p>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/wisdom-arq-sports-packaging-sketches.png" alt="Wisdom ATL ARQ Sports helmet-inspired packaging sketches exploring cases, pouches, and collector formats" loading="lazy" decoding="async">
-        <figcaption>Helmet-inspired packaging sketches exploring cases, pouches, and collector formats.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/wisdom-wsdm-one-packaging-sketches.png" alt="Wisdom ATL WSDM ONE frame packaging sketches exploring box, pouch, tag, and case systems" loading="lazy" decoding="async">
-        <figcaption>Wisdom frame packaging sketches exploring box, pouch, tag, and case systems.</figcaption>
-      </figure>
-    </div>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/wisdom-arq-sports-packaging-system.png" alt="Wisdom ATL ARQ Sports helmet-inspired packaging concept" loading="lazy" decoding="async">
-        <figcaption>Helmet-inspired packaging concept.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/wisdom-wsdm-one-bag-packaging.png" alt="Wisdom ATL WSDM ONE statement packaging concept with chain and eyewear detail" loading="lazy" decoding="async">
-        <figcaption>Statement packaging concept with chain and eyewear detail.</figcaption>
-      </figure>
-    </div>
-    <figure class="project-lite-feature project-lite-feature--tall">
-      <img src="assets/wisdom-hands-retail-display.png" alt="Wisdom ATL visual merchandising display concept held in hands" loading="lazy" decoding="async">
-      <figcaption>Visual merchandising display concept showing how the eyewear could become a stronger in-store brand moment.</figcaption>
-    </figure>
-  </section>
-
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Final Direction</span>
-    <h2>Final eyewear direction</h2>
-    <p>The system resolved into three frame families, each carrying a different balance of the same brand strategy: playful, whimsical, and restrained. WSDM ONE anchors the line as the flagship shield silhouette, ARQ Sports pushes further into bold guard structure and colorway energy, and ARQ Daily pulls back toward a more restrained, everyday-premium read.</p>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/wisdom-wsdm-one-hero.png" alt="Wisdom ATL WSDM ONE flagship eyewear render" loading="lazy" decoding="async">
-        <figcaption>WSDM ONE &mdash; the flagship shield silhouette with logo-based structure.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/wisdom-arq-sports-hero.png" alt="Wisdom ATL ARQ Sports eyewear render" loading="lazy" decoding="async">
-        <figcaption>ARQ Sports &mdash; bold guard detailing and sport-driven colorways.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/wisdom-arq-daily-hero.png" alt="Wisdom ATL ARQ Daily eyewear render" loading="lazy" decoding="async">
-        <figcaption>ARQ Daily &mdash; a more restrained, everyday-premium read on the shield form.</figcaption>
-      </figure>
+  <!-- LOOKBOOK / CAMPAIGN -->
+  <section class="wisdom-campaign">
+    <div class="wrap">
+      <span class="eyebrow">Campaign System</span>
+      <h2>Lookbook and campaign direction</h2>
+      <p>The final lookbook brought the product system together through frame introductions, colorways, MSRP and wholesale pricing, moodboards, social strategy, influencer strategy, reel storyboards, packaging, and merchandising.</p>
+      <a class="wisdom-campaign-cta" href="assets/Wisdom_Lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Key Design Decisions</span>
-    <h2>Designing the retail story</h2>
-    <ul class="project-lite-list c-olive">
-      <li>Balance Wisdom&rsquo;s playful side with a more refined retail presence</li>
-      <li>Explore eyewear as both product and brand object</li>
-      <li>Design packaging and display systems that could support a retail buyer pitch</li>
-      <li>Use visual merchandising to create a stronger in-store brand moment</li>
-    </ul>
-  </section>
-
-  <section class="project-lite-outcome wrap">
-    <span class="eyebrow">Outcome</span>
-    <h2>Outcome</h2>
-    <p>The project resulted in a retail-facing eyewear system spanning brand strategy, frame explorations, physical prototyping, colorways, packaging directions, visual merchandising displays, lookbook design, and buyer pitch materials.</p>
-    <div class="project-lite-nav">
-      <a href="#biospherix">&larr; Previous: Design Your Lab</a>
-      <a href="#fifa">Next: SCADpro x FIFA World Cup 2026 Atlanta &rarr;</a>
+  <!-- OUTCOME -->
+  <section class="wisdom-outcome">
+    <div class="wrap">
+      <span class="eyebrow">Outcome</span>
+      <h2>Outcome</h2>
+      <p>The project resulted in a retail-facing eyewear system spanning brand strategy, three frame families, physical prototyping, packaging directions, visual merchandising concepts, campaign thinking, lookbook design, and buyer pitch materials.</p>
+      <div class="wisdom-final-nav">
+        <a href="#biospherix">&larr; Previous: Design Your Lab</a>
+        <a href="#fifa">Next: SCADpro x FIFA World Cup 2026 Atlanta &rarr;</a>
+      </div>
     </div>
   </section>
 
