@@ -787,19 +787,56 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   line-height:1;color:var(--ink);opacity:.05;pointer-events:none;
 }
 .wisdom-hero-visual img{width:100%;max-width:480px;display:block;margin-inline:auto;object-fit:contain;position:relative;z-index:1}
-.wisdom-lookbook-cta{
-  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
-  background:var(--ink);color:var(--paper);
-  border-radius:var(--radius-md);padding:1.2rem 1.6rem;margin-top:.5rem;
+
+/* ---- Subtle lookbook preview (replaces the old loud CTA) ---- */
+.wisdom-lookbook-preview{
+  appearance:none;border:0;background:transparent;padding:0;width:100%;
+  position:relative;display:block;text-align:left;color:inherit;cursor:pointer;
 }
-.wisdom-lookbook-cta .cta-icon{
-  width:44px;height:44px;border-radius:50%;background:var(--wred);
-  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
-  font-family:var(--display);font-size:1.3rem;color:var(--paper);
+.wisdom-lookbook-preview img{
+  width:100%;max-width:480px;display:block;margin-inline:auto;
+  object-fit:contain;transition:transform .25s ease;
 }
-.wisdom-lookbook-cta .cta-text strong{display:block;font-size:var(--step-0);font-weight:700}
-.wisdom-lookbook-cta .cta-text span{display:block;font-size:var(--step--1);color:rgba(255,247,239,.65)}
-.wisdom-lookbook-cta:hover{box-shadow:var(--shadow-graphic-sm);transform:translate(-2px,-2px);transition:transform .18s ease, box-shadow .18s ease}
+.wisdom-lookbook-preview:hover img{transform:translateY(-4px)}
+.wisdom-lookbook-caption{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  max-width:480px;margin:.8rem auto 0;padding-top:.8rem;
+  border-top:1px solid var(--ink-12);
+  font-size:var(--step--1);color:var(--ink-60);
+}
+.wisdom-lookbook-caption span{
+  text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;font-weight:700;color:var(--wred);
+}
+.wisdom-lookbook-caption strong{font-weight:600;color:var(--ink-60)}
+.wisdom-lookbook-preview:hover .wisdom-lookbook-caption strong{color:var(--ink)}
+
+/* ---- Lookbook modal ---- */
+.wisdom-lookbook-modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:clamp(1rem,3vw,2rem)}
+.wisdom-lookbook-modal[hidden]{display:none !important}
+.wisdom-lookbook-modal-backdrop{position:absolute;inset:0;background:rgba(1,15,18,.72)}
+.wisdom-lookbook-modal-panel{
+  position:relative;z-index:1;width:min(100%, 980px);height:min(88vh, 760px);
+  background:var(--paper);border-radius:var(--radius-md);
+  border:1px solid rgba(255,247,239,.18);overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.wisdom-lookbook-modal-header{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+  padding:1rem 1.2rem;border-bottom:var(--border-soft);background:var(--paper-2);
+}
+.wisdom-lookbook-modal-header h2{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin:0}
+.wisdom-lookbook-close{
+  border:0;background:var(--ink);color:var(--paper);
+  width:36px;height:36px;border-radius:50%;font-size:1.4rem;line-height:1;
+}
+.wisdom-lookbook-modal iframe{width:100%;flex:1;border:0;background:var(--white)}
+.wisdom-lookbook-modal-footer{padding:.75rem 1.2rem;border-top:var(--border-soft);background:var(--paper-2);text-align:right}
+.wisdom-lookbook-modal-footer a{font-size:var(--step--1);font-weight:700;color:var(--wred)}
+@media (max-width:640px){
+  .wisdom-lookbook-modal{padding:.6rem}
+  .wisdom-lookbook-modal-panel{height:90vh}
+  .wisdom-lookbook-caption{flex-direction:column;align-items:flex-start;gap:.25rem}
+}
 
 /* ---- Overview ---- */
 .wisdom-overview{padding-block:var(--section-y);border-top:var(--border-soft)}
@@ -1460,19 +1497,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <div><dt>Role</dt><dd>Product Concepting, Packaging Design, Visual Merchandising, Retail Pitch</dd></div>
           <div><dt>Tools</dt><dd>Figma, Adobe Suite, 3D Visualization, Physical Prototyping</dd></div>
         </dl>
-
-        <!-- Lookbook PDF: assets/Wisdom Lookbook.pdf (space encoded as %20) -->
-        <a class="wisdom-lookbook-cta" href="assets/Wisdom%20Lookbook.pdf" target="_blank" rel="noopener">
-          <span class="cta-icon" aria-hidden="true">&rarr;</span>
-          <span class="cta-text">
-            <strong>Flip through the lookbook</strong>
-            <span>Open the full product, packaging, campaign, and merchandising system.</span>
-          </span>
-        </a>
       </div>
 
       <div class="wisdom-hero-visual">
-        <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear hero render" loading="eager" decoding="async">
+        <button class="wisdom-lookbook-preview" id="open-wisdom-lookbook" type="button" aria-haspopup="dialog" aria-controls="wisdom-lookbook-modal">
+          <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear hero render" loading="eager" decoding="async">
+          <span class="wisdom-lookbook-caption">
+            <span>Lookbook available</span>
+            <strong>Click to view the full product system</strong>
+          </span>
+        </button>
       </div>
     </div>
   </section>
@@ -1654,7 +1688,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <span class="eyebrow">Campaign System</span>
         <h2>Lookbook and campaign direction</h2>
         <p>The final lookbook brought the product system together through frame introductions, colorways, MSRP and wholesale pricing, moodboards, social strategy, influencer strategy, reel storyboards, packaging, and merchandising.</p>
-        <a class="wisdom-campaign-cta" href="assets/Wisdom%20Lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
+        <a class="wisdom-campaign-cta" href="assets/wisdom-lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
       </div>
       <div class="wisdom-campaign-visual">
         <!-- Graceful fallback: if assets/wisdom-lookbook-cover.png doesn't exist yet, onerror hides the broken image and reveals the WISDOM mark instead -->
@@ -1677,6 +1711,27 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       </div>
     </div>
   </section>
+
+  <!-- LOOKBOOK MODAL -->
+  <div class="wisdom-lookbook-modal" id="wisdom-lookbook-modal" hidden role="dialog" aria-modal="true" aria-labelledby="wisdom-lookbook-title">
+    <div class="wisdom-lookbook-modal-backdrop" data-close-lookbook></div>
+
+    <div class="wisdom-lookbook-modal-panel" role="document">
+      <div class="wisdom-lookbook-modal-header">
+        <div>
+          <span class="eyebrow">Wisdom ATL Lookbook</span>
+          <h2 id="wisdom-lookbook-title">Full lookbook</h2>
+        </div>
+        <button class="wisdom-lookbook-close" id="close-wisdom-lookbook" type="button" aria-label="Close lookbook">&times;</button>
+      </div>
+
+      <iframe src="assets/wisdom-lookbook.pdf" title="Wisdom ATL eyewear lookbook PDF"></iframe>
+
+      <div class="wisdom-lookbook-modal-footer">
+        <a href="assets/wisdom-lookbook.pdf" target="_blank" rel="noopener">Open PDF in new tab</a>
+      </div>
+    </div>
+  </div>
 
 </main>
 
@@ -1835,6 +1890,42 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
+
+  // Wisdom lookbook modal — quiet preview on the hero image opens the full PDF
+  const wisdomLookbookOpen = document.getElementById('open-wisdom-lookbook');
+  const wisdomLookbookModal = document.getElementById('wisdom-lookbook-modal');
+  const wisdomLookbookClose = document.getElementById('close-wisdom-lookbook');
+  let lastWisdomLookbookFocus = null;
+
+  function openWisdomLookbook(){
+    if(!wisdomLookbookModal) return;
+    lastWisdomLookbookFocus = document.activeElement;
+    wisdomLookbookModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    wisdomLookbookClose?.focus();
+  }
+
+  function closeWisdomLookbook(){
+    if(!wisdomLookbookModal) return;
+    wisdomLookbookModal.hidden = true;
+    document.body.style.overflow = '';
+    if(lastWisdomLookbookFocus) lastWisdomLookbookFocus.focus();
+  }
+
+  wisdomLookbookOpen?.addEventListener('click', openWisdomLookbook);
+  wisdomLookbookClose?.addEventListener('click', closeWisdomLookbook);
+
+  wisdomLookbookModal?.addEventListener('click', (event)=>{
+    if(event.target.matches('[data-close-lookbook]')){
+      closeWisdomLookbook();
+    }
+  });
+
+  window.addEventListener('keydown', (event)=>{
+    if(event.key === 'Escape' && wisdomLookbookModal && !wisdomLookbookModal.hidden){
+      closeWisdomLookbook();
+    }
+  });
 </script>
 
 </body>
