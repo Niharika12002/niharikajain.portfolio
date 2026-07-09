@@ -797,6 +797,14 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   width:100%;max-width:480px;display:block;margin-inline:auto;
   object-fit:contain;transition:transform .25s ease;
 }
+.wisdom-lookbook-preview img.wisdom-lookbook-cover-img{
+  width:auto;max-width:min(100%, 430px);
+  max-height:clamp(440px, 62vh, 620px);
+  object-fit:contain;
+  border:var(--border-soft);border-radius:var(--radius-sm);
+  background:var(--paper);
+  display:block;margin-inline:auto;
+}
 .wisdom-lookbook-preview:hover img{transform:translateY(-4px)}
 .wisdom-lookbook-caption{
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
@@ -1501,7 +1509,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
       <div class="wisdom-hero-visual">
         <button class="wisdom-lookbook-preview" id="open-wisdom-lookbook" type="button" aria-haspopup="dialog" aria-controls="wisdom-lookbook-modal" aria-label="Open the Wisdom ATL lookbook">
-          <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear hero render" loading="eager" decoding="async">
+          <img class="wisdom-lookbook-cover-img" src="assets/wisdom-lookbook-cover.jpg" alt="Wisdom ATL lookbook cover" loading="eager" decoding="async">
           <span class="wisdom-lookbook-caption">
             <span>Full Lookbook</span>
             <strong>Product &middot; Packaging &middot; Campaign &middot; Retail</strong>
