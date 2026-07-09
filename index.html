@@ -830,13 +830,14 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-flipbook-stage{
   position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
   padding:clamp(1rem,2.5vw,1.8rem);overflow:hidden;
+  perspective:1400px;
 }
 .wisdom-flipbook-group{
   display:flex;align-items:center;justify-content:center;
   gap:clamp(.5rem,1.5vw,1rem);width:100%;height:100%;position:relative;
 }
 /* subtle center gutter/shadow between two-page spreads */
-.wisdom-flipbook-group:has(.wisdom-flipbook-page:nth-child(2))::after{
+.wisdom-flipbook-group.is-spread::after{
   content:"";position:absolute;z-index:2;pointer-events:none;
   top:6%;bottom:6%;left:50%;width:18px;margin-left:-9px;
   background:linear-gradient(90deg, rgba(1,15,18,0) 0%, rgba(1,15,18,.10) 48%, rgba(1,15,18,.10) 52%, rgba(1,15,18,0) 100%);
@@ -872,28 +873,32 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-flipbook-btn:disabled{opacity:.35;cursor:default}
 .wisdom-flipbook-count{font-size:var(--step--1);font-weight:600;color:var(--ink-60);min-width:11ch;text-align:center}
 
-/* ---- Page-turn animation (skipped entirely under prefers-reduced-motion) ---- */
+/* ---- Real page-turn overlay (skipped entirely under prefers-reduced-motion) ---- */
+.wisdom-page-turner{
+  position:absolute;z-index:5;overflow:hidden;pointer-events:none;
+  transform-style:preserve-3d;backface-visibility:hidden;
+  border-radius:var(--radius-sm);background:var(--paper-2);
+  box-shadow:0 12px 28px rgba(1,15,18,.2);
+}
+.wisdom-page-turner img{width:100%;height:100%;object-fit:contain;display:block}
+.wisdom-page-turner::after{content:"";position:absolute;inset:0;pointer-events:none}
+.wisdom-page-turner.turn-next{transform-origin:left center}
+.wisdom-page-turner.turn-next::after{background:linear-gradient(to right, rgba(1,15,18,0) 55%, rgba(1,15,18,.2) 100%)}
+.wisdom-page-turner.turn-prev{transform-origin:right center}
+.wisdom-page-turner.turn-prev::after{background:linear-gradient(to left, rgba(1,15,18,0) 55%, rgba(1,15,18,.2) 100%)}
 @media (prefers-reduced-motion: no-preference){
-  .wisdom-flipbook-group.wf-out-next{animation:wisdomPageOutNext 150ms ease forwards}
-  .wisdom-flipbook-group.wf-out-prev{animation:wisdomPageOutPrev 150ms ease forwards}
-  .wisdom-flipbook-group.wf-in-next{animation:wisdomPageInNext 170ms ease forwards}
-  .wisdom-flipbook-group.wf-in-prev{animation:wisdomPageInPrev 170ms ease forwards}
+  .wisdom-page-turner.turn-next{animation:wisdomPageTurnNext 420ms ease-in forwards}
+  .wisdom-page-turner.turn-prev{animation:wisdomPageTurnPrev 420ms ease-in forwards}
 }
-@keyframes wisdomPageOutNext{
-  from{opacity:1;transform:rotate(0deg) translateX(0)}
-  to{opacity:0;transform:rotate(-2deg) translateX(-14px)}
+@keyframes wisdomPageTurnNext{
+  0%{transform:rotateY(0deg);opacity:1}
+  65%{opacity:1}
+  100%{transform:rotateY(-100deg);opacity:0}
 }
-@keyframes wisdomPageOutPrev{
-  from{opacity:1;transform:rotate(0deg) translateX(0)}
-  to{opacity:0;transform:rotate(2deg) translateX(14px)}
-}
-@keyframes wisdomPageInNext{
-  from{opacity:0;transform:translateX(22px)}
-  to{opacity:1;transform:translateX(0)}
-}
-@keyframes wisdomPageInPrev{
-  from{opacity:0;transform:translateX(-22px)}
-  to{opacity:1;transform:translateX(0)}
+@keyframes wisdomPageTurnPrev{
+  0%{transform:rotateY(0deg);opacity:1}
+  65%{opacity:1}
+  100%{transform:rotateY(100deg);opacity:0}
 }
 
 @media (max-width:640px){
@@ -2015,11 +2020,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     return wisdomIsDesktopSpread() && wisdomCurrentPage !== 1 && (wisdomCurrentPage + 1 <= WISDOM_TOTAL_PAGES);
   }
 
-  function wisdomBuildGroup(extraClass){
+  function wisdomBuildGroup(){
     const group = document.createElement('div');
-    group.className = extraClass ? `wisdom-flipbook-group ${extraClass}` : 'wisdom-flipbook-group';
+    const showSpread = wisdomShowsSpread();
+    group.className = showSpread ? 'wisdom-flipbook-group is-spread' : 'wisdom-flipbook-group';
     group.appendChild(wisdomMakePageFigure(wisdomCurrentPage));
-    if(wisdomShowsSpread()){
+    if(showSpread){
       group.appendChild(wisdomMakePageFigure(wisdomCurrentPage + 1));
     }
     return group;
@@ -2054,37 +2060,57 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     wisdomUpdateChrome();
   }
 
-  // Animated transition — used for Next/Prev so it feels like turning a physical page
+  // Builds a floating clone of a single page, positioned exactly over its source figure,
+  // so it can rotate away like a real page while the new spread is already waiting underneath.
+  function wisdomMakePageTurner(sourceFigure, direction){
+    const stageRect = wisdomStage.getBoundingClientRect();
+    const figRect = sourceFigure.getBoundingClientRect();
+
+    const turner = document.createElement('div');
+    turner.className = 'wisdom-page-turner ' + (direction === 'next' ? 'turn-next' : 'turn-prev');
+    turner.style.top = (figRect.top - stageRect.top) + 'px';
+    turner.style.left = (figRect.left - stageRect.left) + 'px';
+    turner.style.width = figRect.width + 'px';
+    turner.style.height = figRect.height + 'px';
+
+    const sourceImg = sourceFigure.querySelector('img');
+    if(sourceImg){
+      turner.appendChild(sourceImg.cloneNode(true));
+    } else {
+      const note = document.createElement('span');
+      note.className = 'wisdom-flipbook-missing';
+      note.textContent = 'Page image missing.';
+      turner.appendChild(note);
+    }
+    return turner;
+  }
+
+  // Animated transition — a real page-turn overlay flips away to reveal the next/previous spread underneath
   function wisdomTransitionTo(direction){
     if(!wisdomStage) return;
     wisdomCurrentPage = wisdomNearestValidPage(wisdomGetSequence(), wisdomCurrentPage);
     wisdomUpdateChrome();
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduceMotion){
+    const oldGroup = wisdomStage.querySelector('.wisdom-flipbook-group');
+
+    if(reduceMotion || !oldGroup){
       wisdomStage.innerHTML = '';
       wisdomStage.appendChild(wisdomBuildGroup());
       return;
     }
 
-    const outClass = direction === 'next' ? 'wf-out-next' : 'wf-out-prev';
-    const inClass = direction === 'next' ? 'wf-in-next' : 'wf-in-prev';
-    const oldGroup = wisdomStage.querySelector('.wisdom-flipbook-group');
+    const pages = oldGroup.querySelectorAll('.wisdom-flipbook-page');
+    const sourceFigure = direction === 'next' ? pages[pages.length - 1] : pages[0];
+    const turner = sourceFigure ? wisdomMakePageTurner(sourceFigure, direction) : null;
 
-    function swapIn(){
-      wisdomStage.innerHTML = '';
-      const newGroup = wisdomBuildGroup(inClass);
-      wisdomStage.appendChild(newGroup);
-      newGroup.addEventListener('animationend', ()=>{
-        newGroup.classList.remove(inClass);
-      }, { once: true });
-    }
+    // Swap in the new spread immediately; the turner (if any) visually covers the old page as it rotates away.
+    wisdomStage.innerHTML = '';
+    wisdomStage.appendChild(wisdomBuildGroup());
 
-    if(oldGroup){
-      oldGroup.classList.add(outClass);
-      oldGroup.addEventListener('animationend', swapIn, { once: true });
-    } else {
-      swapIn();
+    if(turner){
+      wisdomStage.appendChild(turner);
+      turner.addEventListener('animationend', ()=>{ turner.remove(); }, { once: true });
     }
   }
 
