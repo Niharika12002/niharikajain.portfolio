@@ -739,6 +739,157 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .project-lite-nav a:hover{color:var(--ink)}
 
 /* ============================================================
+   BIOSPHERIX — CUSTOM CASE STUDY (calm technical workbench)
+   ============================================================ */
+.biospherix-hero{
+  position:relative;overflow:hidden;background:var(--ink);color:var(--paper);
+  padding-block:clamp(3rem,6vw,5.5rem);
+}
+.biospherix-hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,247,239,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,247,239,.05) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+.biospherix-hero-grid{
+  position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;
+  gap:clamp(2rem,4vw,4rem);align-items:center;
+}
+@media (max-width:900px){ .biospherix-hero-grid{grid-template-columns:1fr} }
+.biospherix-hero .eyebrow{color:var(--marigold)}
+.biospherix-hero h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(2.75rem,5vw,4.5rem);font-weight:500;line-height:1.02;
+  letter-spacing:-.01em;margin-bottom:1rem;
+}
+.biospherix-hero .subtitle{
+  font-size:var(--step-1);color:rgba(255,247,239,.85);max-width:52ch;line-height:1.5;margin-bottom:2rem;
+}
+.biospherix-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2rem);
+  border-top:1px solid rgba(255,247,239,.16);padding-top:1.5rem;
+}
+@media (max-width:560px){ .biospherix-meta{grid-template-columns:1fr} }
+.biospherix-meta dt{
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:rgba(255,247,239,.45);margin-bottom:.4rem;
+}
+.biospherix-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.88);line-height:1.4}
+.biospherix-hero-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+.biospherix-hero-visual img{
+  width:100%;max-width:560px;object-fit:contain;
+  filter:drop-shadow(0 24px 40px rgba(1,15,18,.5));
+}
+
+/* shared section rhythm */
+.biospherix-section{padding-block:var(--section-y);border-top:var(--border-soft)}
+.biospherix-section h2{
+  font-family:var(--display);font-size:var(--step-2);font-weight:500;
+  letter-spacing:-.01em;margin-bottom:1rem;color:var(--ink);
+}
+.biospherix-section .copy{font-size:var(--step-0);color:var(--ink-80);max-width:66ch;line-height:1.55}
+
+/* Person + pull quote */
+.biospherix-quote{
+  margin-top:2rem;padding-left:1.4rem;border-left:3px solid var(--terracotta);
+  font-family:var(--display);font-style:italic;font-size:var(--step-1);
+  color:var(--ink);max-width:52ch;line-height:1.5;
+}
+
+/* Problem — workflow diagram + copy */
+.biospherix-problem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start;margin-top:1rem}
+@media (max-width:820px){ .biospherix-problem-grid{grid-template-columns:1fr} }
+.biospherix-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.biospherix-flow .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
+  padding:.6em 1em;background:var(--paper-2);
+}
+.biospherix-flow .arrow{font-size:.9rem;color:var(--terracotta);padding:.3em 0 .3em 1.3em;line-height:1}
+
+/* Design argument — 4 blocks */
+.biospherix-argument-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--grid-gutter);margin-top:1.6rem}
+@media (max-width:700px){ .biospherix-argument-grid{grid-template-columns:1fr} }
+.biospherix-argument-grid .block{border-top:2px solid var(--terracotta);padding-top:1rem}
+.biospherix-argument-grid h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem;color:var(--ink)}
+.biospherix-argument-grid p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
+
+/* Prototype — 3-part CSS diagram, no image (keeps the working-interface climax later undiluted) */
+.biospherix-diagram-3{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.8rem;margin-top:2rem}
+@media (max-width:760px){ .biospherix-diagram-3{grid-template-columns:1fr} }
+.biospherix-diagram-3 .node{
+  border:1px solid var(--ink-12);border-radius:var(--radius-md);background:var(--paper-2);
+  padding:1.4rem;text-align:center;
+}
+.biospherix-diagram-3 .node .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);margin-bottom:.5rem;display:block}
+.biospherix-diagram-3 .node .action{font-size:var(--step--1);color:var(--ink-60)}
+.biospherix-diagram-3 .sep{font-size:1.2rem;color:var(--ink-45);text-align:center}
+@media (max-width:760px){ .biospherix-diagram-3 .sep{transform:rotate(90deg)} }
+
+/* First contact — feedback images + before/after */
+.biospherix-feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:1.6rem}
+@media (max-width:700px){ .biospherix-feedback-grid{grid-template-columns:1fr} }
+.biospherix-feedback-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.biospherix-feedback-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
+.biospherix-feedback-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
+
+.biospherix-before-after{margin-top:2rem;border-top:var(--border-soft)}
+.biospherix-ba-row{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;
+  padding:.9rem 0;border-bottom:var(--border-soft);
+}
+@media (max-width:600px){ .biospherix-ba-row{grid-template-columns:1fr;text-align:left;gap:.3rem} }
+.biospherix-ba-row .before{font-size:var(--step--1);color:var(--ink-45)}
+.biospherix-ba-row .after{font-size:var(--step-0);color:var(--ink);font-weight:600;text-align:right}
+@media (max-width:600px){ .biospherix-ba-row .after{text-align:left} }
+.biospherix-ba-row .arrow{color:var(--terracotta);font-size:.9rem;text-align:center}
+
+/* Working prototype — climax, full-width interface */
+.biospherix-feature-full{margin-top:1.8rem}
+.biospherix-feature-full img{
+  width:100%;display:block;border:var(--border-soft);border-radius:var(--radius-md);
+  background:var(--paper-2);
+}
+.biospherix-callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter);margin-top:2rem}
+@media (max-width:760px){ .biospherix-callouts{grid-template-columns:1fr} }
+.biospherix-callouts .callout{border-top:2px solid var(--terracotta);padding-top:.9rem}
+.biospherix-callouts .num{font-family:var(--display);font-size:var(--step-1);color:var(--terracotta);margin-bottom:.4rem;display:block}
+.biospherix-callouts h4{font-size:var(--step-0);font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.biospherix-callouts p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
+
+/* Output — proposal image, tall and prominent */
+.biospherix-proposal{margin-top:1.8rem}
+.biospherix-proposal img{
+  width:100%;max-height:820px;object-fit:contain;display:block;
+  border:var(--border-soft);border-radius:var(--radius-md);background:var(--paper-2);padding:1.2rem;
+}
+
+/* AI-assisted build — dark technical band */
+.biospherix-ai{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.biospherix-ai .eyebrow{color:var(--marigold)}
+.biospherix-ai h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;color:var(--paper);margin-bottom:1rem;max-width:26ch}
+.biospherix-ai p{font-size:var(--step-0);color:rgba(255,247,239,.75);max-width:66ch;line-height:1.6;margin-bottom:1.6rem}
+.biospherix-ai-flow{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem}
+.biospherix-ai-flow .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,247,239,.9);border:1px solid rgba(255,247,239,.22);border-radius:var(--radius-pill);
+  padding:.5em 1em;
+}
+.biospherix-ai-flow .arrow{color:var(--marigold);font-size:.9rem}
+
+/* Outcome */
+.biospherix-outcome{padding-block:var(--section-y);border-top:var(--border-soft)}
+.biospherix-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem;color:var(--ink)}
+.biospherix-outcome p{font-size:var(--step-0);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:.8rem}
+.biospherix-nav{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
+}
+.biospherix-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
+.biospherix-nav a:hover{color:var(--ink)}
+
+/* ============================================================
    WISDOM — LOOKBOOK-INSPIRED CASE STUDY (fully custom, scoped)
    ============================================================ */
 #wisdom-view{--wred:#E23F1C}
@@ -1480,97 +1631,187 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 </main>
 
 <!-- ============================ BIOSPHERIX — PROJECT-LITE VIEW ============================ -->
-<main id="biospherix-view" hidden class="project-lite-view">
+<!-- ============================ BIOSPHERIX — CUSTOM CASE STUDY ============================ -->
+<main id="biospherix-view" hidden>
 
-  <section class="project-lite-hero accent-terracotta">
-    <div class="wrap project-lite-hero-grid">
-      <div class="project-lite-hero-content">
+  <!-- HERO -->
+  <section class="biospherix-hero">
+    <div class="wrap biospherix-hero-grid">
+      <div>
         <a href="#work" class="project-back">&larr; Back to Selected Work</a>
-        <div class="project-lite-accent-bar" aria-hidden="true"></div>
-        <span class="eyebrow">AI / UX Web App</span>
+        <span class="eyebrow">AI-Assisted Engineering Planning Tool</span>
         <h1>Design Your Lab</h1>
-        <p class="project-lite-subtitle">An AI-assisted layout planning tool that helps engineers turn early client requirements into clearer 2D lab system layouts before high-effort modeling begins.</p>
-        <p class="project-lite-status">Concise case study &middot; AI-assisted UX prototype</p>
-        <dl class="project-lite-meta">
-          <div><dt>Project Type</dt><dd>AI / UX Web App</dd></div>
+        <p class="subtitle">A planning tool designed for a BioSpherix mechanical engineer to turn client requirements into configurable 2D system layouts before high-effort CAD or Blender work begins.</p>
+        <dl class="biospherix-meta">
+          <div><dt>Designed for</dt><dd>Nihar &middot; Mechanical Engineer at BioSpherix</dd></div>
+          <div><dt>My role</dt><dd>UX Research &middot; Product Strategy &middot; Interface Design &middot; AI-Assisted Prototyping</dd></div>
           <div><dt>Timeline</dt><dd>2026</dd></div>
-          <div><dt>Role</dt><dd>UX Research, Product Strategy, Interface Design, AI-assisted Prototyping</dd></div>
-          <div><dt>Tools</dt><dd>Figma, React basics, Claude, GitHub</dd></div>
+          <div><dt>Output</dt><dd>Functional Web Prototype &middot; Printable Proposal</dd></div>
         </dl>
       </div>
-      <figure class="project-lite-hero-visual">
-        <img src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing the component library, floor canvas, and live system readout" loading="lazy" decoding="async">
+      <div class="biospherix-hero-visual">
+        <img src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing the component library, floor canvas, and live system readout" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / THE PERSON -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">01 / The Person</span>
+    <h2>Designed for one real workflow.</h2>
+    <p class="copy">Nihar is a mechanical engineer at BioSpherix who translates client requirements into custom controlled-environment system layouts. Before production-level modeling begins, he needs to understand what components belong in the system, how they fit within the available footprint, and whether the configuration is viable.</p>
+    <p class="biospherix-quote">The opportunity was not to replace engineering judgment. It was to give it a faster starting point.</p>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">The Problem</span>
+    <h2>The problem wasn&rsquo;t CAD. It was getting to CAD.</h2>
+    <div class="biospherix-problem-grid">
+      <div class="biospherix-flow">
+        <span class="step">Client Requirements</span>
+        <span class="arrow">&darr;</span>
+        <span class="step">Manual Interpretation</span>
+        <span class="arrow">&darr;</span>
+        <span class="step">CAD / Blender Model</span>
+        <span class="arrow">&darr;</span>
+        <span class="step">Client Change</span>
+        <span class="arrow">&darr;</span>
+        <span class="step">Rebuild + Rerender</span>
+      </div>
+      <p class="copy">Early planning depended on manually interpreting client requirements, referencing scattered component information, and committing to high-effort modeling before fundamental layout decisions were settled. Changes in footprint, equipment, or configuration could mean repeated revisions before the design was ready for production.</p>
+    </div>
+  </section>
+
+  <!-- 02 / DESIGN ARGUMENT -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">02 / Design Argument</span>
+    <h2>What would actually help?</h2>
+    <div class="biospherix-argument-grid">
+      <div class="block">
+        <h3>Select real components</h3>
+        <p>Choose chambers, controllers, and supporting equipment from a structured library.</p>
+      </div>
+      <div class="block">
+        <h3>Test configurations visually</h3>
+        <p>Place components on a scaled 2D planning surface before committing to CAD.</p>
+      </div>
+      <div class="block">
+        <h3>See the system update</h3>
+        <p>Track footprint, chamber count, gas requirements, weight, and pricing as the configuration changes.</p>
+      </div>
+      <div class="block">
+        <h3>Carry the work forward</h3>
+        <p>Turn the configured system into a printable proposal for early client communication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / THE PROTOTYPE -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">03 / The Prototype</span>
+    <h2>Turning the workflow into a planning surface.</h2>
+    <div class="biospherix-diagram-3">
+      <div class="node">
+        <span class="label">Component Library</span>
+        <span class="action">Choose equipment</span>
+      </div>
+      <div class="sep" aria-hidden="true">&rarr;</div>
+      <div class="node">
+        <span class="label">Floor Canvas</span>
+        <span class="action">Arrange system</span>
+      </div>
+      <div class="sep" aria-hidden="true">&rarr;</div>
+      <div class="node">
+        <span class="label">Live Readout</span>
+        <span class="action">Review impact</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRST CONTACT + ITERATION -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">First Contact + Iteration</span>
+    <h2>Feedback changed the product.</h2>
+    <div class="biospherix-feedback-grid">
+      <figure>
+        <img src="assets/biospherix-feedback-notes-01.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page one" loading="lazy" decoding="async">
+        <figcaption>Feedback notes from a prototype review with Nihar.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/biospherix-feedback-notes-02.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page two" loading="lazy" decoding="async">
+        <figcaption>Translating workflow needs into interface changes.</figcaption>
       </figure>
     </div>
+    <div class="biospherix-before-after">
+      <div class="biospherix-ba-row"><span class="before">Static component library</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">Add and remove components</span></div>
+      <div class="biospherix-ba-row"><span class="before">Fixed component details</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">Editable component cards</span></div>
+      <div class="biospherix-ba-row"><span class="before">Limited categories</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">New category creation</span></div>
+      <div class="biospherix-ba-row"><span class="before">&ldquo;Bench configuration&rdquo;</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">&ldquo;System configuration&rdquo;</span></div>
+      <div class="biospherix-ba-row"><span class="before">Placeholder identity</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">BioSpherix branding</span></div>
+    </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <div class="project-lite-split">
-      <div>
-        <span class="eyebrow">Overview</span>
-        <h2>Planning before production</h2>
-        <p>BioSpherix Layout Planner is a web-based planning prototype designed to help engineers organize early client requirements, reference system components, and create clearer 2D lab layouts before moving into CAD or Blender.</p>
+  <!-- 04 / WORKING PROTOTYPE — climax -->
+  <section class="biospherix-section wrap">
+    <span class="eyebrow">04 / Working Prototype</span>
+    <h2>From requirements to a configured system.</h2>
+    <p class="copy">The final prototype combines a component library, scaled floor canvas, and live system readout so early configuration decisions can happen in one place.</p>
+    <figure class="biospherix-feature-full">
+      <img src="assets/biospherix-layout-planner-working-interface.png" alt="Working BioSpherix Layout Planner interface with components placed on the floor plan" loading="lazy" decoding="async">
+    </figure>
+    <div class="biospherix-callouts">
+      <div class="callout">
+        <span class="num">01</span>
+        <h4>Component Library</h4>
+        <p>Real system components organized for faster selection.</p>
       </div>
-      <div>
-        <span class="eyebrow">The Problem</span>
-        <h2>Where the workflow slowed down</h2>
-        <p>The early planning process relied on repeated manual interpretation, scattered component references, and time-consuming layout revisions. The goal was not to replace the engineer&rsquo;s expertise, but to give them a clearer starting point before production-level modeling.</p>
+      <div class="callout">
+        <span class="num">02</span>
+        <h4>Planning Canvas</h4>
+        <p>A scaled 2D workspace for arranging the system before 3D modeling.</p>
+      </div>
+      <div class="callout">
+        <span class="num">03</span>
+        <h4>Live Readout</h4>
+        <p>Footprint, chambers, gas requirements, weight, and pricing update with the configuration.</p>
       </div>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">My Role</span>
-    <h2>What I contributed</h2>
-    <p>I translated the engineer&rsquo;s workflow into a structured interface, mapped how client requirements could become planning inputs, and used AI-assisted prototyping to test how a layout tool could support faster early-stage decision-making.</p>
-  </section>
-
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Prototype Feedback</span>
-    <h2>From engineer feedback to interface requirements</h2>
-    <p>Prototype review sessions helped translate the engineer&rsquo;s workflow into specific interface requirements: adding and removing components from the library, editing component card details, introducing new categories, changing the language from bench configuration to system configuration, and replacing placeholder branding with the BioSpherix identity.</p>
-    <figure class="project-lite-feature project-lite-feature--notes">
-      <img src="assets/biospherix-feedback-notes-02.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner" loading="lazy" decoding="async">
-      <figcaption>Feedback notes from a prototype review, translating workflow needs into interface changes.</figcaption>
-    </figure>
-  </section>
-
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Key Design Decisions</span>
-    <h2>Designing for engineering clarity</h2>
-    <ul class="project-lite-list">
-      <li>Turn client requirements into a structured planning flow</li>
-      <li>Create a visual layout space before high-effort rendering</li>
-      <li>Keep the interface technical, calm, and easy to scan</li>
-      <li>Position AI as a planning assistant while keeping final layout decisions with the engineer</li>
-    </ul>
-  </section>
-
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Working Prototype</span>
-    <h2>Building the layout planning workflow</h2>
-    <p>The working prototype organized components into a left-side library, a scalable floor grid, and a live readout panel for footprint, chamber count, gas requirements, weight, and pricing. The goal was to make early layout planning easier to scan before moving into high-effort CAD or Blender modeling.</p>
-    <figure class="project-lite-feature project-lite-feature--wide">
-      <img src="assets/biospherix-layout-planner-working-interface.png" alt="Working BioSpherix Layout Planner interface with components placed on the floor plan" loading="lazy" decoding="async">
-      <figcaption>Working layout planner interface with component library, floor canvas, live readout, and pricing logic.</figcaption>
-    </figure>
-  </section>
-
-  <section class="project-lite-section wrap">
+  <!-- OUTPUT -->
+  <section class="biospherix-section wrap">
     <span class="eyebrow">Output</span>
-    <h2>Turning the layout into a proposal</h2>
-    <p>The print proposal translated the configured layout into a shareable document, carrying the floor plan, selected components, live readout, gas requirements, and pricing into a format that could support early client communication.</p>
-    <figure class="project-lite-feature project-lite-feature--proposal">
+    <h2>The layout doesn&rsquo;t end on the canvas.</h2>
+    <p class="copy">Once configured, the system can be translated into a printable proposal that carries the layout, selected components, system readout, gas requirements, and pricing into a format for early client communication.</p>
+    <figure class="biospherix-proposal">
       <img src="assets/biospherix-layout-planner-print-proposal.png" alt="Printable BioSpherix proposal output generated from the configured system layout" loading="lazy" decoding="async">
-      <figcaption>Printable proposal output generated from the configured system layout.</figcaption>
     </figure>
   </section>
 
-  <section class="project-lite-outcome wrap">
+  <!-- 05 / AI-ASSISTED BUILD -->
+  <section class="biospherix-ai">
+    <div class="wrap">
+      <span class="eyebrow">05 / AI-Assisted Build</span>
+      <h2>AI helped me build faster. It did not define the product.</h2>
+      <p>Research with Nihar shaped the problem. His feedback shaped the requirements. I used AI-assisted coding to prototype, test, and iterate the interface quickly while keeping product decisions grounded in the real workflow.</p>
+      <div class="biospherix-ai-flow">
+        <span class="step">Human Research</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+        <span class="step">Design Decisions</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+        <span class="step">AI-Assisted Implementation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section class="biospherix-outcome wrap">
     <span class="eyebrow">Outcome</span>
     <h2>Outcome</h2>
-    <p>The project became a functional AI-assisted planning prototype that translated engineer feedback into a clearer layout workflow, connecting component selection, floor planning, live system readouts, and printable proposal output.</p>
-    <div class="project-lite-nav">
+    <p>Design Your Lab became a functional planning prototype that gives a mechanical engineer a clearer way to move from client requirements to system configuration and proposal output before committing to production-level CAD or Blender work.</p>
+    <p>The project taught me how to turn one person&rsquo;s specialized workflow into a usable product system, use feedback as functional requirements, and direct AI toward implementation without letting it define the problem.</p>
+    <div class="biospherix-nav">
       <a href="#pili">&larr; Previous: Pili</a>
       <a href="#wisdom">Next: SCAD x Wisdom ATL Eyewear &rarr;</a>
     </div>
