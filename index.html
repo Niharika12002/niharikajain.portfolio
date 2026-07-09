@@ -778,8 +778,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.88);line-height:1.4}
 .biospherix-hero-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
 .biospherix-hero-visual img{
-  width:100%;max-width:560px;object-fit:contain;
-  filter:drop-shadow(0 24px 40px rgba(1,15,18,.5));
+  width:100%;max-width:580px;object-fit:contain;
+  filter:drop-shadow(0 16px 24px rgba(1,15,18,.28));
 }
 
 /* shared section rhythm */
@@ -797,7 +797,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   color:var(--ink);max-width:52ch;line-height:1.5;
 }
 
-/* Problem — workflow diagram + copy */
+/* Problem — dark visual break: workflow diagram + copy */
+.biospherix-problem{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
+.biospherix-problem .eyebrow{color:var(--marigold)}
+.biospherix-problem h2{color:var(--paper)}
+.biospherix-problem .copy{color:rgba(255,247,239,.72)}
 .biospherix-problem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start;margin-top:1rem}
 @media (max-width:820px){ .biospherix-problem-grid{grid-template-columns:1fr} }
 .biospherix-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0}
@@ -807,8 +811,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   padding:.6em 1em;background:var(--paper-2);
 }
 .biospherix-flow .arrow{font-size:.9rem;color:var(--terracotta);padding:.3em 0 .3em 1.3em;line-height:1}
+.biospherix-problem .biospherix-flow .step{
+  color:var(--paper);border-color:rgba(255,247,239,.18);background:rgba(255,247,239,.05);
+}
+.biospherix-problem .biospherix-flow .arrow{color:var(--marigold)}
 
-/* Design argument — 4 blocks */
+/* Design requirements — 4 blocks */
 .biospherix-argument-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--grid-gutter);margin-top:1.6rem}
 @media (max-width:700px){ .biospherix-argument-grid{grid-template-columns:1fr} }
 .biospherix-argument-grid .block{border-top:2px solid var(--terracotta);padding-top:1rem}
@@ -819,9 +827,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-diagram-3{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.8rem;margin-top:2rem}
 @media (max-width:760px){ .biospherix-diagram-3{grid-template-columns:1fr} }
 .biospherix-diagram-3 .node{
-  border:1px solid var(--ink-12);border-radius:var(--radius-md);background:var(--paper-2);
+  border:1px solid var(--ink-12);border-radius:var(--radius-sm);background:var(--paper-2);
   padding:1.4rem;text-align:center;
 }
+.biospherix-diagram-3 .node .num{font-family:var(--display);font-size:var(--step-0);color:var(--terracotta);display:block;margin-bottom:.3rem}
 .biospherix-diagram-3 .node .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);margin-bottom:.5rem;display:block}
 .biospherix-diagram-3 .node .action{font-size:var(--step--1);color:var(--ink-60)}
 .biospherix-diagram-3 .sep{font-size:1.2rem;color:var(--ink-45);text-align:center}
@@ -835,6 +844,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-feedback-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
 
 .biospherix-before-after{margin-top:2rem;border-top:var(--border-soft)}
+.biospherix-ba-head{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;padding-top:1rem;
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-45);
+}
+.biospherix-ba-head span:first-child{text-align:left}
+.biospherix-ba-head span:last-child{text-align:right}
+@media (max-width:600px){
+  .biospherix-ba-head{grid-template-columns:1fr}
+  .biospherix-ba-head span:last-child{text-align:left}
+}
 .biospherix-ba-row{
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;
   padding:.9rem 0;border-bottom:var(--border-soft);
@@ -846,6 +865,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-ba-row .arrow{color:var(--terracotta);font-size:.9rem;text-align:center}
 
 /* Working prototype — climax, full-width interface */
+.biospherix-climax h2{font-size:var(--step-3);font-weight:400}
 .biospherix-feature-full{margin-top:1.8rem}
 .biospherix-feature-full img{
   width:100%;display:block;border:var(--border-soft);border-radius:var(--radius-md);
@@ -864,6 +884,13 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   width:100%;max-height:820px;object-fit:contain;display:block;
   border:var(--border-soft);border-radius:var(--radius-md);background:var(--paper-2);padding:1.2rem;
 }
+.biospherix-flow-inline{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-top:1.8rem}
+.biospherix-flow-inline .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-pill);
+  padding:.5em 1em;background:var(--paper-2);
+}
+.biospherix-flow-inline .arrow{color:var(--terracotta);font-size:.9rem}
 
 /* AI-assisted build — dark technical band */
 .biospherix-ai{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
@@ -1630,7 +1657,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
 </main>
 
-<!-- ============================ BIOSPHERIX — PROJECT-LITE VIEW ============================ -->
 <!-- ============================ BIOSPHERIX — CUSTOM CASE STUDY ============================ -->
 <main id="biospherix-view" hidden>
 
@@ -1663,8 +1689,9 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <p class="biospherix-quote">The opportunity was not to replace engineering judgment. It was to give it a faster starting point.</p>
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="biospherix-section wrap">
+  <!-- THE PROBLEM — dark visual break -->
+  <section class="biospherix-problem">
+   <div class="wrap">
     <span class="eyebrow">The Problem</span>
     <h2>The problem wasn&rsquo;t CAD. It was getting to CAD.</h2>
     <div class="biospherix-problem-grid">
@@ -1681,11 +1708,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       </div>
       <p class="copy">Early planning depended on manually interpreting client requirements, referencing scattered component information, and committing to high-effort modeling before fundamental layout decisions were settled. Changes in footprint, equipment, or configuration could mean repeated revisions before the design was ready for production.</p>
     </div>
+   </div>
   </section>
 
-  <!-- 02 / DESIGN ARGUMENT -->
+  <!-- 02 / DESIGN REQUIREMENTS -->
   <section class="biospherix-section wrap">
-    <span class="eyebrow">02 / Design Argument</span>
+    <span class="eyebrow">02 / Design Requirements</span>
     <h2>What would actually help?</h2>
     <div class="biospherix-argument-grid">
       <div class="block">
@@ -1707,31 +1735,34 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     </div>
   </section>
 
-  <!-- 03 / THE PROTOTYPE -->
+  <!-- 03 / SYSTEM MODEL -->
   <section class="biospherix-section wrap">
-    <span class="eyebrow">03 / The Prototype</span>
-    <h2>Turning the workflow into a planning surface.</h2>
+    <span class="eyebrow">03 / System Model</span>
+    <h2>Three parts. One planning workflow.</h2>
     <div class="biospherix-diagram-3">
       <div class="node">
+        <span class="num">01</span>
         <span class="label">Component Library</span>
         <span class="action">Choose equipment</span>
       </div>
       <div class="sep" aria-hidden="true">&rarr;</div>
       <div class="node">
-        <span class="label">Floor Canvas</span>
+        <span class="num">02</span>
+        <span class="label">Planning Canvas</span>
         <span class="action">Arrange system</span>
       </div>
       <div class="sep" aria-hidden="true">&rarr;</div>
       <div class="node">
+        <span class="num">03</span>
         <span class="label">Live Readout</span>
         <span class="action">Review impact</span>
       </div>
     </div>
   </section>
 
-  <!-- FIRST CONTACT + ITERATION -->
+  <!-- PROTOTYPE REVIEW + ITERATION -->
   <section class="biospherix-section wrap">
-    <span class="eyebrow">First Contact + Iteration</span>
+    <span class="eyebrow">Prototype Review + Iteration</span>
     <h2>Feedback changed the product.</h2>
     <div class="biospherix-feedback-grid">
       <figure>
@@ -1744,6 +1775,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       </figure>
     </div>
     <div class="biospherix-before-after">
+      <div class="biospherix-ba-head">
+        <span>Before feedback</span>
+        <span aria-hidden="true"></span>
+        <span>After feedback</span>
+      </div>
       <div class="biospherix-ba-row"><span class="before">Static component library</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">Add and remove components</span></div>
       <div class="biospherix-ba-row"><span class="before">Fixed component details</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">Editable component cards</span></div>
       <div class="biospherix-ba-row"><span class="before">Limited categories</span><span class="arrow" aria-hidden="true">&rarr;</span><span class="after">New category creation</span></div>
@@ -1753,7 +1789,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   </section>
 
   <!-- 04 / WORKING PROTOTYPE — climax -->
-  <section class="biospherix-section wrap">
+  <section class="biospherix-section biospherix-climax wrap">
     <span class="eyebrow">04 / Working Prototype</span>
     <h2>From requirements to a configured system.</h2>
     <p class="copy">The final prototype combines a component library, scaled floor canvas, and live system readout so early configuration decisions can happen in one place.</p>
@@ -1787,13 +1823,22 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <figure class="biospherix-proposal">
       <img src="assets/biospherix-layout-planner-print-proposal.png" alt="Printable BioSpherix proposal output generated from the configured system layout" loading="lazy" decoding="async">
     </figure>
+    <div class="biospherix-flow-inline">
+      <span class="step">Client Requirements</span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+      <span class="step">System Configuration</span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+      <span class="step">Live Readout</span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+      <span class="step">Printable Proposal</span>
+    </div>
   </section>
 
   <!-- 05 / AI-ASSISTED BUILD -->
   <section class="biospherix-ai">
     <div class="wrap">
       <span class="eyebrow">05 / AI-Assisted Build</span>
-      <h2>AI helped me build faster. It did not define the product.</h2>
+      <h2>AI accelerated the build. The workflow defined the product.</h2>
       <p>Research with Nihar shaped the problem. His feedback shaped the requirements. I used AI-assisted coding to prototype, test, and iterate the interface quickly while keeping product decisions grounded in the real workflow.</p>
       <div class="biospherix-ai-flow">
         <span class="step">Human Research</span>
@@ -1808,7 +1853,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <!-- OUTCOME -->
   <section class="biospherix-outcome wrap">
     <span class="eyebrow">Outcome</span>
-    <h2>Outcome</h2>
+    <h2>A clearer starting point for a complex workflow.</h2>
     <p>Design Your Lab became a functional planning prototype that gives a mechanical engineer a clearer way to move from client requirements to system configuration and proposal output before committing to production-level CAD or Blender work.</p>
     <p>The project taught me how to turn one person&rsquo;s specialized workflow into a usable product system, use feedback as functional requirements, and direct AI toward implementation without letting it define the problem.</p>
     <div class="biospherix-nav">
