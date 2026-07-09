@@ -828,8 +828,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 /* ---- Flipbook viewer ---- */
 .wisdom-flipbook{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--paper)}
 .wisdom-flipbook-stage{
-  flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
-  gap:clamp(.5rem,1.5vw,1rem);padding:clamp(1rem,2.5vw,1.8rem);overflow:hidden;
+  position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
+  padding:clamp(1rem,2.5vw,1.8rem);overflow:hidden;
+}
+.wisdom-flipbook-group{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(.5rem,1.5vw,1rem);width:100%;height:100%;position:relative;
+}
+/* subtle center gutter/shadow between two-page spreads */
+.wisdom-flipbook-group:has(.wisdom-flipbook-page:nth-child(2))::after{
+  content:"";position:absolute;z-index:2;pointer-events:none;
+  top:6%;bottom:6%;left:50%;width:18px;margin-left:-9px;
+  background:linear-gradient(90deg, rgba(1,15,18,0) 0%, rgba(1,15,18,.10) 48%, rgba(1,15,18,.10) 52%, rgba(1,15,18,0) 100%);
 }
 .wisdom-flipbook-page{
   margin:0;flex:1;min-width:0;height:100%;
@@ -839,10 +849,13 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
   border:var(--border-soft);border-radius:var(--radius-sm);
   background:var(--paper-2);display:block;
+  box-shadow:0 1px 2px rgba(1,15,18,.06), 0 10px 22px -12px rgba(1,15,18,.14);
 }
 .wisdom-flipbook-page.is-missing{
   width:100%;height:100%;max-width:420px;
+  display:flex;align-items:center;justify-content:center;
   border:var(--border-soft);border-radius:var(--radius-sm);background:var(--paper-2);
+  box-shadow:0 1px 2px rgba(1,15,18,.06), 0 10px 22px -12px rgba(1,15,18,.14);
 }
 .wisdom-flipbook-missing{font-size:var(--step--1);color:var(--ink-45);font-weight:600}
 .wisdom-flipbook-controls{
@@ -858,6 +871,30 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-flipbook-btn:hover:not(:disabled){background:var(--ink);color:var(--paper)}
 .wisdom-flipbook-btn:disabled{opacity:.35;cursor:default}
 .wisdom-flipbook-count{font-size:var(--step--1);font-weight:600;color:var(--ink-60);min-width:11ch;text-align:center}
+
+/* ---- Page-turn animation (skipped entirely under prefers-reduced-motion) ---- */
+@media (prefers-reduced-motion: no-preference){
+  .wisdom-flipbook-group.wf-out-next{animation:wisdomPageOutNext 150ms ease forwards}
+  .wisdom-flipbook-group.wf-out-prev{animation:wisdomPageOutPrev 150ms ease forwards}
+  .wisdom-flipbook-group.wf-in-next{animation:wisdomPageInNext 170ms ease forwards}
+  .wisdom-flipbook-group.wf-in-prev{animation:wisdomPageInPrev 170ms ease forwards}
+}
+@keyframes wisdomPageOutNext{
+  from{opacity:1;transform:rotate(0deg) translateX(0)}
+  to{opacity:0;transform:rotate(-2deg) translateX(-14px)}
+}
+@keyframes wisdomPageOutPrev{
+  from{opacity:1;transform:rotate(0deg) translateX(0)}
+  to{opacity:0;transform:rotate(2deg) translateX(14px)}
+}
+@keyframes wisdomPageInNext{
+  from{opacity:0;transform:translateX(22px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes wisdomPageInPrev{
+  from{opacity:0;transform:translateX(-22px)}
+  to{opacity:1;transform:translateX(0)}
+}
 
 @media (max-width:640px){
   .wisdom-lookbook-modal{padding:.6rem}
@@ -1954,7 +1991,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     });
   }
 
-  function wisdomMakePageFigure(n, isSpreadHalf){
+  function wisdomMakePageFigure(n){
     const figure = document.createElement('figure');
     figure.className = 'wisdom-flipbook-page';
     const img = document.createElement('img');
@@ -1967,26 +2004,31 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       img.remove();
       const note = document.createElement('span');
       note.className = 'wisdom-flipbook-missing';
-      note.textContent = `Page ${n} unavailable`;
+      note.textContent = 'Page image missing.';
       figure.appendChild(note);
     }, { once: true });
     figure.appendChild(img);
     return figure;
   }
 
-  function wisdomRenderFlipbook(){
-    if(!wisdomStage) return;
-    const seq = wisdomGetSequence();
-    wisdomCurrentPage = wisdomNearestValidPage(seq, wisdomCurrentPage);
-    const idx = seq.indexOf(wisdomCurrentPage);
-    const desktop = wisdomIsDesktopSpread();
-    const showSpread = desktop && wisdomCurrentPage !== 1 && (wisdomCurrentPage + 1 <= WISDOM_TOTAL_PAGES);
+  function wisdomShowsSpread(){
+    return wisdomIsDesktopSpread() && wisdomCurrentPage !== 1 && (wisdomCurrentPage + 1 <= WISDOM_TOTAL_PAGES);
+  }
 
-    wisdomStage.innerHTML = '';
-    wisdomStage.appendChild(wisdomMakePageFigure(wisdomCurrentPage, showSpread));
-    if(showSpread){
-      wisdomStage.appendChild(wisdomMakePageFigure(wisdomCurrentPage + 1, true));
+  function wisdomBuildGroup(extraClass){
+    const group = document.createElement('div');
+    group.className = extraClass ? `wisdom-flipbook-group ${extraClass}` : 'wisdom-flipbook-group';
+    group.appendChild(wisdomMakePageFigure(wisdomCurrentPage));
+    if(wisdomShowsSpread()){
+      group.appendChild(wisdomMakePageFigure(wisdomCurrentPage + 1));
     }
+    return group;
+  }
+
+  function wisdomUpdateChrome(){
+    const seq = wisdomGetSequence();
+    const idx = seq.indexOf(wisdomCurrentPage);
+    const showSpread = wisdomShowsSpread();
 
     if(wisdomCount){
       wisdomCount.textContent = showSpread
@@ -2003,16 +2045,59 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     wisdomPreload(preloadTargets);
   }
 
+  // Instant render — used when opening the modal and on viewport resize (no page-turn animation)
+  function wisdomRenderFlipbook(){
+    if(!wisdomStage) return;
+    wisdomCurrentPage = wisdomNearestValidPage(wisdomGetSequence(), wisdomCurrentPage);
+    wisdomStage.innerHTML = '';
+    wisdomStage.appendChild(wisdomBuildGroup());
+    wisdomUpdateChrome();
+  }
+
+  // Animated transition — used for Next/Prev so it feels like turning a physical page
+  function wisdomTransitionTo(direction){
+    if(!wisdomStage) return;
+    wisdomCurrentPage = wisdomNearestValidPage(wisdomGetSequence(), wisdomCurrentPage);
+    wisdomUpdateChrome();
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion){
+      wisdomStage.innerHTML = '';
+      wisdomStage.appendChild(wisdomBuildGroup());
+      return;
+    }
+
+    const outClass = direction === 'next' ? 'wf-out-next' : 'wf-out-prev';
+    const inClass = direction === 'next' ? 'wf-in-next' : 'wf-in-prev';
+    const oldGroup = wisdomStage.querySelector('.wisdom-flipbook-group');
+
+    function swapIn(){
+      wisdomStage.innerHTML = '';
+      const newGroup = wisdomBuildGroup(inClass);
+      wisdomStage.appendChild(newGroup);
+      newGroup.addEventListener('animationend', ()=>{
+        newGroup.classList.remove(inClass);
+      }, { once: true });
+    }
+
+    if(oldGroup){
+      oldGroup.classList.add(outClass);
+      oldGroup.addEventListener('animationend', swapIn, { once: true });
+    } else {
+      swapIn();
+    }
+  }
+
   function wisdomGoNext(){
     const seq = wisdomGetSequence();
     const idx = seq.indexOf(wisdomCurrentPage);
-    if(idx < seq.length - 1){ wisdomCurrentPage = seq[idx + 1]; wisdomRenderFlipbook(); }
+    if(idx < seq.length - 1){ wisdomCurrentPage = seq[idx + 1]; wisdomTransitionTo('next'); }
   }
 
   function wisdomGoPrev(){
     const seq = wisdomGetSequence();
     const idx = seq.indexOf(wisdomCurrentPage);
-    if(idx > 0){ wisdomCurrentPage = seq[idx - 1]; wisdomRenderFlipbook(); }
+    if(idx > 0){ wisdomCurrentPage = seq[idx - 1]; wisdomTransitionTo('prev'); }
   }
 
   wisdomPrevBtn?.addEventListener('click', wisdomGoPrev);
