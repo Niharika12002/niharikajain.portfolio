@@ -897,12 +897,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   .wisdom-frame-card .wisdom-frame-text,
   .wisdom-frame-card:nth-child(even) .wisdom-frame-text{order:2}
 }
-.wisdom-frame-num{
-  position:absolute;top:-2.2rem;left:0;z-index:0;
-  font-family:var(--display);font-size:clamp(6.5rem,13vw,11.5rem);font-weight:300;
-  color:var(--wred);opacity:.1;line-height:1;pointer-events:none;
-}
-.wisdom-frame-card:nth-child(even) .wisdom-frame-num{left:auto;right:0}
 .wisdom-frame-visual{position:relative;z-index:1}
 .wisdom-frame-visual img{width:100%;max-height:420px;object-fit:contain}
 .wisdom-frame-text{position:relative;z-index:1}
@@ -966,9 +960,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-campaign h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;max-width:20ch}
 .wisdom-campaign p{font-size:var(--step-1);color:rgba(255,247,239,.75);max-width:60ch;line-height:1.55;margin-bottom:2rem}
 .wisdom-campaign-cta{
+  appearance:none;background:transparent;border:0;cursor:pointer;
   display:inline-flex;align-items:center;gap:.6em;
   color:var(--paper);font-weight:700;font-size:var(--step-0);
-  border-bottom:1.5px solid var(--wred);padding-bottom:.25rem;
+  border-bottom:1.5px solid var(--wred);padding:0 0 .25rem;
   transition:color .2s ease, border-color .2s ease;
 }
 .wisdom-campaign-cta:hover{color:var(--wred);border-color:var(--paper)}
@@ -1568,7 +1563,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
       <div class="wisdom-chapter-grid">
         <div class="wisdom-frame-card">
-          <span class="wisdom-frame-num" aria-hidden="true">01</span>
           <div class="wisdom-frame-visual">
             <img src="assets/wisdom-wsdm-one-hero.png" alt="WSDM ONE flagship eyewear render" loading="lazy" decoding="async">
           </div>
@@ -1580,7 +1574,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         </div>
 
         <div class="wisdom-frame-card">
-          <span class="wisdom-frame-num" aria-hidden="true">02</span>
           <div class="wisdom-frame-visual">
             <img src="assets/wisdom-arq-sports-hero.png" alt="ARQ Sports eyewear render" loading="lazy" decoding="async">
           </div>
@@ -1592,7 +1585,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         </div>
 
         <div class="wisdom-frame-card">
-          <span class="wisdom-frame-num" aria-hidden="true">03</span>
           <div class="wisdom-frame-visual">
             <img src="assets/wisdom-arq-daily-hero.png" alt="ARQ Daily eyewear render" loading="lazy" decoding="async">
           </div>
@@ -1709,7 +1701,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <span class="eyebrow">Campaign System</span>
         <h2>Lookbook and campaign direction</h2>
         <p>The final lookbook brought the product system together through frame introductions, colorways, MSRP and wholesale pricing, moodboards, social strategy, influencer strategy, reel storyboards, packaging, and merchandising.</p>
-        <a class="wisdom-campaign-cta" href="assets/wisdom-lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
+        <button type="button" class="wisdom-campaign-cta wisdom-open-lookbook">View Lookbook &rarr;</button>
       </div>
       <div class="wisdom-campaign-visual">
         <!-- Lookbook cover with fallback safety net -->
@@ -1916,7 +1908,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   renderRoute();
 
   // Wisdom lookbook modal — quiet preview on the hero image opens the flipbook
-  const wisdomLookbookOpen = document.getElementById('open-wisdom-lookbook');
   const wisdomLookbookModal = document.getElementById('wisdom-lookbook-modal');
   const wisdomLookbookClose = document.getElementById('close-wisdom-lookbook');
   const wisdomStage = document.getElementById('wisdom-lookbook-stage');
@@ -1929,7 +1920,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   let wisdomCurrentPage = 1;
 
   function wisdomPagePad(n){ return String(n).padStart(3, '0'); }
-  function wisdomPageSrc(n){ return `assets/wisdom-lookbook-pages/wisdom-lookbook-page-${wisdomPagePad(n)}.webp`; }
+  function wisdomPageSrc(n){ return `assets/wisdom-lookbook-page-${wisdomPagePad(n)}.webp`; }
   function wisdomIsDesktopSpread(){ return window.matchMedia('(min-width: 760px)').matches; }
 
   // Page 1 stands alone as the cover; from page 2 on, pages pair up as spreads on desktop.
@@ -2038,7 +2029,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     if(lastWisdomLookbookFocus) lastWisdomLookbookFocus.focus();
   }
 
-  wisdomLookbookOpen?.addEventListener('click', openWisdomLookbook);
+  document
+    .querySelectorAll('#open-wisdom-lookbook, .wisdom-open-lookbook')
+    .forEach((button)=>{
+      button.addEventListener('click', openWisdomLookbook);
+    });
   wisdomLookbookClose?.addEventListener('click', closeWisdomLookbook);
 
   wisdomLookbookModal?.addEventListener('click', (event)=>{
