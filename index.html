@@ -829,28 +829,40 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-flipbook{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--paper)}
 .wisdom-flipbook-stage{
   position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
-  padding:clamp(1rem,2.5vw,1.8rem);overflow:hidden;
+  padding:clamp(.75rem, 1.8vw, 1.2rem);overflow:hidden;
   perspective:1400px;
 }
 .wisdom-flipbook-group{
   display:flex;align-items:center;justify-content:center;
-  gap:clamp(.5rem,1.5vw,1rem);width:100%;height:100%;position:relative;
+  gap:0;width:auto;max-width:100%;height:100%;position:relative;
 }
-/* subtle center gutter/shadow between two-page spreads */
+/* fake center gutter overlay disabled — the two page images now sit flush and shadow the seam themselves */
 .wisdom-flipbook-group.is-spread::after{
-  content:"";position:absolute;z-index:2;pointer-events:none;
-  top:6%;bottom:6%;left:50%;width:18px;margin-left:-9px;
-  background:linear-gradient(90deg, rgba(1,15,18,0) 0%, rgba(1,15,18,.10) 48%, rgba(1,15,18,.10) 52%, rgba(1,15,18,0) 100%);
+  display:none;
 }
 .wisdom-flipbook-page{
-  margin:0;flex:1;min-width:0;height:100%;
+  margin:0;flex:0 0 auto;width:auto;height:100%;
   display:flex;align-items:center;justify-content:center;
 }
 .wisdom-flipbook-page img{
-  max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  display:block;width:auto;height:auto;max-height:100%;max-width:min(48%, 440px);
+  object-fit:contain;
   border:var(--border-soft);border-radius:var(--radius-sm);
-  background:var(--paper-2);display:block;
+  background:var(--paper-2);
   box-shadow:0 1px 2px rgba(1,15,18,.06), 0 10px 22px -12px rgba(1,15,18,.14);
+}
+/* two-page spreads: flush book spine at the center gutter */
+.wisdom-flipbook-group.is-spread .wisdom-flipbook-page:first-child img{
+  border-top-right-radius:0;border-bottom-right-radius:0;
+  margin-right:0;
+  box-shadow:0 1px 2px rgba(1,15,18,.06), 0 10px 22px -12px rgba(1,15,18,.14),
+    inset -6px 0 8px -6px rgba(1,15,18,.22);
+}
+.wisdom-flipbook-group.is-spread .wisdom-flipbook-page:last-child img{
+  border-top-left-radius:0;border-bottom-left-radius:0;
+  margin-left:0;
+  box-shadow:0 1px 2px rgba(1,15,18,.06), 0 10px 22px -12px rgba(1,15,18,.14),
+    inset 6px 0 8px -6px rgba(1,15,18,.22);
 }
 .wisdom-flipbook-page.is-missing{
   width:100%;height:100%;max-width:420px;
