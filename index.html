@@ -887,18 +887,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-page-turner.turn-prev{transform-origin:right center}
 .wisdom-page-turner.turn-prev::after{background:linear-gradient(to left, rgba(1,15,18,0) 55%, rgba(1,15,18,.2) 100%)}
 @media (prefers-reduced-motion: no-preference){
-  .wisdom-page-turner.turn-next{animation:wisdomPageTurnNext 420ms ease-in forwards}
-  .wisdom-page-turner.turn-prev{animation:wisdomPageTurnPrev 420ms ease-in forwards}
+  .wisdom-page-turner.turn-next{animation:wisdomPageTurnNext 520ms cubic-bezier(.2,.7,.2,1) forwards}
+  .wisdom-page-turner.turn-prev{animation:wisdomPageTurnPrev 520ms cubic-bezier(.2,.7,.2,1) forwards}
 }
 @keyframes wisdomPageTurnNext{
-  0%{transform:rotateY(0deg);opacity:1}
-  65%{opacity:1}
-  100%{transform:rotateY(-100deg);opacity:0}
+  0%{transform:rotateY(0deg)}
+  45%{transform:rotateY(-45deg) translateZ(20px)}
+  100%{transform:rotateY(-82deg) translateZ(8px) translateX(-10px);opacity:.25}
 }
 @keyframes wisdomPageTurnPrev{
-  0%{transform:rotateY(0deg);opacity:1}
-  65%{opacity:1}
-  100%{transform:rotateY(100deg);opacity:0}
+  0%{transform:rotateY(0deg)}
+  45%{transform:rotateY(45deg) translateZ(20px)}
+  100%{transform:rotateY(82deg) translateZ(8px) translateX(10px);opacity:.25}
 }
 
 @media (max-width:640px){
@@ -962,6 +962,15 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-artifact{margin-top:1.6rem;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
 .wisdom-artifact img{width:100%;max-height:560px;object-fit:contain;padding:1.6rem;background:var(--paper);display:block}
 .wisdom-artifact figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.6rem 1.4rem;text-align:center}
+
+.wisdom-presentation{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-presentation h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
+.wisdom-presentation > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-presentation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter);margin-top:1.6rem}
+@media (max-width:760px){ .wisdom-presentation-grid{grid-template-columns:1fr} }
+.wisdom-presentation-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
+.wisdom-presentation-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.wisdom-presentation-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:1rem;text-align:center}
 
 /* ---- Frame Development ---- */
 .wisdom-development{padding-block:var(--section-y);border-top:var(--border-soft)}
@@ -1759,6 +1768,35 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     </div>
   </section>
 
+  <!-- FINAL PRESENTATION -->
+  <section class="wisdom-presentation">
+    <div class="wrap">
+      <span class="eyebrow">Final Presentation</span>
+      <h2>From lookbook to client presentation</h2>
+      <p>The final phase of the Wisdom ATL collaboration brought the eyewear system into a client-facing presentation. Teams presented printed lookbooks, physical prototypes, packaging directions, and campaign systems to Wish ATL, showing how the work could live as both a product line and a retail story.</p>
+
+      <figure class="wisdom-artifact">
+        <img src="assets/wisdom-final-presentation-01.jpg" alt="Wisdom ATL final class presentation with printed lookbooks and physical prototypes" loading="lazy" decoding="async">
+        <figcaption>Final class presentation with printed lookbooks, physical prototypes, and buyer-facing storytelling.</figcaption>
+      </figure>
+
+      <div class="wisdom-presentation-grid">
+        <figure>
+          <img src="assets/wisdom-final-presentation-02.jpg" alt="Printed Wisdom ATL lookbook shown as a tangible retail artifact" loading="lazy" decoding="async">
+          <figcaption>The printed lookbook turned the product system into a tangible retail artifact.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/wisdom-final-presentation-03.jpg" alt="Wisdom ATL physical prototypes, digital presentation, and printed lookbook shown together" loading="lazy" decoding="async">
+          <figcaption>Physical prototypes, digital presentation, and printed lookbook shown together.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/wisdom-final-presentation-04.jpg" alt="Prototype try-on of Wisdom ATL eyewear" loading="lazy" decoding="async">
+          <figcaption>Prototype try-ons helped the frames feel like wearable brand objects.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- OUTCOME -->
   <section class="wisdom-outcome">
     <div class="wrap">
@@ -1965,6 +2003,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   const WISDOM_TOTAL_PAGES = 82;
   let wisdomCurrentPage = 1;
+  let wisdomIsTurning = false;
 
   function wisdomPagePad(n){ return String(n).padStart(3, '0'); }
   function wisdomPageSrc(n){ return `assets/wisdom-lookbook-pages/wisdom-lookbook-page-${wisdomPagePad(n)}.webp`; }
@@ -2062,18 +2101,20 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   // Builds a floating clone of a single page, positioned exactly over its source figure,
   // so it can rotate away like a real page while the new spread is already waiting underneath.
+  // Builds a floating clone of a single page, positioned exactly over its source IMAGE (not the figure
+  // wrapper), so the rotation reads as the actual printed sheet turning rather than the whole frame.
   function wisdomMakePageTurner(sourceFigure, direction){
     const stageRect = wisdomStage.getBoundingClientRect();
-    const figRect = sourceFigure.getBoundingClientRect();
+    const sourceImg = sourceFigure.querySelector('img');
+    const imgRect = sourceImg ? sourceImg.getBoundingClientRect() : sourceFigure.getBoundingClientRect();
 
     const turner = document.createElement('div');
     turner.className = 'wisdom-page-turner ' + (direction === 'next' ? 'turn-next' : 'turn-prev');
-    turner.style.top = (figRect.top - stageRect.top) + 'px';
-    turner.style.left = (figRect.left - stageRect.left) + 'px';
-    turner.style.width = figRect.width + 'px';
-    turner.style.height = figRect.height + 'px';
+    turner.style.top = (imgRect.top - stageRect.top) + 'px';
+    turner.style.left = (imgRect.left - stageRect.left) + 'px';
+    turner.style.width = imgRect.width + 'px';
+    turner.style.height = imgRect.height + 'px';
 
-    const sourceImg = sourceFigure.querySelector('img');
     if(sourceImg){
       turner.appendChild(sourceImg.cloneNode(true));
     } else {
@@ -2085,45 +2126,63 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     return turner;
   }
 
-  // Animated transition — a real page-turn overlay flips away to reveal the next/previous spread underneath
-  function wisdomTransitionTo(direction){
-    if(!wisdomStage) return;
-    wisdomCurrentPage = wisdomNearestValidPage(wisdomGetSequence(), wisdomCurrentPage);
-    wisdomUpdateChrome();
+  function wisdomSetControlsLocked(locked){
+    if(wisdomPrevBtn) wisdomPrevBtn.disabled = locked;
+    if(wisdomNextBtn) wisdomNextBtn.disabled = locked;
+  }
+
+  // Animated transition — the old spread stays fully in place while a cloned page turns over it;
+  // wisdomCurrentPage only advances once the turn has actually finished.
+  function wisdomTransitionTo(direction, targetPage){
+    if(!wisdomStage || wisdomIsTurning) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const oldGroup = wisdomStage.querySelector('.wisdom-flipbook-group');
 
     if(reduceMotion || !oldGroup){
-      wisdomStage.innerHTML = '';
-      wisdomStage.appendChild(wisdomBuildGroup());
+      wisdomCurrentPage = targetPage;
+      wisdomRenderFlipbook();
       return;
     }
 
     const pages = oldGroup.querySelectorAll('.wisdom-flipbook-page');
     const sourceFigure = direction === 'next' ? pages[pages.length - 1] : pages[0];
-    const turner = sourceFigure ? wisdomMakePageTurner(sourceFigure, direction) : null;
 
-    // Swap in the new spread immediately; the turner (if any) visually covers the old page as it rotates away.
-    wisdomStage.innerHTML = '';
-    wisdomStage.appendChild(wisdomBuildGroup());
-
-    if(turner){
-      wisdomStage.appendChild(turner);
-      turner.addEventListener('animationend', ()=>{ turner.remove(); }, { once: true });
+    if(!sourceFigure){
+      wisdomCurrentPage = targetPage;
+      wisdomRenderFlipbook();
+      return;
     }
+
+    wisdomIsTurning = true;
+    wisdomSetControlsLocked(true);
+
+    const turner = wisdomMakePageTurner(sourceFigure, direction);
+    const sourceImg = sourceFigure.querySelector('img');
+    if(sourceImg){ sourceImg.style.visibility = 'hidden'; } else { sourceFigure.style.visibility = 'hidden'; }
+
+    wisdomStage.appendChild(turner);
+
+    turner.addEventListener('animationend', ()=>{
+      turner.remove();
+      wisdomCurrentPage = targetPage;
+      wisdomRenderFlipbook();
+      wisdomIsTurning = false;
+    }, { once: true });
   }
 
   function wisdomGoNext(){
+    if(wisdomIsTurning) return;
     const seq = wisdomGetSequence();
     const idx = seq.indexOf(wisdomCurrentPage);
-    if(idx < seq.length - 1){ wisdomCurrentPage = seq[idx + 1]; wisdomTransitionTo('next'); }
+    if(idx < seq.length - 1){ wisdomTransitionTo('next', seq[idx + 1]); }
   }
 
   function wisdomGoPrev(){
+    if(wisdomIsTurning) return;
     const seq = wisdomGetSequence();
     const idx = seq.indexOf(wisdomCurrentPage);
-    if(idx > 0){ wisdomCurrentPage = seq[idx - 1]; wisdomTransitionTo('prev'); }
+    if(idx > 0){ wisdomTransitionTo('prev', seq[idx - 1]); }
   }
 
   wisdomPrevBtn?.addEventListener('click', wisdomGoPrev);
