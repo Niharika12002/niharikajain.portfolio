@@ -703,6 +703,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 }
 .project-lite-feature img{width:100%;max-height:420px;object-fit:contain;padding:1.4rem;background:var(--paper);display:block}
 .project-lite-feature--tall img{max-height:680px;object-fit:contain}
+.project-lite-feature--wide img{max-height:620px;object-fit:contain}
+.project-lite-feature--proposal img{max-height:760px;object-fit:contain}
 .project-lite-feature figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.4rem 1.2rem;text-align:center}
 .project-lite-section .project-lite-feature,
 .project-lite-section .project-lite-gallery-grid{margin-top:1.6rem}
@@ -803,8 +805,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <a class="poster poster--terracotta reveal" href="#biospherix">
         <h3>Design Your Lab</h3>
         <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
-        <!-- Requires assets/biospherix-card-1.png (interface screenshot) -->
-        <img class="poster-img biospherix-img" src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface showing lab layout tools" loading="lazy" decoding="async">
+        <!-- Requires assets/biospherix-cover.png (interface cover) -->
+        <img class="poster-img biospherix-img" src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing an empty floor canvas, component library, and live readout panel" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">2</span>
       </a>
 
@@ -1140,7 +1142,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         </dl>
       </div>
       <figure class="project-lite-hero-visual">
-        <img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface" loading="lazy" decoding="async">
+        <img src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing the component library, floor canvas, and live system readout" loading="lazy" decoding="async">
       </figure>
     </div>
   </section>
@@ -1167,6 +1169,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   </section>
 
   <section class="project-lite-section wrap">
+    <span class="eyebrow">Prototype Feedback</span>
+    <h2>From engineer feedback to interface requirements</h2>
+    <p>Prototype review sessions helped translate the engineer&rsquo;s workflow into specific interface requirements: adding and removing components from the library, editing component card details, introducing new categories, changing the language from bench configuration to system configuration, and replacing placeholder branding with the BioSpherix identity.</p>
+    <figure class="project-lite-feature">
+      <img src="assets/biospherix-feedback-notes-02.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner" loading="lazy" decoding="async">
+      <figcaption>Feedback notes from a prototype review, translating workflow needs into interface changes.</figcaption>
+    </figure>
+  </section>
+
+  <section class="project-lite-section wrap">
     <span class="eyebrow">Key Design Decisions</span>
     <h2>Designing for engineering clarity</h2>
     <ul class="project-lite-list">
@@ -1177,25 +1189,30 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     </ul>
   </section>
 
-  <section class="project-lite-gallery wrap">
-    <span class="eyebrow">Visuals</span>
-    <h2>Layout planning interface</h2>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner interface, view one" loading="lazy" decoding="async">
-        <figcaption>Layout planning interface</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/biospherix-card-2.png" alt="BioSpherix Layout Planner interface, view two" loading="lazy" decoding="async">
-        <figcaption>Component and planning workflow</figcaption>
-      </figure>
-    </div>
+  <section class="project-lite-section wrap">
+    <span class="eyebrow">Working Prototype</span>
+    <h2>Building the layout planning workflow</h2>
+    <p>The working prototype organized components into a left-side library, a scalable floor grid, and a live readout panel for footprint, chamber count, gas requirements, weight, and pricing. The goal was to make early layout planning easier to scan before moving into high-effort CAD or Blender modeling.</p>
+    <figure class="project-lite-feature project-lite-feature--wide">
+      <img src="assets/biospherix-layout-planner-working-interface.png" alt="Working BioSpherix Layout Planner interface with components placed on the floor plan" loading="lazy" decoding="async">
+      <figcaption>Working layout planner interface with component library, floor canvas, live readout, and pricing logic.</figcaption>
+    </figure>
+  </section>
+
+  <section class="project-lite-section wrap">
+    <span class="eyebrow">Output</span>
+    <h2>Turning the layout into a proposal</h2>
+    <p>The print proposal translated the configured layout into a shareable document, carrying the floor plan, selected components, live readout, gas requirements, and pricing into a format that could support early client communication.</p>
+    <figure class="project-lite-feature project-lite-feature--proposal">
+      <img src="assets/biospherix-layout-planner-print-proposal.png" alt="Printable BioSpherix proposal output generated from the configured system layout" loading="lazy" decoding="async">
+      <figcaption>Printable proposal output generated from the configured system layout.</figcaption>
+    </figure>
   </section>
 
   <section class="project-lite-outcome wrap">
     <span class="eyebrow">Outcome</span>
     <h2>Outcome</h2>
-    <p>The project became a functional AI-assisted planning prototype that helped clarify how early layout decisions could be structured before production-level modeling.</p>
+    <p>The project became a functional AI-assisted planning prototype that translated engineer feedback into a clearer layout workflow, connecting component selection, floor planning, live system readouts, and printable proposal output.</p>
     <div class="project-lite-nav">
       <a href="#pili">&larr; Previous: Pili</a>
       <a href="#wisdom">Next: SCAD x Wisdom ATL Eyewear &rarr;</a>
