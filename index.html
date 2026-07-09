@@ -712,12 +712,17 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   border-radius:var(--radius-md);overflow:hidden;
 }
 .project-lite-feature img{width:100%;max-height:420px;object-fit:contain;padding:1.4rem;background:var(--paper);display:block}
-.project-lite-feature--tall img{max-height:680px;object-fit:contain}
+.project-lite-feature--tall img{height:820px;max-height:820px;object-fit:contain}
 .project-lite-feature--wide img{max-height:620px;object-fit:contain}
 .project-lite-feature--proposal img{max-height:760px;object-fit:contain}
 .project-lite-feature--notes img{max-height:620px;object-fit:contain}
 .project-lite-feature--support{max-width:520px;margin-inline:auto}
-.project-lite-feature--support img{max-height:280px;object-fit:contain;padding:1rem}
+.project-lite-feature--support img{height:260px;max-height:260px;object-fit:contain;padding:1rem}
+/* Wisdom — fixed-height frame for renders/sketches that don't use a size modifier */
+.project-lite-feature--standard img{height:420px;max-height:420px;object-fit:contain}
+/* Photographic process/fit-test images use cover instead of contain */
+.project-lite-gallery-grid img.is-photo,
+.project-lite-feature img.is-photo{object-fit:cover}
 .project-lite-feature figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.4rem 1.2rem;text-align:center}
 .project-lite-section .project-lite-feature,
 .project-lite-section .project-lite-gallery-grid{margin-top:1.6rem}
@@ -1286,7 +1291,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">Strategy</span>
     <h2>Brand strategy foundation</h2>
     <p>The project began with a brand and market read: Wisdom had an opportunity to sit between expressive fashion eyewear and restrained premium frames. I translated that position into a three-part design strategy: playful enough to invite attention, whimsical enough to feel ownable, and restrained enough to feel premium.</p>
-    <figure class="project-lite-feature">
+    <figure class="project-lite-feature project-lite-feature--standard">
       <img src="assets/wisdom-brand-strategy.png" alt="Wisdom ATL brand strategy: playful, whimsical, restrained positioning" loading="lazy" decoding="async">
       <figcaption>Brand strategy: playful enough to invite attention, whimsical enough to feel ownable, and restrained enough to feel premium.</figcaption>
     </figure>
@@ -1300,7 +1305,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">Exploration</span>
     <h2>Frame and form exploration</h2>
     <p>I explored multiple eyewear directions before narrowing the system toward shield forms, visible structure, metallic guard details, and colorways that could carry both sport energy and premium restraint.</p>
-    <figure class="project-lite-feature">
+    <figure class="project-lite-feature project-lite-feature--standard">
       <img src="assets/wisdom-frame-sketches-2.png" alt="Wisdom ATL shield frame sketch exploring material, lens, hinge, and temple details" loading="lazy" decoding="async">
       <figcaption>Early shield frame sketch exploring material, lens, hinge, and temple details.</figcaption>
     </figure>
@@ -1320,21 +1325,21 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">Physical Making</span>
     <h2>Physical prototype and fit testing</h2>
     <p>To move beyond sketches and renders, I tested the eyewear through physical frame prototyping, part assembly, surface detailing, and fit checks. These process moments helped translate the visual direction into a tangible object with scale, face coverage, and wearable presence.</p>
-    <figure class="project-lite-feature">
-      <img src="assets/wisdom-prototype-parts-01.jpg" alt="Wisdom ATL prototype parts, clear lens pieces, frame pieces, and red temple arms" loading="lazy" decoding="async">
+    <figure class="project-lite-feature project-lite-feature--standard">
+      <img class="is-photo" src="assets/wisdom-prototype-parts-01.jpg" alt="Wisdom ATL prototype parts, clear lens pieces, frame pieces, and red temple arms" loading="lazy" decoding="async">
       <figcaption>Prototype parts and lens pieces used to test assembly, proportion, and frame construction.</figcaption>
     </figure>
     <div class="project-lite-gallery-grid">
       <figure>
-        <img src="assets/wisdom-fit-test-front-01.jpg" alt="Wisdom ATL physical eyewear prototype front fit test" loading="lazy" decoding="async">
+        <img class="is-photo" src="assets/wisdom-fit-test-front-01.jpg" alt="Wisdom ATL physical eyewear prototype front fit test" loading="lazy" decoding="async">
         <figcaption>Front fit test to check face coverage, scale, and frame presence.</figcaption>
       </figure>
       <figure>
-        <img src="assets/wisdom-fit-test-side-01.jpg" alt="Wisdom ATL physical eyewear prototype side fit test" loading="lazy" decoding="async">
+        <img class="is-photo" src="assets/wisdom-fit-test-side-01.jpg" alt="Wisdom ATL physical eyewear prototype side fit test" loading="lazy" decoding="async">
         <figcaption>Side fit test to understand profile, temple direction, and wearability.</figcaption>
       </figure>
       <figure>
-        <img src="assets/wisdom-fit-test-solid-frame-01.jpg" alt="Wisdom ATL early solid frame prototype fit test" loading="lazy" decoding="async">
+        <img class="is-photo" src="assets/wisdom-fit-test-solid-frame-01.jpg" alt="Wisdom ATL early solid frame prototype fit test" loading="lazy" decoding="async">
         <figcaption>Early solid frame prototype used to test silhouette and visual impact.</figcaption>
       </figure>
     </div>
