@@ -772,7 +772,21 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   color:var(--ink-45);margin-bottom:.3rem;
 }
 .wisdom-editorial-meta div dd{font-size:var(--step--1);color:var(--ink-80);line-height:1.4}
-.wisdom-hero-visual img{width:100%;max-width:480px;display:block;margin-inline:auto;object-fit:contain}
+.wisdom-hero-visual{position:relative}
+.wisdom-hero-visual::before{
+  content:"";position:absolute;z-index:0;
+  inset:8% -6% -8% 6%;
+  background:var(--wred);
+  border-radius:28px;
+  opacity:.92;
+}
+.wisdom-hero-visual::after{
+  content:"01";position:absolute;z-index:0;
+  right:-.05em;bottom:-.18em;
+  font-family:var(--display);font-weight:300;font-size:clamp(6rem,14vw,11rem);
+  line-height:1;color:var(--ink);opacity:.05;pointer-events:none;
+}
+.wisdom-hero-visual img{width:100%;max-width:480px;display:block;margin-inline:auto;object-fit:contain;position:relative;z-index:1}
 .wisdom-lookbook-cta{
   display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
   background:var(--ink);color:var(--paper);
@@ -789,8 +803,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
 /* ---- Overview ---- */
 .wisdom-overview{padding-block:var(--section-y);border-top:var(--border-soft)}
-.wisdom-overview h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1.1rem;color:var(--ink)}
-.wisdom-overview > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-overview-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,4vw,3.5rem);align-items:end;margin-bottom:clamp(2.5rem,4vw,3.5rem)}
+@media (max-width:760px){ .wisdom-overview-head{grid-template-columns:1fr} }
+.wisdom-overview h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;color:var(--ink)}
+.wisdom-overview-head p{font-size:var(--step-1);color:var(--ink-80);line-height:1.55}
 .wisdom-overview-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter)}
 @media (max-width:700px){ .wisdom-overview-cards{grid-template-columns:1fr} }
 .wisdom-overview-cards .card{background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);padding:clamp(1.6rem,2.5vw,2.2rem)}
@@ -805,23 +821,27 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-chapters > .wrap > .head{max-width:64ch;margin-bottom:clamp(2.5rem,5vw,4rem)}
 .wisdom-chapters h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
 .wisdom-chapters .head p{font-size:var(--step-1);color:var(--ink-80);line-height:1.5}
-.wisdom-chapter-grid{display:flex;flex-direction:column;gap:clamp(3rem,6vw,5rem)}
+.wisdom-chapter-grid{display:flex;flex-direction:column;gap:clamp(3.5rem,7vw,6.5rem)}
 .wisdom-frame-card{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
 .wisdom-frame-card:nth-child(even){grid-template-columns:1.1fr 1fr}
 .wisdom-frame-card:nth-child(even) .wisdom-frame-visual{order:2}
 .wisdom-frame-card:nth-child(even) .wisdom-frame-text{order:1}
+.wisdom-frame-card:nth-child(2){margin-left:clamp(0px,3vw,2.5rem)}
+.wisdom-frame-card:nth-child(3){margin-right:clamp(0px,3vw,2.5rem)}
 @media (max-width:820px){
   .wisdom-frame-card,
   .wisdom-frame-card:nth-child(even){grid-template-columns:1fr}
+  .wisdom-frame-card:nth-child(2),
+  .wisdom-frame-card:nth-child(3){margin-left:0;margin-right:0}
   .wisdom-frame-card .wisdom-frame-visual,
   .wisdom-frame-card:nth-child(even) .wisdom-frame-visual{order:1}
   .wisdom-frame-card .wisdom-frame-text,
   .wisdom-frame-card:nth-child(even) .wisdom-frame-text{order:2}
 }
 .wisdom-frame-num{
-  position:absolute;top:-1.4rem;left:0;z-index:0;
-  font-family:var(--display);font-size:clamp(5rem,10vw,8.5rem);font-weight:300;
-  color:var(--ink);opacity:.06;line-height:1;pointer-events:none;
+  position:absolute;top:-2.2rem;left:0;z-index:0;
+  font-family:var(--display);font-size:clamp(6.5rem,13vw,11.5rem);font-weight:300;
+  color:var(--wred);opacity:.1;line-height:1;pointer-events:none;
 }
 .wisdom-frame-card:nth-child(even) .wisdom-frame-num{left:auto;right:0}
 .wisdom-frame-visual{position:relative;z-index:1}
@@ -829,10 +849,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-frame-text{position:relative;z-index:1}
 .wisdom-frame-role{
   display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--wred);border:1px solid var(--wred);border-radius:var(--radius-pill);
-  padding:.35em .9em;margin-bottom:1rem;
+  color:var(--paper);background:var(--wred);border-radius:var(--radius-pill);
+  padding:.4em 1em;margin-bottom:1.1rem;
 }
-.wisdom-frame-text h3{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.7rem;color:var(--ink)}
+.wisdom-frame-text h3{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.7rem;color:var(--ink);line-height:1.05}
 .wisdom-frame-text p{font-size:var(--step-0);color:var(--ink-60);line-height:1.55;max-width:48ch}
 
 /* ---- Brand Strategy ---- */
@@ -862,16 +882,24 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-fit-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:.7rem 1rem;text-align:center}
 
 /* ---- Retail System ---- */
-.wisdom-retail{padding-block:var(--section-y);border-top:var(--border-soft)}
+.wisdom-retail{padding-block:var(--section-y);border-top:var(--border-soft);position:relative;overflow:hidden}
+.wisdom-retail-head{position:relative}
+.wisdom-retail-head::before{
+  content:"RETAIL";position:absolute;z-index:0;top:-1.6rem;left:-.05em;
+  font-family:var(--display);font-weight:600;letter-spacing:-.03em;
+  font-size:clamp(3.5rem,9vw,7rem);color:var(--wred);opacity:.08;
+  white-space:nowrap;pointer-events:none;
+}
+.wisdom-retail-head > *{position:relative;z-index:1}
 .wisdom-retail h2{font-family:var(--display);font-size:var(--step-3);font-weight:400;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
-.wisdom-retail > .wrap > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
+.wisdom-retail > .wrap > .wisdom-retail-head > p{font-size:var(--step-1);color:var(--ink-80);max-width:66ch;line-height:1.55;margin-bottom:2rem}
 .wisdom-retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-bottom:var(--grid-gutter)}
 @media (max-width:700px){ .wisdom-retail-grid{grid-template-columns:1fr} }
 .wisdom-retail-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
 .wisdom-retail-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
 .wisdom-retail-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
 .wisdom-retail-climax{margin-top:1.6rem;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
-.wisdom-retail-climax img{width:100%;max-height:760px;object-fit:cover;display:block}
+.wisdom-retail-climax img{width:100%;max-height:760px;object-fit:contain;padding:1.6rem;background:var(--paper);display:block}
 .wisdom-retail-climax figcaption{font-size:var(--step--1);color:var(--ink-60);padding:1.2rem 1.6rem;text-align:center}
 
 /* ---- Lookbook / Campaign ---- */
@@ -885,6 +913,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   transition:transform .18s ease, box-shadow .18s ease;
 }
 .wisdom-campaign-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(255,247,239,.25)}
+.wisdom-campaign-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+@media (max-width:820px){ .wisdom-campaign-grid{grid-template-columns:1fr} }
+.wisdom-campaign-visual{
+  background:var(--wred);border-radius:var(--radius-md);overflow:hidden;
+  min-height:260px;display:flex;align-items:center;justify-content:center;position:relative;
+}
+.wisdom-campaign-visual img{width:100%;max-height:520px;object-fit:contain;display:block}
+.wisdom-campaign-visual .fallback-mark{
+  display:none;font-family:var(--display);font-weight:600;letter-spacing:-.02em;
+  font-size:clamp(2rem,5vw,3.2rem);color:var(--paper);
+}
+.wisdom-campaign-visual.img-error .fallback-mark{display:block}
 
 /* ---- Outcome ---- */
 .wisdom-outcome{padding-block:var(--section-y);border-top:var(--border-soft)}
@@ -1421,8 +1461,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <div><dt>Tools</dt><dd>Figma, Adobe Suite, 3D Visualization, Physical Prototyping</dd></div>
         </dl>
 
-        <!-- TODO: confirm exact lookbook PDF filename in the repo (assumed from uploaded reference file) -->
-        <a class="wisdom-lookbook-cta" href="assets/Wisdom_Lookbook.pdf" target="_blank" rel="noopener">
+        <!-- Lookbook PDF: assets/Wisdom Lookbook.pdf (space encoded as %20) -->
+        <a class="wisdom-lookbook-cta" href="assets/Wisdom%20Lookbook.pdf" target="_blank" rel="noopener">
           <span class="cta-icon" aria-hidden="true">&rarr;</span>
           <span class="cta-text">
             <strong>Flip through the lookbook</strong>
@@ -1440,9 +1480,13 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <!-- OVERVIEW -->
   <section class="wisdom-overview">
     <div class="wrap">
-      <span class="eyebrow">Overview</span>
-      <h2>The collaboration</h2>
-      <p>Wisdom ATL is an Atlanta-based artwear brand known for surreal design, cultural nuance, and a balance between stoic identity and childlike attitude. The project asked us to extend that world into eyewear, packaging, merchandising, and retail storytelling.</p>
+      <div class="wisdom-overview-head">
+        <div>
+          <span class="eyebrow">Overview</span>
+          <h2>The collaboration</h2>
+        </div>
+        <p>Wisdom ATL is an Atlanta-based artwear brand known for surreal design, cultural nuance, and a balance between stoic identity and childlike attitude. The project asked us to extend that world into eyewear, packaging, merchandising, and retail storytelling.</p>
+      </div>
       <div class="wisdom-overview-cards">
         <div class="card">
           <span class="tag">Challenge</span>
@@ -1487,7 +1531,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           </div>
           <div class="wisdom-frame-text">
             <span class="wisdom-frame-role">Sport / Guard Structure</span>
-            <h3>ARQ Sports</h3>
+            <h3>ARQ Sports / Helmet Frame RB</h3>
             <p>A sport-driven frame inspired by football helmet language, protective rails, wraparound coverage, and bold colorway energy.</p>
           </div>
         </div>
@@ -1499,7 +1543,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           </div>
           <div class="wisdom-frame-text">
             <span class="wisdom-frame-role">Everyday / Premium</span>
-            <h3>ARQ Daily</h3>
+            <h3>ARQ Daily / Helmet Frame QB</h3>
             <p>A more restrained frame family that translates the same helmet-inspired DNA into a softer everyday silhouette.</p>
           </div>
         </div>
@@ -1570,9 +1614,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <!-- RETAIL SYSTEM -->
   <section class="wisdom-retail">
     <div class="wrap">
-      <span class="eyebrow">Retail System</span>
-      <h2>Packaging and retail world</h2>
-      <p>The eyewear system expanded into packaging, collector-style cases, social moments, and display concepts that could support a buyer-facing pitch.</p>
+      <div class="wisdom-retail-head">
+        <span class="eyebrow">Retail System</span>
+        <h2>Packaging and retail world</h2>
+        <p>The eyewear system expanded into packaging, collector-style cases, social moments, and display concepts that could support a buyer-facing pitch.</p>
+      </div>
 
       <div class="wisdom-retail-grid">
         <figure>
@@ -1603,11 +1649,19 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <!-- LOOKBOOK / CAMPAIGN -->
   <section class="wisdom-campaign">
-    <div class="wrap">
-      <span class="eyebrow">Campaign System</span>
-      <h2>Lookbook and campaign direction</h2>
-      <p>The final lookbook brought the product system together through frame introductions, colorways, MSRP and wholesale pricing, moodboards, social strategy, influencer strategy, reel storyboards, packaging, and merchandising.</p>
-      <a class="wisdom-campaign-cta" href="assets/Wisdom_Lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
+    <div class="wrap wisdom-campaign-grid">
+      <div>
+        <span class="eyebrow">Campaign System</span>
+        <h2>Lookbook and campaign direction</h2>
+        <p>The final lookbook brought the product system together through frame introductions, colorways, MSRP and wholesale pricing, moodboards, social strategy, influencer strategy, reel storyboards, packaging, and merchandising.</p>
+        <a class="wisdom-campaign-cta" href="assets/Wisdom%20Lookbook.pdf" target="_blank" rel="noopener">Open full lookbook &rarr;</a>
+      </div>
+      <div class="wisdom-campaign-visual">
+        <!-- Graceful fallback: if assets/wisdom-lookbook-cover.png doesn't exist yet, onerror hides the broken image and reveals the WISDOM mark instead -->
+        <img src="assets/wisdom-lookbook-cover.png" alt="Wisdom ATL lookbook cover" loading="lazy" decoding="async"
+             onerror="this.style.display='none';this.parentElement.classList.add('img-error')">
+        <span class="fallback-mark" aria-hidden="true">WISDOM</span>
+      </div>
     </div>
   </section>
 
