@@ -796,6 +796,14 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   font-family:var(--display);font-style:italic;font-size:var(--step-1);
   color:var(--ink);max-width:52ch;line-height:1.5;
 }
+.biospherix-person-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
+@media (max-width:820px){ .biospherix-person-grid{grid-template-columns:1fr} }
+.biospherix-research-visuals{display:flex;flex-direction:column;gap:1.4rem}
+.biospherix-research-figure{margin:0;border:var(--border-soft);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.biospherix-research-figure img{width:100%;max-height:480px;object-fit:contain;background:var(--paper);padding:.8rem;display:block}
+.biospherix-research-figure--support{max-width:82%;margin-left:auto}
+.biospherix-research-figure--support img{max-height:320px}
+@media (max-width:820px){ .biospherix-research-figure--support{max-width:100%;margin-left:0} }
 
 /* Problem — dark visual break: workflow diagram + copy */
 .biospherix-problem{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
@@ -866,12 +874,38 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-diagram-3.biospherix-diagram-3--stack{grid-template-columns:1fr;gap:.6rem;margin-top:0}
 .biospherix-diagram-3--stack .sep{transform:none}
 
-/* First contact — feedback images + before/after */
+/* First contact — feedback images + before/after (legacy two-up grid, no longer used but left intact) */
 .biospherix-feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:1.6rem}
 @media (max-width:700px){ .biospherix-feedback-grid{grid-template-columns:1fr} }
 .biospherix-feedback-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
 .biospherix-feedback-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
 .biospherix-feedback-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
+
+/* Prototype review — asymmetrical evidence grid */
+.biospherix-review-evidence{display:grid;grid-template-columns:1.45fr .8fr;gap:clamp(1.5rem,3vw,2.5rem);margin-top:1.6rem;align-items:start}
+@media (max-width:820px){ .biospherix-review-evidence{grid-template-columns:1fr} }
+.biospherix-review-lead{margin:0;border:var(--border-soft);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.biospherix-review-lead img{width:100%;object-fit:contain;background:var(--paper);padding:1rem;display:block;max-height:520px}
+.biospherix-review-notes{display:flex;flex-direction:column;gap:1.2rem}
+.biospherix-review-notes figure{margin:0;border:var(--border-soft);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.biospherix-review-notes img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--paper);padding:.8rem;display:block}
+
+/* Shared caption style for research + review evidence figures */
+.biospherix-research-figure figcaption,
+.biospherix-review-lead figcaption,
+.biospherix-review-notes figcaption{
+  padding:.9rem 1.1rem 1.1rem;
+}
+.biospherix-research-figure figcaption strong,
+.biospherix-review-lead figcaption strong,
+.biospherix-review-notes figcaption strong{
+  display:block;font-family:var(--display);font-size:var(--step-0);font-weight:500;color:var(--ink);margin-bottom:.3rem;
+}
+.biospherix-research-figure figcaption span,
+.biospherix-review-lead figcaption span,
+.biospherix-review-notes figcaption span{
+  display:block;font-size:var(--step--1);color:var(--ink-60);line-height:1.45;
+}
 
 .biospherix-before-after{margin-top:2rem;border-top:var(--border-soft)}
 .biospherix-ba-head{
@@ -1717,10 +1751,24 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
   <!-- 01 / THE PERSON -->
   <section class="biospherix-section wrap">
-    <span class="eyebrow">01 / The Person</span>
-    <h2>Designed for one real workflow.</h2>
-    <p class="copy">Nihar is a mechanical engineer at BioSpherix who translates client requirements into custom controlled-environment system layouts. Before production-level modeling begins, he needs to understand what components belong in the system, how they fit within the available footprint, and whether the configuration is viable.</p>
-    <p class="biospherix-quote">The opportunity was not to replace engineering judgment. It was to give it a faster starting point.</p>
+    <div class="biospherix-person-grid">
+      <div class="biospherix-person-text">
+        <span class="eyebrow">01 / The Person</span>
+        <h2>Designed for one real workflow.</h2>
+        <p class="copy">Nihar is a mechanical engineer at BioSpherix who translates client requirements into custom controlled-environment system layouts. Before production-level modeling begins, he needs to understand what components belong in the system, how they fit within the available footprint, and whether the configuration is viable.</p>
+        <p class="biospherix-quote">The opportunity was not to replace engineering judgment. It was to give it a faster starting point.</p>
+      </div>
+      <div class="biospherix-research-visuals">
+        <figure class="biospherix-research-figure biospherix-research-figure--lead">
+          <img src="assets/biospherix-research-call-01.png" alt="Research conversation with Nihar about early system-layout decisions" loading="lazy" decoding="async">
+          <figcaption><strong>Research conversation</strong><span>Understanding how client requirements move toward early system-layout decisions.</span></figcaption>
+        </figure>
+        <figure class="biospherix-research-figure biospherix-research-figure--support">
+          <img src="assets/biospherix-research-call-02.png" alt="Follow-up research discussion about workflow friction" loading="lazy" decoding="async">
+          <figcaption><strong>Follow-up discussion</strong><span>Clarifying where manual interpretation and repeated modeling created friction.</span></figcaption>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <!-- THE PROBLEM — dark visual break -->
@@ -1814,15 +1862,21 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <section class="biospherix-section wrap">
     <span class="eyebrow">Prototype Review + Iteration</span>
     <h2>Feedback changed the product.</h2>
-    <div class="biospherix-feedback-grid">
-      <figure>
-        <img src="assets/biospherix-feedback-notes-01.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page one" loading="lazy" decoding="async">
-        <figcaption>Feedback notes from a prototype review with Nihar.</figcaption>
+    <div class="biospherix-review-evidence">
+      <figure class="biospherix-review-lead">
+        <img src="assets/biospherix-prototype-review-call.png" alt="Working prototype review call discussing the BioSpherix Layout Planner" loading="lazy" decoding="async">
+        <figcaption><strong>Working prototype review</strong><span>Reviewing the early planner turned conversation into concrete functional requirements.</span></figcaption>
       </figure>
-      <figure>
-        <img src="assets/biospherix-feedback-notes-02.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page two" loading="lazy" decoding="async">
-        <figcaption>Translating workflow needs into interface changes.</figcaption>
-      </figure>
+      <div class="biospherix-review-notes">
+        <figure>
+          <img src="assets/biospherix-feedback-notes-01.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page one" loading="lazy" decoding="async">
+          <figcaption><strong>Feedback artifact 01</strong><span>Capturing immediate usability and workflow changes.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/biospherix-feedback-notes-02.jpg" alt="Handwritten prototype feedback notes for the BioSpherix Layout Planner, page two" loading="lazy" decoding="async">
+          <figcaption><strong>Feedback artifact 02</strong><span>Translating observations into the next build.</span></figcaption>
+        </figure>
+      </div>
     </div>
     <div class="biospherix-before-after">
       <div class="biospherix-ba-head">
