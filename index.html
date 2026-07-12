@@ -271,11 +271,10 @@ nav a:hover::after{width:100%}
 
 .posters{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(3, 1fr);
   gap:var(--grid-gutter);
 }
-@media (max-width:980px){ .posters{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:560px){ .posters{grid-template-columns:1fr} }
+@media (max-width:900px){ .posters{grid-template-columns:1fr} }
 
 .poster{
   position:relative;overflow:hidden;border-radius:var(--radius-sm);
@@ -332,22 +331,36 @@ nav a:hover::after{width:100%}
 }
 .split-head p{font-size:var(--step-0);color:var(--ink-80);max-width:44ch}
 
-.build-cards{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter);
+.meta-teaser-head{max-width:64ch;margin-bottom:clamp(1.8rem,3vw,2.4rem)}
+.meta-teaser-head h2{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:var(--step-3);font-weight:400;line-height:1;letter-spacing:-.02em;margin-bottom:1rem;
+}
+.meta-teaser-head p{font-size:var(--step-0);color:var(--ink-80);line-height:1.55}
+.meta-teaser-statement{
+  font-family:var(--display);font-style:italic;font-size:var(--step-1);font-weight:400;
+  line-height:1.4;color:var(--ink);max-width:44ch;
+  padding-left:1.4rem;border-left:3px solid var(--terracotta);
+  margin-bottom:clamp(2.2rem,4vw,3rem);
+}
+.meta-teaser-areas{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter);
   margin-bottom:clamp(2rem,3vw,2.5rem);
 }
-@media (max-width:760px){ .build-cards{grid-template-columns:1fr} }
-.build-card{
-  background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);
-  padding:clamp(1.4rem,2vw,1.8rem);
-}
-.build-card .idx{
+@media (max-width:900px){ .meta-teaser-areas{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .meta-teaser-areas{grid-template-columns:1fr} }
+.meta-teaser-area{padding-top:1.1rem;border-top:3px solid var(--ink)}
+.meta-teaser-area.c-marigold{border-color:var(--marigold)}
+.meta-teaser-area.c-terracotta{border-color:var(--terracotta)}
+.meta-teaser-area.c-olive{border-color:var(--olive)}
+.meta-teaser-area.c-teal{border-color:var(--teal)}
+.meta-teaser-area .idx{
   font-family:var(--body);font-weight:700;font-size:var(--step--1);
-  color:var(--terracotta);margin-bottom:.8rem;display:block;
+  color:var(--ink-45);margin-bottom:.6rem;display:block;
 }
-.build-card h4{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem}
-.build-card p{font-size:var(--step-0);color:var(--ink-60);line-height:1.45}
-.build-note{font-size:var(--step--1);color:var(--ink-45);max-width:64ch;line-height:1.5}
+.meta-teaser-area h4{font-size:var(--step-0);font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.meta-teaser-area p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
+.meta-teaser-cta{display:inline-block}
 
 /* ============================================================
    WHAT I DESIGN
@@ -621,122 +634,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 }
 .pili-final-nav .next{color:var(--ink-60);font-weight:600;font-size:var(--step--1);transition:color .2s ease}
 .pili-final-nav .next:hover{color:var(--ink)}
-
-/* ============================================================
-   PROJECT-LITE — shared system for BioSpherix, Wisdom, FIFA
-   ============================================================ */
-.project-lite-hero{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem);position:relative;overflow:hidden}
-.project-lite-hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
-.project-lite-hero .eyebrow{color:var(--marigold)}
-.project-lite-accent-bar{width:52px;height:4px;border-radius:2px;margin:0 0 1.4rem;background:var(--marigold)}
-.project-lite-hero.accent-terracotta .project-lite-accent-bar{background:var(--terracotta)}
-.project-lite-hero.accent-olive .project-lite-accent-bar{background:var(--olive)}
-.project-lite-hero.accent-teal .project-lite-accent-bar{background:var(--teal)}
-
-/* BioSpherix — faint technical grid, engineering mood */
-.project-lite-hero.accent-terracotta::before{
-  background-image:
-    linear-gradient(rgba(255,247,239,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,247,239,.05) 1px, transparent 1px);
-  background-size:44px 44px;
-}
-/* Wisdom — soft editorial glow, product/retail mood */
-.project-lite-hero.accent-olive::before{
-  background:radial-gradient(circle at 82% 32%, rgba(75,91,52,.32) 0%, rgba(75,91,52,.12) 38%, rgba(1,15,18,0) 68%);
-}
-/* FIFA — faint directional lines, wayfinding/journey mood */
-.project-lite-hero.accent-teal::before{
-  background-image:repeating-linear-gradient(118deg, rgba(255,247,239,.05) 0px, rgba(255,247,239,.05) 1.5px, transparent 1.5px, transparent 42px);
-}
-
-.project-lite-hero-grid{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,3.5rem);
-  align-items:center;position:relative;z-index:1;
-}
-@media (max-width:820px){ .project-lite-hero-grid{grid-template-columns:1fr} }
-.project-lite-hero-visual{
-  background:var(--paper);border-radius:var(--radius-md);
-  padding:clamp(1.2rem,2.5vw,2rem);
-  display:flex;align-items:center;justify-content:center;
-  min-height:clamp(240px,26vw,340px);
-}
-.project-lite-hero-visual img{width:100%;height:100%;max-height:300px;object-fit:contain}
-.project-lite-hero h1{
-  font-family:var(--display);font-optical-sizing:auto;
-  font-size:clamp(2.75rem,5vw,4.5rem);font-weight:500;line-height:1.02;
-  letter-spacing:-.01em;margin-bottom:1rem;
-}
-.project-lite-subtitle{
-  font-size:var(--step-1);color:rgba(255,247,239,.85);max-width:56ch;
-  line-height:1.5;margin-bottom:.9rem;
-}
-.project-lite-status{
-  font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
-  color:rgba(255,247,239,.45);margin-bottom:2rem;
-}
-.project-lite-meta{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1rem,2vw,1.6rem);
-  list-style:none;border-top:1px solid rgba(255,247,239,.16);padding-top:1.5rem;
-}
-@media (max-width:560px){ .project-lite-meta{grid-template-columns:1fr} }
-.project-lite-meta dt{
-  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
-  color:rgba(255,247,239,.45);margin-bottom:.4rem;
-}
-.project-lite-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.88);line-height:1.4}
-
-.project-lite-section{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
-.project-lite-section .eyebrow{margin-bottom:.5rem}
-.project-lite-section h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem}
-.project-lite-section > p{font-size:var(--step-0);color:var(--ink-80);max-width:64ch;line-height:1.55}
-
-.project-lite-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem)}
-@media (max-width:760px){ .project-lite-split{grid-template-columns:1fr;row-gap:2.5rem} }
-.project-lite-split p{font-size:var(--step-0);color:var(--ink-80);line-height:1.55}
-
-.project-lite-list{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:1.2rem;max-width:64ch}
-.project-lite-list li{position:relative;padding-left:1.4rem;font-size:var(--step-0);color:var(--ink-80);line-height:1.5}
-.project-lite-list li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
-.project-lite-list.c-olive li::before{background:var(--olive)}
-.project-lite-list.c-teal li::before{background:var(--teal)}
-
-.project-lite-gallery{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
-.project-lite-gallery h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:1.6rem}
-.project-lite-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--grid-gutter)}
-@media (max-width:600px){ .project-lite-gallery-grid{grid-template-columns:1fr} }
-.project-lite-gallery-grid figure{margin:0;background:var(--paper-2);border:var(--border-soft);border-radius:var(--radius-md);overflow:hidden}
-.project-lite-gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:1rem;background:var(--paper)}
-.project-lite-gallery-grid figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1rem 1rem;text-align:center}
-.project-lite-feature{
-  margin-top:1.6rem;background:var(--paper-2);border:var(--border-soft);
-  border-radius:var(--radius-md);overflow:hidden;
-}
-.project-lite-feature img{width:100%;max-height:420px;object-fit:contain;padding:1.4rem;background:var(--paper);display:block}
-.project-lite-feature--tall img{height:820px;max-height:820px;object-fit:contain}
-.project-lite-feature--wide img{max-height:620px;object-fit:contain}
-.project-lite-feature--proposal img{max-height:760px;object-fit:contain}
-.project-lite-feature--notes img{max-height:620px;object-fit:contain}
-.project-lite-feature--support{max-width:520px;margin-inline:auto}
-.project-lite-feature--support img{height:260px;max-height:260px;object-fit:contain;padding:1rem}
-/* Wisdom — fixed-height frame for renders/sketches that don't use a size modifier */
-.project-lite-feature--standard img{height:420px;max-height:420px;object-fit:contain}
-/* Photographic process/fit-test images use cover instead of contain */
-.project-lite-gallery-grid img.is-photo,
-.project-lite-feature img.is-photo{object-fit:cover}
-.project-lite-feature figcaption{font-size:var(--step--1);color:var(--ink-60);padding:0 1.4rem 1.2rem;text-align:center}
-.project-lite-section .project-lite-feature,
-.project-lite-section .project-lite-gallery-grid{margin-top:1.6rem}
-
-.project-lite-outcome{padding-block:clamp(3rem,6vw,5rem);border-top:var(--border-soft)}
-.project-lite-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:.9rem}
-.project-lite-outcome > p{font-size:var(--step-0);color:var(--ink-80);max-width:64ch;line-height:1.55;margin-bottom:.8rem}
-
-.project-lite-nav{
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
-  margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--ink-12);
-}
-.project-lite-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
-.project-lite-nav a:hover{color:var(--ink)}
 
 /* ============================================================
    BIOSPHERIX — CUSTOM CASE STUDY (calm technical workbench)
@@ -1050,6 +947,172 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 }
 .biospherix-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
 .biospherix-nav a:hover{color:var(--ink)}
+
+/* ============================================================
+   BEHIND THE BUILD — META-PROJECT CASE STUDY (fully custom, scoped)
+   ============================================================ */
+.build-hero{
+  position:relative;overflow:hidden;background:var(--ink);color:var(--paper);
+  padding-block:var(--space-12);
+}
+@media (max-width:900px){ .build-hero{padding-block:var(--space-8)} }
+@media (max-width:560px){ .build-hero{padding-block:var(--space-6)} }
+.build-hero .eyebrow{color:var(--marigold)}
+.build-hero-grid{position:relative;z-index:1}
+.build-hero-accent{
+  display:flex;height:4px;width:100%;max-width:220px;border-radius:2px;overflow:hidden;
+  margin:var(--space-3) 0 var(--space-4);
+}
+.build-hero-accent span{flex:1}
+.build-hero-accent span:nth-child(1){background:var(--marigold)}
+.build-hero-accent span:nth-child(2){background:var(--terracotta)}
+.build-hero-accent span:nth-child(3){background:var(--olive)}
+.build-hero-accent span:nth-child(4){background:var(--teal)}
+.build-hero h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(2.75rem,6vw,5rem);font-weight:500;line-height:1;letter-spacing:-.01em;
+  margin-bottom:var(--space-4);
+}
+.build-hero-statement{
+  font-family:var(--display);font-style:italic;font-size:var(--step-1);font-weight:400;
+  color:var(--paper);max-width:56ch;line-height:1.5;margin-bottom:var(--space-4);
+}
+.build-hero .copy{
+  font-size:var(--step-0);color:rgba(255,247,239,.75);max-width:64ch;line-height:1.6;margin-bottom:var(--space-6);
+}
+.build-meta{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);
+  border-top:1px solid rgba(255,247,239,.16);padding-top:var(--space-3);margin-bottom:var(--space-4);
+}
+@media (max-width:560px){ .build-meta{grid-template-columns:1fr} }
+.build-meta dt{
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:rgba(255,247,239,.45);margin-bottom:.4rem;
+}
+.build-meta dd{font-size:var(--step--1);color:rgba(255,247,239,.88);line-height:1.4}
+.build-github-link{
+  display:inline-flex;align-items:center;gap:.4em;
+  font-size:var(--step--1);font-weight:600;color:var(--paper);
+  border-bottom:1.5px solid rgba(255,247,239,.4);padding-bottom:2px;
+  transition:border-color .2s ease, color .2s ease;
+}
+.build-github-link:hover{color:var(--marigold);border-color:var(--marigold)}
+
+/* shared section rhythm */
+.build-section{padding-block:var(--space-12);border-top:var(--border-soft)}
+@media (max-width:900px){ .build-section{padding-block:var(--space-8)} }
+@media (max-width:560px){ .build-section{padding-block:var(--space-6)} }
+.build-section h2{
+  font-family:var(--display);font-size:var(--step-2);font-weight:500;letter-spacing:-.01em;
+  margin-bottom:var(--space-3);color:var(--ink);
+}
+.build-section .copy{font-size:var(--step-0);color:var(--ink-80);max-width:66ch;line-height:1.6}
+.build-section .copy + .copy{margin-top:var(--space-2)}
+
+/* 00 / The Brief */
+.build-requirements{margin-top:var(--space-4);border-top:var(--border-soft)}
+.build-requirements .row{
+  display:grid;grid-template-columns:3rem 1fr;gap:var(--space-2);align-items:baseline;
+  padding:var(--space-2) 0;border-bottom:var(--border-soft);
+}
+.build-requirements .row .n{font-family:var(--display);color:var(--terracotta);font-size:var(--step-0)}
+.build-requirements .row .label{font-size:var(--step-0);color:var(--ink);font-weight:600}
+
+/* 01 / Visual Evolution */
+.build-evolution{margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.build-evolution-stage{border:var(--border-soft);border-radius:var(--radius-sm);padding:var(--space-3);background:var(--paper-2)}
+.build-evolution-stage .stage-label{
+  display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--marigold);margin-bottom:var(--space-2);
+}
+.build-evolution-stage .tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.build-evolution-stage .tags span{
+  font-size:.74rem;border:1px solid var(--ink-12);border-radius:var(--radius-pill);
+  padding:.35em .8em;color:var(--ink-80);background:var(--paper);
+}
+.build-evolution-stage.is-friction .stage-label{color:var(--ink-45)}
+.build-evolution-stage.is-friction .tags span{color:var(--ink-45)}
+.build-evolution-stage.is-final .stage-label{color:var(--olive)}
+.build-evolution-stage.is-final .tags span{color:var(--ink);border-color:var(--olive)}
+.build-evolution-arrow{text-align:center;color:var(--ink-45);font-size:1rem}
+.build-quote{
+  margin-top:var(--space-4);padding-left:1.4rem;border-left:3px solid var(--marigold);
+  font-family:var(--display);font-style:italic;font-size:var(--step-1);color:var(--ink);
+  max-width:52ch;line-height:1.5;
+}
+
+/* 02 / AI Direction Log */
+.build-ai-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:var(--space-4)}
+.build-ai-flow .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
+  padding:.6em 1em;background:var(--paper-2);
+}
+.build-ai-flow .arrow{font-size:.9rem;color:var(--terracotta);padding:.3em 0 .3em 1.3em;line-height:1}
+.build-emphasis{
+  font-size:var(--step-1);color:var(--ink);font-weight:500;line-height:1.5;max-width:60ch;margin-top:var(--space-4);
+}
+
+/* 03 / Records of Resistance */
+.build-resistance{margin-top:var(--space-4);border-top:var(--border-soft)}
+.build-resistance-row{
+  display:grid;grid-template-columns:1.1fr 1.6fr auto;gap:var(--space-3);align-items:start;
+  padding:var(--space-3) 0;border-bottom:var(--border-soft);
+}
+@media (max-width:760px){ .build-resistance-row{grid-template-columns:1fr} }
+.build-resistance-row .issue{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive)}
+.build-resistance-row .issue-num{color:var(--ink-45);margin-right:.5em}
+.build-resistance-row .what{font-size:var(--step-0);color:var(--ink-80);line-height:1.5}
+.build-resistance-row .decision{font-size:var(--step--1);font-weight:700;color:var(--ink);white-space:nowrap}
+
+/* 04 / System Architecture */
+.build-architecture{margin-top:var(--space-4)}
+.build-architecture-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-bottom:var(--space-6)}
+.build-architecture-flow .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
+  padding:.6em 1em;background:var(--paper-2);
+}
+.build-architecture-flow .arrow{font-size:.9rem;color:var(--teal);padding:.3em 0 .3em 1.3em;line-height:1}
+.build-architecture-tree{border-left:2px solid var(--ink-12);padding-left:var(--space-3)}
+.build-architecture-tree > .root{font-family:var(--display);font-size:var(--step-1);color:var(--ink);margin-bottom:var(--space-2)}
+.build-architecture-tree ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
+.build-architecture-tree li{border-left:2px solid var(--ink-12);padding-left:var(--space-3)}
+.build-architecture-tree li strong{display:block;font-size:var(--step-0);color:var(--ink);font-weight:700}
+.build-architecture-tree li span{font-size:var(--step--1);color:var(--ink-60)}
+
+/* 05 / GitHub as the Record */
+.build-github-timeline{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:var(--space-4)}
+.build-github-timeline .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
+  padding:.6em 1em;background:var(--paper-2);
+}
+.build-github-timeline .arrow{font-size:.9rem;color:var(--ink-45);padding:.3em 0 .3em 1.3em;line-height:1}
+.build-repo-link{
+  display:inline-flex;align-items:center;gap:.5em;margin-top:var(--space-4);
+  font-weight:700;font-size:var(--step-0);color:var(--ink);
+  border-bottom:1.5px solid var(--terracotta);padding-bottom:2px;
+  transition:color .2s ease;
+}
+.build-repo-link:hover{color:var(--terracotta)}
+
+/* Outcome / Takeaway */
+.build-outcome{padding-block:var(--space-12);border-top:var(--border-soft)}
+@media (max-width:900px){ .build-outcome{padding-block:var(--space-8)} }
+@media (max-width:560px){ .build-outcome{padding-block:var(--space-6)} }
+.build-outcome h2{font-family:var(--display);font-size:var(--step-2);font-weight:500;margin-bottom:var(--space-3);color:var(--ink)}
+.build-outcome .copy{font-size:var(--step-0);color:var(--ink-80);max-width:66ch;line-height:1.6;margin-bottom:var(--space-4)}
+.build-outcome .build-hero-statement{
+  color:var(--ink);border-left:3px solid var(--teal);padding-left:1.4rem;
+  font-size:var(--step-1);max-width:52ch;margin-bottom:0;
+}
+.build-final-nav{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin-top:var(--space-6);padding-top:var(--space-3);border-top:1px solid var(--ink-12);
+}
+.build-final-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
+.build-final-nav a:hover{color:var(--ink)}
 
 /* ============================================================
    WISDOM — LOOKBOOK-INSPIRED CASE STUDY (fully custom, scoped)
@@ -1457,7 +1520,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <span class="eyebrow">The archive</span>
         <h2>Selected Work</h2>
       </div>
-      <span class="count">4 projects</span>
+      <span class="count">3 projects</span>
     </div>
 
     <div class="posters">
@@ -1489,46 +1552,43 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <span class="num" aria-hidden="true">3</span>
       </a>
 
-      <!-- 04 — SCADpro x FIFA World Cup 2026 Atlanta -->
-      <a class="poster poster--teal reveal" href="#fifa">
-        <h3>SCADpro x FIFA World Cup 2026 Atlanta</h3>
-        <p>A UX research and service design collaboration focused on improving the visitor and fan experience across Atlanta&rsquo;s FIFA World Cup 2026 touchpoints.</p>
-        <!-- Requires assets/fifa-card-1.png (app screen mockups) -->
-        <img class="poster-img fifa-img" src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta app screen mockups" loading="lazy" decoding="async">
-        <span class="num" aria-hidden="true">4</span>
-      </a>
-
     </div>
   </section>
 
   <!-- ============================ BEHIND THE BUILD ============================ -->
-  <section class="behind wrap" id="behind-the-build">
-    <div class="split-head">
-      <div>
-        <span class="eyebrow">Process</span>
-        <h2 class="reveal">Behind the Build</h2>
-      </div>
-      <p class="reveal">This portfolio is also a record of how it was made: the prompts, revisions, AI direction logs, resistance notes, and design choices behind the final site.</p>
+  <section class="behind wrap" id="behind-the-build-preview">
+    <div class="meta-teaser-head">
+      <span class="eyebrow">The Meta Project</span>
+      <h2 class="reveal">This portfolio is a project too.</h2>
+      <p class="reveal">I documented how this site was researched, art-directed, challenged, revised, coded, and shipped, including the prompts, rejected directions, design decisions, AI direction logs, system architecture, and GitHub history behind the final result.</p>
     </div>
 
-    <div class="build-cards">
-      <div class="build-card reveal">
+    <p class="meta-teaser-statement reveal">Three projects show what I design.<br>Behind the Build shows how I think.</p>
+
+    <div class="meta-teaser-areas">
+      <div class="meta-teaser-area c-marigold reveal">
         <span class="idx">01</span>
-        <h4>AI Direction Log</h4>
-        <p>How I used AI as a design partner, not a shortcut.</p>
+        <h4>Visual Evolution</h4>
+        <p>How the portfolio moved from digital scrapbook and organized chaos into a calmer, more intentional system.</p>
       </div>
-      <div class="build-card reveal">
+      <div class="meta-teaser-area c-terracotta reveal">
         <span class="idx">02</span>
-        <h4>Records of Resistance</h4>
-        <p>Moments where I rejected generic outputs and redirected the system.</p>
+        <h4>AI Direction Log</h4>
+        <p>The prompts, feedback, iterations, and redirections used to work with AI without surrendering creative control.</p>
       </div>
-      <div class="build-card reveal">
+      <div class="meta-teaser-area c-olive reveal">
         <span class="idx">03</span>
+        <h4>Records of Resistance</h4>
+        <p>Moments where technically correct AI output was creatively wrong, and I rejected, redirected, or rebuilt it.</p>
+      </div>
+      <div class="meta-teaser-area c-teal reveal">
+        <span class="idx">04</span>
         <h4>System Architecture</h4>
-        <p>How the site structure, project pages, and visual language came together.</p>
+        <p>How Figma thinking, Claude-assisted implementation, one index.html, hash routing, GitHub, and GitHub Pages became one working system.</p>
       </div>
     </div>
-    <p class="build-note">This site was built as a living design system, using AI for iteration while keeping art direction, structure, and final decisions human-led.</p>
+
+    <a href="#behind-the-build" class="btn btn-fill meta-teaser-cta reveal">Explore Behind the Build &rarr;</a>
   </section>
 
   <!-- ============================ WHAT I DESIGN ============================ -->
@@ -2303,7 +2363,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <p>The project resulted in a retail-facing eyewear system spanning brand strategy, three frame families, physical prototyping, packaging directions, visual merchandising concepts, campaign thinking, lookbook design, and buyer pitch materials.</p>
       <div class="wisdom-final-nav">
         <a href="#biospherix">&larr; Previous: Design Your Lab</a>
-        <a href="#fifa">Next: SCADpro x FIFA World Cup 2026 Atlanta &rarr;</a>
+        <a href="#behind-the-build">Next: Behind the Build &rarr;</a>
       </div>
     </div>
   </section>
@@ -2334,83 +2394,195 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
 </main>
 
-<!-- ============================ FIFA — PROJECT-LITE VIEW ============================ -->
-<main id="fifa-view" hidden class="project-lite-view">
+<!-- ============================ BEHIND THE BUILD — META-PROJECT CASE STUDY ============================ -->
+<main id="behind-the-build-view" hidden>
 
-  <section class="project-lite-hero accent-teal">
-    <div class="wrap project-lite-hero-grid">
-      <div class="project-lite-hero-content">
-        <a href="#work" class="project-back">&larr; Back to Selected Work</a>
-        <div class="project-lite-accent-bar" aria-hidden="true"></div>
-        <span class="eyebrow">UX Research / Service Design</span>
-        <h1>SCADpro x FIFA World Cup 2026 Atlanta</h1>
-        <p class="project-lite-subtitle">A UX research and service design collaboration focused on improving the last-mile fan experience, from arrival and wayfinding to venue entry and service support.</p>
-        <p class="project-lite-status">Concise case study &middot; Research and service design collaboration</p>
-        <dl class="project-lite-meta">
-          <div><dt>Project Type</dt><dd>UX Research / Service Design</dd></div>
-          <div><dt>Timeline</dt><dd>2026</dd></div>
-          <div><dt>Role</dt><dd>UX Research, Journey Mapping, Service Design, Team Collaboration</dd></div>
-          <div><dt>Tools</dt><dd>Figma, Miro, Research Synthesis, Presentation Design</dd></div>
-        </dl>
-      </div>
-      <figure class="project-lite-hero-visual">
-        <img src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta research artifact" loading="lazy" decoding="async">
-      </figure>
+  <!-- HERO -->
+  <section class="build-hero">
+    <div class="wrap build-hero-grid">
+      <a href="#work" class="project-back">&larr; Back to Selected Work</a>
+      <span class="eyebrow">The Meta Project &middot; Portfolio 2026</span>
+      <div class="build-hero-accent" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <h1>Behind the Build</h1>
+      <p class="build-hero-statement">I didn&rsquo;t want to make another portfolio template. I wanted to make a small part of the internet that felt like me.</p>
+      <p class="copy">This site became a design project of its own: a record of visual decisions, AI conversations, rejected directions, system architecture, code, commits, and the process of turning organized chaos into something clear, playful, and intentional.</p>
+      <dl class="build-meta">
+        <div><dt>Project</dt><dd>Personal Portfolio Website</dd></div>
+        <div><dt>My Role</dt><dd>Creative Direction &middot; UX/UI &middot; Visual Design &middot; AI Direction &middot; Front-End Implementation</dd></div>
+        <div><dt>Built With</dt><dd>Figma Thinking &middot; Claude &middot; HTML/CSS/JavaScript &middot; GitHub &middot; GitHub Pages</dd></div>
+        <div><dt>Status</dt><dd>Living Project &middot; 2026</dd></div>
+      </dl>
+      <a href="https://github.com/Niharika12002/niharikajain.portfolio" class="build-github-link" target="_blank" rel="noopener noreferrer">View GitHub Repository &nearr;</a>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <div class="project-lite-split">
-      <div>
-        <span class="eyebrow">Overview</span>
-        <h2>Designing for a city-scale event</h2>
-        <p>This SCADpro collaboration explored how fans and visitors might move through Atlanta during FIFA World Cup 2026, with attention to last-mile arrival, wayfinding, accessibility, crowd flow, transportation choices, and venue entry confidence.</p>
+  <!-- 00 / THE BRIEF -->
+  <section class="build-section wrap">
+    <span class="eyebrow">00 / The Brief</span>
+    <h2>Not another portfolio template.</h2>
+    <p class="copy">I needed the portfolio to do two things at once: make my work easy for recruiters to understand and still feel unmistakably personal. I wanted it to reflect the way I design, turning complexity into something clear, calm, playful, and intentional.</p>
+    <p class="copy">The challenge was not simply building a website. It was finding the balance between personality and usability, multidisciplinary range and clarity, AI assistance and human creative control.</p>
+    <div class="build-requirements">
+      <div class="row"><span class="n">01</span><span class="label">Recruiter-friendly</span></div>
+      <div class="row"><span class="n">02</span><span class="label">Personal, not performative</span></div>
+      <div class="row"><span class="n">03</span><span class="label">Multidisciplinary without feeling scattered</span></div>
+      <div class="row"><span class="n">04</span><span class="label">Playful without becoming childish</span></div>
+      <div class="row"><span class="n">05</span><span class="label">Built with AI, directed by a human</span></div>
+    </div>
+  </section>
+
+  <!-- 01 / VISUAL EVOLUTION -->
+  <section class="build-section wrap">
+    <span class="eyebrow">01 / Visual Evolution</span>
+    <h2>The visual direction had to be earned.</h2>
+    <p class="copy">The first direction explored a digital scrapbook, desktop archive, and organized-chaos aesthetic. It was playful, but over time the system became too card-heavy, too shadow-heavy, and too visibly AI-generated. The personality was being added through decoration rather than built into the design itself.</p>
+    <div class="build-evolution">
+      <div class="build-evolution-stage">
+        <span class="stage-label">Initial Direction</span>
+        <div class="tags">
+          <span>Digital scrapbook</span><span>Desktop archive</span><span>Folder cards</span>
+          <span>Tape</span><span>Doodles</span><span>Organized chaos</span>
+        </div>
       </div>
-      <div>
-        <span class="eyebrow">The Problem</span>
-        <h2>Reducing friction for visitors</h2>
-        <p>Large-scale event experiences can become confusing quickly, especially when visitors are navigating transportation, crowds, security, and unfamiliar routes at the same time. The project focused on identifying friction points and designing clearer moments of guidance, support, and orientation.</p>
+      <div class="build-evolution-arrow" aria-hidden="true">&darr;</div>
+      <div class="build-evolution-stage is-friction">
+        <span class="stage-label">What Didn&rsquo;t Work</span>
+        <div class="tags">
+          <span>Too many cards</span><span>Too many shadows</span><span>Too AI-generated</span>
+          <span>Too controlled</span><span>Playful copy on a generic structure</span>
+        </div>
+      </div>
+      <div class="build-evolution-arrow" aria-hidden="true">&darr;</div>
+      <div class="build-evolution-stage is-final">
+        <span class="stage-label">Final Direction</span>
+        <div class="tags">
+          <span>Warm paper</span><span>Subtle grid</span><span>Strong color blocking</span>
+          <span>Editorial composition</span><span>Small moments of imperfection</span><span>Clear recruiter-facing UX</span>
+        </div>
+      </div>
+    </div>
+    <p class="build-quote">The goal was never to make the portfolio messy. It was to make it feel alive.</p>
+  </section>
+
+  <!-- 02 / AI DIRECTION LOG -->
+  <section class="build-section wrap">
+    <span class="eyebrow">02 / AI Direction Log</span>
+    <h2>AI generated options. I directed the system.</h2>
+    <p class="copy">I used AI throughout the project for implementation, iteration, debugging, layout exploration, and critique. But the workflow was never prompt &rarr; output &rarr; accept. The actual process was a loop of direction, judgment, resistance, and revision.</p>
+    <div class="build-ai-flow">
+      <span class="step">Prompt</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">AI Output</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Human Critique</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Redirection</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Revision</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Decision</span>
+    </div>
+    <p class="build-emphasis">The value was not asking AI to design for me. It was learning how to articulate what felt wrong, define what better meant, and keep creative control through iteration.</p>
+  </section>
+
+  <!-- 03 / RECORDS OF RESISTANCE -->
+  <section class="build-section wrap">
+    <span class="eyebrow">03 / Records of Resistance</span>
+    <h2>Technically correct. Creatively wrong.</h2>
+    <p class="copy">I kept a record of moments where AI produced something functional, polished, or plausible, but wrong for the project. Those moments became a way of documenting taste, judgment, and creative resistance.</p>
+    <div class="build-resistance">
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">01</span>Too Shadow-Heavy</span>
+        <span class="what">The output looked polished, but the visual language felt generic and overly generated.</span>
+        <span class="decision">Rejected</span>
+      </div>
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">02</span>Too Many Cards</span>
+        <span class="what">Every idea was being placed inside another rounded rectangle.</span>
+        <span class="decision">Simplified</span>
+      </div>
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">03</span>Playful Copy on a Boring Layout</span>
+        <span class="what">The words had personality. The design did not.</span>
+        <span class="decision">Redirected</span>
+      </div>
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">04</span>Scrapbook Becoming Childish</span>
+        <span class="what">The organized-chaos idea was pushed too far.</span>
+        <span class="decision">Pulled Back</span>
+      </div>
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">05</span>AI Inventing Meaning for an Image It Hadn&rsquo;t Inspected</span>
+        <span class="what">Specific visual claims were being made without visual evidence.</span>
+        <span class="decision">Corrected</span>
+      </div>
+      <div class="build-resistance-row">
+        <span class="issue"><span class="issue-num">06</span>Decoration Before Structure</span>
+        <span class="what">Personality was being added through stickers, shadows, and effects instead of hierarchy and composition.</span>
+        <span class="decision">Rebuilt</span>
       </div>
     </div>
   </section>
 
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">My Role</span>
-    <h2>What I contributed</h2>
-    <p>I contributed to research synthesis, journey mapping, service touchpoint thinking, and presentation materials that translated visitor pain points into clearer opportunity areas for the fan experience.</p>
-  </section>
-
-  <section class="project-lite-section wrap">
-    <span class="eyebrow">Key Design Decisions</span>
-    <h2>Mapping the fan journey</h2>
-    <ul class="project-lite-list c-teal">
-      <li>Map the fan journey across arrival, transportation, last-mile movement, venue entry, and departure</li>
-      <li>Identify service gaps across physical and digital touchpoints</li>
-      <li>Design with crowd flow, accessibility, and visitor confidence in mind</li>
-      <li>Communicate research insights clearly for stakeholders</li>
-    </ul>
-  </section>
-
-  <section class="project-lite-gallery wrap">
-    <span class="eyebrow">Visuals</span>
-    <h2>Research artifacts and journey thinking</h2>
-    <div class="project-lite-gallery-grid">
-      <figure>
-        <img src="assets/fifa-card-1.png" alt="FIFA World Cup 2026 Atlanta research artifact, view one" loading="lazy" decoding="async">
-        <figcaption>Fan experience interface direction</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/fifa-card-2.png" alt="FIFA World Cup 2026 Atlanta research artifact, view two" loading="lazy" decoding="async">
-        <figcaption>Journey and service touchpoint thinking</figcaption>
-      </figure>
+  <!-- 04 / SYSTEM ARCHITECTURE -->
+  <section class="build-section wrap">
+    <span class="eyebrow">04 / System Architecture</span>
+    <h2>One site. One file. Multiple project worlds.</h2>
+    <p class="copy">The final portfolio lives inside a single index.html with hash-based routing. Each project has its own visual identity while sharing one design system, navigation structure, responsive framework, and deployment workflow.</p>
+    <div class="build-architecture">
+      <div class="build-architecture-flow">
+        <span class="step">One index.html</span>
+        <span class="arrow">&darr;</span>
+        <span class="step">Hash-Based Routing</span>
+      </div>
+      <div class="build-architecture-tree">
+        <span class="root">Home</span>
+        <ul>
+          <li><strong>Pili</strong><span>Physical + digital product system</span></li>
+          <li><strong>Design Your Lab</strong><span>UX + AI-assisted working software</span></li>
+          <li><strong>Wisdom ATL</strong><span>Product + brand + retail experience</span></li>
+          <li><strong>Behind the Build</strong><span>Portfolio as a design project</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="project-lite-outcome wrap">
-    <span class="eyebrow">Outcome</span>
-    <h2>Outcome</h2>
-    <p>The project produced research insights, journey maps, opportunity areas, and service experience recommendations for improving clarity, confidence, and movement across the FIFA World Cup 2026 Atlanta visitor journey.</p>
-    <div class="project-lite-nav">
+  <!-- 05 / THE RECORD -->
+  <section class="build-section wrap">
+    <span class="eyebrow">05 / The Record</span>
+    <h2>The repository became part of the process.</h2>
+    <p class="copy">I used GitHub not only to host the site, but to preserve the evolution of the project: changes in structure, rejected directions, merged project pages, case study rebuilds, live prototype links, and the final recruiter-facing system.</p>
+    <div class="build-github-timeline">
+      <span class="step">Initial Portfolio Structure</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Explored Digital Scrapbook / Organized Chaos</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Reduced Heavy Shadows and Generic AI Aesthetics</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Merged Project Pages Into One index.html</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Built the Pili Case Study</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Rebuilt Wisdom as a Custom Retail / Lookbook Experience</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Rebuilt Design Your Lab as a Research &rarr; Testing &rarr; Working Product Story</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Added Live Prototype + GitHub Proof</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Elevated Behind the Build Into the Meta Project</span>
+      <span class="arrow">&darr;</span>
+      <span class="step">Final Recruiter Pass</span>
+    </div>
+    <a href="https://github.com/Niharika12002/niharikajain.portfolio" class="build-repo-link" target="_blank" rel="noopener noreferrer">View the portfolio repository &nearr;</a>
+  </section>
+
+  <!-- TAKEAWAY -->
+  <section class="build-outcome wrap">
+    <span class="eyebrow">Takeaway</span>
+    <h2>The portfolio became proof of the process.</h2>
+    <p class="copy">The final website is not just a container for my work. It is evidence of how I think: how I make decisions, challenge generic outputs, connect visual direction to system logic, work with AI critically, and carry an idea through implementation.</p>
+    <p class="build-hero-statement">Three projects show what I design.<br>Behind the Build shows how I think.</p>
+    <div class="build-final-nav">
       <a href="#wisdom">&larr; Previous: SCAD x Wisdom ATL Eyewear</a>
       <a href="#work">Back to Selected Work</a>
     </div>
@@ -2458,10 +2630,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   const siteTitle = 'Niharika Jain — Designer, Storyteller, Systems Thinker';
 
   const projectViews = {
-    '#pili':       { el: document.getElementById('pili-view'),       title: 'Pili — Niharika Jain' },
-    '#biospherix': { el: document.getElementById('biospherix-view'), title: 'BioSpherix Layout Planner — Niharika Jain' },
-    '#wisdom':     { el: document.getElementById('wisdom-view'),     title: 'SCAD x Wisdom ATL Eyewear — Niharika Jain' },
-    '#fifa':       { el: document.getElementById('fifa-view'),       title: 'SCADpro x FIFA World Cup 2026 Atlanta — Niharika Jain' }
+    '#pili':             { el: document.getElementById('pili-view'),             title: 'Pili — Niharika Jain' },
+    '#biospherix':       { el: document.getElementById('biospherix-view'),       title: 'BioSpherix Layout Planner — Niharika Jain' },
+    '#wisdom':           { el: document.getElementById('wisdom-view'),           title: 'SCAD x Wisdom ATL Eyewear — Niharika Jain' },
+    '#behind-the-build': { el: document.getElementById('behind-the-build-view'), title: 'Behind the Build — Niharika Jain' }
   };
 
   function renderRoute(){
