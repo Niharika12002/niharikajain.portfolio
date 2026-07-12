@@ -800,8 +800,22 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 /* Problem — dark visual break: workflow diagram + copy */
 .biospherix-problem{background:var(--ink);color:var(--paper);padding-block:var(--section-y)}
 .biospherix-problem .eyebrow{color:var(--marigold)}
-.biospherix-problem h2{color:var(--paper)}
-.biospherix-problem .copy{color:rgba(255,247,239,.72)}
+.biospherix-problem h2{
+  font-family:var(--display);
+  font-size:var(--step-3);
+  font-weight:400;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin-bottom:1rem;
+  color:var(--paper);
+  max-width:18ch;
+}
+.biospherix-problem .copy{
+  font-size:var(--step-0);
+  color:rgba(255,247,239,.72);
+  max-width:66ch;
+  line-height:1.55;
+}
 .biospherix-problem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start;margin-top:1rem}
 @media (max-width:820px){ .biospherix-problem-grid{grid-template-columns:1fr} }
 .biospherix-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0}
@@ -816,10 +830,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 }
 .biospherix-problem .biospherix-flow .arrow{color:var(--marigold)}
 
+/* Visual bridge — biospherix-card-1, unlabeled project artifact */
+.biospherix-bridge-figure{margin:0;border:var(--border-soft);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.biospherix-bridge-figure img{width:100%;display:block;object-fit:contain;background:var(--paper)}
+
 /* Design requirements — 4 blocks */
 .biospherix-argument-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--grid-gutter);margin-top:1.6rem}
 @media (max-width:700px){ .biospherix-argument-grid{grid-template-columns:1fr} }
 .biospherix-argument-grid .block{border-top:2px solid var(--terracotta);padding-top:1rem}
+.biospherix-argument-grid .req{
+  display:block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--terracotta);margin-bottom:.6rem;
+}
 .biospherix-argument-grid h3{font-family:var(--display);font-size:var(--step-1);font-weight:500;margin-bottom:.5rem;color:var(--ink)}
 .biospherix-argument-grid p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
 
@@ -835,6 +857,14 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-diagram-3 .node .action{font-size:var(--step--1);color:var(--ink-60)}
 .biospherix-diagram-3 .sep{font-size:1.2rem;color:var(--ink-45);text-align:center}
 @media (max-width:760px){ .biospherix-diagram-3 .sep{transform:rotate(90deg)} }
+
+/* System Model split layout — biospherix-card-2 beside the model chain */
+.biospherix-model-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3rem);align-items:center;margin-top:2rem}
+@media (max-width:820px){ .biospherix-model-grid{grid-template-columns:1fr} }
+.biospherix-model-figure{margin:0;border:var(--border-soft);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.biospherix-model-figure img{width:100%;display:block;object-fit:contain;background:var(--paper)}
+.biospherix-diagram-3.biospherix-diagram-3--stack{grid-template-columns:1fr;gap:.6rem;margin-top:0}
+.biospherix-diagram-3--stack .sep{transform:none}
 
 /* First contact — feedback images + before/after */
 .biospherix-feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:1.6rem}
@@ -865,6 +895,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .biospherix-ba-row .arrow{color:var(--terracotta);font-size:.9rem;text-align:center}
 
 /* Working prototype — climax, full-width interface */
+.biospherix-tech-label{
+  display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--ink-45);margin-top:1.4rem;
+}
 .biospherix-climax h2{font-size:var(--step-3);font-weight:400}
 .biospherix-feature-full{margin-top:1.8rem}
 .biospherix-feature-full img{
@@ -1711,24 +1745,35 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
    </div>
   </section>
 
+  <!-- VISUAL BRIDGE -->
+  <section class="biospherix-section wrap biospherix-bridge">
+    <figure class="biospherix-bridge-figure">
+      <img src="assets/biospherix-card-1.png" alt="BioSpherix Layout Planner project artifact bridging early planning and product direction" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
   <!-- 02 / DESIGN REQUIREMENTS -->
   <section class="biospherix-section wrap">
     <span class="eyebrow">02 / Design Requirements</span>
     <h2>What would actually help?</h2>
     <div class="biospherix-argument-grid">
       <div class="block">
+        <span class="req">REQ 01</span>
         <h3>Select real components</h3>
         <p>Choose chambers, controllers, and supporting equipment from a structured library.</p>
       </div>
       <div class="block">
+        <span class="req">REQ 02</span>
         <h3>Test configurations visually</h3>
         <p>Place components on a scaled 2D planning surface before committing to CAD.</p>
       </div>
       <div class="block">
+        <span class="req">REQ 03</span>
         <h3>See the system update</h3>
         <p>Track footprint, chamber count, gas requirements, weight, and pricing as the configuration changes.</p>
       </div>
       <div class="block">
+        <span class="req">REQ 04</span>
         <h3>Carry the work forward</h3>
         <p>Turn the configured system into a printable proposal for early client communication.</p>
       </div>
@@ -1739,23 +1784,28 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <section class="biospherix-section wrap">
     <span class="eyebrow">03 / System Model</span>
     <h2>Three parts. One planning workflow.</h2>
-    <div class="biospherix-diagram-3">
-      <div class="node">
-        <span class="num">01</span>
-        <span class="label">Component Library</span>
-        <span class="action">Choose equipment</span>
-      </div>
-      <div class="sep" aria-hidden="true">&rarr;</div>
-      <div class="node">
-        <span class="num">02</span>
-        <span class="label">Planning Canvas</span>
-        <span class="action">Arrange system</span>
-      </div>
-      <div class="sep" aria-hidden="true">&rarr;</div>
-      <div class="node">
-        <span class="num">03</span>
-        <span class="label">Live Readout</span>
-        <span class="action">Review impact</span>
+    <div class="biospherix-model-grid">
+      <figure class="biospherix-model-figure">
+        <img src="assets/biospherix-card-2.png" alt="BioSpherix Layout Planner interface view supporting the three-part system model" loading="lazy" decoding="async">
+      </figure>
+      <div class="biospherix-diagram-3 biospherix-diagram-3--stack">
+        <div class="node">
+          <span class="num">01</span>
+          <span class="label">Component Library</span>
+          <span class="action">Choose equipment</span>
+        </div>
+        <div class="sep" aria-hidden="true">&darr;</div>
+        <div class="node">
+          <span class="num">02</span>
+          <span class="label">Planning Canvas</span>
+          <span class="action">Arrange system</span>
+        </div>
+        <div class="sep" aria-hidden="true">&darr;</div>
+        <div class="node">
+          <span class="num">03</span>
+          <span class="label">Live Readout</span>
+          <span class="action">Review impact</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1793,6 +1843,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">04 / Working Prototype</span>
     <h2>From requirements to a configured system.</h2>
     <p class="copy">The final prototype combines a component library, scaled floor canvas, and live system readout so early configuration decisions can happen in one place.</p>
+    <span class="biospherix-tech-label">Functional Prototype &middot; Configuration View</span>
     <figure class="biospherix-feature-full">
       <img src="assets/biospherix-layout-planner-working-interface.png" alt="Working BioSpherix Layout Planner interface with components placed on the floor plan" loading="lazy" decoding="async">
     </figure>
