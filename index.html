@@ -256,7 +256,7 @@ nav a:hover::after{width:100%}
 .btn-white:hover{box-shadow:6px 6px 0 rgba(255,247,239,.3)}
 
 /* ============================================================
-   SELECTED WORK — four tall editorial poster cards
+   SELECTED WORK — three tall editorial poster cards
    ============================================================ */
 .work{padding-block:var(--section-y)}
 .section-head{
@@ -303,7 +303,6 @@ nav a:hover::after{width:100%}
 .pili-img{width:82%;margin-left:-10%;margin-bottom:-8%}
 .biospherix-img{width:95%;margin-bottom:10%}
 .wisdom-img{width:95%;margin-bottom:4%}
-.fifa-img{width:88%;margin-inline:auto;margin-bottom:-6%}
 .poster h3,
 .poster p,
 .poster-img{position:relative;z-index:2}
@@ -1018,37 +1017,67 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .build-requirements .row .n{font-family:var(--display);color:var(--terracotta);font-size:var(--step-0)}
 .build-requirements .row .label{font-size:var(--step-0);color:var(--ink);font-weight:600}
 
-/* 01 / Visual Evolution */
-.build-evolution{margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
-.build-evolution-stage{border:var(--border-soft);border-radius:var(--radius-sm);padding:var(--space-3);background:var(--paper-2)}
-.build-evolution-stage .stage-label{
+/* 01 / Visual Evolution — three deliberately different visual personalities */
+.build-evolution{margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-4)}
+.build-evolution-arrow{text-align:left;color:var(--ink-45);font-size:1rem;padding-left:.15rem}
+
+/* Initial Direction — loose, scattered, exploratory */
+.build-evolution-initial .stage-label{
   display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--marigold);margin-bottom:var(--space-2);
+  color:var(--ink-45);margin-bottom:var(--space-3);
 }
-.build-evolution-stage .tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.build-evolution-stage .tags span{
-  font-size:.74rem;border:1px solid var(--ink-12);border-radius:var(--radius-pill);
-  padding:.35em .8em;color:var(--ink-80);background:var(--paper);
+.loose-list{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5em 1.2em;max-width:58ch}
+.loose-list span{font-family:var(--display);font-style:italic;color:var(--ink-80);font-size:var(--step-0)}
+.loose-list span:nth-child(2n){font-size:var(--step-1);opacity:.92}
+.loose-list span:nth-child(3n){font-size:.9rem;opacity:.65;transform:translateY(3px);display:inline-block}
+
+/* What Didn't Work — stark, critical, stripped back */
+.build-evolution-friction{border-top:1px solid var(--ink-12);border-bottom:1px solid var(--ink-12);padding-block:var(--space-3)}
+.build-evolution-friction .stage-label{
+  display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--terracotta);margin-bottom:var(--space-2);
 }
-.build-evolution-stage.is-friction .stage-label{color:var(--ink-45)}
-.build-evolution-stage.is-friction .tags span{color:var(--ink-45)}
-.build-evolution-stage.is-final .stage-label{color:var(--olive)}
-.build-evolution-stage.is-final .tags span{color:var(--ink);border-color:var(--olive)}
-.build-evolution-arrow{text-align:center;color:var(--ink-45);font-size:1rem}
+.stark-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.stark-list li{
+  font-family:var(--body);font-weight:700;font-size:var(--step-1);text-transform:uppercase;
+  letter-spacing:-.01em;color:var(--ink);line-height:1.3;
+}
+
+/* Final Direction — calm, structured, composed */
+.build-evolution-final .stage-label{
+  display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--olive);margin-bottom:var(--space-3);
+}
+.composed-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem var(--space-4)}
+@media (max-width:560px){ .composed-list{grid-template-columns:1fr} }
+.composed-list li{display:flex;align-items:center;gap:.7em;font-size:var(--step-0);color:var(--ink)}
+.chip{width:9px;height:9px;border-radius:2px;background:var(--ink-12);flex:0 0 auto;display:inline-block}
+.chip--marigold{background:var(--marigold)}
+.chip--terracotta{background:var(--terracotta)}
+.chip--olive{background:var(--olive)}
+.chip--teal{background:var(--teal)}
+
 .build-quote{
   margin-top:var(--space-4);padding-left:1.4rem;border-left:3px solid var(--marigold);
   font-family:var(--display);font-style:italic;font-size:var(--step-1);color:var(--ink);
   max-width:52ch;line-height:1.5;
 }
 
-/* 02 / AI Direction Log */
-.build-ai-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:var(--space-4)}
-.build-ai-flow .step{
-  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
-  padding:.6em 1em;background:var(--paper-2);
+/* 02 / AI Direction Log — Human Critique is the visual center, not one box among six */
+.build-ai-flow{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);margin-top:var(--space-4)}
+.ai-flow-minor{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.ai-flow-minor .step{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-60);
 }
-.build-ai-flow .arrow{font-size:.9rem;color:var(--terracotta);padding:.3em 0 .3em 1.3em;line-height:1}
+.ai-flow-minor .arrow{font-size:.85rem;color:var(--ink-45)}
+.ai-flow-arrow-down{color:var(--ink-45);font-size:1rem;padding-left:.1rem}
+.ai-flow-critique{
+  width:100%;padding:var(--space-2) 0;
+  border-top:2px solid var(--terracotta);border-bottom:2px solid var(--terracotta);
+}
+.ai-flow-critique .critique-label{
+  font-family:var(--display);font-size:var(--step-2);font-weight:500;color:var(--ink);
+}
 .build-emphasis{
   font-size:var(--step-1);color:var(--ink);font-weight:500;line-height:1.5;max-width:60ch;margin-top:var(--space-4);
 }
@@ -1065,9 +1094,14 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .build-resistance-row .what{font-size:var(--step-0);color:var(--ink-80);line-height:1.5}
 .build-resistance-row .decision{font-size:var(--step--1);font-weight:700;color:var(--ink);white-space:nowrap}
 
-/* 04 / System Architecture */
-.build-architecture{margin-top:var(--space-4)}
-.build-architecture-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-bottom:var(--space-6)}
+/* 04 / System Architecture — two distinct systems, side by side on desktop */
+.build-architecture-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-top:var(--space-4);align-items:start}
+@media (max-width:820px){ .build-architecture-split{grid-template-columns:1fr} }
+.build-architecture-col{padding-top:var(--space-2);border-top:2px solid var(--ink)}
+.build-architecture-col--workflow{border-color:var(--teal)}
+.build-architecture-col .col-label{display:block;font-family:var(--display);font-size:var(--step-1);font-weight:500;color:var(--ink)}
+.build-architecture-col .col-sub{display:block;font-size:var(--step--1);color:var(--ink-60);margin-bottom:var(--space-3)}
+.build-architecture-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-bottom:var(--space-4)}
 .build-architecture-flow .step{
   font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
   color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
@@ -1082,13 +1116,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .build-architecture-tree li span{font-size:var(--step--1);color:var(--ink-60)}
 
 /* 05 / GitHub as the Record */
-.build-github-timeline{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:var(--space-4)}
-.build-github-timeline .step{
-  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--ink-80);border:1px solid var(--ink-12);border-radius:var(--radius-sm);
-  padding:.6em 1em;background:var(--paper-2);
+.build-timeline{list-style:none;margin-top:var(--space-4);position:relative;padding-left:28px}
+.build-timeline::before{content:"";position:absolute;left:4px;top:4px;bottom:4px;width:1px;background:var(--ink-12)}
+.build-timeline li{position:relative;padding-bottom:var(--space-3);font-size:var(--step-0);color:var(--ink-60);line-height:1.4}
+.build-timeline li:last-child{padding-bottom:0}
+.build-timeline li::before{
+  content:"";position:absolute;left:-28px;top:.4em;
+  width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-12);
 }
-.build-github-timeline .arrow{font-size:.9rem;color:var(--ink-45);padding:.3em 0 .3em 1.3em;line-height:1}
+.build-timeline li.is-milestone{color:var(--ink);font-weight:600;font-size:var(--step-1)}
+.build-timeline li.is-milestone::before{
+  width:11px;height:11px;left:-29px;border:2px solid var(--terracotta);background:var(--terracotta);
+}
 .build-repo-link{
   display:inline-flex;align-items:center;gap:.5em;margin-top:var(--space-4);
   font-weight:700;font-size:var(--step-0);color:var(--ink);
@@ -2437,28 +2476,39 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <h2>The visual direction had to be earned.</h2>
     <p class="copy">The first direction explored a digital scrapbook, desktop archive, and organized-chaos aesthetic. It was playful, but over time the system became too card-heavy, too shadow-heavy, and too visibly AI-generated. The personality was being added through decoration rather than built into the design itself.</p>
     <div class="build-evolution">
-      <div class="build-evolution-stage">
+      <div class="build-evolution-initial">
         <span class="stage-label">Initial Direction</span>
-        <div class="tags">
-          <span>Digital scrapbook</span><span>Desktop archive</span><span>Folder cards</span>
-          <span>Tape</span><span>Doodles</span><span>Organized chaos</span>
-        </div>
+        <p class="loose-list">
+          <span>Digital scrapbook</span>
+          <span>Desktop archive</span>
+          <span>Folder cards</span>
+          <span>Tape</span>
+          <span>Doodles</span>
+          <span>Organized chaos</span>
+        </p>
       </div>
       <div class="build-evolution-arrow" aria-hidden="true">&darr;</div>
-      <div class="build-evolution-stage is-friction">
+      <div class="build-evolution-friction">
         <span class="stage-label">What Didn&rsquo;t Work</span>
-        <div class="tags">
-          <span>Too many cards</span><span>Too many shadows</span><span>Too AI-generated</span>
-          <span>Too controlled</span><span>Playful copy on a generic structure</span>
-        </div>
+        <ul class="stark-list">
+          <li>Too many cards.</li>
+          <li>Too many shadows.</li>
+          <li>Too AI-generated.</li>
+          <li>Too controlled.</li>
+          <li>Playful copy on a generic structure.</li>
+        </ul>
       </div>
       <div class="build-evolution-arrow" aria-hidden="true">&darr;</div>
-      <div class="build-evolution-stage is-final">
+      <div class="build-evolution-final">
         <span class="stage-label">Final Direction</span>
-        <div class="tags">
-          <span>Warm paper</span><span>Subtle grid</span><span>Strong color blocking</span>
-          <span>Editorial composition</span><span>Small moments of imperfection</span><span>Clear recruiter-facing UX</span>
-        </div>
+        <ul class="composed-list">
+          <li><span class="chip chip--marigold" aria-hidden="true"></span>Warm paper</li>
+          <li><span class="chip chip--terracotta" aria-hidden="true"></span>Subtle grid</li>
+          <li><span class="chip chip--olive" aria-hidden="true"></span>Strong color blocking</li>
+          <li><span class="chip chip--teal" aria-hidden="true"></span>Editorial composition</li>
+          <li><span class="chip" aria-hidden="true"></span>Small moments of imperfection</li>
+          <li><span class="chip" aria-hidden="true"></span>Clear recruiter-facing UX</li>
+        </ul>
       </div>
     </div>
     <p class="build-quote">The goal was never to make the portfolio messy. It was to make it feel alive.</p>
@@ -2470,17 +2520,23 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <h2>AI generated options. I directed the system.</h2>
     <p class="copy">I used AI throughout the project for implementation, iteration, debugging, layout exploration, and critique. But the workflow was never prompt &rarr; output &rarr; accept. The actual process was a loop of direction, judgment, resistance, and revision.</p>
     <div class="build-ai-flow">
-      <span class="step">Prompt</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">AI Output</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Human Critique</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Redirection</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Revision</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Decision</span>
+      <div class="ai-flow-minor">
+        <span class="step">Prompt</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">AI Output</span>
+      </div>
+      <div class="ai-flow-arrow-down" aria-hidden="true">&darr;</div>
+      <div class="ai-flow-critique">
+        <span class="critique-label">Human Critique</span>
+      </div>
+      <div class="ai-flow-arrow-down" aria-hidden="true">&darr;</div>
+      <div class="ai-flow-minor">
+        <span class="step">Redirection</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Revision</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Decision</span>
+      </div>
     </div>
     <p class="build-emphasis">The value was not asking AI to design for me. It was learning how to articulate what felt wrong, define what better meant, and keep creative control through iteration.</p>
   </section>
@@ -2529,20 +2585,41 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">04 / System Architecture</span>
     <h2>One site. One file. Multiple project worlds.</h2>
     <p class="copy">The final portfolio lives inside a single index.html with hash-based routing. Each project has its own visual identity while sharing one design system, navigation structure, responsive framework, and deployment workflow.</p>
-    <div class="build-architecture">
-      <div class="build-architecture-flow">
-        <span class="step">One index.html</span>
-        <span class="arrow">&darr;</span>
-        <span class="step">Hash-Based Routing</span>
+    <div class="build-architecture-split">
+      <div class="build-architecture-col">
+        <span class="col-label">System Architecture</span>
+        <span class="col-sub">How the website is structured</span>
+        <div class="build-architecture-flow">
+          <span class="step">One index.html</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">Hash-Based Routing</span>
+        </div>
+        <div class="build-architecture-tree">
+          <span class="root">Home</span>
+          <ul>
+            <li><strong>Pili</strong><span>Physical + digital product system</span></li>
+            <li><strong>Design Your Lab</strong><span>UX + AI-assisted working software</span></li>
+            <li><strong>Wisdom ATL</strong><span>Product + brand + retail experience</span></li>
+            <li><strong>Behind the Build</strong><span>Portfolio as a design project</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="build-architecture-tree">
-        <span class="root">Home</span>
-        <ul>
-          <li><strong>Pili</strong><span>Physical + digital product system</span></li>
-          <li><strong>Design Your Lab</strong><span>UX + AI-assisted working software</span></li>
-          <li><strong>Wisdom ATL</strong><span>Product + brand + retail experience</span></li>
-          <li><strong>Behind the Build</strong><span>Portfolio as a design project</span></li>
-        </ul>
+      <div class="build-architecture-col build-architecture-col--workflow">
+        <span class="col-label">Build Workflow</span>
+        <span class="col-sub">How the website is made</span>
+        <div class="build-architecture-flow">
+          <span class="step">Visual Direction</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">AI-Assisted Implementation</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">Human Critique</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">Revision</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">GitHub</span>
+          <span class="arrow">&darr;</span>
+          <span class="step">GitHub Pages</span>
+        </div>
       </div>
     </div>
   </section>
@@ -2552,27 +2629,18 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">05 / The Record</span>
     <h2>The repository became part of the process.</h2>
     <p class="copy">I used GitHub not only to host the site, but to preserve the evolution of the project: changes in structure, rejected directions, merged project pages, case study rebuilds, live prototype links, and the final recruiter-facing system.</p>
-    <div class="build-github-timeline">
-      <span class="step">Initial Portfolio Structure</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Explored Digital Scrapbook / Organized Chaos</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Reduced Heavy Shadows and Generic AI Aesthetics</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Merged Project Pages Into One index.html</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Built the Pili Case Study</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Rebuilt Wisdom as a Custom Retail / Lookbook Experience</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Rebuilt Design Your Lab as a Research &rarr; Testing &rarr; Working Product Story</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Added Live Prototype + GitHub Proof</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Elevated Behind the Build Into the Meta Project</span>
-      <span class="arrow">&darr;</span>
-      <span class="step">Final Recruiter Pass</span>
-    </div>
+    <ul class="build-timeline">
+      <li>Initial portfolio structure</li>
+      <li>Explored digital scrapbook / organized chaos</li>
+      <li>Reduced heavy shadows and generic AI aesthetics</li>
+      <li>Merged project pages into one index.html</li>
+      <li class="is-milestone">Built the Pili case study</li>
+      <li class="is-milestone">Rebuilt Wisdom as a custom retail / lookbook experience</li>
+      <li class="is-milestone">Rebuilt Design Your Lab as a research &rarr; testing &rarr; working product story</li>
+      <li class="is-milestone">Added live prototype + GitHub proof</li>
+      <li class="is-milestone">Elevated Behind the Build into the meta project</li>
+      <li>Final recruiter pass</li>
+    </ul>
     <a href="https://github.com/Niharika12002/niharikajain.portfolio" class="build-repo-link" target="_blank" rel="noopener noreferrer">View the portfolio repository &nearr;</a>
   </section>
 
