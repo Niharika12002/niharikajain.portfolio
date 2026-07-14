@@ -285,9 +285,15 @@ nav a:hover::after{width:100%}
   isolation:isolate;
 }
 .poster:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-graphic-lg)}
+/* CSS EDIT 4+5 — tightened h3 margin + new .poster-discipline rule */
 .poster h3{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-2);font-weight:500;line-height:1.05;margin-bottom:.6rem;
+  font-size:var(--step-2);font-weight:500;line-height:1.05;margin-bottom:.4rem;
+}
+.poster-discipline{
+  font-family:var(--body);font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;
+  opacity:.62;margin-bottom:.6rem;line-height:1.3;
 }
 .poster p{font-size:var(--step-0);line-height:1.4;max-width:28ch}
 
@@ -303,7 +309,9 @@ nav a:hover::after{width:100%}
 .pili-img{width:82%;margin-left:-10%;margin-bottom:-8%}
 .biospherix-img{width:95%;margin-bottom:10%}
 .wisdom-img{width:95%;margin-bottom:4%}
+/* CSS EDIT 6 — .poster-discipline added to z-index stacking rule */
 .poster h3,
+.poster-discipline,
 .poster p,
 .poster-img{position:relative;z-index:2}
 
@@ -1540,11 +1548,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <div class="hero-copy reveal">
         <p class="availability"><span class="dot" aria-hidden="true"></span> Available for work &middot; Class of 2026</p>
         <h1>Part <span class="c-marigold">designer</span>, part storyteller &amp; part <span class="c-terracotta">systems thinker</span></h1>
-        <p class="lede">A multidisciplinary UX/UI designer creating digital products, brand systems, and physical experiences that make complicated things feel clear, calm, and a little more delightful.</p>
+        <!-- EDIT 1: revised lede -->
+        <p class="lede">I work across digital products, physical experiences, brand systems, and AI-assisted workflows&mdash;usually where something complex needs to become clear.</p>
         <p class="hero-meta">SCAD B.F.A. User Experience Design &middot; Minor in Graphic Design &middot; Atlanta, GA</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-fill">View selected work</a>
-          <!-- Resume file -->
           <a href="assets/NiharikaJain_Resume.pdf" class="btn btn-ghost" download="NiharikaJain_Resume.pdf">Download resume</a>
         </div>
       </div>
@@ -1564,29 +1572,29 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
     <div class="posters">
 
-      <!-- 01 — Pili -->
+      <!-- 01 — Pili — EDIT 2a: discipline label added -->
       <a class="poster poster--marigold reveal" href="#pili">
         <h3>Pili</h3>
+        <p class="poster-discipline">Physical product &middot; UX/UI &middot; Service ecosystem</p>
         <p>A calm connection system that helps older adults, families, and caregivers stay connected.</p>
-        <!-- Requires assets/pili-device.png (transparent device cutout) -->
         <img class="poster-img pili-img" src="assets/pili-device.png" alt="Pili tabletop device showing a family photo and a 'thinking of you today' message" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">1</span>
       </a>
 
-      <!-- 02 — BioSpherix Layout Planner -->
+      <!-- 02 — BioSpherix Layout Planner — EDIT 2b: discipline label added -->
       <a class="poster poster--terracotta reveal" href="#biospherix">
         <h3>Design Your Lab</h3>
+        <p class="poster-discipline">Technical UX &middot; Functional web product &middot; AI-assisted implementation</p>
         <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
-        <!-- Requires assets/biospherix-cover.png (interface cover) -->
         <img class="poster-img biospherix-img" src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing an empty floor canvas, component library, and live readout panel" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">2</span>
       </a>
 
-      <!-- 03 — SCAD x Wisdom ATL Eyewear -->
+      <!-- 03 — SCAD x Wisdom ATL Eyewear — EDIT 2c: discipline label added -->
       <a class="poster poster--olive reveal" href="#wisdom">
         <h3>SCAD x Wisdom ATL Eyewear</h3>
+        <p class="poster-discipline">Product &middot; Brand &middot; Packaging &middot; Retail experience</p>
         <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
-        <!-- Requires assets/wisdom-wsdm-one-hero.png (WSDM ONE hero render) -->
         <img class="poster-img wisdom-img" src="assets/wisdom-wsdm-one-hero.png" alt="Wisdom ATL WSDM ONE eyewear hero render" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">3</span>
       </a>
@@ -1595,14 +1603,15 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   </section>
 
   <!-- ============================ BEHIND THE BUILD ============================ -->
+  <!-- EDIT 3: revised meta-teaser-head body paragraph + closing statement -->
   <section class="behind wrap" id="behind-the-build-preview">
     <div class="meta-teaser-head">
       <span class="eyebrow">The Meta Project</span>
       <h2 class="reveal">This portfolio is a project too.</h2>
-      <p class="reveal">I documented how this site was researched, art-directed, challenged, revised, coded, and shipped, including the prompts, rejected directions, design decisions, AI direction logs, system architecture, and GitHub history behind the final result.</p>
+      <p class="reveal">I designed and built it through an ongoing collaboration with AI&mdash;not by filling in a template, but by directing the visual system, critiquing weak output, constraining implementation, and turning design intent into a working website. The page documents that process: the direction logs, rejected directions, design evolution, and system architecture behind the final result.</p>
     </div>
 
-    <p class="meta-teaser-statement reveal">Three projects show what I design.<br>Behind the Build shows how I think.</p>
+    <p class="meta-teaser-statement reveal">Three projects show what I design.<br>Behind the Build shows how I direct, decide, and build with AI.</p>
 
     <div class="meta-teaser-areas">
       <div class="meta-teaser-area c-marigold reveal">
@@ -1664,7 +1673,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <p class="sub reveal">I&rsquo;m currently looking for UX/UI, product design, brand experience, and multidisciplinary design roles where research, storytelling, and systems thinking matter.</p>
       <div class="cta-row reveal">
         <a href="mailto:niharikajain.1209@gmail.com" class="btn btn-white">Email me</a>
-        <!-- Resume file -->
         <a href="assets/NiharikaJain_Resume.pdf" class="btn btn-ghost-cream" download="NiharikaJain_Resume.pdf">Download resume</a>
         <a href="https://www.linkedin.com/in/niharikajain12002" class="btn btn-ghost-cream" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -1680,34 +1688,16 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <div class="wrap">
       <div class="project-hero-content">
         <a href="#work" class="project-back">&larr; Back to Selected Work</a>
-
         <span class="eyebrow">Senior Capstone Project</span>
-
         <h1>Pili</h1>
-
         <p class="subtitle">A calm connection system for older adults, families and caregivers.</p>
-
         <p class="desc">Pili helps older adults stay connected through simple everyday moments, photos, voice notes, quick replies, reminders, and reassurance, without requiring them to manage a complex device.</p>
-
         <dl class="pili-meta">
-          <div>
-            <dt>Timeline</dt>
-            <dd>March &ndash; May 2026</dd>
-          </div>
-          <div>
-            <dt>Role</dt>
-            <dd>UX Research, Product Design, UI Direction, Physical Prototyping</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>Junchao &amp; Niharika</dd>
-          </div>
-          <div>
-            <dt>Tools</dt>
-            <dd>Figma, 3D Printing, Physical Prototyping</dd>
-          </div>
+          <div><dt>Timeline</dt><dd>March &ndash; May 2026</dd></div>
+          <div><dt>Role</dt><dd>UX Research, Product Design, UI Direction, Physical Prototyping</dd></div>
+          <div><dt>Team</dt><dd>Junchao &amp; Niharika</dd></div>
+          <div><dt>Tools</dt><dd>Figma, 3D Printing, Physical Prototyping</dd></div>
         </dl>
-
         <div class="pili-hero-tags" aria-label="Project skills">
           <span>UX Research</span>
           <span>Product Design</span>
@@ -1726,7 +1716,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <p>Pili is a calm connection system designed for older adults living apart from family, especially in care environments such as assisted living, nursing homes, and hospitals.</p>
       <p>Pili combines three touchpoints: a tabletop device for older adults, a family app for sending moments, and a caregiver dashboard for care environments.</p>
     </div>
-
     <div class="pili-touchpoints">
       <div class="pili-touchpoint">
         <div class="pili-touchpoint-media">
@@ -1795,7 +1784,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <div class="pili-intro">
       <p>While the physical device reduces interaction complexity for the older adult, the supporting apps help family members and caregivers send care, monitor updates, and respond when needed.</p>
     </div>
-
     <div class="pili-touchpoints-detail">
       <div class="pili-detail-card">
         <h3>Family App</h3>
@@ -1823,7 +1811,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <h2>Form Exploration</h2>
       <p class="intro">I explored multiple physical directions before arriving at a calm, visible, approachable tabletop device.</p>
       <p class="supporting">The final form needed to feel stable, familiar, and easy to understand. I tested circular companion objects, softer rounded forms, and finally a sloped tabletop direction with a screen, physical buttons, and a grounded base.</p>
-
       <div class="pili-version">
         <span class="eyebrow">Version 1</span>
         <h3>Circular companion form</h3>
@@ -1835,7 +1822,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <figure><img src="assets/pili-form-v1-04.jpg" alt="Circular companion form prototype, alternate angle" loading="lazy" decoding="async"><figcaption>Alternate angle</figcaption></figure>
         </div>
       </div>
-
       <div class="pili-version">
         <span class="eyebrow">Version 2</span>
         <h3>Softer rounded object</h3>
@@ -1847,7 +1833,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <figure><img src="assets/pili-form-v2-04.jpg" alt="Softer rounded form prototype, low profile view" loading="lazy" decoding="async"><figcaption>Low profile view</figcaption></figure>
         </div>
       </div>
-
       <div class="pili-version">
         <span class="eyebrow">Version 3</span>
         <h3>Final direction</h3>
@@ -2159,7 +2144,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <h1>Wisdom ATL Eyewear</h1>
         <p class="subtitle">A three-frame eyewear, packaging, visual merchandising, and retail storytelling system.</p>
         <p class="desc">This collaboration translated Wisdom ATL&rsquo;s surreal, playful, and premium brand language into a buyer-facing eyewear system spanning frame families, physical prototyping, packaging, campaign thinking, merchandising, and lookbook direction.</p>
-
         <dl class="wisdom-editorial-meta">
           <div><dt>Project Type</dt><dd>Product, Packaging &amp; Visual Merchandising</dd></div>
           <div><dt>Timeline</dt><dd>2026</dd></div>
@@ -2167,7 +2151,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <div><dt>Tools</dt><dd>Figma, Adobe Suite, 3D Visualization, Physical Prototyping</dd></div>
         </dl>
       </div>
-
       <div class="wisdom-hero-visual">
         <button class="wisdom-lookbook-preview" id="open-wisdom-lookbook" type="button" aria-haspopup="dialog" aria-controls="wisdom-lookbook-modal" aria-label="Open the Wisdom ATL lookbook">
           <img class="wisdom-lookbook-cover-img" src="assets/wisdom-lookbook-cover.jpg" alt="Wisdom ATL lookbook cover" loading="eager" decoding="async">
@@ -2213,7 +2196,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <h2>Three frame families</h2>
         <p>The final system organized Wisdom&rsquo;s eyewear into three retail roles: a flagship statement frame, a sport-driven guard frame, and a more refined everyday frame.</p>
       </div>
-
       <div class="wisdom-chapter-grid">
         <div class="wisdom-frame-card">
           <div class="wisdom-frame-visual">
@@ -2225,7 +2207,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
             <p>A flagship shield frame where the Wisdom wordmark becomes part of the structure. Designed as a statement piece that reads closer to wearable art than traditional eyewear.</p>
           </div>
         </div>
-
         <div class="wisdom-frame-card">
           <div class="wisdom-frame-visual">
             <img src="assets/wisdom-arq-sports-hero.png" alt="ARQ Sports eyewear render" loading="lazy" decoding="async">
@@ -2236,7 +2217,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
             <p>A sport-driven frame inspired by football helmet language, protective rails, wraparound coverage, and bold colorway energy.</p>
           </div>
         </div>
-
         <div class="wisdom-frame-card">
           <div class="wisdom-frame-visual">
             <img src="assets/wisdom-arq-daily-hero.png" alt="ARQ Daily eyewear render" loading="lazy" decoding="async">
@@ -2274,7 +2254,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <span class="eyebrow">Process</span>
       <h2>From visual language to wearable form</h2>
       <p>The frame development moved between logo-as-structure, shield silhouettes, helmet-inspired guard details, and physical tests. The goal was to make the frames feel like brand objects, not generic sunglasses.</p>
-
       <div class="wisdom-process-grid">
         <figure class="lead">
           <img src="assets/wisdom-wsdm-one-sketches.png" alt="WSDM ONE logo-as-structure frame sketch" loading="lazy" decoding="async">
@@ -2289,7 +2268,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           <figcaption>Colorway and 3D model exploration for the shield frame direction.</figcaption>
         </figure>
       </div>
-
       <div class="wisdom-fit-grid">
         <figure>
           <img class="is-photo" src="assets/wisdom-prototype-parts.jpeg" alt="Wisdom prototype parts, lens and frame pieces" loading="lazy" decoding="async">
@@ -2319,7 +2297,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <h2>Packaging and retail world</h2>
         <p>The eyewear system expanded into packaging, collector-style cases, social moments, and display concepts that could support a buyer-facing pitch.</p>
       </div>
-
       <div class="wisdom-retail-grid">
         <figure>
           <img src="assets/wisdom-arq-sports-packaging-sketches.png" alt="ARQ Sports helmet-inspired packaging sketches" loading="lazy" decoding="async">
@@ -2357,7 +2334,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         <button type="button" class="wisdom-campaign-cta wisdom-open-lookbook">View Lookbook &rarr;</button>
       </div>
       <div class="wisdom-campaign-visual">
-        <!-- Lookbook cover with fallback safety net -->
         <img src="assets/wisdom-lookbook-cover.jpg" alt="Wisdom ATL lookbook cover" loading="lazy" decoding="async"
              onerror="this.style.display='none';this.parentElement.classList.add('img-error')">
         <span class="fallback-mark" aria-hidden="true">WISDOM</span>
@@ -2371,12 +2347,10 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
       <span class="eyebrow">Final Presentation</span>
       <h2>From lookbook to client presentation</h2>
       <p>The final phase of the Wisdom ATL collaboration brought the eyewear system into a client-facing presentation. Teams presented printed lookbooks, physical prototypes, packaging directions, and campaign systems to Wish ATL, showing how the work could live as both a product line and a retail story.</p>
-
       <figure class="wisdom-artifact">
         <img src="assets/wisdom-lookbook-pages/wisdom-final-presentation-01.jpg" alt="Wisdom ATL final class presentation with printed lookbooks and physical prototypes" loading="lazy" decoding="async">
         <figcaption>Final class presentation with printed lookbooks, physical prototypes, and buyer-facing storytelling.</figcaption>
       </figure>
-
       <div class="wisdom-presentation-grid">
         <figure>
           <img src="assets/wisdom-lookbook-pages/wisdom-final-presentation-02.jpg" alt="Printed Wisdom ATL lookbook shown as a tangible retail artifact" loading="lazy" decoding="async">
@@ -2410,7 +2384,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   <!-- LOOKBOOK MODAL -->
   <div class="wisdom-lookbook-modal" id="wisdom-lookbook-modal" hidden role="dialog" aria-modal="true" aria-labelledby="wisdom-lookbook-title">
     <div class="wisdom-lookbook-modal-backdrop" data-close-lookbook></div>
-
     <div class="wisdom-lookbook-modal-panel" role="document">
       <div class="wisdom-lookbook-modal-header">
         <div>
@@ -2419,7 +2392,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
         </div>
         <button class="wisdom-lookbook-close" id="close-wisdom-lookbook" type="button" aria-label="Close lookbook">&times;</button>
       </div>
-
       <div class="wisdom-flipbook">
         <div class="wisdom-flipbook-stage" id="wisdom-lookbook-stage" aria-live="polite"></div>
         <div class="wisdom-flipbook-controls">
@@ -2649,7 +2621,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     <span class="eyebrow">Takeaway</span>
     <h2>The portfolio became proof of the process.</h2>
     <p class="copy">The final website is not just a container for my work. It is evidence of how I think: how I make decisions, challenge generic outputs, connect visual direction to system logic, work with AI critically, and carry an idea through implementation.</p>
-    <p class="build-hero-statement">Three projects show what I design.<br>Behind the Build shows how I think.</p>
+    <p class="build-hero-statement">Three projects show what I design.<br>Behind the Build shows how I direct, decide, and build with AI.</p>
     <div class="build-final-nav">
       <a href="#wisdom">&larr; Previous: SCAD x Wisdom ATL Eyewear</a>
       <a href="#work">Back to Selected Work</a>
@@ -2730,7 +2702,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
 
-  // Wisdom lookbook modal — quiet preview on the hero image opens the flipbook
+  // Wisdom lookbook modal
   const wisdomLookbookModal = document.getElementById('wisdom-lookbook-modal');
   const wisdomLookbookClose = document.getElementById('close-wisdom-lookbook');
   const wisdomStage = document.getElementById('wisdom-lookbook-stage');
@@ -2747,7 +2719,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   function wisdomPageSrc(n){ return `assets/wisdom-lookbook-pages/wisdom-lookbook-page-${wisdomPagePad(n)}.webp`; }
   function wisdomIsDesktopSpread(){ return window.matchMedia('(min-width: 760px)').matches; }
 
-  // Page 1 stands alone as the cover; from page 2 on, pages pair up as spreads on desktop.
   function wisdomGetSequence(){
     if(wisdomIsDesktopSpread()){
       const seq = [1];
@@ -2821,14 +2792,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     if(wisdomPrevBtn) wisdomPrevBtn.disabled = idx <= 0;
     if(wisdomNextBtn) wisdomNextBtn.disabled = idx >= seq.length - 1;
 
-    // Preload the neighboring spread(s)/page(s) so flipping feels instant
     const preloadTargets = [];
     if(idx > 0) preloadTargets.push(seq[idx - 1], seq[idx - 1] + 1);
     if(idx < seq.length - 1) preloadTargets.push(seq[idx + 1], seq[idx + 1] + 1);
     wisdomPreload(preloadTargets);
   }
 
-  // Instant render — used when opening the modal and on viewport resize (no page-turn animation)
   function wisdomRenderFlipbook(){
     if(!wisdomStage) return;
     wisdomCurrentPage = wisdomNearestValidPage(wisdomGetSequence(), wisdomCurrentPage);
@@ -2837,10 +2806,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     wisdomUpdateChrome();
   }
 
-  // Builds a floating clone of a single page, positioned exactly over its source figure,
-  // so it can rotate away like a real page while the new spread is already waiting underneath.
-  // Builds a floating clone of a single page, positioned exactly over its source IMAGE (not the figure
-  // wrapper), so the rotation reads as the actual printed sheet turning rather than the whole frame.
   function wisdomMakePageTurner(sourceFigure, direction){
     const stageRect = wisdomStage.getBoundingClientRect();
     const sourceImg = sourceFigure.querySelector('img');
@@ -2869,8 +2834,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     if(wisdomNextBtn) wisdomNextBtn.disabled = locked;
   }
 
-  // Animated transition — the old spread stays fully in place while a cloned page turns over it;
-  // wisdomCurrentPage only advances once the turn has actually finished.
   function wisdomTransitionTo(direction, targetPage){
     if(!wisdomStage || wisdomIsTurning) return;
 
