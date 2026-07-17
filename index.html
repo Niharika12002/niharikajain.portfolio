@@ -126,301 +126,450 @@ button{font:inherit;cursor:pointer}
 }
 
 /* ============================================================
-   HEADER — transparent on homepage hero, white after scroll,
-   always white on project routes.
-   State classes applied by JS:
-     .nav-scrolled  → white bg, dark text, border
-     .nav-project   → white bg, dark text, border (immediate)
-   Default (no class) → transparent, light text over hero
+   HEADER — dark text over white hero by default.
+   .nav-scrolled  → white bg, border (homepage, scrolled past hero)
+   .nav-project   → white bg, border (project routes, immediate)
    ============================================================ */
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:100;
-  /* transparent default — sits over homepage hero */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition:
-    background 0.35s ease,
-    border-color 0.35s ease;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-/* Scrolled state (homepage scroll past hero) */
 header.nav-scrolled,
 header.nav-project {
   background: #FFFFFF;
   border-bottom-color: rgba(1,15,18,.10);
 }
 
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;
-  /* generous vertical padding — logo is taller now */
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
   padding-block: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 
 /* Logo */
-.logo{
-  display:inline-flex;align-items:center;
-  flex-shrink:0;
+.logo {
+  display: inline-flex; align-items: center;
+  flex-shrink: 0;
 }
-.logo-img{
-  /* Desktop 60–68px, mobile 50–56px */
+.logo-img {
   height: clamp(50px, 5.5vw, 68px);
-  width:auto;
-  transition: transform .3s ease, filter .3s ease;
+  width: auto;
+  transition: transform .3s ease;
 }
-.logo:hover .logo-img{ transform:rotate(-4deg) }
+.logo:hover .logo-img { transform: rotate(-4deg) }
 
-/* Logo inversion: white over transparent hero, default on white bg */
-header:not(.nav-scrolled):not(.nav-project) .logo-img{
-  filter: brightness(0) invert(1);
-}
-
-/* Nav links */
-nav ul{
-  display:flex;list-style:none;
+/* Nav links — dark ink over white hero from the start */
+nav ul {
+  display: flex; list-style: none;
   gap: clamp(1.4rem, 2.8vw, 3rem);
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
 }
-nav a{
+nav a {
   font-family: var(--body);
   font-size: var(--step--1);
   font-weight: 600;
   letter-spacing: .04em;
-  /* default: light text over transparent hero */
-  color: rgba(255,255,255,.88);
-  position:relative;padding-block:.5rem;
+  color: var(--ink-80);
+  position: relative; padding-block: .5rem;
   transition: color .25s ease;
-  display:inline-block;
-  white-space:nowrap;
+  display: inline-block;
+  white-space: nowrap;
 }
-nav a::after{
-  content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;
+nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  height: 1.5px; width: 0;
   background: currentColor;
-  transition:width .25s ease;
+  transition: width .25s ease;
 }
-nav a:hover{ color:#FFFFFF }
-nav a:hover::after{ width:100% }
+nav a:hover { color: var(--ink) }
+nav a:hover::after { width: 100% }
 
-/* Dark text when scrolled or on project pages */
 header.nav-scrolled nav a,
-header.nav-project nav a{
+header.nav-project nav a {
   color: var(--ink-80);
 }
 header.nav-scrolled nav a:hover,
-header.nav-project nav a:hover{
+header.nav-project nav a:hover {
   color: var(--ink);
 }
 
-/* Mobile — prevent overflow; all links stay on one row */
-@media (max-width: 640px){
-  .nav-inner{ gap: .75rem }
-  nav ul{ gap: clamp(.9rem, 4vw, 1.6rem) }
-  nav a{ font-size: .72rem }
-  .logo-img{ height: clamp(44px, 11vw, 52px) }
+@media (max-width: 640px) {
+  .nav-inner { gap: .75rem }
+  nav ul { gap: clamp(.9rem, 4vw, 1.6rem) }
+  nav a { font-size: .72rem }
+  .logo-img { height: clamp(44px, 11vw, 52px) }
 }
-@media (max-width: 380px){
-  nav ul{ gap: .7rem }
-  nav a{ font-size: .68rem }
+@media (max-width: 380px) {
+  nav ul { gap: .7rem }
+  nav a { font-size: .68rem }
 }
 
 /* ============================================================
-   CINEMATIC HERO — full-bleed, editorial
+   PERSONAL HERO — white canvas, editorial two-column
    ============================================================ */
+#top { scroll-margin-top: 0 }
 
-/* Spacer so content below hero isn't hidden under fixed nav
-   (only needed on home; project pages start their own hero) */
-#home-view .hero-nav-spacer{
-  display:none; /* hero is full-screen; nav is overlaid */
-}
-
-.hero-cinematic{
-  position:relative;
-  width:100%;
-  /* ~90svh on desktop, 88svh on mobile, minimum 560px */
-  height: clamp(560px, 90svh, 100svh);
-  overflow:hidden;
-  /* White canvas for sections below */
+.hero-personal {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
   background: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
 }
 
-/* ── Media layer (image; swap for <video> later by replacing .hero-bg-img with <video autoplay muted loop playsinline>) ── */
-.hero-bg-img{
-  position:absolute;
-  inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position: center 30%;
-  /* Very subtle scale on load — respects prefers-reduced-motion */
-  animation: heroScaleIn 1.8s cubic-bezier(.16,1,.3,1) forwards;
-}
-@keyframes heroScaleIn{
-  from{ transform: scale(1.04) }
-  to{   transform: scale(1)    }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero-bg-img{ animation:none }
+/* Inner layout */
+.hero-personal-inner {
+  width: min(calc(100% - 128px), var(--container));
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  position: relative;
+  z-index: 1;
 }
 
-/* ── Gradient overlay for text legibility — directional, not muddy ── */
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  /* Vignette: dark bottom-left anchor for text, lighter top-right */
-  background:
-    linear-gradient(
-      to top,
-      rgba(1,15,18,.72) 0%,
-      rgba(1,15,18,.42) 38%,
-      rgba(1,15,18,.12) 65%,
-      rgba(1,15,18,.04) 100%
-    ),
-    linear-gradient(
-      to right,
-      rgba(1,15,18,.28) 0%,
-      rgba(1,15,18,.0) 55%
-    );
-  pointer-events:none;
+/* ── Left: text ── */
+.hero-text {
+  flex: 0 0 46%;
+  max-width: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0;
+  animation: heroTextReveal 0.9s 0.15s cubic-bezier(.16,1,.3,1) both;
 }
+@keyframes heroTextReveal {
+  from { opacity: 0; transform: translateY(20px) }
+  to   { opacity: 1; transform: none }
+}
+@media (prefers-reduced-motion: reduce) { .hero-text { animation: none } }
 
-/* ── Text content — lower-left editorial anchor ── */
-.hero-content{
-  position:absolute;
-  left:0;right:0;bottom:0;
-  /* Use same .wrap padding logic but inline here for the absolute context */
-  padding-inline: clamp(24px, 5.5vw, 80px);
-  padding-bottom: clamp(3rem, 6vw, 5rem);
-  /* Max width so text doesn't stretch wall-to-wall on huge screens */
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  /* Fade-up on load */
-  animation: heroContentReveal 1s .3s cubic-bezier(.16,1,.3,1) both;
-}
-@keyframes heroContentReveal{
-  from{ opacity:0; transform:translateY(24px) }
-  to{   opacity:1; transform:none            }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero-content{ animation:none }
-}
-
-/* Professional label */
-.hero-label{
+.hero-personal-label {
   font-family: var(--body);
-  font-size: clamp(.62rem, .8vw, .76rem);
+  font-size: clamp(.58rem, .72vw, .7rem);
   font-weight: 700;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.55);
-  margin-bottom: clamp(.75rem, 1.5vw, 1.1rem);
+  color: var(--ink-45);
+  margin-bottom: clamp(.9rem, 1.6vw, 1.3rem);
+  display: block;
 }
 
-/* Headline */
-.hero-headline{
+.hero-personal-headline {
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: clamp(3.4rem, 5.8vw, 6.4rem);
   font-weight: 500;
-  line-height: .96;
-  letter-spacing: -.02em;
-  color: #FFFFFF;
-  max-width: 14ch;
-  margin-bottom: clamp(1.1rem, 2vw, 1.6rem);
-}
-
-/* Supporting copy */
-.hero-sub{
-  font-family: var(--body);
-  font-size: clamp(.95rem, 1.3vw, 1.15rem);
-  font-weight: 400;
-  line-height: 1.55;
-  color: rgba(255,255,255,.78);
-  max-width: 46ch;
-  margin-bottom: clamp(.7rem, 1.2vw, 1rem);
-}
-
-/* Discipline line */
-.hero-discipline{
-  font-family: var(--body);
-  font-size: clamp(.72rem, .9vw, .82rem);
-  font-weight: 500;
-  color: rgba(255,255,255,.48);
-  letter-spacing: .04em;
-  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
-}
-
-/* CTAs */
-.hero-ctas{
-  display:flex;
-  align-items:center;
-  gap: clamp(.8rem, 2vw, 1.4rem);
-  flex-wrap: wrap;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
-}
-
-.hero-cta-primary{
-  display:inline-block;
-  font-family: var(--body);
-  font-weight: 700;
-  font-size: var(--step--1);
-  letter-spacing: .03em;
+  line-height: 0.97;
+  letter-spacing: -.025em;
   color: var(--ink);
-  background: #FFFFFF;
-  padding: .7em 1.6em;
-  border-radius: 4px;
-  border: none;
-  transition: background .2s ease, color .2s ease, transform .18s ease;
-}
-.hero-cta-primary:hover{
-  background: var(--paper);
-  transform: translateY(-2px);
+  max-width: 11ch;
+  margin-bottom: clamp(1.2rem, 2vw, 1.7rem);
 }
 
-.hero-cta-secondary{
-  display:inline-flex;
-  align-items:center;
-  gap:.35em;
+.hero-personal-sub {
   font-family: var(--body);
+  font-size: clamp(.92rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.58;
+  color: var(--ink-60);
+  max-width: 44ch;
+  margin-bottom: clamp(1.8rem, 2.8vw, 2.4rem);
+}
+
+.hero-scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  font-family: var(--body);
+  font-size: clamp(.72rem, .82vw, .78rem);
   font-weight: 600;
-  font-size: var(--step--1);
-  color: rgba(255,255,255,.78);
-  border-bottom: 1px solid rgba(255,255,255,.35);
-  padding-bottom: 2px;
-  transition: color .2s ease, border-color .2s ease;
-}
-.hero-cta-secondary:hover{
-  color: #FFFFFF;
-  border-color: rgba(255,255,255,.75);
-}
-
-/* Location + availability — bottom edge */
-.hero-location{
-  font-family: var(--body);
-  font-size: clamp(.68rem, .82vw, .78rem);
-  font-weight: 500;
-  color: rgba(255,255,255,.38);
   letter-spacing: .06em;
-  text-transform: uppercase;
+  color: var(--ink-45);
+  border-bottom: 1px solid rgba(1,15,18,.2);
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: color .22s ease, border-color .22s ease;
+}
+.hero-scroll-link:hover {
+  color: var(--ink);
+  border-color: var(--ink-60);
 }
 
-/* Mobile adjustments */
-@media (max-width: 640px){
-  .hero-cinematic{
-    height: clamp(520px, 88svh, 100svh);
+/* ── Right: portrait zone ── */
+.hero-portrait-zone {
+  flex: 0 0 54%;
+  max-width: 54%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* trail layer is clipped here */
+  overflow: visible;
+}
+
+/* Photo trail layer — sits behind the character */
+.hero-trail-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+[aria-hidden="true"].hero-trail-layer { /* already aria-hidden in HTML */ }
+
+/* Character image */
+.hero-portrait-zone picture {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+.hero-character {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-height: clamp(60svh, 78svh, 82svh);
+  width: min(100%, 580px);
+  max-width: 580px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  /* Prevent nav overlap: push bottom flush */
+  margin-bottom: 0;
+  animation: heroCharReveal 1s 0.3s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes heroCharReveal {
+  from { opacity: 0; transform: translateY(16px) }
+  to   { opacity: 1; transform: none }
+}
+@media (prefers-reduced-motion: reduce) { .hero-character { animation: none } }
+
+/* Interaction hint */
+.hero-hint {
+  position: absolute;
+  bottom: clamp(1.4rem, 2.5vw, 2.2rem);
+  right: clamp(.8rem, 2vw, 1.6rem);
+  font-family: var(--body);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  color: var(--ink-45);
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity .5s ease;
+}
+.hero-hint.is-hidden { opacity: 0; pointer-events: none }
+
+/* ── Photo trail cards (created dynamically) ── */
+.hero-trail-card {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 11px;
+  overflow: hidden;
+  border: 1px solid rgba(1,15,18,.10);
+  box-shadow: 0 2px 8px rgba(1,15,18,.08), 0 1px 2px rgba(1,15,18,.06);
+  will-change: transform, opacity;
+  /* width set inline per card */
+}
+.hero-trail-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Responsive ── */
+
+/* Tablet: narrow two-column */
+@media (max-width: 1024px) {
+  .hero-personal-inner {
+    width: min(calc(100% - 80px), var(--container));
   }
-  .hero-headline{
-    max-width: 18ch;
+  .hero-text { flex: 0 0 48%; max-width: 48% }
+  .hero-portrait-zone { flex: 0 0 52%; max-width: 52% }
+}
+
+/* Stack below 820px */
+@media (max-width: 820px) {
+  .hero-personal {
+    height: auto;
+    min-height: 100svh;
+    align-items: flex-start;
   }
-  .hero-bg-img{
-    object-position: 60% 30%;
+  .hero-personal-inner {
+    width: min(calc(100% - 80px), var(--container));
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(6rem, 14vw, 8rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .hero-text {
+    flex: none; max-width: 100%;
+    width: 100%;
+    order: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .hero-portrait-zone {
+    flex: none; max-width: 100%;
+    width: 100%;
+    order: 1;
+    justify-content: center;
+    min-height: clamp(220px, 38vw, 320px);
+  }
+  .hero-character {
+    max-height: clamp(200px, 36vw, 310px);
+    max-width: clamp(180px, 50%, 280px);
+  }
+  .hero-hint { display: none }
+  .hero-personal-headline {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    max-width: 16ch;
   }
 }
-@media (max-width: 400px){
-  .hero-headline{
-    font-size: clamp(2.6rem, 12vw, 3.8rem);
+
+@media (max-width: 560px) {
+  .hero-personal-inner {
+    width: min(calc(100% - 48px), var(--container));
+    padding-top: clamp(5rem, 18vw, 7rem);
   }
+  .hero-personal-headline {
+    font-size: clamp(2.5rem, 10vw, 3.4rem);
+  }
+  .hero-portrait-zone {
+    min-height: clamp(180px, 42vw, 270px);
+  }
+  .hero-character {
+    max-height: clamp(170px, 40vw, 250px);
+    max-width: clamp(150px, 55%, 230px);
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-personal-headline { font-size: clamp(2.2rem, 12vw, 3rem) }
+}
+
+/* ============================================================
+   HOME INTRO BAND — ink bg, editorial 3-col
+   ============================================================ */
+.home-intro {
+  background: var(--ink);
+  color: var(--paper);
+  padding-block: clamp(4.5rem, 7vw, 6rem);
+}
+
+.home-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* Left: heading */
+.home-intro-heading {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--paper);
+  padding-top: .15rem; /* optical alignment with paragraph cap-height */
+}
+
+/* Middle: paragraph */
+.home-intro-body {
+  font-family: var(--body);
+  font-size: clamp(.92rem, 1.05vw, 1rem);
+  line-height: 1.68;
+  color: rgba(255,247,239,.75);
+  max-width: 56ch;
+}
+
+/* Right: links + meta */
+.home-intro-links {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.8vw, 1.4rem);
+  align-items: flex-start;
+}
+
+.home-intro-link {
+  font-family: var(--body);
+  font-size: clamp(.85rem, .95vw, .92rem);
+  font-weight: 600;
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255,247,239,.35);
+  transition: text-decoration-color .22s ease, color .22s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .25em;
+}
+.home-intro-link:hover {
+  color: var(--marigold);
+  text-decoration-color: var(--marigold);
+}
+
+.home-intro-edu {
+  font-family: var(--body);
+  font-size: clamp(.62rem, .72vw, .68rem);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,247,239,.38);
+  line-height: 1.5;
+  margin-top: clamp(.4rem, .8vw, .6rem);
+}
+
+.home-intro-next {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+  font-family: var(--body);
+  font-size: clamp(.62rem, .72vw, .68rem);
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,247,239,.38);
+  margin-top: clamp(1.6rem, 2.5vw, 2rem);
+  text-decoration: none;
+  transition: color .22s ease;
+  grid-column: 1 / -1;
+}
+.home-intro-next:hover { color: rgba(255,247,239,.7) }
+
+/* Tablet: two-column */
+@media (max-width: 900px) {
+  .home-intro-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .home-intro-heading { grid-column: 1 / -1 }
+  .home-intro-next { grid-column: 1 / -1 }
+}
+
+/* Mobile: single column */
+@media (max-width: 560px) {
+  .home-intro-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(1.2rem, 4vw, 1.8rem);
+  }
+  .home-intro-heading { font-size: clamp(1.8rem, 8vw, 2.4rem) }
 }
 
 /* ============================================================
@@ -1593,6 +1742,35 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 .wisdom-final-nav a{font-weight:600;font-size:var(--step--1);color:var(--ink-60);transition:color .2s ease}
 .wisdom-final-nav a:hover{color:var(--ink)}
 
+
+/* Fixed-header offset for routed project views */
+:root { --header-offset: clamp(76px, 7vw, 96px); }
+
+#pili-view:not([hidden]) > .project-hero {
+  padding-top: calc(clamp(4rem, 8vw, 7rem) + var(--header-offset));
+}
+#biospherix-view:not([hidden]) > .biospherix-hero,
+#wisdom-view:not([hidden]) > .wisdom-hero {
+  padding-top: calc(clamp(3rem, 6vw, 5.5rem) + var(--header-offset));
+}
+#behind-the-build-view:not([hidden]) > .build-hero {
+  padding-top: calc(var(--space-12) + var(--header-offset));
+}
+
+@media (max-width: 900px) {
+  #pili-view:not([hidden]) > .project-hero {
+    padding-top: calc(clamp(5rem, 14vw, 8rem) + var(--header-offset));
+  }
+  #behind-the-build-view:not([hidden]) > .build-hero {
+    padding-top: calc(var(--space-8) + var(--header-offset));
+  }
+}
+@media (max-width: 560px) {
+  #behind-the-build-view:not([hidden]) > .build-hero {
+    padding-top: calc(var(--space-6) + var(--header-offset));
+  }
+}
+
 /* ============================================================
    MOTION
    ============================================================ */
@@ -1602,13 +1780,13 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   *{scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;transition:none}
   .btn:hover,.poster:hover{transform:none}
-  .hero-bg-img,.hero-content{ animation:none }
+  .hero-text,.hero-character{animation:none}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================ HEADER (transparent → white on scroll; always white on project pages) ============================ -->
+<!-- ============================ HEADER (dark over white hero; solid after hero and on project pages) ============================ -->
 <header id="site-header">
   <div class="wrap nav-inner">
     <a href="#top" class="logo" aria-label="Niharika Jain — home">
@@ -1628,48 +1806,70 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
 <main id="home-view">
 
-  <!-- ============================ CINEMATIC HERO ============================ -->
-  <!--
-    Media layer: currently uses assets/pili-hero-desk.png as a temporary visual.
-    To swap to video later: remove the <img class="hero-bg-img"> element and replace with:
-    <video class="hero-bg-img" autoplay muted loop playsinline>
-      <source src="assets/hero-reel.mp4" type="video/mp4">
-    </video>
-    All overlays, text, and CTA structure remain unchanged.
-  -->
-  <section class="hero-cinematic" id="top" aria-label="Introduction">
+  <!-- ============================ PERSONAL HERO ============================ -->
+  <section class="hero-personal" id="top" aria-label="Introduction">
+    <div class="hero-personal-inner">
 
-    <!-- Media layer -->
-    <img
-      class="hero-bg-img"
-      src="assets/pili-hero-desk.png"
-      alt=""
-      aria-hidden="true"
-      fetchpriority="high"
-      decoding="async"
-    >
-
-    <!-- Gradient overlay -->
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- Text content -->
-    <div class="hero-content">
-      <p class="hero-label">Multidisciplinary Product + UX Designer</p>
-
-      <h1 class="hero-headline">I design across screens, objects, and systems.</h1>
-
-      <p class="hero-sub">I turn complex products, services, and brand experiences into clear, useful, and memorable systems.</p>
-
-      <p class="hero-discipline">Digital products &middot; Physical experiences &middot; Brand systems &middot; AI-assisted implementation</p>
-
-      <div class="hero-ctas">
-        <a href="#work" class="hero-cta-primary">View selected work</a>
-        <a href="assets/NiharikaJain_Resume.pdf" class="hero-cta-secondary" target="_blank" rel="noopener">View r&eacute;sum&eacute; &nearr;</a>
+      <!-- Left: text -->
+      <div class="hero-text">
+        <span class="hero-personal-label">Niharika Jain — Multidisciplinary Product + UX Designer</span>
+        <h1 class="hero-personal-headline">I design across screens, objects, and systems.</h1>
+        <p class="hero-personal-sub">I turn complicated ideas into digital products, physical experiences, and brand systems that are easier to understand and use.</p>
+        <a href="#home-intro" class="hero-scroll-link" aria-label="Scroll to introduction">Scroll to explore ↓</a>
       </div>
 
-      <p class="hero-location">Atlanta, GA &middot; Open to full-time design roles</p>
-    </div>
+      <!-- Right: portrait zone with cursor trail -->
+      <div class="hero-portrait-zone" id="hero-portrait-zone" aria-label="Niharika Jain character illustration">
+        <div class="hero-trail-layer" aria-hidden="true" id="hero-trail-layer"></div>
 
+        <!-- Future optimization: create smaller WebP thumbnails for the cursor-trail photos. -->
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="assets/niharika-portrait.png">
+          <img
+            class="hero-character"
+            src="assets/waving-hi.gif"
+            alt="Animated character of Niharika sitting cross-legged and waving hello."
+            fetchpriority="high"
+            decoding="async"
+            id="hero-character-img"
+          >
+        </picture>
+
+        <span class="hero-hint" id="hero-hint" aria-hidden="true">Move your cursor around ↗</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================ HOME INTRO BAND ============================ -->
+  <section class="home-intro" id="home-intro" aria-label="Personal introduction">
+    <div class="wrap">
+      <div class="home-intro-grid">
+
+        <h2 class="home-intro-heading">Hi,<br>I'm Niharika.</h2>
+
+        <p class="home-intro-body">I'm a multidisciplinary designer based in Atlanta, working across digital products, physical experiences, and brand systems. I like taking complicated ideas apart, finding the system inside them, and rebuilding them into something clear, useful, and memorable.</p>
+
+        <div class="home-intro-links">
+          <a
+            class="home-intro-link"
+            href="assets/NiharikaJain_Resume.pdf"
+            target="_blank"
+            rel="noopener"
+          >View résumé ↗</a>
+          <a
+            class="home-intro-link"
+            href="https://www.linkedin.com/in/niharikajain12002"
+            target="_blank"
+            rel="noopener"
+          >LinkedIn ↗</a>
+          <p class="home-intro-edu">SCAD · B.F.A. User Experience Design<br>Graphic Design minor · 2026</p>
+        </div>
+
+        <a href="#work" class="home-intro-next">Next: selected projects ↓</a>
+
+      </div>
+    </div>
   </section>
 
   <!-- ============================ SELECTED WORK ============================ -->
@@ -2741,76 +2941,328 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   }
 
   // ── Navbar state management ──
-  // Classes: .nav-project = always white (project pages), .nav-scrolled = white after scroll (homepage)
-  const siteHeader = document.getElementById('site-header');
-
-  // Threshold: hero is ~90svh. We switch at ~60px so the nav turns white
-  // just before the first section of real content enters.
-  const SCROLL_THRESHOLD = 60;
-
-  function updateNavState(){
-    const hash = window.location.hash;
-    const isHome = !hash || hash === '#' || hash === '#top' || hash === '#work' || hash === '#contact' || hash === '#behind-the-build-preview';
-    const isProject = Object.keys(projectViews).includes(hash);
-
-    if(isProject){
-      siteHeader.classList.add('nav-project');
-      siteHeader.classList.remove('nav-scrolled');
-    } else if(isHome){
-      siteHeader.classList.remove('nav-project');
-      if(window.scrollY > SCROLL_THRESHOLD){
-        siteHeader.classList.add('nav-scrolled');
-      } else {
-        siteHeader.classList.remove('nav-scrolled');
-      }
-    } else {
-      // Fallback (anchors like #behind-the-build-preview that stay on home)
-      siteHeader.classList.remove('nav-project');
-      siteHeader.classList.add('nav-scrolled');
+    // No fixed pixel threshold. Threshold = hero height − header height,
+    // so the nav solidifies just as the hero bottom leaves the viewport.
+    const siteHeader = document.getElementById('site-header');
+  
+    function getScrollThreshold() {
+      const hero = document.querySelector('.hero-personal');
+      if (!hero) return 80;
+      return Math.max(80, hero.offsetHeight - (siteHeader.offsetHeight || 80));
     }
-  }
-
-  window.addEventListener('scroll', updateNavState, { passive: true });
-
-  // ── Hash-based routing ──
-  const homeView = document.getElementById('home-view');
-  const siteTitle = 'Niharika Jain — Designer, Storyteller, Systems Thinker';
-
-  const projectViews = {
-    '#pili':             { el: document.getElementById('pili-view'),             title: 'Pili — Niharika Jain' },
-    '#biospherix':       { el: document.getElementById('biospherix-view'),       title: 'BioSpherix Layout Planner — Niharika Jain' },
-    '#wisdom':           { el: document.getElementById('wisdom-view'),           title: 'SCAD x Wisdom ATL Eyewear — Niharika Jain' },
-    '#behind-the-build': { el: document.getElementById('behind-the-build-view'), title: 'Behind the Build — Niharika Jain' }
-  };
-
-  function renderRoute(){
-    const hash = window.location.hash;
-    const activeProject = projectViews[hash];
-
-    homeView.hidden = !!activeProject;
-    Object.values(projectViews).forEach(({el})=>{ el.hidden = (el !== (activeProject && activeProject.el)); });
-
-    if(activeProject){
-      document.title = activeProject.title;
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    } else {
-      document.title = siteTitle;
-      if(hash === '#top' || !hash || hash === '#'){
+  
+    let _scrollThreshold = null;
+    function scrollThreshold() {
+      if (_scrollThreshold === null) _scrollThreshold = getScrollThreshold();
+      return _scrollThreshold;
+    }
+    function invalidateScrollThreshold() { _scrollThreshold = null; }
+  
+    window.addEventListener('resize', invalidateScrollThreshold, { passive: true });
+    window.addEventListener('orientationchange', invalidateScrollThreshold);
+  
+    function updateNavState() {
+      const hash = window.location.hash;
+      const projectHashes = Object.keys(projectViews);
+      const isProject = projectHashes.includes(hash);
+  
+      // Home anchors that keep the homepage visible
+      const isHome = !hash || hash === '#' || hash === '#top'
+        || hash === '#work' || hash === '#contact'
+        || hash === '#home-intro' || hash === '#behind-the-build-preview';
+  
+      if (isProject) {
+        siteHeader.classList.add('nav-project');
+        siteHeader.classList.remove('nav-scrolled');
+      } else if (isHome) {
+        siteHeader.classList.remove('nav-project');
+        if (window.scrollY > scrollThreshold()) {
+          siteHeader.classList.add('nav-scrolled');
+        } else {
+          siteHeader.classList.remove('nav-scrolled');
+        }
+      } else {
+        siteHeader.classList.remove('nav-project');
+        siteHeader.classList.add('nav-scrolled');
+      }
+    }
+  
+    window.addEventListener('scroll', updateNavState, { passive: true });
+  
+    // ── Hash-based routing ──
+    const homeView = document.getElementById('home-view');
+    const siteTitle = 'Niharika Jain — Designer, Storyteller, Systems Thinker';
+  
+    const projectViews = {
+      '#pili':             { el: document.getElementById('pili-view'),             title: 'Pili — Niharika Jain' },
+      '#biospherix':       { el: document.getElementById('biospherix-view'),       title: 'BioSpherix Layout Planner — Niharika Jain' },
+      '#wisdom':           { el: document.getElementById('wisdom-view'),           title: 'SCAD x Wisdom ATL Eyewear — Niharika Jain' },
+      '#behind-the-build': { el: document.getElementById('behind-the-build-view'), title: 'Behind the Build — Niharika Jain' }
+    };
+  
+    function renderRoute() {
+      const hash = window.location.hash;
+      const activeProject = projectViews[hash];
+  
+      homeView.hidden = !!activeProject;
+      Object.values(projectViews).forEach(({ el }) => {
+        el.hidden = (el !== (activeProject && activeProject.el));
+      });
+  
+      if (activeProject) {
+        document.title = activeProject.title;
         window.scrollTo({ top: 0, behavior: 'auto' });
       } else {
-        requestAnimationFrame(()=>{
-          const target = document.querySelector(hash);
-          if(target) target.scrollIntoView({ behavior: 'auto' });
+        document.title = siteTitle;
+        if (hash === '#top' || !hash || hash === '#') {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        } else {
+          requestAnimationFrame(() => {
+            const target = document.querySelector(hash);
+            if (target) target.scrollIntoView({ behavior: 'auto' });
+          });
+        }
+      }
+  
+      invalidateScrollThreshold();
+      updateNavState();
+    }
+  
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+  
+    // ── Reduced-motion accessibility ──
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const charImg = document.getElementById('hero-character-img');
+      if (prefersReduced && charImg) {
+        charImg.alt = 'Portrait of Niharika Jain.';
+      }
+    })();
+  
+    // ── Cursor photo trail ──
+    (function () {
+      // Only activate on desktop with a fine pointer and no reduced-motion preference
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+      const hasHover = window.matchMedia('(hover: hover)').matches;
+      const isWideEnough = () => window.innerWidth >= 900;
+  
+      if (prefersReduced || !hasFinePointer || !hasHover) return;
+  
+      const portraitZone = document.getElementById('hero-portrait-zone');
+      const trailLayer = document.getElementById('hero-trail-layer');
+      const hint = document.getElementById('hero-hint');
+      if (!portraitZone || !trailLayer) return;
+  
+      // Photo sequence — cycled, not random
+      const PHOTOS = [
+        'assets/art.JPG',
+        'assets/city.JPG',
+        'assets/flower.JPG',
+        'assets/food.JPG',
+        'assets/ginger.JPG',
+        'assets/museum.JPG',
+        'assets/sky.JPG',
+      ];
+  
+      // Landscape vs portrait aspect ratios — drives card dimensions
+      const LANDSCAPE = new Set(['assets/art.JPG', 'assets/sky.JPG']);
+  
+      // Fixed rotation sequence (degrees)
+      const ROTATIONS = [-4, 3, -2, 4, -3, 2, 0];
+  
+      const MAX_ACTIVE = 4;
+      const MIN_DISTANCE = 88;   // px between spawn points
+      const MIN_INTERVAL = 120;  // ms between spawns
+  
+      let photoIndex = 0;
+      let rotIndex = 0;
+      let activeCards = [];
+      let lastSpawnX = null;
+      let lastSpawnY = null;
+      let lastSpawnTime = 0;
+      let hintDismissed = false;
+  
+      // ── Preload photos after page load (best-effort, non-blocking) ──
+      const loadedCache = new Map();
+  
+      function preloadPhotos() {
+        PHOTOS.forEach((src) => {
+          if (loadedCache.has(src)) return;
+          const img = new Image();
+          loadedCache.set(src, false);
+          img.onload = () => loadedCache.set(src, true);
+          img.onerror = () => loadedCache.delete(src);
+          img.src = src;
         });
       }
-    }
-
-    // Update navbar immediately on route change
-    updateNavState();
-  }
-
-  window.addEventListener('hashchange', renderRoute);
-  renderRoute();
+  
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(preloadPhotos, { timeout: 3000 });
+      } else {
+        setTimeout(preloadPhotos, 2000);
+      }
+  
+      portraitZone.addEventListener('pointerenter', preloadPhotos, { once: true, passive: true });
+  
+      function isLoaded(src) {
+        return loadedCache.get(src) === true;
+      }
+  
+      function removeCard(card) {
+        if (card && card.parentNode === trailLayer) card.remove();
+        activeCards = activeCards.filter((item) => item !== card);
+      }
+  
+      function spawnCard(x, y) {
+        if (!isWideEnough()) return;
+  
+        const src = PHOTOS[photoIndex % PHOTOS.length];
+        photoIndex++;
+  
+        // Skip if image not yet loaded — don't show broken card
+        if (!isLoaded(src)) return;
+  
+        const rot = ROTATIONS[rotIndex % ROTATIONS.length];
+        rotIndex++;
+  
+        // Card dimensions based on orientation
+        const isLandscape = LANDSCAPE.has(src);
+        const cardW = isLandscape
+          ? Math.round(140 + Math.random() * 24)   // 140–164px
+          : Math.round(120 + Math.random() * 20);  // 120–140px
+        const cardH = isLandscape
+          ? Math.round(cardW * 0.67)
+          : Math.round(cardW * 1.32);
+  
+        // Clamp spawn so card stays inside the portrait zone
+        const zoneRect = portraitZone.getBoundingClientRect();
+        const layerRect = trailLayer.getBoundingClientRect();
+  
+        // x/y are relative to the viewport; convert to layer-local coords
+        const lx = x - layerRect.left;
+        const ly = y - layerRect.top;
+  
+        // Center the card on cursor, then clamp within zone (with margin)
+        const margin = 12;
+        const clampedX = Math.min(
+          Math.max(lx - cardW / 2, margin),
+          layerRect.width - cardW - margin
+        );
+        const clampedY = Math.min(
+          Math.max(ly - cardH / 2, margin),
+          layerRect.height - cardH - margin
+        );
+  
+        // Cull oldest card if at limit
+        if (activeCards.length >= MAX_ACTIVE) {
+          const oldest = activeCards[0];
+          // Immediate removal if somehow still attached
+          if (trailLayer.contains(oldest)) removeCard(oldest);
+          else activeCards.shift();
+        }
+  
+        const card = document.createElement('div');
+        card.className = 'hero-trail-card';
+        card.style.left = clampedX + 'px';
+        card.style.top  = clampedY + 'px';
+        card.style.width  = cardW + 'px';
+        card.style.height = cardH + 'px';
+        card.style.transform = `rotate(${rot}deg) scale(0.84)`;
+        card.style.opacity = '0';
+  
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';          // decorative
+        img.draggable = false;
+        card.appendChild(img);
+        trailLayer.appendChild(card);
+        activeCards.push(card);
+  
+        // Dismiss hint after first card
+        if (!hintDismissed && hint) {
+          hintDismissed = true;
+          hint.classList.add('is-hidden');
+        }
+  
+        // Entrance: scale + fade in
+        const ENTER_DURATION = 220;
+        const HOLD_DURATION  = 680;
+        const EXIT_DURATION  = 380;
+        const DRIFT_PX       = 14; // px upward drift during exit
+  
+        let startTime = null;
+  
+        function animateCard(ts) {
+          if (!startTime) startTime = ts;
+          const elapsed = ts - startTime;
+  
+          if (elapsed < ENTER_DURATION) {
+            // Entering
+            const t = elapsed / ENTER_DURATION;
+            const eased = 1 - Math.pow(1 - t, 3); // ease-out-cubic
+            const scale = 0.84 + 0.16 * eased;
+            const opacity = eased;
+            card.style.transform = `rotate(${rot}deg) scale(${scale})`;
+            card.style.opacity = opacity;
+            requestAnimationFrame(animateCard);
+  
+          } else if (elapsed < ENTER_DURATION + HOLD_DURATION) {
+            // Holding
+            card.style.transform = `rotate(${rot}deg) scale(1)`;
+            card.style.opacity = '1';
+            requestAnimationFrame(animateCard);
+  
+          } else if (elapsed < ENTER_DURATION + HOLD_DURATION + EXIT_DURATION) {
+            // Exiting: drift up + fade
+            const t = (elapsed - ENTER_DURATION - HOLD_DURATION) / EXIT_DURATION;
+            const eased = t * t; // ease-in-quad
+            const opacity = 1 - eased;
+            const translateY = -DRIFT_PX * eased;
+            card.style.transform = `rotate(${rot}deg) scale(1) translateY(${translateY}px)`;
+            card.style.opacity = opacity;
+            requestAnimationFrame(animateCard);
+  
+          } else {
+            // Remove from DOM — no stale nodes left behind
+            if (trailLayer.contains(card)) removeCard(card);
+          }
+        }
+  
+        requestAnimationFrame(animateCard);
+      }
+  
+      // ── Throttled pointer handler ──
+      function onPointerMove(event) {
+        if (!isWideEnough()) return;
+  
+        const now = Date.now();
+        const cx = event.clientX;
+        const cy = event.clientY;
+  
+        if (lastSpawnX !== null) {
+          const dx = cx - lastSpawnX;
+          const dy = cy - lastSpawnY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MIN_DISTANCE) return;
+        }
+        if (now - lastSpawnTime < MIN_INTERVAL) return;
+  
+        lastSpawnX = cx;
+        lastSpawnY = cy;
+        lastSpawnTime = now;
+  
+        spawnCard(cx, cy);
+      }
+  
+      portraitZone.addEventListener('pointerenter', () => {
+        lastSpawnX = null;
+        lastSpawnY = null;
+        lastSpawnTime = 0;
+      }, { passive: true });
+      portraitZone.addEventListener('pointermove', onPointerMove, { passive: true });
+    })();
 
   // ── Wisdom lookbook modal ──
   const wisdomLookbookModal = document.getElementById('wisdom-lookbook-modal');
