@@ -390,7 +390,7 @@ header.nav-project nav a:hover {
 
 /* Inner wrap holds all content above the marquee */
 .home-intro-inner {
-  padding-block: clamp(4.5rem, 7vw, 6rem) clamp(3rem, 5vw, 4.5rem);
+  padding-block: clamp(4.5rem, 7vw, 6rem) 0;
 }
 
 /* ── Part 1: Personal introduction ── */
@@ -520,7 +520,7 @@ header.nav-project nav a:hover {
 
 .home-cap-col h4 {
   font-family: var(--body);
-  font-size: clamp(.88rem, .95vw, .94rem);
+  font-size: var(--step-0);
   font-weight: 700;
   color: var(--paper);
   margin-bottom: .45rem;
@@ -529,7 +529,7 @@ header.nav-project nav a:hover {
 
 .home-cap-col p {
   font-family: var(--body);
-  font-size: clamp(.75rem, .82vw, .8rem);
+  font-size: var(--step--1);
   line-height: 1.55;
   color: rgba(255,247,239,.52);
 }
@@ -566,10 +566,16 @@ header.nav-project nav a:hover {
 .skills-marquee:focus-within .skills-marquee-track {
   animation-play-state: paused;
 }
+.skills-marquee:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -4px;
+}
 
 .skills-marquee-track {
   display: inline-flex;
+  width: max-content;
   gap: 0;
+  will-change: transform;
   animation: marqueeScroll 36s linear infinite;
 }
 
@@ -594,23 +600,29 @@ header.nav-project nav a:hover {
   to   { transform: translateX(-50%); }
 }
 
-/* Reduced-motion: stop animation, wrap, show static */
+/* Reduced-motion: stop animation, wrap cleanly, no overflow */
 @media (prefers-reduced-motion: reduce) {
   .skills-marquee {
     white-space: normal;
-    overflow: visible;
-    padding-block: clamp(1rem, 2vw, 1.4rem);
+    overflow: hidden;
+    padding: clamp(1rem, 2vw, 1.4rem)
+             max(24px, calc((100vw - var(--container)) / 2));
   }
   .skills-marquee-track {
+    display: flex;
+    width: 100%;
     animation: none;
+    transform: none;
     flex-wrap: wrap;
-    gap: .5rem clamp(.6rem, 1.2vw, 1rem);
   }
   .skills-marquee-group {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
     white-space: normal;
     padding-right: 0;
-    gap: .5rem clamp(.6rem, 1.2vw, 1rem);
+    gap: .5rem clamp(.8rem, 1.5vw, 1.25rem);
   }
   .skills-marquee-group[aria-hidden="true"] { display: none; }
   .skills-marquee-group span { padding-inline: 0; }
@@ -1962,31 +1974,31 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     </div>
 
     <!-- Skills marquee — full viewport width, outside .wrap -->
-    <div class="skills-marquee" aria-label="Selected design skills" role="region">
-      <div class="skills-marquee-track" aria-hidden="false">
+    <div class="skills-marquee" aria-label="Selected design skills" role="region" tabindex="0">
+      <div class="skills-marquee-track">
         <div class="skills-marquee-group">
-          <span>UX Research</span><span>✦</span>
-          <span>Product Strategy</span><span>✦</span>
-          <span>Interface Design</span><span>✦</span>
-          <span>Design Systems</span><span>✦</span>
-          <span>Physical Prototyping</span><span>✦</span>
-          <span>Brand Identity</span><span>✦</span>
-          <span>Packaging</span><span>✦</span>
-          <span>Environmental Graphics</span><span>✦</span>
-          <span>AI Direction</span><span>✦</span>
-          <span>Front-End Prototyping</span><span>✦</span>
+          <span>UX Research</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Product Strategy</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Interface Design</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Design Systems</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Physical Prototyping</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Brand Identity</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Packaging</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Environmental Graphics</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>AI Direction</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Front-End Prototyping</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
         </div>
         <div class="skills-marquee-group" aria-hidden="true">
-          <span>UX Research</span><span>✦</span>
-          <span>Product Strategy</span><span>✦</span>
-          <span>Interface Design</span><span>✦</span>
-          <span>Design Systems</span><span>✦</span>
-          <span>Physical Prototyping</span><span>✦</span>
-          <span>Brand Identity</span><span>✦</span>
-          <span>Packaging</span><span>✦</span>
-          <span>Environmental Graphics</span><span>✦</span>
-          <span>AI Direction</span><span>✦</span>
-          <span>Front-End Prototyping</span><span>✦</span>
+          <span>UX Research</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Product Strategy</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Interface Design</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Design Systems</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Physical Prototyping</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Brand Identity</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Packaging</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Environmental Graphics</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>AI Direction</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
+          <span>Front-End Prototyping</span><span class="skills-marquee-separator" aria-hidden="true">✦</span>
         </div>
       </div>
     </div>
