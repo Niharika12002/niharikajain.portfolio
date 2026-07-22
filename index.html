@@ -380,14 +380,20 @@ header.nav-project nav a:hover {
 }
 
 /* ============================================================
-   HOME INTRO BAND — ink bg, editorial 2-col
+   HOME INTRO BAND — ink bg, personal intro + capabilities + marquee
    ============================================================ */
 .home-intro {
   background: var(--ink);
   color: var(--paper);
-  padding-block: clamp(4.5rem, 7vw, 6rem);
+  overflow: hidden; /* contain marquee width */
 }
 
+/* Inner wrap holds all content above the marquee */
+.home-intro-inner {
+  padding-block: clamp(4.5rem, 7vw, 6rem) clamp(3rem, 5vw, 4.5rem);
+}
+
+/* ── Part 1: Personal introduction ── */
 .home-intro-grid {
   display: grid;
   grid-template-columns: 32fr 68fr;
@@ -395,7 +401,6 @@ header.nav-project nav a:hover {
   align-items: start;
 }
 
-/* Left: heading */
 .home-intro-heading {
   font-family: var(--display);
   font-optical-sizing: auto;
@@ -404,10 +409,9 @@ header.nav-project nav a:hover {
   line-height: 1.05;
   letter-spacing: -.02em;
   color: var(--paper);
-  padding-top: .15rem; /* optical alignment with paragraph cap-height */
+  padding-top: .15rem;
 }
 
-/* Right: paragraph + links grouped */
 .home-intro-content {
   display: flex;
   flex-direction: column;
@@ -422,7 +426,6 @@ header.nav-project nav a:hover {
   max-width: 56ch;
 }
 
-/* Links group — beneath the paragraph */
 .home-intro-links {
   display: flex;
   flex-wrap: wrap;
@@ -464,28 +467,170 @@ header.nav-project nav a:hover {
   margin-top: clamp(.5rem, .9vw, .7rem);
 }
 
-/* Next link — spans full grid, right-aligned, clear space above */
+/* ── Part 2 + 3: What I design + capabilities ── */
+.home-capabilities {
+  margin-top: clamp(4rem, 6vw, 5.5rem);
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  border-top: 1px solid rgba(255,247,239,.12);
+}
+
+.home-capabilities-head {
+  display: grid;
+  grid-template-columns: 32fr 68fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.home-capabilities-heading {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--paper);
+}
+
+.home-capabilities-sub {
+  font-family: var(--body);
+  font-size: clamp(.88rem, 1vw, .96rem);
+  line-height: 1.62;
+  color: rgba(255,247,239,.6);
+  max-width: 50ch;
+}
+
+/* Four capability columns */
+.home-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.4rem, 2.5vw, 2.4rem);
+}
+
+.home-cap-col {
+  padding-top: 1.1rem;
+  /* colored border-top set per column below */
+}
+
+/* Accent rules — lightened for dark bg visibility */
+.home-cap-col.c-marigold  { border-top: 3px solid var(--marigold); }
+.home-cap-col.c-terracotta{ border-top: 3px solid var(--terracotta); }
+.home-cap-col.c-olive     { border-top: 3px solid #7A9152; } /* lightened from #4B5B34 for ink bg */
+.home-cap-col.c-teal      { border-top: 3px solid #3A8899; } /* lightened from #0A2D33 for ink bg */
+
+.home-cap-col h4 {
+  font-family: var(--body);
+  font-size: clamp(.88rem, .95vw, .94rem);
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: .45rem;
+  line-height: 1.2;
+}
+
+.home-cap-col p {
+  font-family: var(--body);
+  font-size: clamp(.75rem, .82vw, .8rem);
+  line-height: 1.55;
+  color: rgba(255,247,239,.52);
+}
+
+/* ── Part 4: Next link ── */
 .home-intro-next {
   display: block;
   font-family: var(--body);
-  font-size: clamp(.62rem, .72vw, .68rem);
+  font-size: clamp(.65rem, .76vw, .72rem);
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(255,247,239,.38);
-  margin-top: clamp(2rem, 3.5vw, 2.8rem);
+  color: rgba(255,247,239,.5);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
   text-decoration: none;
   transition: color .22s ease;
-  grid-column: 1 / -1;
   text-align: right;
 }
-.home-intro-next:hover { color: rgba(255,247,239,.7) }
+.home-intro-next:hover,
+.home-intro-next:focus-visible { color: rgba(255,247,239,.85); }
+.home-intro-next:focus-visible { outline: 2px solid rgba(255,247,239,.5); outline-offset: 4px; border-radius: 2px; }
 
-/* Tablet: collapse to single column before columns become cramped */
+/* ── Skills marquee ── */
+.skills-marquee {
+  background: var(--marigold);
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding-block: 18px;
+  margin-top: clamp(2.5rem, 4.5vw, 4rem);
+  /* focus-within pauses for keyboard users */
+}
+.skills-marquee:hover .skills-marquee-track,
+.skills-marquee:focus-within .skills-marquee-track {
+  animation-play-state: paused;
+}
+
+.skills-marquee-track {
+  display: inline-flex;
+  gap: 0;
+  animation: marqueeScroll 36s linear infinite;
+}
+
+.skills-marquee-group {
+  display: inline-flex;
+  white-space: nowrap;
+  padding-right: 3rem; /* gap between loop end and start */
+}
+
+.skills-marquee-group span {
+  font-family: var(--body);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-inline: clamp(.9rem, 1.5vw, 1.4rem);
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced-motion: stop animation, wrap, show static */
+@media (prefers-reduced-motion: reduce) {
+  .skills-marquee {
+    white-space: normal;
+    overflow: visible;
+    padding-block: clamp(1rem, 2vw, 1.4rem);
+  }
+  .skills-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    gap: .5rem clamp(.6rem, 1.2vw, 1rem);
+  }
+  .skills-marquee-group {
+    flex-wrap: wrap;
+    white-space: normal;
+    padding-right: 0;
+    gap: .5rem clamp(.6rem, 1.2vw, 1rem);
+  }
+  .skills-marquee-group[aria-hidden="true"] { display: none; }
+  .skills-marquee-group span { padding-inline: 0; }
+}
+
+/* ── Responsive ── */
+
+/* Tablet */
 @media (max-width: 760px) {
   .home-intro-grid {
     grid-template-columns: 1fr;
     gap: clamp(1.4rem, 3vw, 2rem);
+  }
+  .home-capabilities-head {
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 2vw, 1.4rem);
+    margin-bottom: clamp(2rem, 3.5vw, 2.8rem);
+  }
+  .home-capabilities-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -496,6 +641,9 @@ header.nav-project nav a:hover {
     flex-direction: column;
     align-items: flex-start;
     gap: clamp(.6rem, 2vw, .9rem);
+  }
+  .home-capabilities-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -614,23 +762,6 @@ header.nav-project nav a:hover {
 .meta-teaser-area h4{font-size:var(--step-0);font-weight:700;color:var(--ink);margin-bottom:.4rem}
 .meta-teaser-area p{font-size:var(--step--1);color:var(--ink-60);line-height:1.5}
 .meta-teaser-cta{display:inline-block}
-
-/* ============================================================
-   WHAT I DESIGN
-   ============================================================ */
-.discipline{padding-block:var(--section-y);border-top:var(--border-soft)}
-.discipline-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter);
-}
-@media (max-width:760px){ .discipline-grid{grid-template-columns:1fr 1fr} }
-@media (max-width:480px){ .discipline-grid{grid-template-columns:1fr} }
-.discipline-col{padding-top:1.1rem;border-top:3px solid var(--ink)}
-.discipline-col.c-marigold{border-color:var(--marigold)}
-.discipline-col.c-terracotta{border-color:var(--terracotta)}
-.discipline-col.c-olive{border-color:var(--olive)}
-.discipline-col.c-teal{border-color:var(--teal)}
-.discipline-col h4{font-size:var(--step-0);font-weight:700;margin-bottom:.5rem}
-.discipline-col p{font-size:var(--step--1);color:var(--ink-60);line-height:1.45}
 
 /* ============================================================
    FINAL CTA — deep teal
@@ -1765,8 +1896,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
   </section>
 
   <!-- ============================ HOME INTRO BAND ============================ -->
-  <section class="home-intro" id="home-intro" aria-label="Personal introduction">
-    <div class="wrap">
+  <section class="home-intro" id="home-intro" aria-label="About and capabilities">
+
+    <div class="wrap home-intro-inner">
+
+      <!-- Part 1: Personal introduction -->
       <div class="home-intro-grid">
 
         <h2 class="home-intro-heading">Hi,<br>I'm Niharika.</h2>
@@ -1791,10 +1925,72 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
           </div>
         </div>
 
+      </div>
+
+      <!-- Part 2 + 3: What I design + capability areas -->
+      <div class="home-capabilities">
+
+        <div class="home-capabilities-head">
+          <h3 class="home-capabilities-heading">What I design</h3>
+          <p class="home-capabilities-sub">I work across screens, systems, brands, and physical touch points, usually where things are a little messy and need to become easier to understand.</p>
+        </div>
+
+        <div class="home-capabilities-grid">
+          <div class="home-cap-col c-marigold">
+            <h4>Digital Products</h4>
+            <p>UX/UI, flows, wireframes, prototypes, interface systems</p>
+          </div>
+          <div class="home-cap-col c-terracotta">
+            <h4>Physical Experiences</h4>
+            <p>Packaging, retail moments, environmental graphics, product touchpoints</p>
+          </div>
+          <div class="home-cap-col c-olive">
+            <h4>Brand Systems</h4>
+            <p>Visual identity, typography, campaigns, storytelling</p>
+          </div>
+          <div class="home-cap-col c-teal">
+            <h4>AI Workflows</h4>
+            <p>Prompting, prototyping, coded experiments, process documentation</p>
+          </div>
+        </div>
+
+        <!-- Part 4: Exit link -->
         <a href="#work" class="home-intro-next">Next: selected projects ↓</a>
 
       </div>
+
     </div>
+
+    <!-- Skills marquee — full viewport width, outside .wrap -->
+    <div class="skills-marquee" aria-label="Selected design skills" role="region">
+      <div class="skills-marquee-track" aria-hidden="false">
+        <div class="skills-marquee-group">
+          <span>UX Research</span><span>✦</span>
+          <span>Product Strategy</span><span>✦</span>
+          <span>Interface Design</span><span>✦</span>
+          <span>Design Systems</span><span>✦</span>
+          <span>Physical Prototyping</span><span>✦</span>
+          <span>Brand Identity</span><span>✦</span>
+          <span>Packaging</span><span>✦</span>
+          <span>Environmental Graphics</span><span>✦</span>
+          <span>AI Direction</span><span>✦</span>
+          <span>Front-End Prototyping</span><span>✦</span>
+        </div>
+        <div class="skills-marquee-group" aria-hidden="true">
+          <span>UX Research</span><span>✦</span>
+          <span>Product Strategy</span><span>✦</span>
+          <span>Interface Design</span><span>✦</span>
+          <span>Design Systems</span><span>✦</span>
+          <span>Physical Prototyping</span><span>✦</span>
+          <span>Brand Identity</span><span>✦</span>
+          <span>Packaging</span><span>✦</span>
+          <span>Environmental Graphics</span><span>✦</span>
+          <span>AI Direction</span><span>✦</span>
+          <span>Front-End Prototyping</span><span>✦</span>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ============================ SELECTED WORK ============================ -->
@@ -1873,33 +2069,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
     </div>
 
     <a href="#behind-the-build" class="btn btn-fill meta-teaser-cta reveal">Explore Behind the Build &rarr;</a>
-  </section>
-
-  <!-- ============================ WHAT I DESIGN ============================ -->
-  <section class="discipline wrap">
-    <div class="split-head">
-      <h2 class="reveal">What I design</h2>
-      <p class="reveal">I work across screens, systems, brands, and physical touch points, usually where things are a little messy and need to become easier to understand.</p>
-    </div>
-
-    <div class="discipline-grid">
-      <div class="discipline-col c-marigold reveal">
-        <h4>AI Workflows</h4>
-        <p>Prompting, prototyping, coded experiments, process documentation</p>
-      </div>
-      <div class="discipline-col c-terracotta reveal">
-        <h4>Digital Products</h4>
-        <p>UX/UI, flows, wireframes, prototypes, interface systems</p>
-      </div>
-      <div class="discipline-col c-olive reveal">
-        <h4>Brand Systems</h4>
-        <p>Visual identity, typography, campaigns, storytelling</p>
-      </div>
-      <div class="discipline-col c-teal reveal">
-        <h4>Physical Experiences</h4>
-        <p>Packaging, retail moments, environmental graphics, product touchpoints</p>
-      </div>
-    </div>
   </section>
 
   <!-- ============================ FINAL CTA ============================ -->
