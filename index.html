@@ -384,160 +384,160 @@ header.nav-project nav a:hover {
 }
 
 /* ============================================================
-   HOME INTRO BAND — ink bg, personal intro + capabilities + marquee
+   HOME INTRO BAND — warm paper bg, editorial personal intro
    ============================================================ */
 .home-intro {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   overflow: hidden; /* contain marquee width */
 }
 
-/* Inner wrap holds all content above the marquee */
+/* Inner wrap holds the about content */
 .home-intro-inner {
   padding-top: var(--space-10);
-  padding-bottom: var(--space-8);
+  padding-bottom: var(--space-10);
 }
 
-/* ── Part 1: Personal introduction ── */
-.home-intro-grid {
+/* ── About: outer wrapper ── */
+.home-about {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Part 1: asymmetric two-col intro ── */
+.home-about-intro {
   display: grid;
-  grid-template-columns: 32fr 68fr;
-  gap: var(--space-8);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-10);
   align-items: start;
+}
+
+/* Left: large heading + kicker */
+.home-about-heading-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .home-intro-heading {
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-size: clamp(3.75rem, 6vw, 5.75rem);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: .94;
   letter-spacing: -.02em;
-  color: var(--paper);
-  padding-top: 0;
+  color: var(--ink);
+  max-width: 8ch;
 }
 
-.home-intro-content {
+.home-about-kicker {
+  margin-top: var(--space-3);
+  max-width: 24ch;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--terracotta);
+}
+
+/* Right: paragraph + links + meta */
+.home-about-content {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .home-intro-body {
+  max-width: 46ch;
   font-family: var(--body);
-  font-size: clamp(.92rem, 1.05vw, 1rem);
-  line-height: 1.68;
-  color: rgba(255,247,239,.75);
-  max-width: 56ch;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-80);
 }
 
 .home-intro-links {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: var(--space-4);
-  row-gap: var(--space-1);
-  margin-top: var(--space-3);
-  padding-top: var(--space-2);
-  border-top: 1px solid rgba(255,247,239,.12);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: 0;
+  border-top: 0;
 }
 
 .home-intro-link {
   font-family: var(--body);
-  font-size: clamp(.85rem, .95vw, .92rem);
+  font-size: var(--step-0);
   font-weight: 600;
-  color: var(--paper);
+  color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(255,247,239,.35);
-  transition: text-decoration-color .22s ease, color .22s ease;
+  text-decoration-color: var(--ink-45);
+  transition: color .22s ease, text-decoration-color .22s ease;
   display: inline-flex;
   align-items: center;
   gap: .25em;
-  flex-shrink: 0;
 }
 .home-intro-link:hover {
-  color: var(--marigold);
-  text-decoration-color: var(--marigold);
+  color: var(--terracotta);
+  text-decoration-color: var(--terracotta);
 }
 
-.home-intro-edu {
+.home-intro-meta {
+  margin-top: var(--space-3);
+  max-width: 58ch;
   font-family: var(--body);
-  font-size: clamp(.62rem, .72vw, .68rem);
+  font-size: .72rem;
   font-weight: 600;
+  letter-spacing: .11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+/* ── Part 2: areas of practice ── */
+.home-practice {
+  margin-top: var(--space-10);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--ink-12);
+}
+
+.home-practice-label {
+  margin-bottom: var(--space-4);
+  font-family: var(--body);
+  font-size: .72rem;
+  font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(255,247,239,.38);
-  line-height: 1.5;
-  width: 100%;
-  margin-top: var(--space-2);
+  color: var(--ink-45);
 }
 
-/* ── Part 2 + 3: What I design + capabilities ── */
-.home-capabilities {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(255,247,239,.12);
-}
-
-.home-capabilities-head {
-  display: grid;
-  grid-template-columns: 32fr 68fr;
-  gap: var(--space-8);
-  align-items: end;
-  margin-bottom: var(--space-4);
-}
-
-.home-capabilities-heading {
-  font-family: var(--display);
-  font-optical-sizing: auto;
-  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  color: var(--paper);
-}
-
-.home-capabilities-sub {
-  font-family: var(--body);
-  font-size: clamp(.88rem, 1vw, .96rem);
-  line-height: 1.62;
-  color: rgba(255,247,239,.6);
-  max-width: 50ch;
-}
-
-/* Four capability columns */
-.home-capabilities-grid {
+.home-practice-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-3);
 }
 
-.home-cap-col {
+.home-practice-item {
   padding-top: var(--space-2);
-  /* colored border-top set per column below */
 }
 
-/* Accent rules — lightened for dark bg visibility */
-.home-cap-col.c-marigold  { border-top: 3px solid var(--marigold); }
-.home-cap-col.c-terracotta{ border-top: 3px solid var(--terracotta); }
-.home-cap-col.c-olive     { border-top: 3px solid #7A9152; } /* lightened from #4B5B34 for ink bg */
-.home-cap-col.c-teal      { border-top: 3px solid #3A8899; } /* lightened from #0A2D33 for ink bg */
+.home-practice-item.c-marigold   { border-top: 3px solid var(--marigold); }
+.home-practice-item.c-terracotta { border-top: 3px solid var(--terracotta); }
+.home-practice-item.c-olive      { border-top: 3px solid var(--olive); }
+.home-practice-item.c-teal       { border-top: 3px solid var(--teal); }
 
-.home-cap-col h4 {
+.home-practice-item h4 {
+  margin-bottom: var(--space-half);
   font-family: var(--body);
   font-size: var(--step-0);
   font-weight: 700;
-  color: var(--paper);
-  margin-bottom: var(--space-1);
-  line-height: 1.2;
+  line-height: 1.25;
+  color: var(--ink);
 }
 
-.home-cap-col p {
+.home-practice-item p {
   font-family: var(--body);
   font-size: var(--step--1);
-  line-height: 1.55;
-  color: rgba(255,247,239,.52);
+  line-height: 1.4;
+  color: var(--ink-60);
 }
 
 /* ── Skills marquee ── */
@@ -623,22 +623,22 @@ header.nav-project nav a:hover {
     padding-top: var(--space-8);
     padding-bottom: var(--space-8);
   }
-  .home-intro-grid {
+  .home-about-intro {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-5);
   }
-  .home-capabilities {
-    margin-top: var(--space-6);
-    padding-top: var(--space-5);
+  .home-intro-heading {
+    max-width: none;
   }
-  .home-capabilities-head {
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
+  .home-about-kicker {
+    max-width: 32ch;
   }
-  .home-capabilities-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
+  .home-practice {
+    margin-top: var(--space-8);
+  }
+  .home-practice-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4) var(--space-3);
   }
 }
 
@@ -648,26 +648,30 @@ header.nav-project nav a:hover {
     padding-top: var(--space-6);
     padding-bottom: var(--space-6);
   }
-  .home-intro-heading { font-size: clamp(1.8rem, 8vw, 2.4rem) }
-  .home-intro-grid {
-    gap: var(--space-3);
+  .home-about-intro {
+    gap: var(--space-4);
+  }
+  .home-intro-heading {
+    font-size: clamp(3rem, 15vw, 4rem);
+  }
+  .home-about-kicker {
+    margin-top: var(--space-2);
+  }
+  .home-intro-body {
+    font-size: var(--step-0);
   }
   .home-intro-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-1);
+    gap: var(--space-2);
     margin-top: var(--space-3);
-    padding-top: var(--space-2);
   }
-  .home-capabilities {
-    margin-top: var(--space-5);
+  .home-practice {
+    margin-top: var(--space-6);
     padding-top: var(--space-4);
   }
-  .home-capabilities-head {
-    gap: var(--space-2);
+  .home-practice-label {
     margin-bottom: var(--space-3);
   }
-  .home-capabilities-grid {
+  .home-practice-grid {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
@@ -1959,60 +1963,64 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
 
     <div class="wrap home-intro-inner">
 
-      <!-- Part 1: Personal introduction -->
-      <div class="home-intro-grid">
+      <div class="home-about">
 
-        <h2 class="home-intro-heading">Hi,<br>I'm Niharika.</h2>
+        <!-- Part 1: Personal introduction -->
+        <div class="home-about-intro">
 
-        <div class="home-intro-content">
-          <p class="home-intro-body">I'm a multidisciplinary designer based in Atlanta, working across digital products, physical experiences, and brand systems. I like taking complicated ideas apart, finding the system inside them, and rebuilding them into something clear, useful, and memorable.</p>
-
-          <div class="home-intro-links">
-            <a
-              class="home-intro-link"
-              href="assets/NiharikaJain_Resume.pdf"
-              target="_blank"
-              rel="noopener"
-            >View résumé ↗</a>
-            <a
-              class="home-intro-link"
-              href="https://www.linkedin.com/in/niharikajain12002"
-              target="_blank"
-              rel="noopener"
-            >LinkedIn ↗</a>
-            <p class="home-intro-edu">SCAD · B.F.A. User Experience Design<br>Graphic Design minor · 2026</p>
+          <div class="home-about-heading-group">
+            <h2 class="home-intro-heading">Hi,<br>I'm Niharika.</h2>
+            <p class="home-about-kicker">Part designer, part storyteller, part systems thinker.</p>
           </div>
+
+          <div class="home-about-content">
+            <p class="home-intro-body">I turn complicated ideas into clear digital products, physical experiences, and brand systems—with curiosity, structure, and a little personality.</p>
+
+            <div class="home-intro-links">
+              <a
+                class="home-intro-link"
+                href="assets/NiharikaJain_Resume.pdf"
+                target="_blank"
+                rel="noopener"
+              >View résumé ↗</a>
+              <a
+                class="home-intro-link"
+                href="https://www.linkedin.com/in/niharikajain12002"
+                target="_blank"
+                rel="noopener"
+              >LinkedIn ↗</a>
+            </div>
+
+            <p class="home-intro-meta">Atlanta, GA · SCAD B.F.A. User Experience Design · Graphic Design minor · 2026</p>
+          </div>
+
         </div>
 
-      </div>
+        <!-- Part 2: Areas of practice -->
+        <div class="home-practice">
 
-      <!-- Part 2 + 3: What I design + capability areas -->
-      <div class="home-capabilities">
+          <h3 class="home-practice-label">Across disciplines</h3>
 
-        <div class="home-capabilities-head">
-          <h3 class="home-capabilities-heading">What I design</h3>
-          <p class="home-capabilities-sub">I work across screens, systems, brands, and physical touch points, usually where things are a little messy and need to become easier to understand.</p>
+          <div class="home-practice-grid">
+            <div class="home-practice-item c-marigold">
+              <h4>Digital Products</h4>
+              <p>UX/UI + systems</p>
+            </div>
+            <div class="home-practice-item c-terracotta">
+              <h4>Physical Experiences</h4>
+              <p>Product + space</p>
+            </div>
+            <div class="home-practice-item c-olive">
+              <h4>Brand Systems</h4>
+              <p>Identity + storytelling</p>
+            </div>
+            <div class="home-practice-item c-teal">
+              <h4>AI Workflows</h4>
+              <p>Direction + prototyping</p>
+            </div>
+          </div>
+
         </div>
-
-        <div class="home-capabilities-grid">
-          <div class="home-cap-col c-marigold">
-            <h4>Digital Products</h4>
-            <p>UX/UI, flows, wireframes, prototypes, interface systems</p>
-          </div>
-          <div class="home-cap-col c-terracotta">
-            <h4>Physical Experiences</h4>
-            <p>Packaging, retail moments, environmental graphics, product touchpoints</p>
-          </div>
-          <div class="home-cap-col c-olive">
-            <h4>Brand Systems</h4>
-            <p>Visual identity, typography, campaigns, storytelling</p>
-          </div>
-          <div class="home-cap-col c-teal">
-            <h4>AI Workflows</h4>
-            <p>Prompting, prototyping, coded experiments, process documentation</p>
-          </div>
-        </div>
-
 
       </div>
 
