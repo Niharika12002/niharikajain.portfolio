@@ -62,6 +62,7 @@
   --grid-gutter:  24px;
   --maxw: var(--container);
   --section-y: clamp(3.5rem, 2rem + 7vw, 7rem);
+  --header-offset: clamp(76px, 7vw, 96px);
 
   /* Radius */
   --radius-sm: 8px;
@@ -244,6 +245,7 @@ header.nav-project nav a:hover {
   align-items: center;
   justify-content: center;
   overflow: visible;
+  padding-top: var(--header-offset);
 }
 
 /* Photo trail layer — sits behind the character; top offset keeps photos below the homepage header */
@@ -263,7 +265,7 @@ header.nav-project nav a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 12px; /* optical downward nudge — does not conflict with heroCharReveal transform */
+  margin-top: 0;
 }
 .hero-character {
   position: relative;
@@ -1626,8 +1628,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:clamp(2.
 
 
 /* Fixed-header offset for routed project views */
-:root { --header-offset: clamp(76px, 7vw, 96px); }
-
 #pili-view:not([hidden]) > .project-hero {
   padding-top: calc(clamp(4rem, 8vw, 7rem) + var(--header-offset));
 }
