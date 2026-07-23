@@ -794,36 +794,44 @@ header.nav-project nav a:hover {
 .meta-teaser-cta{display:inline-block}
 
 /* ============================================================
-   FINAL CTA — deep teal
+   FINAL CTA — deep teal, left-aligned editorial
    ============================================================ */
-.final-cta{background:var(--teal);color:var(--paper);padding-block:var(--space-12);text-align:center}
+.final-cta{background:var(--teal);color:var(--paper);padding-block:var(--space-12);text-align:left}
 .final-cta h2{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-3);font-weight:400;line-height:1.12;letter-spacing:-.01em;
-  max-width:20ch;margin-inline:auto;margin-bottom:var(--space-2);
+  font-size:clamp(2.5rem,4.5vw,4rem);font-weight:400;line-height:1.08;letter-spacing:-.015em;
+  max-width:19ch;margin:0 0 var(--space-3);
 }
 .final-cta .sub{
-  font-size:var(--step-1);color:rgba(255,247,239,.75);
-  max-width:48ch;margin-inline:auto;margin-bottom:var(--space-4);
+  font-family:var(--body);font-size:var(--step-1);line-height:1.55;
+  color:rgba(255,247,239,.76);max-width:58ch;margin:0 0 var(--space-5);
 }
-.final-cta .cta-row{justify-content:center}
+.final-cta .cta-row{justify-content:flex-start;align-items:center}
+
+@media (max-width:900px){
+  .final-cta{padding-block:var(--space-10)}
+}
+@media (max-width:560px){
+  .final-cta{padding-block:var(--space-8)}
+  .final-cta h2{font-size:clamp(2.25rem,11vw,3.25rem);max-width:16ch}
+  .final-cta .sub{font-size:var(--step-0)}
+  .final-cta .cta-row{align-items:flex-start}
+}
 
 /* ============================================================
-   FOOTER — complete but compact
+   FOOTER — minimal, compact
    ============================================================ */
-footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--space-6);border-top:1px solid rgba(255,247,239,.16)}
-.foot-grid{
-  display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-3);flex-wrap:wrap;
-  margin-bottom:var(--space-3);
+footer{background:var(--teal);color:rgba(255,247,239,.8);padding-block:var(--space-4);border-top:1px solid rgba(255,247,239,.16)}
+.foot-minimal{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-4);
 }
-.foot-brand p{font-size:var(--step--1);color:rgba(255,247,239,.6);margin-top:var(--space-half)}
-.foot-links{display:flex;flex-wrap:wrap;gap:var(--space-4)}
-.foot-links a{font-size:var(--step--1);font-weight:600;color:rgba(255,247,239,.85);border-bottom:1.5px solid transparent;padding-block:var(--space-half);display:inline-block;transition:border-color .2s ease,color .2s ease}
-.foot-links a:hover{color:var(--paper);border-color:var(--marigold)}
-.foot-row{
-  display:flex;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap;
-  font-size:var(--step--1);color:rgba(255,247,239,.55);
-  padding-top:var(--space-2);border-top:1px solid rgba(255,247,239,.14);
+.foot-brand>span{font-size:var(--step--1);color:rgba(255,247,239,.86)}
+.foot-brand p{font-size:var(--step--1);color:rgba(255,247,239,.52);margin-top:var(--space-half)}
+.foot-location{font-size:var(--step--1);color:rgba(255,247,239,.58);text-align:right}
+
+@media (max-width:560px){
+  .foot-minimal{flex-direction:column;align-items:flex-start;gap:var(--space-3)}
+  .foot-location{text-align:left}
 }
 
 /* ============================================================
@@ -3028,19 +3036,12 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
 <!-- ============================================================ FOOTER ============================================================ -->
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
+    <div class="foot-minimal">
       <div class="foot-brand">
         <span>&copy; <span id="yr"></span> Niharika Jain</span>
         <p>Designed and built by Niharika Jain.</p>
       </div>
-      <div class="foot-links">
-        <a href="mailto:niharikajain.1209@gmail.com">niharikajain.1209@gmail.com</a>
-        <a href="assets/NiharikaJain_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <a href="https://www.linkedin.com/in/niharikajain12002" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-    <div class="foot-row">
-      <span>Atlanta, GA &middot; Mumbai, IN</span>
+      <p class="foot-location">Atlanta, GA &middot; Mumbai, IN</p>
     </div>
   </div>
 </footer>
