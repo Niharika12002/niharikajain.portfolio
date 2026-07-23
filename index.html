@@ -384,13 +384,12 @@ header.nav-project nav a:hover {
 }
 
 /* ============================================================
-   HOME INTRO BAND — warm paper bg, editorial personal intro
+   HOME INTRO BAND — deep teal bg, editorial personal intro
    ============================================================ */
 .home-intro {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--teal);
+  color: var(--paper);
   overflow: hidden; /* contain marquee width */
-  border-bottom: 1px solid var(--ink-12);
 }
 
 /* Inner wrap holds the about content */
@@ -426,7 +425,7 @@ header.nav-project nav a:hover {
   font-weight: 400;
   line-height: .94;
   letter-spacing: -.02em;
-  color: var(--ink);
+  color: var(--paper);
   max-width: 8ch;
 }
 
@@ -437,7 +436,7 @@ header.nav-project nav a:hover {
   font-style: italic;
   font-size: var(--step-1);
   line-height: 1.4;
-  color: var(--terracotta);
+  color: var(--marigold);
 }
 
 /* Right: paragraph + links + meta */
@@ -451,7 +450,7 @@ header.nav-project nav a:hover {
   font-family: var(--body);
   font-size: var(--step-1);
   line-height: 1.55;
-  color: var(--ink-80);
+  color: rgba(255,247,239,.82);
 }
 
 .home-intro-links {
@@ -467,18 +466,18 @@ header.nav-project nav a:hover {
   font-family: var(--body);
   font-size: var(--step-0);
   font-weight: 600;
-  color: var(--ink);
+  color: var(--paper);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: var(--ink-45);
+  text-decoration-color: rgba(255,247,239,.38);
   transition: color .22s ease, text-decoration-color .22s ease;
   display: inline-flex;
   align-items: center;
   gap: .25em;
 }
 .home-intro-link:hover {
-  color: var(--terracotta);
-  text-decoration-color: var(--terracotta);
+  color: var(--marigold);
+  text-decoration-color: var(--marigold);
 }
 
 .home-intro-meta {
@@ -490,14 +489,14 @@ header.nav-project nav a:hover {
   letter-spacing: .06em;
   line-height: 1.6;
   text-transform: none;
-  color: var(--ink-45);
+  color: rgba(255,247,239,.56);
 }
 
 /* ── Part 2: areas of practice ── */
 .home-practice {
   margin-top: var(--space-10);
   padding-top: var(--space-5);
-  border-top: 1px solid var(--ink-12);
+  border-top: 1px solid rgba(255,247,239,.14);
 }
 
 .home-practice-label {
@@ -507,7 +506,7 @@ header.nav-project nav a:hover {
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--ink-45);
+  color: rgba(255,247,239,.56);
 }
 
 .home-practice-grid {
@@ -523,7 +522,7 @@ header.nav-project nav a:hover {
 .home-practice-item.c-marigold   { border-top: 3px solid var(--marigold); }
 .home-practice-item.c-terracotta { border-top: 3px solid var(--terracotta); }
 .home-practice-item.c-olive      { border-top: 3px solid var(--olive); }
-.home-practice-item.c-teal       { border-top: 3px solid var(--teal); }
+.home-practice-item.c-teal       { border-top: 3px solid rgba(255,247,239,.55); }
 
 .home-practice-item h4 {
   margin-bottom: var(--space-half);
@@ -531,20 +530,20 @@ header.nav-project nav a:hover {
   font-size: var(--step-0);
   font-weight: 700;
   line-height: 1.25;
-  color: var(--ink);
+  color: var(--paper);
 }
 
 .home-practice-item p {
   font-family: var(--body);
   font-size: var(--step--1);
   line-height: 1.4;
-  color: var(--ink-60);
+  color: rgba(255,247,239,.68);
 }
 
 /* ── Skills marquee ── */
 .skills-marquee {
   background: var(--marigold);
-  color: var(--ink);
+  color: var(--teal);
   overflow: hidden;
   white-space: nowrap;
   margin: 0;
@@ -556,7 +555,7 @@ header.nav-project nav a:hover {
   animation-play-state: paused;
 }
 .skills-marquee:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--teal);
   outline-offset: -4px;
 }
 
@@ -580,7 +579,7 @@ header.nav-project nav a:hover {
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--teal);
   padding-inline: var(--space-3);
 }
 
