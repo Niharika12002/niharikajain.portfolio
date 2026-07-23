@@ -763,24 +763,23 @@ header.nav-project nav a:hover {
 }
 .split-head p{font-size:var(--step-0);color:var(--ink-80);max-width:44ch}
 
-.meta-teaser-head{max-width:64ch;margin-bottom:var(--space-4)}
+.meta-teaser-head{max-width:64ch;margin-bottom:var(--space-6)}
 .meta-teaser-head h2{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-3);font-weight:400;line-height:1;letter-spacing:-.02em;margin-bottom:var(--space-2);
-}
-.meta-teaser-head p{font-size:var(--step-0);color:var(--ink-80);line-height:1.55}
-.meta-teaser-statement{
-  font-family:var(--display);font-style:italic;font-size:var(--step-1);font-weight:400;
-  line-height:1.4;color:var(--ink);max-width:44ch;
-  padding-left:var(--space-3);border-left:3px solid var(--terracotta);
-  margin-bottom:var(--space-5);
+  font-size:var(--step-3);font-weight:400;line-height:1;letter-spacing:-.02em;margin-bottom:0;max-width:14ch;
 }
 .meta-teaser-areas{
   display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gutter);
-  margin-bottom:var(--space-4);
+  margin-bottom:var(--space-5);
 }
-@media (max-width:900px){ .meta-teaser-areas{grid-template-columns:1fr 1fr} }
-@media (max-width:560px){ .meta-teaser-areas{grid-template-columns:1fr} }
+@media (max-width:900px){
+  .meta-teaser-head{margin-bottom:var(--space-5)}
+  .meta-teaser-areas{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .meta-teaser-head{margin-bottom:var(--space-4)}
+  .meta-teaser-areas{grid-template-columns:1fr;margin-bottom:var(--space-4)}
+}
 .meta-teaser-area{padding-top:var(--space-2);border-top:3px solid var(--ink)}
 .meta-teaser-area.c-marigold{border-color:var(--marigold)}
 .meta-teaser-area.c-terracotta{border-color:var(--terracotta)}
@@ -2070,10 +2069,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
     <div class="meta-teaser-head">
       <span class="eyebrow">The Meta Project</span>
       <h2 class="reveal">This portfolio is a project too.</h2>
-      <p class="reveal">I designed and built it through an ongoing collaboration with AI&mdash;not by filling in a template, but by directing the visual system, critiquing weak output, constraining implementation, and turning design intent into a working website. The page documents that process: the direction logs, rejected directions, design evolution, and system architecture behind the final result.</p>
     </div>
-
-    <p class="meta-teaser-statement reveal">Three projects show what I design.<br>Behind the Build shows how I direct, decide, and build with AI.</p>
 
     <div class="meta-teaser-areas">
       <div class="meta-teaser-area c-marigold reveal">
