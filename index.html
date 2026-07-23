@@ -291,8 +291,8 @@ header.nav-project nav a:hover {
 /* ── Identity lockup — bottom-left, aligned to wrap left edge ── */
 .hero-identity {
   position: absolute;
-  bottom: clamp(2rem, 4vw, 3.2rem);
-  left: max(var(--page-margin), calc((100% - var(--container)) / 2 + var(--page-margin)));
+  bottom: var(--space-6);
+  left: max(var(--page-margin), calc((100% - var(--container)) / 2));
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -325,9 +325,10 @@ header.nav-project nav a:hover {
   font-family: var(--body);
   font-size: clamp(.65rem, .78vw, .72rem);
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.45;
   letter-spacing: .02em;
   color: var(--ink-45);
+  max-width: 40ch;
   margin: 0;
 }
 
@@ -406,10 +407,9 @@ header.nav-project nav a:hover {
   .hero-bottom-row {
     width: min(calc(100% - 80px), var(--container));
   }
-  /* Identity: slightly tighter at tablet */
   .hero-identity {
     bottom: var(--space-5);
-    left: max(40px, calc((100% - var(--container)) / 2 + 40px));
+    left: 40px;
   }
 }
 
@@ -420,7 +420,6 @@ header.nav-project nav a:hover {
     width: min(84vw, 360px);
     max-width: 360px;
   }
-  /* On mobile: identity moves below character, stacks naturally */
   .hero-portrait-zone {
     flex-direction: column;
     justify-content: flex-start;
@@ -429,16 +428,20 @@ header.nav-project nav a:hover {
   .hero-identity {
     position: static;
     order: 1;
-    transform: none;
-    padding: 0 24px;
+    padding-inline: var(--space-3);
     margin-top: var(--space-3);
     pointer-events: auto;
   }
-  .hero-hint { display: none; }
   .hero-bottom-row {
-    width: min(calc(100% - 48px), var(--container));
+    position: static;
+    order: 2;
+    width: 100%;
+    margin: var(--space-3) 0 0;
+    padding-inline: var(--space-3);
     justify-content: flex-end;
+    pointer-events: none;
   }
+  .hero-hint { display: none; }
 }
 
 @media (max-width: 390px) {
@@ -1991,7 +1994,7 @@ footer{background:var(--teal);color:rgba(255,247,239,.8);padding-block:var(--spa
         </picture>
 
         <!-- Identity lockup — bottom-left on desktop, below character on mobile -->
-        <div class="hero-identity" aria-label="Identity">
+        <div class="hero-identity">
           <h1>Niharika Jain</h1>
           <p class="hero-identity-role">Product &amp; UX Designer</p>
           <p class="hero-identity-discipline">Digital products &middot; Physical experiences &middot; Brand systems &middot; AI-assisted workflows</p>
