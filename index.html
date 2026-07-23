@@ -716,14 +716,13 @@ header.nav-project nav a:hover {
 .poster:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-graphic-lg)}
 .poster h3{
   font-family:var(--display);font-optical-sizing:auto;
-  font-size:var(--step-2);font-weight:500;line-height:1.05;margin-bottom:.4rem;
+  font-size:var(--step-2);font-weight:500;line-height:1.05;margin-bottom:var(--space-1);
 }
 .poster-discipline{
-  font-family:var(--body);font-size:.7rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.1em;
-  opacity:.62;margin-bottom:.6rem;line-height:1.3;
+  font-family:var(--body);font-size:.78rem;font-weight:600;
+  text-transform:none;letter-spacing:.04em;
+  opacity:.78;margin-bottom:var(--space-2);line-height:1.4;max-width:32ch;
 }
-.poster p{font-size:var(--step-0);line-height:1.4;max-width:28ch}
 
 .poster--marigold{background:var(--marigold);color:var(--ink)}
 .poster--terracotta{background:var(--terracotta);color:var(--paper)}
@@ -739,7 +738,6 @@ header.nav-project nav a:hover {
 .wisdom-img{width:95%;margin-bottom:4%}
 .poster h3,
 .poster-discipline,
-.poster p,
 .poster-img{position:relative;z-index:2}
 
 .poster .num{
@@ -2044,7 +2042,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
       <a class="poster poster--marigold reveal" href="#pili">
         <h3>Pili</h3>
         <p class="poster-discipline">Physical product &middot; UX/UI &middot; Service ecosystem</p>
-        <p>A calm connection system that helps older adults, families, and caregivers stay connected.</p>
         <img class="poster-img pili-img" src="assets/pili-device.png" alt="Pili tabletop device showing a family photo and a 'thinking of you today' message" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">1</span>
       </a>
@@ -2053,7 +2050,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
       <a class="poster poster--terracotta reveal" href="#biospherix">
         <h3>Design Your Lab</h3>
         <p class="poster-discipline">Technical UX &middot; Functional web product &middot; AI-assisted implementation</p>
-        <p>An AI-assisted layout planning tool that helps engineers translate client requirements into clearer lab system layouts.</p>
         <img class="poster-img biospherix-img" src="assets/biospherix-cover.png" alt="BioSpherix Layout Planner interface showing an empty floor canvas, component library, and live readout panel" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">2</span>
       </a>
@@ -2062,7 +2058,6 @@ footer{background:var(--teal);color:rgba(255,247,239,.85);padding-block:var(--sp
       <a class="poster poster--olive reveal" href="#wisdom">
         <h3>SCAD x Wisdom ATL Eyewear</h3>
         <p class="poster-discipline">Product &middot; Brand &middot; Packaging &middot; Retail experience</p>
-        <p>A product and brand experience collaboration including eyewear concepts, packaging systems, visual merchandising, and a retail buyer pitch.</p>
         <img class="poster-img wisdom-img" src="assets/wisdom-wsdm-one-hero.png" alt="Wisdom ATL WSDM ONE eyewear hero render" loading="lazy" decoding="async">
         <span class="num" aria-hidden="true">3</span>
       </a>
