@@ -527,7 +527,11 @@ header.nav-project nav a:hover {
 .home-intro-heading {
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: clamp(3.25rem, 5.25vw, 5rem);
+  font-size: clamp(
+    calc(3.25rem - 2px),
+    calc(5.25vw - 2px),
+    calc(5rem - 2px)
+  );
   font-weight: 400;
   line-height: .98;
   letter-spacing: -.02em;
@@ -728,7 +732,11 @@ header.nav-project nav a:hover {
     gap: var(--space-5);
   }
   .home-intro-heading {
-    font-size: clamp(3.25rem, 8vw, 4.5rem);
+    font-size: clamp(
+      calc(3.25rem - 2px),
+      calc(8vw - 2px),
+      calc(4.5rem - 2px)
+    );
     max-width: 13ch;
   }
   .home-practice {
@@ -750,7 +758,11 @@ header.nav-project nav a:hover {
     gap: var(--space-4);
   }
   .home-intro-heading {
-    font-size: clamp(2.75rem, 13vw, 3.75rem);
+    font-size: clamp(
+      calc(2.75rem - 2px),
+      calc(13vw - 2px),
+      calc(3.75rem - 2px)
+    );
     line-height: 1;
     max-width: 12ch;
   }
@@ -2083,8 +2095,8 @@ footer{background:var(--teal);color:rgba(255,247,239,.8);padding-block:var(--spa
           <div class="home-about-heading-group">
             <h2 class="home-intro-heading">
               <span>Part designer,</span>
-              <span>part storyteller,</span>
-              <span>part systems thinker.</span>
+              <span>Part storyteller &amp;</span>
+              <span>Part system thinker</span>
             </h2>
           </div>
 
