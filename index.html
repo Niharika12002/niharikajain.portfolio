@@ -527,22 +527,16 @@ header.nav-project nav a:hover {
 .home-intro-heading {
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: clamp(3.75rem, 6vw, 5.75rem);
+  font-size: clamp(3.25rem, 5.25vw, 5rem);
   font-weight: 400;
-  line-height: .94;
+  line-height: .98;
   letter-spacing: -.02em;
   color: var(--paper);
-  max-width: 8ch;
+  max-width: 12ch;
 }
 
-.home-about-kicker {
-  margin-top: var(--space-3);
-  max-width: 24ch;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: var(--step-1);
-  line-height: 1.4;
-  color: var(--marigold);
+.home-intro-heading span {
+  display: block;
 }
 
 /* Right: paragraph + links + meta */
@@ -734,10 +728,8 @@ header.nav-project nav a:hover {
     gap: var(--space-5);
   }
   .home-intro-heading {
-    max-width: none;
-  }
-  .home-about-kicker {
-    max-width: 32ch;
+    font-size: clamp(3.25rem, 8vw, 4.5rem);
+    max-width: 13ch;
   }
   .home-practice {
     margin-top: var(--space-8);
@@ -758,10 +750,9 @@ header.nav-project nav a:hover {
     gap: var(--space-4);
   }
   .home-intro-heading {
-    font-size: clamp(3rem, 15vw, 4rem);
-  }
-  .home-about-kicker {
-    margin-top: var(--space-2);
+    font-size: clamp(2.75rem, 13vw, 3.75rem);
+    line-height: 1;
+    max-width: 12ch;
   }
   .home-intro-body {
     font-size: var(--step-0);
@@ -2090,8 +2081,11 @@ footer{background:var(--teal);color:rgba(255,247,239,.8);padding-block:var(--spa
         <div class="home-about-intro">
 
           <div class="home-about-heading-group">
-            <h2 class="home-intro-heading">Hi,<br>I'm Niharika.</h2>
-            <p class="home-about-kicker">Part designer, part storyteller, part systems thinker.</p>
+            <h2 class="home-intro-heading">
+              <span>Part designer,</span>
+              <span>part storyteller,</span>
+              <span>part systems thinker.</span>
+            </h2>
           </div>
 
           <div class="home-about-content">
